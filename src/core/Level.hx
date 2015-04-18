@@ -1,5 +1,4 @@
 package core ;
-import entities.Laser;
 import geom.Vec2;
 import haxe.Json;
 import openfl.Assets;

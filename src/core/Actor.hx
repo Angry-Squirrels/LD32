@@ -1,7 +1,6 @@
 package core ;
 import core.Actor;
 import core.Level.HitDirection;
-import entities.Hero;
 import entities.Laser;
 import geom.Vec2;
 import openfl.display.BitmapData;
