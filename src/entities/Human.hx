@@ -8,7 +8,7 @@ import openfl.geom.Rectangle;
  * ...
  * @author TBaudon
  */
-class Human extends Actor
+class Human extends AnimatedActor
 {
 	var mGame : Game;
 	
@@ -26,11 +26,6 @@ class Human extends Actor
 		
 		mMinY = mGame.getHeight() / 2 + 20;
 		mMaxY = mGame.getHeight();
-	}
-	
-	override function draw(buffer:BitmapData, dest:Vec2) 
-	{
-		buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0x0099cc);
 	}
 	
 	override function update(delta:Float) 

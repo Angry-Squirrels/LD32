@@ -17,13 +17,6 @@ class Actor extends Entity
 	
 	var mMoveSpeed : Float;
 	
-	var mCurrentAnimation : String;
-	
-	var mAnimations : Map<String, Animation>;
-	var mAnimation : Animation;
-	
-	var mSpriteSheet : SpriteSheet;
-	
 	var mMaxLife : Int;
 	var mLife : Int;
 	
@@ -39,8 +32,6 @@ class Actor extends Entity
 	public function new(name : String) 
 	{
 		super(name);
-		
-		mAnimations = new Map<String, Animation>();
 		
 		mMaxLife = 5;
 		mLife = mMaxLife;
@@ -59,29 +50,8 @@ class Actor extends Entity
 		mOthers = actors;
 	}
 	
-	public function setAnimation(anim : String) {
-		if (mCurrentAnimation == anim)
-			return;
-		
-		if (mCurrentAnimation != null)
-		{
-			var prev : Animation = mAnimations[mCurrentAnimation];
-			if (prev != null)
-				prev.reset();
-		}
-		
-		mCurrentAnimation = anim;
-		
-		mAnimation = mAnimations[mCurrentAnimation];
-	}
-	
 	override function update(delta:Float) 
 	{
-		
-		if (mAnimation != null)
-			if (mAnimation.isPlaying()) 
-				mAnimation.getNextFrame(delta);	
-		
 		vel.x += mXAxis * mMoveSpeed;
 		vel.y += mYAxis * mMoveSpeed;
 		

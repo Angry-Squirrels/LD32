@@ -24,7 +24,7 @@ class Hero extends Human
 	public var mShoes : Array<Shoe>;
 	
 	public var mPant : Actor;
-	public var mCalbut : Actor;
+	public var mCalbut : Callbut;
 	public var mShirts : Array<Actor>;
 	
 	var mHeading : Int;
@@ -47,7 +47,8 @@ class Hero extends Human
 		
 		mHeading = 1;
 		
-		initShoes();
+		initClothes();
+		giveClothes();
 		
 		initAnimations();
 		
@@ -57,6 +58,47 @@ class Hero extends Human
 		
 		mCurrentState = normalState;
 	}
+	
+	///// clothes
+	
+	function initClothes() 
+	{
+		mShoes = new Array<Shoe>();
+	}
+	
+	function giveClothes() : Void {
+		giveShoe();
+		giveShoe();
+		giveCallbut();
+	}
+	
+	public function giveShoe() {
+		var shoe : Shoe;
+		if (mShoes.length == 0){
+			shoe = new Shoe("left");
+			shoe.pos.x = 1;
+		}
+		else if (mShoes.length == 1) {
+			shoe = new Shoe("right");
+			shoe.pos.x = mDim.x - shoe.getDim().x - 1;
+		}
+		else
+			return;
+			
+		shoe.pos.y = mDim.y - shoe.getDim().y - 1;
+		add(shoe);
+		mShoes.push(shoe);
+	}
+	
+	public function giveCallbut() {
+		if (mCalbut != null) return;
+		else {
+			mCalbut = new Callbut();
+			add(mCalbut);
+		}
+	}
+	
+	///// end clothes
 	
 	function addListeners() 
 	{
@@ -69,7 +111,12 @@ class Hero extends Human
 			name += "R";
 		else
 			name += "L";
+			
 		setAnimation(name);
+		
+		if (mCalbut != null) 
+			mCalbut.setAnimation(name);
+		
 	}
 	
 	function onKeyUp(e:KeyboardEvent):Void 
@@ -134,6 +181,13 @@ class Hero extends Human
 	
 	function stripBody() {
 		setStripState();
+	}
+	
+	function stripEnded() {
+		giveClothes();
+		setNormalState();
+		mLastStripableBody.destroy();
+		mLastStripableBody = null;
 	}
 	
 	override function update(delta:Float) 
@@ -219,44 +273,6 @@ class Hero extends Human
 			setKickState();
 	}
 	
-	public function giveShoe() {
-		var shoe : Shoe;
-		if (mShoes.length == 0){
-			shoe = new Shoe("left");
-			shoe.pos.x = 1;
-		}
-		else if (mShoes.length == 1) {
-			shoe = new Shoe("right");
-			shoe.pos.x = mDim.x - shoe.getDim().x - 1;
-		}
-		else
-			return;
-			
-		shoe.pos.y = mDim.y - shoe.getDim().y - 1;
-		add(shoe);
-		mShoes.push(shoe);
-	}
-	
-	override function draw(buffer:BitmapData, dest:Vec2) 
-	{
-		if (mAnimation != null) {
-			var p = new Vec2();
-			p.x = dest.x;
-			p.y = dest.y;
-			p.x -= mAnimation.getSpriteSheet().offsetX;
-			p.y -= mAnimation.getSpriteSheet().offsetY;
-			buffer.copyPixels(mAnimation.getSource(), mAnimation.getFrame(), p.toPoint());
-		}else
-			buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0xff0000);
-	}
-	
-	function initShoes():Void 
-	{
-		mShoes = new Array<Shoe>();
-		giveShoe();
-		giveShoe();
-	}
-	
 	override public function onCollide(actor:Actor) 
 	{
 		super.onCollide(actor);
@@ -269,35 +285,35 @@ class Hero extends Human
 	
 	function initAnimations():Void 
 	{
-		mAnimations["idleR"] = new Animation(new SpriteSheet("Hero/franky_iddle", 140, 180, 35, 0)); 
-		mAnimations["idleL"] = new Animation(new SpriteSheet("Hero/franky_iddle_flip", 140, 180, 35, 0)); 
+		addAnimation("idleR", new Animation(new SpriteSheet("Hero/franky_iddle", 140, 180, 35, 0))); 
+		addAnimation("idleL", new Animation(new SpriteSheet("Hero/franky_iddle_flip", 140, 180, 35, 0))); 
 		
-		mAnimations["walkR"] = new Animation(new SpriteSheet("Hero/franky_run", 140, 180, 35, 0), null, 16); 
-		mAnimations["walkL"] = new Animation(new SpriteSheet("Hero/franky_run_flip", 140, 180, 35, 0), null, 16); 
+		addAnimation("walkR", new Animation(new SpriteSheet("Hero/franky_run", 140, 180, 35, 0), null, 16)); 
+		addAnimation("walkL", new Animation(new SpriteSheet("Hero/franky_run_flip", 140, 180, 35, 0), null, 16)); 
 		
 		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickL", 140, 180, 35, 0), null, 12, false); 
 		kickLRAnim.onFinished = setNormalState;
-		mAnimations["kickLR"] = kickLRAnim;
+		addAnimation("kickLR", kickLRAnim);
 		
 		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickL_flip", 140, 180, 35, 0), null, 12, false); 
 		kickLLAnim.onFinished = setNormalState;
-		mAnimations["kickLL"] = kickLLAnim;
+		addAnimation("kickLL", kickLLAnim);
 		
 		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickD", 140, 180, 35, 0), null, 12, false); 
 		kickLRAnim.onFinished = setNormalState;
-		mAnimations["kickDR"] = kickLRAnim;
+		addAnimation("kickDR", kickLRAnim);
 		
 		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickD_flip", 140, 180, 35, 0), null, 12, false); 
 		kickLLAnim.onFinished = setNormalState;
-		mAnimations["kickDL"] = kickLLAnim;
+		addAnimation("kickDL", kickLLAnim);
 		
 		var stripRAnim = new Animation(new SpriteSheet("Hero/franky_strip", 140, 180, 35, 0), null, 12, false);
-		stripRAnim.onFinished = setNormalState;
-		mAnimations["stripR"] = stripRAnim;
+		stripRAnim.onFinished = stripEnded;
+		addAnimation("stripR", stripRAnim);
 		
 		var stripLAnim = new Animation(new SpriteSheet("Hero/franky_strip_flip", 140, 180, 35, 0), [7,6,5,4,3,2,1,0,15,14,13,12,11,10,9,8], 12, false);
-		stripLAnim.onFinished = setNormalState;
-		mAnimations["stripL"] = stripLAnim;
+		stripLAnim.onFinished = stripEnded;
+		addAnimation("stripL", stripLAnim);
 		
 		
 	}
