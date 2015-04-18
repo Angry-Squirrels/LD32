@@ -1,7 +1,10 @@
 package;
 
+import core.Game;
+import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.Lib;
+import screens.GameScreen;
 
 /**
  * ...
@@ -15,7 +18,10 @@ class Main extends Sprite
 	{
 		super();
 		
-		// Assets:
-		// openfl.Assets.getBitmapData("img/assetname.jpg");
+		var game = Game.init(1);
+		game.gotoScreen(new GameScreen());
+		addChild(game);
+		
+		addChild(new FPS(0,0,0xffffff));
 	}
 }
