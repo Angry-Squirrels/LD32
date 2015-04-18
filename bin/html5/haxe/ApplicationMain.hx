@@ -34,6 +34,46 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("img/Hero/franky_iddle.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_iddle_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_kickD.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_kickD_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_kickL.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_kickL_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_run.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_run_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_strip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_strip_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		
 		if (config.assetsPrefix != null) {
 			

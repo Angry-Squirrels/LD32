@@ -30,7 +30,7 @@ class Human extends Actor
 	
 	override function draw(buffer:BitmapData, dest:Vec2) 
 	{
-		buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0x00ff00);
+		buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0x0099cc);
 	}
 	
 	override function update(delta:Float) 

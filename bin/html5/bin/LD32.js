@@ -26,6 +26,26 @@ ApplicationMain.create = function() {
 	ApplicationMain.preloader.create(ApplicationMain.config);
 	var urls = [];
 	var types = [];
+	urls.push("img/Hero/franky_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_iddle_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_kickD.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_kickD_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_kickL.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_kickL_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_run.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_run_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_strip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_strip_flip.png");
+	types.push("IMAGE");
 	if(ApplicationMain.config.assetsPrefix != null) {
 		var _g1 = 0;
 		var _g = urls.length;
@@ -1033,6 +1053,36 @@ var DefaultAssetLibrary = function() {
 	this.className = new haxe_ds_StringMap();
 	lime_AssetLibrary.call(this);
 	var id;
+	id = "img/Hero/franky_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_iddle_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_kickD.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_kickD_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_kickL.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_kickL_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_run.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_run_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_strip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_strip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	var assetsPrefix = ApplicationMain.config.assetsPrefix;
 	if(assetsPrefix != null) {
 		var $it0 = this.path.keys();
@@ -1451,25 +1501,61 @@ _$UInt_UInt_$Impl_$.toFloat = function(this1) {
 	var $int = this1;
 	if($int < 0) return 4294967296.0 + $int; else return $int + 0.0;
 };
-var core_Animation = function(frames,fps,loop) {
+var core_Animation = function(spriteSheet,frames,fps,loop) {
 	if(loop == null) loop = true;
+	if(fps == null) fps = 12;
+	if(frames == null) {
+		frames = [];
+		var _g1 = 0;
+		var _g = spriteSheet.getNbFrame();
+		while(_g1 < _g) {
+			var i = _g1++;
+			if(spriteSheet.flipped) frames.unshift(i); else frames.push(i);
+		}
+	}
 	this.mFrames = frames;
 	this.mCurrentFrame = 0;
 	this.mTimeToNextFrame = 1 / fps;
 	this.mTimeCounter = 0;
 	this.mLoop = loop;
+	this.mIsPlaying = true;
+	this.mSpriteSheet = spriteSheet;
 };
 $hxClasses["core.Animation"] = core_Animation;
 core_Animation.__name__ = ["core","Animation"];
 core_Animation.prototype = {
-	getNextFrame: function(delta) {
+	play: function() {
+		this.mIsPlaying = true;
+	}
+	,stop: function() {
+		this.mIsPlaying = false;
+	}
+	,isPlaying: function() {
+		return this.mIsPlaying;
+	}
+	,getNextFrame: function(delta) {
 		this.mTimeCounter += delta;
 		if(this.mTimeCounter >= this.mTimeToNextFrame) {
 			this.mTimeCounter = 0;
 			this.mCurrentFrame++;
 		}
-		if(this.mCurrentFrame == this.mFrames.length && this.mLoop) this.mCurrentFrame = 0; else if(this.mCurrentFrame == this.mFrames.length) this.mCurrentFrame = this.mFrames.length - 1;
+		if(this.mCurrentFrame == this.mFrames.length && this.mLoop) this.mCurrentFrame = 0; else if(this.mCurrentFrame == this.mFrames.length) {
+			this.mCurrentFrame = this.mFrames.length - 1;
+			if(this.onFinished != null) this.onFinished();
+		}
 		return this.mFrames[this.mCurrentFrame];
+	}
+	,getSpriteSheet: function() {
+		return this.mSpriteSheet;
+	}
+	,getFrame: function() {
+		return this.mSpriteSheet.getFrame(this.mFrames[this.mCurrentFrame]);
+	}
+	,getCurrentFrame: function() {
+		return this.mCurrentFrame;
+	}
+	,getSource: function() {
+		return this.mSpriteSheet.getBitmap();
 	}
 	,reset: function() {
 		this.mCurrentFrame = 0;
@@ -1480,9 +1566,11 @@ var core_Camera = function() {
 	this.pos = new geom_Vec2();
 	this.shakePosOffset = new geom_Vec2();
 	this.mGame = core_Game.getInstance();
+	core_Camera.instance = this;
 };
 $hxClasses["core.Camera"] = core_Camera;
 core_Camera.__name__ = ["core","Camera"];
+core_Camera.instance = null;
 core_Camera.prototype = {
 	setTarget: function(ent) {
 		this.mTargetEntity = ent;
@@ -1723,7 +1811,13 @@ core_Screen.__super__ = core_Entity;
 core_Screen.prototype = $extend(core_Entity.prototype,{
 	__class__: core_Screen
 });
-var core_SpriteSheet = function(path,spriteWidth,spriteHeight) {
+var core_SpriteSheet = function(path,spriteWidth,spriteHeight,_offsetX,_offsetY) {
+	if(_offsetY == null) _offsetY = 0;
+	if(_offsetX == null) _offsetX = 0;
+	var s = path.split("_");
+	if(s[s.length - 1] == "flip") this.flipped = true;
+	this.offsetX = _offsetX;
+	this.offsetY = _offsetY;
 	this.mBitmap = openfl_Assets.getBitmapData("img/" + path + ".png");
 	this.setFrameDim(spriteWidth,spriteHeight);
 };
@@ -1740,6 +1834,9 @@ core_SpriteSheet.prototype = {
 	,getBitmap: function() {
 		return this.mBitmap;
 	}
+	,getNbFrame: function() {
+		return this.mNbCol * this.mNbLine;
+	}
 	,setFrameDim: function(width,height) {
 		this.mSpriteWidth = width;
 		this.mSpriteHeight = height;
@@ -1750,37 +1847,88 @@ core_SpriteSheet.prototype = {
 	,__class__: core_SpriteSheet
 };
 var entities_Actor = function(name) {
+	this.mFriction = 0.7;
 	core_Entity.call(this,name);
 	this.mAnimations = new haxe_ds_StringMap();
 	this.mMaxLife = 5;
 	this.mLife = this.mMaxLife;
 	this.mXAxis = 0;
 	this.mYAxis = 0;
+	this.mUseWorldCoord = true;
+	this.worldPos = new geom_Vec2();
 	this.mMoveSpeed = 100;
 };
 $hxClasses["entities.Actor"] = entities_Actor;
 entities_Actor.__name__ = ["entities","Actor"];
 entities_Actor.__super__ = core_Entity;
 entities_Actor.prototype = $extend(core_Entity.prototype,{
-	update: function(delta) {
+	setOthersActors: function(actors) {
+		this.mOthers = actors;
+	}
+	,setAnimation: function(anim) {
+		if(this.mCurrentAnimation == anim) return;
+		if(this.mCurrentAnimation != null) {
+			var prev = this.mAnimations.get(this.mCurrentAnimation);
+			if(prev != null) prev.reset();
+		}
+		this.mCurrentAnimation = anim;
+		this.mAnimation = this.mAnimations.get(this.mCurrentAnimation);
+	}
+	,update: function(delta) {
+		if(this.mAnimation != null) {
+			if(this.mAnimation.isPlaying()) this.mAnimation.getNextFrame(delta);
+		}
 		this.vel.x += this.mXAxis * this.mMoveSpeed;
 		this.vel.y += this.mYAxis * this.mMoveSpeed;
-		this.pos.x += this.vel.x * delta;
-		this.pos.y += this.vel.y * delta;
-		this.vel.x *= 0.7;
-		this.vel.y *= 0.7;
+		this.worldPos.x += this.vel.x * delta;
+		this.worldPos.y += this.vel.y * delta;
+		this.vel.x *= this.mFriction;
+		this.vel.y *= this.mFriction;
+		if(this.mUseWorldCoord) {
+			this.pos.x = this.worldPos.x - this.mDim.x / 2;
+			this.pos.y = this.worldPos.y * 0.5 - this.mDim.y;
+		}
+		if(this.mOthers != null) {
+			var _g = 0;
+			var _g1 = this.mOthers;
+			while(_g < _g1.length) {
+				var actor = _g1[_g];
+				++_g;
+				if(geom_Vec2.Dist(this.worldPos,actor.worldPos) < this.mDim.x / 2 + actor.getDim().x / 2) {
+					var pushVec = geom_Vec2.Sub(this.worldPos,actor.worldPos);
+					this.vel.add(pushVec);
+					actor.vel.sub(pushVec);
+					this.onCollide(actor);
+					actor.onCollide(this);
+				}
+			}
+		}
 	}
 	,takeDamage: function(amount) {
 		this.mLife -= amount;
+	}
+	,onCollide: function(actor) {
+		if(js_Boot.__instanceof(actor,entities_Weapon)) {
+			var w = actor;
+			this.takeDamage(w.getDamage());
+		}
 	}
 	,isDead: function() {
 		if(this.mLife <= 0) return true;
 		return false;
 	}
+	,destroyable: function() {
+		return this.mDestroyable;
+	}
+	,destroy: function() {
+		core_Entity.prototype.destroy.call(this);
+		this.mDestroyable = true;
+	}
 	,__class__: entities_Actor
 });
 var entities_Building = function() {
 	core_Entity.call(this,"Building");
+	this.mGame = core_Game.getInstance();
 	this.mDim.x = Math.random() * 200 + 100;
 	this.mDim.y = Math.random() * 100 + 150;
 	var grey = Std["int"](Math.random() * 100) + 155;
@@ -1791,26 +1939,84 @@ entities_Building.__name__ = ["entities","Building"];
 entities_Building.__super__ = core_Entity;
 entities_Building.prototype = $extend(core_Entity.prototype,{
 	draw: function(buffer,dest) {
-		buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),this.mColor);
+		if(dest.x + this.mDim.x > 0 && dest.x < this.mGame.getWidth()) buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),this.mColor);
 	}
 	,__class__: entities_Building
 });
 var entities_Human = function(name) {
 	entities_Actor.call(this,name);
+	this.mDim.x = 76;
+	this.mDim.y = 162;
 	this.mGame = core_Game.getInstance();
-	this.mMinY = this.mGame.getHeight() / 2;
+	this.mMinY = this.mGame.getHeight() / 2 + 20;
 	this.mMaxY = this.mGame.getHeight();
 };
 $hxClasses["entities.Human"] = entities_Human;
 entities_Human.__name__ = ["entities","Human"];
 entities_Human.__super__ = entities_Actor;
 entities_Human.prototype = $extend(entities_Actor.prototype,{
-	update: function(delta) {
+	draw: function(buffer,dest) {
+		buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),39372);
+	}
+	,update: function(delta) {
 		entities_Actor.prototype.update.call(this,delta);
-		if(this.pos.y < this.mMinY - this.getDim().y) this.pos.y = this.mMinY - this.getDim().y;
-		if(this.pos.y > this.mMaxY - this.getDim().y) this.pos.y = this.mMaxY - this.getDim().y;
+		if(this.worldPos.y < this.mMinY / 0.5) this.worldPos.y = this.mMinY / 0.5;
+		if(this.worldPos.y > this.mMaxY / 0.5) this.worldPos.y = this.mMaxY / 0.5;
 	}
 	,__class__: entities_Human
+});
+var entities_Punk = function() {
+	this.mRange = 100;
+	entities_Human.call(this,"Punk");
+	this.mMoveSpeed = 40;
+};
+$hxClasses["entities.Punk"] = entities_Punk;
+entities_Punk.__name__ = ["entities","Punk"];
+entities_Punk.__super__ = entities_Human;
+entities_Punk.prototype = $extend(entities_Human.prototype,{
+	setOthersActors: function(actors) {
+		entities_Human.prototype.setOthersActors.call(this,actors);
+		var _g = 0;
+		while(_g < actors.length) {
+			var actor = actors[_g];
+			++_g;
+			if(actor.name == "Hero") this.mTarget = actor;
+		}
+	}
+	,update: function(delta) {
+		entities_Human.prototype.update.call(this,delta);
+		if(this.mTarget != null && geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) > this.mRange) this.moveTowardTarget(); else {
+			this.mXAxis = 0;
+			this.mYAxis = 0;
+		}
+		if(this.isDead()) this.destroy();
+	}
+	,moveTowardTarget: function() {
+		var targetPos = this.mTarget.pos.clone();
+		targetPos.x += this.mTarget.getDim().x / 2;
+		targetPos.y += this.mTarget.getDim().y;
+		var destPos = this.pos.clone();
+		destPos.x += this.getDim().x / 2;
+		destPos.y += this.getDim().y;
+		var axis = geom_Vec2.Sub(targetPos,destPos);
+		axis = geom_Vec2.Norm(axis);
+		this.mYAxis = axis.y;
+		this.mXAxis = axis.x;
+	}
+	,__class__: entities_Punk
+});
+var entities_Weapon = function(name) {
+	entities_Actor.call(this,name);
+	this.mDamage = 1;
+};
+$hxClasses["entities.Weapon"] = entities_Weapon;
+entities_Weapon.__name__ = ["entities","Weapon"];
+entities_Weapon.__super__ = entities_Actor;
+entities_Weapon.prototype = $extend(entities_Actor.prototype,{
+	getDamage: function() {
+		return this.mDamage;
+	}
+	,__class__: entities_Weapon
 });
 var entities_World = function() {
 	core_Entity.call(this,"World");
@@ -1830,17 +2036,60 @@ var entities_World = function() {
 		this.add(b);
 	}
 	this.mRoads = [];
+	this.mActors = [];
+	this.mActorsToDestroy = [];
 };
 $hxClasses["entities.World"] = entities_World;
 entities_World.__name__ = ["entities","World"];
 entities_World.__super__ = core_Entity;
 entities_World.prototype = $extend(core_Entity.prototype,{
-	update: function(delta) {
+	addActor: function(actor) {
+		this.mActors.push(actor);
+		this.add(actor);
+		actor.setOthersActors(this.mActors);
+	}
+	,update: function(delta) {
 		core_Entity.prototype.update.call(this,delta);
 		this.mCamera.update(delta);
 		this.pos.x = -this.mCamera.pos.x;
 		if(this.pos.x > 0) this.pos.x = 0;
 		if(this.pos.x < -this.mMaxScroll) this.pos.x = -this.mMaxScroll;
+		this.pos.x += this.mCamera.shakePosOffset.x;
+		this.pos.y += this.mCamera.shakePosOffset.y;
+		this.manageActors();
+	}
+	,draw: function(buffer,dest) {
+		core_Entity.prototype.draw.call(this,buffer,dest);
+	}
+	,manageActors: function() {
+		var _g = 0;
+		var _g1 = this.mActors;
+		while(_g < _g1.length) {
+			var actor = _g1[_g];
+			++_g;
+			if(actor.destroyable()) {
+				this.mActorsToDestroy.push(actor);
+				continue;
+			}
+			this.zSortActors(actor);
+		}
+		var _g2 = 0;
+		var _g11 = this.mActorsToDestroy;
+		while(_g2 < _g11.length) {
+			var actor1 = _g11[_g2];
+			++_g2;
+			HxOverrides.remove(this.mActors,actor1);
+			this.remove(actor1);
+		}
+	}
+	,zSortActors: function(actor) {
+		var _g = 0;
+		var _g1 = this.mActors;
+		while(_g < _g1.length) {
+			var otherActor = _g1[_g];
+			++_g;
+			if(otherActor.pos.y + otherActor.getDim().y < actor.pos.y + actor.getDim().y && HxOverrides.indexOf(this.children,otherActor,0) > HxOverrides.indexOf(this.children,actor,0)) this.swap(otherActor,actor);
+		}
 	}
 	,focus: function(ent) {
 		this.mCamera.setTarget(ent);
@@ -1850,13 +2099,18 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 	}
 	,__class__: entities_World
 });
-var entities_hero_Hero = function() {
+var entities_hero_Hero = function(world) {
+	this.mShoeLaunched = false;
 	entities_Human.call(this,"Hero");
-	this.mDim.x = 76;
-	this.mDim.y = 162;
+	this.mDim.x = 65;
+	this.mDim.y = 170;
+	this.mWorld = world;
+	this.mHeading = 1;
 	this.initShoes();
+	this.initAnimations();
 	this.mShirts = [];
 	this.addListeners();
+	this.mCurrentState = $bind(this,this.normalState);
 };
 $hxClasses["entities.hero.Hero"] = entities_hero_Hero;
 entities_hero_Hero.__name__ = ["entities","hero","Hero"];
@@ -1866,9 +2120,16 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		openfl_Lib.current.stage.addEventListener(openfl_events_KeyboardEvent.KEY_DOWN,$bind(this,this.onKeyDown));
 		openfl_Lib.current.stage.addEventListener(openfl_events_KeyboardEvent.KEY_UP,$bind(this,this.onKeyUp));
 	}
+	,playAnim: function(name) {
+		if(this.mHeading > 0) name += "R"; else name += "L";
+		this.setAnimation(name);
+	}
 	,onKeyUp: function(e) {
 		var _g = e.keyCode;
 		switch(_g) {
+		case 67:
+			this.mCDown = false;
+			break;
 		case 38:
 			if(this.mYAxis == -1) this.mYAxis = 0;
 			break;
@@ -1886,6 +2147,12 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 	,onKeyDown: function(e) {
 		var _g = e.keyCode;
 		switch(_g) {
+		case 67:
+			if(!this.mCDown) {
+				this.throwShoe();
+				this.mCDown = true;
+			}
+			break;
 		case 38:
 			this.mYAxis = -1;
 			break;
@@ -1900,32 +2167,168 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 			break;
 		}
 	}
+	,update: function(delta) {
+		entities_Human.prototype.update.call(this,delta);
+		if(this.vel.x < 0) this.mHeading = -1; else this.mHeading = 1;
+		if(this.mCurrentState != null) this.mCurrentState(delta);
+	}
+	,normalState: function(delta) {
+		this.playAnim("idle");
+		this.mMoveSpeed = 100;
+		if(this.vel.length() > 15) this.setWalkState();
+	}
+	,kickState: function(delta) {
+		this.mMoveSpeed = 0;
+		if(!this.mShoeLaunched) {
+			if(this.mShoes.length > 1) this.playAnim("kickL"); else this.playAnim("kickD");
+		}
+		if(this.mAnimation.getCurrentFrame() == 3 && !this.mShoeLaunched) {
+			var shoe = this.mShoes.pop();
+			this.remove(shoe);
+			shoe.launch(this.mHeading);
+			this.mWorld.addActor(shoe);
+			shoe.worldPos.x = this.worldPos.x + 70 * this.mHeading;
+			shoe.worldPos.y = this.worldPos.y;
+			this.mShoeLaunched = true;
+		}
+	}
+	,walkState: function(delta) {
+		this.playAnim("walk");
+		if(this.vel.length() < 15) this.setNormalState();
+	}
+	,setNormalState: function() {
+		this.mCurrentState = $bind(this,this.normalState);
+	}
+	,setKickState: function() {
+		this.mShoeLaunched = false;
+		this.mCurrentState = $bind(this,this.kickState);
+	}
+	,setWalkState: function() {
+		this.mCurrentState = $bind(this,this.walkState);
+	}
+	,throwShoe: function() {
+		if(this.mShoes.length > 0) this.setKickState();
+	}
+	,giveShoe: function() {
+		var shoe;
+		if(this.mShoes.length == 0) {
+			shoe = new entities_hero_Shoe("left");
+			shoe.pos.x = 1;
+		} else if(this.mShoes.length == 1) {
+			shoe = new entities_hero_Shoe("right");
+			shoe.pos.x = this.mDim.x - shoe.getDim().x - 1;
+		} else return;
+		shoe.pos.y = this.mDim.y - shoe.getDim().y - 1;
+		this.add(shoe);
+		this.mShoes.push(shoe);
+	}
 	,draw: function(buffer,dest) {
-		buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),16711680);
+		if(this.mAnimation != null) {
+			var p = new geom_Vec2();
+			p.x = dest.x;
+			p.y = dest.y;
+			p.x -= this.mAnimation.getSpriteSheet().offsetX;
+			p.y -= this.mAnimation.getSpriteSheet().offsetY;
+			buffer.copyPixels(this.mAnimation.getSource(),this.mAnimation.getFrame(),(function($this) {
+				var $r;
+				geom_Vec2.mSPoint.x = p.x;
+				geom_Vec2.mSPoint.y = p.y;
+				$r = geom_Vec2.mSPoint;
+				return $r;
+			}(this)));
+		} else buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),16711680);
 	}
 	,initShoes: function() {
-		var mLeftShoe = new entities_hero_Shoe("left");
-		mLeftShoe.pos.x = 1;
-		mLeftShoe.pos.y = this.mDim.y - mLeftShoe.getDim().y - 1;
-		var mRightShoe = new entities_hero_Shoe("right");
-		mRightShoe.pos.x = this.mDim.x - mRightShoe.getDim().x - 1;
-		mRightShoe.pos.y = this.mDim.y - mLeftShoe.getDim().y - 1;
-		this.add(mLeftShoe);
-		this.add(mRightShoe);
+		this.mShoes = [];
+		this.giveShoe();
+		this.giveShoe();
+	}
+	,initAnimations: function() {
+		var v = new core_Animation(new core_SpriteSheet("Hero/franky_iddle",140,180,35,0));
+		this.mAnimations.set("idleR",v);
+		v;
+		var v1 = new core_Animation(new core_SpriteSheet("Hero/franky_iddle_flip",140,180,35,0));
+		this.mAnimations.set("idleL",v1);
+		v1;
+		var v2 = new core_Animation(new core_SpriteSheet("Hero/franky_run",140,180,35,0),null,16);
+		this.mAnimations.set("walkR",v2);
+		v2;
+		var v3 = new core_Animation(new core_SpriteSheet("Hero/franky_run_flip",140,180,35,0),null,16);
+		this.mAnimations.set("walkL",v3);
+		v3;
+		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL",140,180,35,0),null,12,false);
+		kickLRAnim.onFinished = $bind(this,this.setNormalState);
+		{
+			this.mAnimations.set("kickLR",kickLRAnim);
+			kickLRAnim;
+		}
+		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL_flip",140,180,35,0),null,12,false);
+		kickLLAnim.onFinished = $bind(this,this.setNormalState);
+		{
+			this.mAnimations.set("kickLL",kickLLAnim);
+			kickLLAnim;
+		}
+		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD",140,180,35,0),null,12,false);
+		kickLRAnim1.onFinished = $bind(this,this.setNormalState);
+		{
+			this.mAnimations.set("kickDR",kickLRAnim1);
+			kickLRAnim1;
+		}
+		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD_flip",140,180,35,0),null,12,false);
+		kickLLAnim1.onFinished = $bind(this,this.setNormalState);
+		{
+			this.mAnimations.set("kickDL",kickLLAnim1);
+			kickLLAnim1;
+		}
 	}
 	,__class__: entities_hero_Hero
 });
 var entities_hero_Shoe = function(side) {
-	entities_Actor.call(this,"shoe");
+	this.mGravity = 40;
+	this.mZVel = 0;
+	entities_Weapon.call(this,"shoe");
 	this.mDim.x = 20;
 	this.mDim.y = 20;
+	this.mFriction = 1;
+	this.mDamage = 5;
+	this.mUseWorldCoord = false;
 };
 $hxClasses["entities.hero.Shoe"] = entities_hero_Shoe;
 entities_hero_Shoe.__name__ = ["entities","hero","Shoe"];
-entities_hero_Shoe.__super__ = entities_Actor;
-entities_hero_Shoe.prototype = $extend(entities_Actor.prototype,{
+entities_hero_Shoe.__super__ = entities_Weapon;
+entities_hero_Shoe.prototype = $extend(entities_Weapon.prototype,{
 	draw: function(buffer,dest) {
 		buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),13421772);
+	}
+	,update: function(delta) {
+		entities_Weapon.prototype.update.call(this,delta);
+		if(this.mUseWorldCoord) {
+			this.pos.y -= this.mStartAltitude - this.mFalled;
+			this.mZVel += this.mGravity;
+			if(this.mFalled < this.mStartAltitude) this.mFalled += this.mZVel * delta; else {
+				this.mFalled = this.mStartAltitude;
+				this.mZVel = 0;
+				this.mFriction = 0.7;
+			}
+		}
+	}
+	,explode: function() {
+		core_Camera.instance.shake(5,200);
+		this.destroy();
+	}
+	,launch: function(dir) {
+		this.mUseWorldCoord = true;
+		this.vel.x = 1000 * dir;
+		this.mStartAltitude = 70;
+		this.mFalled = 0;
+		this.mZVel = -200;
+	}
+	,onCollide: function(actor) {
+		entities_Weapon.prototype.onCollide.call(this,actor);
+		if(!js_Boot.__instanceof(actor,entities_hero_Hero)) {
+			haxe_Log.trace(actor,{ fileName : "Shoe.hx", lineNumber : 76, className : "entities.hero.Shoe", methodName : "onCollide"});
+			this.explode();
+		}
 	}
 	,__class__: entities_hero_Shoe
 });
@@ -24485,12 +24888,20 @@ openfl_ui_Keyboard.__getCharCode = function(key,shift) {
 };
 var screens_GameScreen = function() {
 	core_Screen.call(this);
-	this.mHero = new entities_hero_Hero();
 	this.mWorld = new entities_World();
+	this.mHero = new entities_hero_Hero(this.mWorld);
 	this.mMaxScroll = 0;
 	this.add(this.mWorld);
 	this.mGame = core_Game.getInstance();
-	this.mWorld.add(this.mHero);
+	this.mWorld.addActor(this.mHero);
+	var _g = 0;
+	while(_g < 5) {
+		var i = _g++;
+		var peon = new entities_Punk();
+		peon.pos.x = Math.random() * 1000;
+		peon.pos.y = Math.random() * 1000;
+		this.mWorld.addActor(peon);
+	}
 	this.mWorld.focus(this.mHero);
 	this.unlockZone(1000);
 };
@@ -24499,8 +24910,8 @@ screens_GameScreen.__name__ = ["screens","GameScreen"];
 screens_GameScreen.__super__ = core_Screen;
 screens_GameScreen.prototype = $extend(core_Screen.prototype,{
 	update: function(delta) {
-		if(this.mHero.pos.x < 0) this.mHero.pos.x = 0;
-		if(this.mHero.pos.x + this.mHero.getDim().x > this.mMaxScroll) this.mHero.pos.x = this.mMaxScroll - this.mHero.getDim().x;
+		if(this.mHero.worldPos.x < 0) this.mHero.worldPos.x = 0;
+		if(this.mHero.worldPos.x + this.mHero.getDim().x > this.mMaxScroll) this.mHero.worldPos.x = this.mMaxScroll - this.mHero.getDim().x;
 	}
 	,unlockZone: function(scroll) {
 		if(scroll > this.mMaxScroll) {
@@ -24561,6 +24972,8 @@ if(window.createjs != null) createjs.Sound.alternateExtensions = ["ogg","mp3","w
 openfl_display_DisplayObject.__instanceCount = 0;
 openfl_display_DisplayObject.__worldRenderDirty = 0;
 openfl_display_DisplayObject.__worldTransformDirty = 0;
+entities_Actor.fakeZCoef = 0.5;
+entities_hero_Hero.HERO = "Hero";
 haxe_ds_ObjectMap.count = 0;
 haxe_io_FPHelper.i64tmp = (function($this) {
 	var $r;

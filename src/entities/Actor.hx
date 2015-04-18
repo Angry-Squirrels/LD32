@@ -96,19 +96,32 @@ class Actor extends Entity
 			pos.y = worldPos.y * fakeZCoef - mDim.y;
 		}
 		
-		// push actors
-		if (mOthers != null) 
-			for (actor in mOthers) 
+		// collide other actors
+		if (mOthers != null && !isDead()) 
+			for (actor in mOthers) {
+				if (actor == this) continue;
 				if (Vec2.Dist(worldPos, actor.worldPos) < mDim.x /2 + actor.getDim().x / 2) {
 					var pushVec = Vec2.Sub(worldPos, actor.worldPos);
+					onCollide(actor);
+					
 					vel.add(pushVec);
 					actor.vel.sub(pushVec);
 				}
+			}
 			
 	}
 	
 	public function takeDamage(amount : Int) {
 		mLife -= amount;
+	}
+	
+	public function onCollide(actor : Actor) {
+		
+		if (Std.is(actor, Weapon)) {
+			var w : Weapon = cast actor;
+			takeDamage(w.getDamage());
+		}
+		
 	}
 	
 	public function isDead() {

@@ -1,6 +1,7 @@
 package entities.hero;
 import core.Camera;
 import entities.Actor;
+import entities.Weapon;
 import geom.Vec2;
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
@@ -9,7 +10,7 @@ import openfl.geom.Rectangle;
  * ...
  * @author TBaudon
  */
-class Shoe extends Actor
+class Shoe extends Weapon
 {
 	
 	var mFalled : Float;
@@ -25,6 +26,8 @@ class Shoe extends Actor
 		mDim.y = 20;
 		
 		mFriction = 1;
+		
+		mDamage = 3;
 		
 		mUseWorldCoord = false;
 	}
@@ -49,10 +52,14 @@ class Shoe extends Actor
 				mFalled = mStartAltitude;
 				mZVel = 0;
 				mFriction = 0.7;
-				Camera.instance.shake(5, 200);
-				destroy();
+				explode();
 			}
 		}
+	}
+	
+	function explode() {
+		Camera.instance.shake(5, 200);
+		destroy();	
 	}
 	
 	public function launch(dir : Int) {
@@ -61,6 +68,14 @@ class Shoe extends Actor
 		mStartAltitude = 70;
 		mFalled = 0;
 		mZVel = - 200;
+	}
+	
+	override public function onCollide(actor:Actor) 
+	{
+		super.onCollide(actor);
+		if (!Std.is(actor, Hero)) {
+			explode();
+		}
 	}
 	
 }

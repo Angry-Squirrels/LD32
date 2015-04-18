@@ -2,6 +2,8 @@ package entities;
 import entities.Actor;
 import entities.hero.Hero;
 import geom.Vec2;
+import openfl.display.BitmapData;
+import openfl.geom.Rectangle;
 
 /**
  * ...
@@ -33,13 +35,29 @@ class Punk extends Human
 	override function update(delta:Float) 
 	{
 		super.update(delta);
-		
+		if (isDead()) {
+			mDim.x = 120;
+			mDim.y = 72;
+			vel.x = 0;
+			vel.y = 0;
+			mXAxis = 0;
+			mYAxis = 0;
+			return;
+		}
 		if (mTarget != null && Vec2.Dist(mTarget.worldPos, worldPos) > mRange)
 			moveTowardTarget();
 		else {
 			mXAxis = 0;
 			mYAxis = 0;
 		}
+	}
+	
+	override function draw(buffer:BitmapData, dest:Vec2) 
+	{
+		if(!isDead())
+			super.draw(buffer, dest);
+		else
+			buffer.fillRect(new Rectangle(dest.x, dest.y, 162, 72), 0x006699);
 	}
 	
 	function moveTowardTarget() 
