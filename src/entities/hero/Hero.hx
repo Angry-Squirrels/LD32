@@ -4,6 +4,7 @@ import core.Entity;
 import core.SpriteSheet;
 import entities.Actor;
 import entities.Human;
+import entities.Weapon;
 import entities.World;
 import geom.Vec2;
 import openfl.display.BitmapData;
@@ -25,7 +26,7 @@ class Hero extends Human
 	
 	public var mPant : Actor;
 	public var mCalbut : Callbut;
-	public var mShirts : Array<Actor>;
+	public var mPull : Pull;
 	
 	var mHeading : Int;
 	var mWorld : World;
@@ -33,6 +34,7 @@ class Hero extends Human
 	
 	var mCurrentState : Float -> Void;
 	var mLastStripableBody:Actor;
+	var mCacUsed:Bool;
 	
 	public static inline var HERO : String = "Hero";
 
@@ -52,8 +54,6 @@ class Hero extends Human
 		
 		initAnimations();
 		
-		mShirts = new Array<Actor>();
-		
 		addListeners();
 		
 		mCurrentState = normalState;
@@ -70,6 +70,7 @@ class Hero extends Human
 		giveShoe();
 		giveShoe();
 		giveCallbut();
+		givePull();
 	}
 	
 	public function giveShoe() {
@@ -98,6 +99,14 @@ class Hero extends Human
 		}
 	}
 	
+	public function givePull() {
+		if (mPull != null) return;
+		else {
+			mPull = new Pull();
+			add(mPull);
+		}
+	}
+	
 	///// end clothes
 	
 	function addListeners() 
@@ -116,7 +125,9 @@ class Hero extends Human
 		
 		if (mCalbut != null) 
 			mCalbut.setAnimation(name);
-		
+			
+		if (mPull != null)
+			mPull.setAnimation(name);
 	}
 	
 	function onKeyUp(e:KeyboardEvent):Void 
@@ -170,12 +181,43 @@ class Hero extends Human
 			hitTest(this, mLastStripableBody) &&
 			worldPos.y <= mLastStripableBody.worldPos.y)
 			stripBody();
-		else {
+		else 
 			attack();
-		}
 	}
 	
 	function attack() {
+		if(mPull != null || mPant != null){
+			mCurrentState = attackState;
+			mCacUsed = false;
+		}
+	}
+	
+	function attackState(delta : Float) {
+		
+		mMoveSpeed = 0;
+		
+		var currentWeapon : Weapon = null;
+		
+		if (mPull != null) {
+			playAnim("cac");
+			remove(mPull);
+			currentWeapon = mPull;
+		}
+		
+		if (currentWeapon != null && mAnimation.getCurrentFrame() == 5 && !mCacUsed) {
+			mCacUsed = true;
+			currentWeapon.launch(mHeading);
+			mWorld.addActor(currentWeapon);
+			currentWeapon.startAltitude = 1;
+			currentWeapon.worldPos.x = worldPos.x + 100 * mHeading;
+			currentWeapon.worldPos.y = worldPos.y;
+			
+			if (currentWeapon == mPull)
+				mPull = null;
+			else
+				mPant = null;
+			currentWeapon = null;
+		}
 		
 	}
 	
@@ -231,7 +273,7 @@ class Hero extends Human
 			shoe.launch(mHeading);
 			mWorld.addActor(shoe);
 			shoe.startAltitude = 70;
-			shoe.worldPos.x = worldPos.x + shoe.startAltitude * mHeading;
+			shoe.worldPos.x = worldPos.x + 50 * mHeading;
 			shoe.worldPos.y = worldPos.y;
 			mShoeLaunched = true;
 		}
@@ -248,7 +290,7 @@ class Hero extends Human
 			mCalbut.launch(mHeading);
 			mWorld.addActor(mCalbut);
 			mCalbut.startAltitude = 120;
-			mCalbut.worldPos.x = worldPos.x + mCalbut.startAltitude * mHeading;
+			mCalbut.worldPos.x = worldPos.x + 50 * mHeading;
 			mCalbut.worldPos.y = worldPos.y;
 			mCalbut = null;
 		}
@@ -350,6 +392,14 @@ class Hero extends Human
 		var slipLAnim = new Animation(new SpriteSheet("Hero/franky_slip_flip", 140, 180, 35, 0), null, 12, false);
 		slipLAnim.onFinished = setNormalState;
 		addAnimation("slipL", slipLAnim);
+		
+		var slipRAnim = new Animation(new SpriteSheet("Hero/franky_cac", 140, 180, 35, 0), null, 12, false);
+		slipRAnim.onFinished = setNormalState;
+		addAnimation("cacR", slipRAnim);
+		
+		var slipLAnim = new Animation(new SpriteSheet("Hero/franky_cac_flip", 140, 180, 35, 0), null, 12, false);
+		slipLAnim.onFinished = setNormalState;
+		addAnimation("cacL", slipLAnim);
 		
 		
 	}
