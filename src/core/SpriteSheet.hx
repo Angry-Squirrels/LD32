@@ -17,11 +17,17 @@ class SpriteSheet
 	var mNbLine : Int;
 	var mFrameRect : Rectangle;
 	
+	public var flipped : Bool;
+	
 	public var offsetX : Int;
 	public var offsetY : Int;
 
 	public function new(path : String, spriteWidth : Int, spriteHeight : Int, _offsetX : Int = 0, _offsetY : Int = 0) 
 	{
+		var s = path.split("_");
+		if (s[s.length - 1] == "flip")
+			flipped = true;
+			
 		offsetX = _offsetX;
 		offsetY = _offsetY;
 		mBitmap = Assets.getBitmapData("img/" + path +".png");

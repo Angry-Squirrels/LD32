@@ -25,7 +25,8 @@ class Hero extends Human
 	public var mShirts : Array<Actor>;
 	
 	var mHeading : Int;
-	var mSpecialMove:Bool;
+	
+	var mCurrentState : Float -> Void;
 	
 	public static inline var HERO : String = "Hero";
 
@@ -40,16 +41,13 @@ class Hero extends Human
 		
 		initShoes();
 		
-		mAnimations["idleR"] = new Animation(new SpriteSheet("Hero/franky_iddle", 140, 180, 35, 0),null,20); 
-		mAnimations["walkR"] = new Animation(new SpriteSheet("Hero/franky_run", 140, 180, 35, 0)); 
-		
-		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickL", 140, 180, 35, 0), null, 12, false); 
-		kickLRAnim.onFinished = backToIdle;
-		mAnimations["kickLR"] = kickLRAnim;
+		initAnimations();
 		
 		mShirts = new Array<Actor>();
 		
 		addListeners();
+		
+		mCurrentState = normalState;
 	}
 	
 	function addListeners() 
@@ -58,10 +56,12 @@ class Hero extends Human
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 	}
 	
-	function backToIdle() {
-		mSpecialMove = false;
+	function playAnim(name : String) {
 		if (mHeading > 0)
-			setAnimation("idleR");
+			name += "R";
+		else
+			name += "L";
+		setAnimation(name);
 	}
 	
 	function onKeyUp(e:KeyboardEvent):Void 
@@ -112,24 +112,55 @@ class Hero extends Human
 		else
 			mHeading = 1;
 		
-		if(!mSpecialMove){
-			if (vel.length() < 15)
-				backToIdle();
-			else {
-				if (mHeading > 0)
-					setAnimation("walkR");
-			}
-		}
+		if (mCurrentState != null)
+			mCurrentState(delta);
 		
+	}
+	
+	function normalState(delta : Float) {
+		playAnim("idle");
+		
+		mMoveSpeed = 100;
+		
+		if (vel.length() > 15)
+			setWalkState();
+	}
+	
+	function kickState(delta : Float) {
+		
+		mMoveSpeed = 0;
+		
+		if(mShoes.length > 0)
+			playAnim("kickL");
+		else
+			playAnim("kickD");
+	}
+	
+	function walkState(delta : Float) {
+		playAnim("walk");
+		
+		if (vel.length() < 15)
+			setNormalState();
+	}
+	
+	function setNormalState() {
+		mCurrentState = normalState;
+	}
+	
+	function setKickState() {
+		mCurrentState = kickState;
+	}
+	
+	function setWalkState() {
+		mCurrentState = walkState;
 	}
 	
 	function throwShoe() 
 	{
 		var shoe = mShoes.pop();
 		if (shoe != null) {
-			mSpecialMove = true;
-			setAnimation("kickLR");
 			remove(shoe);
+			setKickState();
 		}
 	}
 	
@@ -169,6 +200,31 @@ class Hero extends Human
 		mShoes = new Array<Shoe>();
 		giveShoe();
 		giveShoe();
+	}
+	
+	function initAnimations():Void 
+	{
+		mAnimations["idleR"] = new Animation(new SpriteSheet("Hero/franky_iddle", 140, 180, 35, 0)); 
+		mAnimations["idleL"] = new Animation(new SpriteSheet("Hero/franky_iddle_flip", 140, 180, 35, 0)); 
+		
+		mAnimations["walkR"] = new Animation(new SpriteSheet("Hero/franky_run", 140, 180, 35, 0), null, 16); 
+		mAnimations["walkL"] = new Animation(new SpriteSheet("Hero/franky_run_flip", 140, 180, 35, 0), null, 16); 
+		
+		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickL", 140, 180, 35, 0), null, 12, false); 
+		kickLRAnim.onFinished = setNormalState;
+		mAnimations["kickLR"] = kickLRAnim;
+		
+		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickL_flip", 140, 180, 35, 0), null, 12, false); 
+		kickLLAnim.onFinished = setNormalState;
+		mAnimations["kickLL"] = kickLLAnim;
+		
+		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickD", 140, 180, 35, 0), null, 12, false); 
+		kickLRAnim.onFinished = setNormalState;
+		mAnimations["kickDR"] = kickLRAnim;
+		
+		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickD_flip", 140, 180, 35, 0), null, 12, false); 
+		kickLLAnim.onFinished = setNormalState;
+		mAnimations["kickDL"] = kickLLAnim;
 	}
 	
 }

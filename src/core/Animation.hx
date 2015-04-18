@@ -21,10 +21,14 @@ class Animation
 	
 	public function new(spriteSheet : SpriteSheet, frames : Array<Int> = null, fps : Int = 12, loop = true ) 
 	{
-		if (frames == null){
+		if (frames == null) {
 			frames = new Array<Int>();
 			for (i in 0 ... spriteSheet.getNbFrame())
-				frames.push(i);
+				if (spriteSheet.flipped){
+					frames.unshift(i);
+				}
+				else
+					frames.push(i);
 		}
 		
 		mFrames = frames;
@@ -70,7 +74,7 @@ class Animation
 	}
 	
 	public function getFrame() : Rectangle {
-		return mSpriteSheet.getFrame(mCurrentFrame);
+		return mSpriteSheet.getFrame(mFrames[mCurrentFrame]);
 	}
 	
 	public function getSource() : BitmapData {
