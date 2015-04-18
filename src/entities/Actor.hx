@@ -27,10 +27,14 @@ class Actor extends Entity
 	var mMaxLife : Int;
 	var mLife : Int;
 	
+	var mUseWorldCoord : Bool;
+	
 	public static inline var fakeZCoef : Float = 0.5;
 	public var worldPos : Vec2;
 	
 	var mOthers : Array<Actor>;
+	var mFriction:Float = 0.7;
+	var mDestroyable : Bool;
 	
 	public function new(name : String) 
 	{
@@ -43,6 +47,8 @@ class Actor extends Entity
 		
 		mXAxis = 0;
 		mYAxis = 0;
+		
+		mUseWorldCoord = true;
 		
 		worldPos = new Vec2();
 		
@@ -82,11 +88,13 @@ class Actor extends Entity
 		worldPos.x += vel.x * delta;
 		worldPos.y += vel.y * delta;
 		
-		vel.x *= 0.7;
-		vel.y *= 0.7;
+		vel.x *= mFriction;
+		vel.y *= mFriction;
 		
-		pos.x = worldPos.x - mDim.x / 2;
-		pos.y = worldPos.y * fakeZCoef - mDim.y;
+		if(mUseWorldCoord){
+			pos.x = worldPos.x - mDim.x / 2;
+			pos.y = worldPos.y * fakeZCoef - mDim.y;
+		}
 		
 		// push actors
 		if (mOthers != null) 
@@ -107,6 +115,15 @@ class Actor extends Entity
 		if (mLife <= 0)
 			return true;
 		return false;
+	}
+	
+	public function destroyable() : Bool {
+		return mDestroyable;
+	}
+	
+	override public function destroy() {
+		super.destroy();
+		mDestroyable = true;
 	}
 	
 }

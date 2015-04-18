@@ -21,12 +21,15 @@ class Camera
 	
 	public var pos : Vec2;
 	public var shakePosOffset : Vec2;
+	
+	public static var instance : Camera;
 
 	public function new() 
 	{
 		pos = new Vec2();
 		shakePosOffset = new Vec2();
 		mGame = Game.getInstance();
+		instance = this;
 	}
 	
 	public function setTarget(ent : Entity) {

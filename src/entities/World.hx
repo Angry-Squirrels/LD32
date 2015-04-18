@@ -18,6 +18,7 @@ class World extends Entity
 	var mRoads : Array<Entity>;
 	
 	var mActors : Array<Actor>;
+	var mActorsToDestroy : Array<Actor>;
 	
 	var mGame : Game;
 	
@@ -51,6 +52,7 @@ class World extends Entity
 		
 		mRoads = new Array<Entity>();
 		mActors = new Array<Actor>();
+		mActorsToDestroy = new Array<Actor>();
 	}
 	
 	public function addActor(actor : Actor) {
@@ -72,21 +74,41 @@ class World extends Entity
 		
 		if (pos.x < -mMaxScroll )
 			pos.x = -mMaxScroll;
+			
+		pos.x += mCamera.shakePosOffset.x;
+		pos.y += mCamera.shakePosOffset.y;
+		
+		manageActors();
 	}
 	
 	override function draw(buffer:BitmapData, dest:Vec2) 
 	{
-		sortActors();
 		super.draw(buffer, dest);
 	}
 	
-	function sortActors() {
+	function manageActors() {
 		for (actor in mActors) {
-			for (otherActor in mActors) {
-				if (otherActor.pos.y + otherActor.getDim().y < actor.pos.y + actor.getDim().y &&
-					children.indexOf(otherActor) > children.indexOf(actor))
-					swap(otherActor, actor);
+			if (actor.destroyable()){
+				mActorsToDestroy.push(actor);
+				continue;
 			}
+				
+			zSortActors(actor);
+		}
+		
+		for (actor in mActorsToDestroy)
+		{
+			mActors.remove(actor);
+			remove(actor);
+		}
+	}
+	
+	function zSortActors(actor : Actor):Void 
+	{
+		for (otherActor in mActors) {
+			if (otherActor.pos.y + otherActor.getDim().y < actor.pos.y + actor.getDim().y &&
+				children.indexOf(otherActor) > children.indexOf(actor))
+				swap(otherActor, actor);
 		}
 	}
 	

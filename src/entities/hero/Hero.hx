@@ -3,6 +3,7 @@ import core.Animation;
 import core.Entity;
 import core.SpriteSheet;
 import entities.Human;
+import entities.World;
 import geom.Vec2;
 import openfl.display.BitmapData;
 import openfl.events.KeyboardEvent;
@@ -25,17 +26,21 @@ class Hero extends Human
 	public var mShirts : Array<Actor>;
 	
 	var mHeading : Int;
+	var mWorld : World;
+	var mShoeLaunched = false;
 	
 	var mCurrentState : Float -> Void;
 	
 	public static inline var HERO : String = "Hero";
 
-	public function new() 
+	public function new(world : World) 
 	{
 		super(HERO);
 		
 		mDim.x = 65; 
 		mDim.y = 170;
+		
+		mWorld = world;
 		
 		mHeading = 1;
 		
@@ -130,10 +135,23 @@ class Hero extends Human
 		
 		mMoveSpeed = 0;
 		
-		if(mShoes.length > 0)
-			playAnim("kickL");
-		else
-			playAnim("kickD");
+		if(!mShoeLaunched){
+			if(mShoes.length > 1)
+				playAnim("kickL");
+			else 
+				playAnim("kickD");
+		}
+			
+		if (mAnimation.getCurrentFrame() == 3 && !mShoeLaunched)
+		{
+			var shoe : Shoe = mShoes.pop();
+			remove(shoe);
+			shoe.launch(mHeading);
+			mWorld.addActor(shoe);
+			shoe.worldPos.x = worldPos.x + 70 * mHeading;
+			shoe.worldPos.y = worldPos.y;
+			mShoeLaunched = true;
+		}
 	}
 	
 	function walkState(delta : Float) {
@@ -148,6 +166,7 @@ class Hero extends Human
 	}
 	
 	function setKickState() {
+		mShoeLaunched = false;
 		mCurrentState = kickState;
 	}
 	
@@ -157,11 +176,8 @@ class Hero extends Human
 	
 	function throwShoe() 
 	{
-		var shoe = mShoes.pop();
-		if (shoe != null) {
-			remove(shoe);
+		if (mShoes.length > 0) 
 			setKickState();
-		}
 	}
 	
 	public function giveShoe() {

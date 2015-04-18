@@ -25,8 +25,8 @@ class GameScreen extends Screen
 	{
 		super();
 		
-		mHero = new Hero();
 		mWorld = new World();
+		mHero = new Hero(mWorld);
 		mMaxScroll = 0;
 		
 		add(mWorld);
@@ -35,7 +35,7 @@ class GameScreen extends Screen
 		
 		mWorld.addActor(mHero);
 		
-		for(i in 0 ... 2){
+		for(i in 0 ... 0){
 			var peon = new Punk();
 			peon.pos.x = Math.random() * 1000;
 			peon.pos.y = Math.random() * 1000;

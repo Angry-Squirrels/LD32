@@ -77,6 +77,10 @@ class Animation
 		return mSpriteSheet.getFrame(mFrames[mCurrentFrame]);
 	}
 	
+	public function getCurrentFrame() : Int {
+		return mCurrentFrame;
+	}
+	
 	public function getSource() : BitmapData {
 		return mSpriteSheet.getBitmap();
 	}
