@@ -88,20 +88,6 @@ class Game extends Sprite
 		addChild(mCanvas);
 		
 		initFlash();
-		
-		#if flash
-		var bevel = new Bitmap(new BitmapData(cast mCanvas.width,cast mCanvas.height,false,0x808080));
-		bevel.blendMode = BlendMode.OVERLAY; 
-		addChild(bevel);
-		
-		for (i in 0 ... cast bevel.height) 
-			for (j in 0 ... cast bevel.width) 
-				if (j % pixelSize== 0 && i % pixelSize == 0) {
-					bevel.bitmapData.setPixel(j, i, 0);
-					bevel.bitmapData.setPixel(j-1, i-1, 0);
-					bevel.bitmapData.setPixel(j-2, i-2, 0);
-				}
-		#end
 	}
 	
 	function update(e :Event) {

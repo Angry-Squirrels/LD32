@@ -34,6 +34,22 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("img/Hero/franky_iddle.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_kickL.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_run.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/franky_strip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		
 		if (config.assetsPrefix != null) {
 			

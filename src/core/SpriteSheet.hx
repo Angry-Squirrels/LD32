@@ -20,8 +20,10 @@ class SpriteSheet
 	public var offsetX : Int;
 	public var offsetY : Int;
 
-	public function new(path : String, spriteWidth : Int, spriteHeight : Int) 
+	public function new(path : String, spriteWidth : Int, spriteHeight : Int, _offsetX : Int = 0, _offsetY : Int = 0) 
 	{
+		offsetX = _offsetX;
+		offsetY = _offsetY;
 		mBitmap = Assets.getBitmapData("img/" + path +".png");
 		setFrameDim(spriteWidth, spriteHeight);
 	}
@@ -36,6 +38,10 @@ class SpriteSheet
 	
 	public function getBitmap() : BitmapData {
 		return mBitmap;
+	}
+	
+	public function getNbFrame() : Int {
+		return mNbCol * mNbLine;
 	}
 	
 	public function setFrameDim(width : UInt, height : UInt) 

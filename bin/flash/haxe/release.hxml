@@ -8,10 +8,12 @@
 -cp src
 -D openfl-next
 -D tools=2.3.2
+-D flash-use-stage
 -D no-compilation
 -D openfl-flash
 -D fdb
 -D web
+-swf-lib bin/flash/obj/assets.swf
 -swf-version 11.2
 -swf bin/flash/bin/LD32.swf
 -swf-header 800:480:60:000000
