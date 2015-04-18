@@ -2,6 +2,7 @@ package entities.hero;
 import core.Animation;
 import core.Entity;
 import core.SpriteSheet;
+import entities.Actor;
 import entities.Human;
 import entities.World;
 import geom.Vec2;
@@ -18,6 +19,7 @@ import openfl.ui.Keyboard;
 class Hero extends Human
 {
 	var mCDown:Bool;
+	var mXDown:Bool;
 	
 	public var mShoes : Array<Shoe>;
 	
@@ -30,6 +32,7 @@ class Hero extends Human
 	var mShoeLaunched = false;
 	
 	var mCurrentState : Float -> Void;
+	var mLastStripableBody:Actor;
 	
 	public static inline var HERO : String = "Hero";
 
@@ -72,6 +75,8 @@ class Hero extends Human
 	function onKeyUp(e:KeyboardEvent):Void 
 	{
 		switch (e.keyCode) {
+			case Keyboard.X :
+				mXDown = false;
 			case Keyboard.C :
 				mCDown = false;
 			case Keyboard.UP :
@@ -97,6 +102,11 @@ class Hero extends Human
 					throwShoe();
 					mCDown = true;
 				}
+			case Keyboard.X : 
+				if (!mXDown) {
+					onXPressed();
+					mXDown = true;
+				}
 			case Keyboard.UP :
 				mYAxis = -1;
 			case Keyboard.DOWN :
@@ -106,6 +116,24 @@ class Hero extends Human
 			case Keyboard.RIGHT :
 				mXAxis = 1;
 		}
+	}
+	
+	function onXPressed(){
+		if (mLastStripableBody != null && 
+			hitTest(this, mLastStripableBody) &&
+			worldPos.y <= mLastStripableBody.worldPos.y)
+			stripBody();
+		else {
+			attack();
+		}
+	}
+	
+	function attack() {
+		
+	}
+	
+	function stripBody() {
+		setStripState();
 	}
 	
 	override function update(delta:Float) 
@@ -161,6 +189,12 @@ class Hero extends Human
 			setNormalState();
 	}
 	
+	function stripState(delta : Float) {
+		playAnim("strip");
+		
+		mMoveSpeed = 0;
+	}
+	
 	function setNormalState() {
 		mCurrentState = normalState;
 	}
@@ -173,6 +207,11 @@ class Hero extends Human
 	function setWalkState() {
 		mCurrentState = walkState;
 	}
+	
+	function setStripState() {
+		mCurrentState = stripState;
+	}
+	
 	
 	function throwShoe() 
 	{
@@ -218,6 +257,16 @@ class Hero extends Human
 		giveShoe();
 	}
 	
+	override public function onCollide(actor:Actor) 
+	{
+		super.onCollide(actor);
+		
+		if (Std.is(actor, Punk) && actor.isDead()) {
+			if (worldPos.y < actor.worldPos.y)
+				mLastStripableBody = actor;
+		}
+	}
+	
 	function initAnimations():Void 
 	{
 		mAnimations["idleR"] = new Animation(new SpriteSheet("Hero/franky_iddle", 140, 180, 35, 0)); 
@@ -241,6 +290,16 @@ class Hero extends Human
 		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickD_flip", 140, 180, 35, 0), null, 12, false); 
 		kickLLAnim.onFinished = setNormalState;
 		mAnimations["kickDL"] = kickLLAnim;
+		
+		var stripRAnim = new Animation(new SpriteSheet("Hero/franky_strip", 140, 180, 35, 0), null, 12, false);
+		stripRAnim.onFinished = setNormalState;
+		mAnimations["stripR"] = stripRAnim;
+		
+		var stripLAnim = new Animation(new SpriteSheet("Hero/franky_strip_flip", 140, 180, 35, 0), [7,6,5,4,3,2,1,0,15,14,13,12,11,10,9,8], 12, false);
+		stripLAnim.onFinished = setNormalState;
+		mAnimations["stripL"] = stripLAnim;
+		
+		
 	}
 	
 }

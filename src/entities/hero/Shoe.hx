@@ -75,6 +75,7 @@ class Shoe extends Weapon
 		super.onCollide(actor);
 		if (!Std.is(actor, Hero)) {
 			explode();
+			actor.takeDamage(mDamage);
 		}
 	}
 	

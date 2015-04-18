@@ -100,9 +100,12 @@ class Actor extends Entity
 		if (mOthers != null && !isDead()) 
 			for (actor in mOthers) {
 				if (actor == this) continue;
-				if (Vec2.Dist(worldPos, actor.worldPos) < mDim.x /2 + actor.getDim().x / 2) {
+				//if (Vec2.Dist(worldPos, actor.worldPos) < mDim.x /2 + actor.getDim().x / 2) {
+				if(hitTest(this, actor)){
 					var pushVec = Vec2.Sub(worldPos, actor.worldPos);
 					onCollide(actor);
+					
+					if (actor.isDead()) continue;
 					
 					vel.add(pushVec);
 					actor.vel.sub(pushVec);
@@ -111,16 +114,15 @@ class Actor extends Entity
 			
 	}
 	
+	public function hitTest(a : Actor, b : Actor) : Bool {
+		return Vec2.Dist(a.worldPos, b.worldPos) < a.getDim().x / 2 + b.getDim().x / 2;
+	}
+	
 	public function takeDamage(amount : Int) {
 		mLife -= amount;
 	}
 	
 	public function onCollide(actor : Actor) {
-		
-		if (Std.is(actor, Weapon)) {
-			var w : Weapon = cast actor;
-			takeDamage(w.getDamage());
-		}
 		
 	}
 	

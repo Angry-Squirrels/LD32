@@ -35,7 +35,7 @@ class GameScreen extends Screen
 		
 		mWorld.addActor(mHero);
 		
-		for(i in 0 ... 5){
+		for(i in 0 ... 1){
 			var peon = new Punk();
 			peon.pos.x = Math.random() * 1000;
 			peon.pos.y = Math.random() * 1000;

@@ -106,7 +106,7 @@ class World extends Entity
 	function zSortActors(actor : Actor):Void 
 	{
 		for (otherActor in mActors) {
-			if (otherActor.pos.y + otherActor.getDim().y < actor.pos.y + actor.getDim().y &&
+			if (otherActor.worldPos.y < actor.worldPos.y &&
 				children.indexOf(otherActor) > children.indexOf(actor))
 				swap(otherActor, actor);
 		}
