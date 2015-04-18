@@ -14,7 +14,7 @@ class Weapon extends AnimatedActor
 	var mFalled : Float;
 	var mZVel : Float = 0;
 	var mGravity : Float = 40;
-	var mStartAltitude:Float;
+	public var startAltitude : Float;
 
 	public function new(name : String) 
 	{
@@ -34,7 +34,6 @@ class Weapon extends AnimatedActor
 	public function launch(dir : Int) {
 		mUseWorldCoord = true;
 		vel.x = 1000 * dir;
-		mStartAltitude = 70;
 		mFalled = 0;
 		mZVel = - 200;
 	}
@@ -53,14 +52,14 @@ class Weapon extends AnimatedActor
 		super.update(delta);
 		
 		if (mUseWorldCoord) {
-			pos.y -= mStartAltitude - mFalled;
+			pos.y -= startAltitude - mFalled;
 			
 			mZVel += mGravity;
 			
-			if (mFalled < mStartAltitude)
+			if (mFalled < startAltitude)
 				mFalled += mZVel * delta;
 			else{
-				mFalled = mStartAltitude;
+				mFalled = startAltitude;
 				mZVel = 0;
 				mFriction = 0.7;
 				explode();

@@ -146,7 +146,7 @@ class Hero extends Human
 		switch (e.keyCode) {
 			case Keyboard.C :
 				if(!mCDown){
-					throwShoe();
+					rangedAttack();
 					mCDown = true;
 				}
 			case Keyboard.X : 
@@ -230,10 +230,32 @@ class Hero extends Human
 			remove(shoe);
 			shoe.launch(mHeading);
 			mWorld.addActor(shoe);
-			shoe.worldPos.x = worldPos.x + 70 * mHeading;
+			shoe.startAltitude = 70;
+			shoe.worldPos.x = worldPos.x + shoe.startAltitude * mHeading;
 			shoe.worldPos.y = worldPos.y;
 			mShoeLaunched = true;
 		}
+	}
+	
+	function slipState(delta : Float) {
+		
+		if (mCalbut != null) {
+			remove(mCalbut);
+		}
+		
+		if (mAnimation.getCurrentFrame() == 6 && mCalbut != null)
+		{
+			mCalbut.launch(mHeading);
+			mWorld.addActor(mCalbut);
+			mCalbut.startAltitude = 120;
+			mCalbut.worldPos.x = worldPos.x + mCalbut.startAltitude * mHeading;
+			mCalbut.worldPos.y = worldPos.y;
+			mCalbut = null;
+		}
+		
+		mMoveSpeed = 0;
+		
+		playAnim("slip");
 	}
 	
 	function walkState(delta : Float) {
@@ -266,11 +288,17 @@ class Hero extends Human
 		mCurrentState = stripState;
 	}
 	
+	function setSlipState() {
+		mCurrentState = slipState;
+	}
 	
-	function throwShoe() 
+	
+	function rangedAttack() 
 	{
 		if (mShoes.length > 0) 
 			setKickState();
+		else if (mCalbut != null)
+			setSlipState();
 	}
 	
 	override public function onCollide(actor:Actor) 
@@ -314,6 +342,14 @@ class Hero extends Human
 		var stripLAnim = new Animation(new SpriteSheet("Hero/franky_strip_flip", 140, 180, 35, 0), [7,6,5,4,3,2,1,0,15,14,13,12,11,10,9,8], 12, false);
 		stripLAnim.onFinished = stripEnded;
 		addAnimation("stripL", stripLAnim);
+		
+		var slipRAnim = new Animation(new SpriteSheet("Hero/franky_slip", 140, 180, 35, 0), null, 12, false);
+		slipRAnim.onFinished = setNormalState;
+		addAnimation("slipR", slipRAnim);
+		
+		var slipLAnim = new Animation(new SpriteSheet("Hero/franky_slip_flip", 140, 180, 35, 0), null, 12, false);
+		slipLAnim.onFinished = setNormalState;
+		addAnimation("slipL", slipLAnim);
 		
 		
 	}

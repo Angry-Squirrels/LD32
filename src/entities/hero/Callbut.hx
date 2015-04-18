@@ -22,6 +22,14 @@ class Callbut extends Weapon
 		initAnimations();
 	}
 	
+	override function draw(buffer:BitmapData, dest:Vec2) 
+	{
+		if(!mUseWorldCoord)
+			super.draw(buffer, dest);
+		else
+			buffer.fillRect(new Rectangle(dest.x, dest.y, 20, 20), 0x0000ff);
+	}
+	
 	function initAnimations() 
 	{
 		addAnimation("idleR", new Animation(new SpriteSheet("Hero/slip_iddle", 140, 180, 35, 0)));
