@@ -24,7 +24,7 @@ class Hero extends Human
 	
 	public var mShoes : Array<Shoe>;
 	
-	public var mPant : Actor;
+	public var mPant : Pant;
 	public var mCalbut : Callbut;
 	public var mPull : Pull;
 	
@@ -35,6 +35,7 @@ class Hero extends Human
 	var mCurrentState : Float -> Void;
 	var mLastStripableBody:Actor;
 	var mCacUsed:Bool;
+	var mCacStarted:Bool;
 	
 	public static inline var HERO : String = "Hero";
 
@@ -70,6 +71,7 @@ class Hero extends Human
 		giveShoe();
 		giveShoe();
 		giveCallbut();
+		givePant();
 		givePull();
 	}
 	
@@ -96,6 +98,14 @@ class Hero extends Human
 		else {
 			mCalbut = new Callbut();
 			add(mCalbut);
+		}
+	}
+	
+	public function givePant() {
+		if (mPant != null) return;
+		else {
+			mPant = new Pant();
+			add(mPant);
 		}
 	}
 	
@@ -128,6 +138,9 @@ class Hero extends Human
 			
 		if (mPull != null)
 			mPull.setAnimation(name);
+			
+		if (mPant != null)
+			mPant.setAnimation(name);
 	}
 	
 	function onKeyUp(e:KeyboardEvent):Void 
@@ -189,6 +202,7 @@ class Hero extends Human
 		if(mPull != null || mPant != null){
 			mCurrentState = attackState;
 			mCacUsed = false;
+			mCacStarted = false;
 		}
 	}
 	
@@ -198,10 +212,16 @@ class Hero extends Human
 		
 		var currentWeapon : Weapon = null;
 		
-		if (mPull != null) {
+		if (mPull != null && !mCacStarted) {
 			playAnim("cac");
 			remove(mPull);
 			currentWeapon = mPull;
+			mCacStarted = true;
+		}else if (mPant != null && !mCacStarted) {
+			playAnim("cac");
+			remove(mPant);
+			currentWeapon = mPant;
+			mCacStarted = true;
 		}
 		
 		if (currentWeapon != null && mAnimation.getCurrentFrame() == 5 && !mCacUsed) {
@@ -339,7 +359,7 @@ class Hero extends Human
 	{
 		if (mShoes.length > 0) 
 			setKickState();
-		else if (mCalbut != null)
+		else if (mCalbut != null && mPant == null)
 			setSlipState();
 	}
 	
@@ -377,11 +397,11 @@ class Hero extends Human
 		kickLLAnim.onFinished = setNormalState;
 		addAnimation("kickDL", kickLLAnim);
 		
-		var stripRAnim = new Animation(new SpriteSheet("Hero/franky_strip", 140, 180, 35, 0), null, 12, false);
+		var stripRAnim = new Animation(new SpriteSheet("Hero/franky_strip", 140, 180, 35, 0), [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 12, false);
 		stripRAnim.onFinished = stripEnded;
 		addAnimation("stripR", stripRAnim);
 		
-		var stripLAnim = new Animation(new SpriteSheet("Hero/franky_strip_flip", 140, 180, 35, 0), [7,6,5,4,3,2,1,0,15,14,13,12,11,10,9,8], 12, false);
+		var stripLAnim = new Animation(new SpriteSheet("Hero/franky_strip_flip", 140, 180, 35, 0), [8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9], 12, false);
 		stripLAnim.onFinished = stripEnded;
 		addAnimation("stripL", stripLAnim);
 		

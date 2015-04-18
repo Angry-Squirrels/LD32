@@ -21,6 +21,8 @@ class Punk extends Human
 		super("Punk");
 		
 		mMoveSpeed = 40;
+		
+		mDrawBoundIfNoAnim = true;
 	}
 	
 	override public function setOthersActors(actors:Array<Actor>) 

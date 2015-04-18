@@ -1,6 +1,7 @@
 package entities.hero;
 import core.Animation;
 import core.SpriteSheet;
+import entities.CacWeapon;
 import entities.Weapon;
 import geom.Vec2;
 import openfl.geom.Rectangle;
@@ -10,51 +11,16 @@ import openfl.display.BitmapData;
  * ...
  * @author TBaudon
  */
-class Pull extends Weapon
+class Pull extends CacWeapon
 {
-	
-	var mLifeTime : Float;
-	var mLifeSpan : Float = 0.2;
-	var mLaunched:Bool;
 
 	public function new() 
 	{
 		super("Pull");
 		
 		mDamage = 2;
-		mGravity = 0;
-		
-		mDim.x = 60;
-		mDim.y = 30;
-		
-		mLifeTime = 0;
 		
 		initAnimations();
-	}
-	
-	override public function launch(dir:Int) 
-	{
-		super.launch(dir);
-		mZVel = 0;
-		vel.x = 0;
-		mMoveSpeed = 0;
-		mLaunched = true;
-	}
-	
-	override function update(delta:Float) 
-	{
-		super.update(delta);
-		
-		vel.x = 0;
-		vel.y = 0;
-		
-		if(mLaunched){
-			mLifeTime += delta;
-			if (mLifeTime >= mLifeSpan){
-				trace("destroy");
-				destroy();
-			}
-		}
 	}
 	
 	function initAnimations() {
@@ -77,21 +43,11 @@ class Pull extends Weapon
 		var kickLLAnim = new Animation(new SpriteSheet("Hero/pull_kickR_flip", 140, 180, 35, 0), null, 12, false); 
 		addAnimation("kickDL", kickLLAnim);
 		
-		var stripRAnim = new Animation(new SpriteSheet("Hero/pull_strip", 140, 180, 35, 0), null, 12, false);
+		var stripRAnim = new Animation(new SpriteSheet("Hero/pull_strip", 140, 180, 35, 0), [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 12, false);
 		addAnimation("stripR", stripRAnim);
 		
-		var stripLAnim = new Animation(new SpriteSheet("Hero/pull_strip_flip", 140, 180, 35, 0), [7,6,5,4,3,2,1,0,15,14,13,12,11,10,9,8], 12, false);
+		var stripLAnim = new Animation(new SpriteSheet("Hero/pull_strip_flip", 140, 180, 35, 0), [8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9], 12, false);
 		addAnimation("stripL", stripLAnim);
 	}
-	
-	override function draw(buffer:BitmapData, dest:Vec2) 
-	{
-		if(!mUseWorldCoord)
-			super.draw(buffer, dest);
-		else
-			buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0xffff00);
-	}
-	
-	
 	
 }

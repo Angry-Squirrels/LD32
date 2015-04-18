@@ -18,6 +18,8 @@ class AnimatedActor extends Actor
 	var mAnimation : Animation;
 	
 	var mSpriteSheet : SpriteSheet;
+	
+	var mDrawBoundIfNoAnim : Bool;
 
 	public function new(name : String) 
 	{
@@ -64,7 +66,7 @@ class AnimatedActor extends Actor
 			p.x -= mAnimation.getSpriteSheet().offsetX;
 			p.y -= mAnimation.getSpriteSheet().offsetY;
 			buffer.copyPixels(mAnimation.getSource(), mAnimation.getFrame(), p.toPoint());
-		}else
+		}else if(mDrawBoundIfNoAnim)
 			buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0xff0000);
 	}
 	
