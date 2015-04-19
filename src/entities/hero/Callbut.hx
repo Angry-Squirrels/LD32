@@ -22,14 +22,6 @@ class Callbut extends Weapon
 		initAnimations();
 	}
 	
-	override function draw(buffer:BitmapData, dest:Vec2) 
-	{
-		if(!mUseWorldCoord)
-			super.draw(buffer, dest);
-		else
-			buffer.fillRect(new Rectangle(dest.x, dest.y, 20, 20), 0x0000ff);
-	}
-	
 	function initAnimations() 
 	{
 		addAnimation("idleR", new Animation(new SpriteSheet("Hero/slip_iddle", 140, 180, 35, 0)));
@@ -55,6 +47,9 @@ class Callbut extends Weapon
 		
 		var stripLAnim = new Animation(new SpriteSheet("Hero/slip_strip_flip", 140, 180, 35, 0), [8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9], 12, false);
 		addAnimation("stripL", stripLAnim);
+		
+		addAnimation("launchedR", new Animation(new SpriteSheet("Hero/slip", 55, 41)));
+		addAnimation("launchedL", new Animation(new SpriteSheet("Hero/slip_flip", 55, 41)));
 	}
 	
 }

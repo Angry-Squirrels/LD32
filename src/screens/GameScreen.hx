@@ -61,7 +61,7 @@ class GameScreen extends Screen
 	{
 		mPunkManager.update();
 		
-		if (mPunkManager.getPunkAlive() <= 0 && mHero.worldPos.x >= mMaxScroll - 100){
+		if (mPunkManager.getPunkAlive() <= 0 && mHero.worldPos.x >= mMaxScroll - 250){
 			nextWave();
 			mHud.stopShowNext();
 		}else if(mPunkManager.getPunkAlive() <= 0){

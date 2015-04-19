@@ -22,11 +22,11 @@ class Hero extends Human
 	var mCDown:Bool;
 	var mXDown:Bool;
 	
-	public var mShoes : Array<Shoe>;
-	
-	public var mPant : Pant;
-	public var mCalbut : Callbut;
-	public var mPull : Pull;
+	var mShoes : Array<Shoe>;
+	var mPant : Pant;
+	var mCalbut : Callbut;
+	var mPull : Pull;
+	var mKick : Kick;
 	
 	var mHeading : Int;
 	var mWorld : World;
@@ -47,6 +47,8 @@ class Hero extends Human
 		mDim.y = 170;
 		
 		mWorld = world;
+		
+		mKick = new Kick();
 		
 		mHeading = 1;
 		
@@ -78,10 +80,10 @@ class Hero extends Human
 	public function giveShoe() {
 		var shoe : Shoe;
 		if (mShoes.length == 0){
-			shoe = new Shoe("L");
+			shoe = new Shoe("R");
 		}
 		else if (mShoes.length == 1) {
-			shoe = new Shoe("R");
+			shoe = new Shoe("L");
 		}
 		else
 			return;
@@ -198,11 +200,17 @@ class Hero extends Human
 	}
 	
 	function attack() {
-		if(mPull != null || mPant != null){
+		//if(mPull != null || mPant != null){
+		//	mCurrentState = attackState;
+		//	mCacUsed = false;
+		//	mCacStarted = false;
+		//}else {
 			mCurrentState = attackState;
 			mCacUsed = false;
 			mCacStarted = false;
-		}
+		//	mKick.launch(mHeading);
+		//	trace("simple kick");
+		//}
 	}
 	
 	function attackState(delta : Float) {
@@ -210,21 +218,36 @@ class Hero extends Human
 		mMoveSpeed = 0;
 		
 		var currentWeapon : Weapon = null;
-	
-		if (mPull != null ) {
-			playAnim("cac");
+		
+		if (mPull != null ) 
 			currentWeapon = mPull;
-		}else if (mPant != null) {
-			playAnim("cac");
+		else if (mPant != null) 
 			currentWeapon = mPant;
-		}
+		else
+			currentWeapon = mKick;
+			
+		
+		var frameToDamage = 5;
+		if (currentWeapon == mKick)
+			frameToDamage = 3;
 		
 		if (!mCacStarted && currentWeapon != null) {
+			if (currentWeapon != mKick)
+				playAnim("cac");
+			else {
+				var a = Math.random() * 100 - 50;
+				if(a > 0)
+					playAnim("kickL");
+				else
+					playAnim("kickD");
+			}
+		
 			mCacStarted = true;
-			remove(currentWeapon);
+			if(currentWeapon != mKick)
+				remove(currentWeapon);
 		}
 		
-		if (currentWeapon != null && mAnimation.getCurrentFrame() == 5 && !mCacUsed) {
+		if (currentWeapon != null && mAnimation.getCurrentFrame() == frameToDamage && !mCacUsed) {
 			mCacUsed = true;
 			currentWeapon.launch(mHeading);
 			mWorld.addActor(currentWeapon);
@@ -234,8 +257,10 @@ class Hero extends Human
 			
 			if (currentWeapon == mPull)
 				mPull = null;
-			else
+			else if(currentWeapon == mPant)
 				mPant = null;
+			else
+				mKick = new Kick();
 			currentWeapon = null;
 		}
 		
@@ -319,6 +344,10 @@ class Hero extends Human
 			shoe.worldPos.x = worldPos.x + 50 * mHeading;
 			shoe.worldPos.y = worldPos.y;
 			mShoeLaunched = true;
+			if (mHeading > 0)
+				shoe.setAnimation("launchedR");
+			else
+				shoe.setAnimation("launchedL");
 		}
 	}
 	
@@ -337,6 +366,10 @@ class Hero extends Human
 			mCalbut.startAltitude = 120;
 			mCalbut.worldPos.x = worldPos.x + 50 * mHeading;
 			mCalbut.worldPos.y = worldPos.y;
+			if (mHeading > 0)
+				mCalbut.setAnimation("launchedR");
+			else
+				mCalbut.setAnimation("launchedL");
 			mCalbut = null;
 		}
 		

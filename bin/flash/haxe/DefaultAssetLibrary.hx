@@ -125,6 +125,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Hero/pull_strip.png", AssetType.IMAGE);
 		className.set ("img/Hero/pull_strip_flip.png", __ASSET__img_hero_pull_strip_flip_png);
 		type.set ("img/Hero/pull_strip_flip.png", AssetType.IMAGE);
+		className.set ("img/Hero/shoe.png", __ASSET__img_hero_shoe_png);
+		type.set ("img/Hero/shoe.png", AssetType.IMAGE);
 		className.set ("img/Hero/shoeL_cac.png", __ASSET__img_hero_shoel_cac_png);
 		type.set ("img/Hero/shoeL_cac.png", AssetType.IMAGE);
 		className.set ("img/Hero/shoeL_cac_flip.png", __ASSET__img_hero_shoel_cac_flip_png);
@@ -173,6 +175,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Hero/shoeR_strip.png", AssetType.IMAGE);
 		className.set ("img/Hero/shoeR_strip_flip.png", __ASSET__img_hero_shoer_strip_flip_png);
 		type.set ("img/Hero/shoeR_strip_flip.png", AssetType.IMAGE);
+		className.set ("img/Hero/shoe_flip.png", __ASSET__img_hero_shoe_flip_png);
+		type.set ("img/Hero/shoe_flip.png", AssetType.IMAGE);
+		className.set ("img/Hero/slip.png", __ASSET__img_hero_slip_png);
+		type.set ("img/Hero/slip.png", AssetType.IMAGE);
+		className.set ("img/Hero/slip_flip.png", __ASSET__img_hero_slip_flip_png);
+		type.set ("img/Hero/slip_flip.png", AssetType.IMAGE);
 		className.set ("img/Hero/slip_iddle.png", __ASSET__img_hero_slip_iddle_png);
 		type.set ("img/Hero/slip_iddle.png", AssetType.IMAGE);
 		className.set ("img/Hero/slip_iddle_flip.png", __ASSET__img_hero_slip_iddle_flip_png);
@@ -360,6 +368,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/Hero/shoe.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/Hero/shoeL_cac.png";
 		path.set (id, id);
 		
@@ -456,6 +468,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/Hero/shoe_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Hero/slip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Hero/slip_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/Hero/slip_iddle.png";
 		path.set (id, id);
 		
@@ -512,6 +536,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		#if openfl
+		
+		
+		
+		
 		
 		
 		
@@ -715,6 +743,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/Hero/pull_strip_flip.png", __ASSET__img_hero_pull_strip_flip_png);
 		type.set ("img/Hero/pull_strip_flip.png", AssetType.IMAGE);
 		
+		className.set ("img/Hero/shoe.png", __ASSET__img_hero_shoe_png);
+		type.set ("img/Hero/shoe.png", AssetType.IMAGE);
+		
 		className.set ("img/Hero/shoeL_cac.png", __ASSET__img_hero_shoel_cac_png);
 		type.set ("img/Hero/shoeL_cac.png", AssetType.IMAGE);
 		
@@ -786,6 +817,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/Hero/shoeR_strip_flip.png", __ASSET__img_hero_shoer_strip_flip_png);
 		type.set ("img/Hero/shoeR_strip_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Hero/shoe_flip.png", __ASSET__img_hero_shoe_flip_png);
+		type.set ("img/Hero/shoe_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Hero/slip.png", __ASSET__img_hero_slip_png);
+		type.set ("img/Hero/slip.png", AssetType.IMAGE);
+		
+		className.set ("img/Hero/slip_flip.png", __ASSET__img_hero_slip_flip_png);
+		type.set ("img/Hero/slip_flip.png", AssetType.IMAGE);
 		
 		className.set ("img/Hero/slip_iddle.png", __ASSET__img_hero_slip_iddle_png);
 		type.set ("img/Hero/slip_iddle.png", AssetType.IMAGE);
@@ -1460,6 +1500,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_hero_pull_run_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_pull_strip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_pull_strip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hero_shoe_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoel_cac_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoel_cac_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoel_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1484,6 +1525,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoer_run_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoer_strip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoer_strip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hero_shoe_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hero_slip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hero_slip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_iddle_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_kickd_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1498,6 +1542,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
+
+
 
 
 
@@ -1623,6 +1671,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Hero/pull_run_flip.png") #if display private #end class __ASSET__img_hero_pull_run_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/pull_strip.png") #if display private #end class __ASSET__img_hero_pull_strip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/pull_strip_flip.png") #if display private #end class __ASSET__img_hero_pull_strip_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Hero/shoe.png") #if display private #end class __ASSET__img_hero_shoe_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeL_cac.png") #if display private #end class __ASSET__img_hero_shoel_cac_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeL_cac_flip.png") #if display private #end class __ASSET__img_hero_shoel_cac_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeL_iddle.png") #if display private #end class __ASSET__img_hero_shoel_iddle_png extends lime.graphics.Image {}
@@ -1647,6 +1696,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Hero/shoeR_run_flip.png") #if display private #end class __ASSET__img_hero_shoer_run_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeR_strip.png") #if display private #end class __ASSET__img_hero_shoer_strip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeR_strip_flip.png") #if display private #end class __ASSET__img_hero_shoer_strip_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Hero/shoe_flip.png") #if display private #end class __ASSET__img_hero_shoe_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Hero/slip.png") #if display private #end class __ASSET__img_hero_slip_png extends lime.graphics.Image {}
+@:image("assets/img/Hero/slip_flip.png") #if display private #end class __ASSET__img_hero_slip_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_iddle.png") #if display private #end class __ASSET__img_hero_slip_iddle_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_iddle_flip.png") #if display private #end class __ASSET__img_hero_slip_iddle_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_kickD.png") #if display private #end class __ASSET__img_hero_slip_kickd_png extends lime.graphics.Image {}

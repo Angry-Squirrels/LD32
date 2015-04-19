@@ -62,6 +62,9 @@ class Shoe extends Weapon
 		
 		var cacLAnim = new Animation(new SpriteSheet("Hero/shoe" + mSide + "_cac_flip", 140, 180, 35, 0), null, 12, false);
 		addAnimation("cacL", cacLAnim);
+		
+		addAnimation("launchedR", new Animation(new SpriteSheet("Hero/shoe", 34, 36 )));
+		addAnimation("launchedL", new Animation(new SpriteSheet("Hero/shoe_flip", 34, 36 )));
 	}
 	
 }

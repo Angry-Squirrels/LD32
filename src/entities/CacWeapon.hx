@@ -50,12 +50,10 @@ class CacWeapon extends Weapon
 		}
 	}
 	
-	override function draw(buffer:BitmapData, dest:Vec2) 
+	/*override function draw(buffer:BitmapData, dest:Vec2) 
 	{
-		if(!mUseWorldCoord)
-			super.draw(buffer, dest);
-		else 
-			buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0xffff00);
-	}
+		buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0xffff00);
+		super.draw(buffer, dest);
+	}*/
 	
 }

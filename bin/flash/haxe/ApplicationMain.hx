@@ -194,6 +194,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/Hero/shoe.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/Hero/shoeL_cac.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -287,6 +291,18 @@ class ApplicationMain {
 		
 		
 		urls.push ("img/Hero/shoeR_strip_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/shoe_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/slip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Hero/slip_flip.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		

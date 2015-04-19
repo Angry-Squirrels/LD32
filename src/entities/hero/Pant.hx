@@ -3,6 +3,8 @@ import core.Animation;
 import core.SpriteSheet;
 import entities.CacWeapon;
 import entities.Weapon;
+import geom.Vec2;
+import openfl.display.BitmapData;
 
 /**
  * ...
@@ -51,6 +53,12 @@ class Pant extends CacWeapon
 		
 		var cacLAnim = new Animation(new SpriteSheet("Hero/pants_cac_flip", 140, 180, 35, 0), null, 12, false);
 		addAnimation("cacL", cacLAnim);
+	}
+	
+	override function draw(buffer:BitmapData, dest:Vec2) 
+	{
+		if(!mLaunched)
+			super.draw(buffer, dest);
 	}
 	
 }
