@@ -20,6 +20,8 @@
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
 	<assets path="assets/img" rename="img" />
+	<assets path="assets/sounds" rename="sounds" exclude="*.mp3" if="html5" />
+	<assets path="assets/sounds" rename="sounds" exclude="*.ogg" if="flash" />
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->

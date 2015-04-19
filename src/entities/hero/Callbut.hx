@@ -19,6 +19,8 @@ class Callbut extends Weapon
 		
 		mDamage = 5;
 		
+		mExplode = true;
+		
 		initAnimations();
 	}
 	

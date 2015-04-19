@@ -10,9 +10,13 @@ import entities.ennemies.Ennemy;
 import entities.ennemies.EnnemyManager;
 import entities.World;
 import geom.Vec2;
+import openfl.Assets;
 import openfl.display.Shape;
 import openfl.geom.Rectangle;
 import openfl.display.BitmapData;
+import openfl.media.Sound;
+import openfl.media.SoundChannel;
+import openfl.media.SoundTransform;
 
 /**
  * ...
@@ -38,6 +42,9 @@ class GameScreen extends Screen
 	var mGameOverTimer:Float;
 	var mGameOverDelay : Float = 1.0;
 	var mGameOverTimerStarted:Bool;
+	
+	var mMusic : Sound;
+	var mMusicSoundChannel : SoundChannel;
 
 	public function new() 
 	{
@@ -50,6 +57,15 @@ class GameScreen extends Screen
 		mMaxScroll = 0;
 		
 		mGameOverTimer = 0;
+		
+		#if html5
+		mMusic = Assets.getSound("sounds/Blown Away.ogg");
+		#elseif flash
+		mMusic = Assets.getSound("sounds/Blown Away.mp3");
+		#end
+		var soundTransform = new SoundTransform();
+		soundTransform.volume = 0.05;
+		mMusicSoundChannel = mMusic.play(0, 10000000, soundTransform);
 		
 		mHud = new HUD();
 		
@@ -89,8 +105,10 @@ class GameScreen extends Screen
 		
 		if (mGameOverTimerStarted) {
 			mGameOverTimer += delta;
-			if (mGameOverTimer > mGameOverDelay)
+			if (mGameOverTimer > mGameOverDelay){
 				mGame.gotoScreen(new GameOver());
+				mMusicSoundChannel.stop();
+			}
 		}
 	}
 	

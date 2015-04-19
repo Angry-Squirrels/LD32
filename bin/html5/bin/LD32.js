@@ -52,10 +52,40 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Flic/flic_attack_flip.png");
 	types.push("IMAGE");
+	urls.push("img/Flic/flic_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Flic/flic_iddle_flip.png");
+	types.push("IMAGE");
 	urls.push("img/Flic/flic_walk.png");
 	types.push("IMAGE");
 	urls.push("img/Flic/flic_walk_flip.png");
 	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0001.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0002.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0003.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0004.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0005.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0006.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0007.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0008.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0009.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0010.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom/booom0011.png");
+	types.push("IMAGE");
+	urls.push("img/FX/boom.png");
+	types.push("IMAGE");
+	urls.push("img/FX/booom.fla");
+	types.push("BINARY");
 	urls.push("img/Hero/franky_cac.png");
 	types.push("IMAGE");
 	urls.push("img/Hero/franky_cac_flip.png");
@@ -212,6 +242,8 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Hero/slip_strip_flip.png");
 	types.push("IMAGE");
+	urls.push("img/hud/credits.png");
+	types.push("IMAGE");
 	urls.push("img/hud/GO.png");
 	types.push("IMAGE");
 	urls.push("img/Punk/punk_attack.png");
@@ -234,6 +266,8 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Punk/punk_walk_flip.png");
 	types.push("IMAGE");
+	urls.push("sounds/Blown Away.ogg");
+	types.push("MUSIC");
 	if(ApplicationMain.config.assetsPrefix != null) {
 		var _g1 = 0;
 		var _g = urls.length;
@@ -1280,12 +1314,57 @@ var DefaultAssetLibrary = function() {
 	id = "img/Flic/flic_attack_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "img/Flic/flic_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Flic/flic_iddle_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Flic/flic_walk.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/Flic/flic_walk_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0001.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0002.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0003.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0004.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0005.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0006.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0007.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0008.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0009.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0010.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom/booom0011.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/boom.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/booom.fla";
+	this.path.set(id,id);
+	this.type.set(id,"BINARY");
 	id = "img/Hero/franky_cac.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -1520,6 +1599,9 @@ var DefaultAssetLibrary = function() {
 	id = "img/Hero/slip_strip_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "img/hud/credits.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/hud/GO.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -1553,6 +1635,9 @@ var DefaultAssetLibrary = function() {
 	id = "img/Punk/punk_walk_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "sounds/Blown Away.ogg";
+	this.path.set(id,id);
+	this.type.set(id,"MUSIC");
 	var assetsPrefix = ApplicationMain.config.assetsPrefix;
 	if(assetsPrefix != null) {
 		var $it0 = this.path.keys();
@@ -2394,6 +2479,9 @@ entities_Actor.prototype = $extend(core_Entity.prototype,{
 			}
 		}
 	}
+	,draw: function(buffer,dest) {
+		core_Entity.prototype.draw.call(this,buffer,dest);
+	}
 	,hitTest: function(a,b) {
 		return geom_Vec2.Dist(a.worldPos,b.worldPos) < a.getDim().x / 2 + b.getDim().x / 2;
 	}
@@ -2523,7 +2611,7 @@ entities_Weapon.prototype = $extend(entities_AnimatedActor.prototype,{
 		}
 	}
 	,explode: function() {
-		core_Camera.instance.shake(5,200);
+		if(!this.mExplode) core_Camera.instance.shake(5,200); else core_Camera.instance.shake(5,500);
 		this.destroy();
 	}
 	,synchronize: function(frame) {
@@ -2532,6 +2620,16 @@ entities_Weapon.prototype = $extend(entities_AnimatedActor.prototype,{
 	,setAnimation: function(anim) {
 		entities_AnimatedActor.prototype.setAnimation.call(this,anim);
 		if(this.mAnimation != null) this.mAnimation.stop();
+	}
+	,destroy: function() {
+		if(this.mExplode) {
+			var p = this.parent;
+			if(p != null) {
+				var e = new entities_Explosion(this);
+				p.addActor(e);
+			}
+		}
+		entities_AnimatedActor.prototype.destroy.call(this);
 	}
 	,__class__: entities_Weapon
 });
@@ -2564,6 +2662,29 @@ entities_CacWeapon.prototype = $extend(entities_Weapon.prototype,{
 		}
 	}
 	,__class__: entities_CacWeapon
+});
+var entities_Explosion = function(actor) {
+	entities_AnimatedActor.call(this,"Explosion");
+	this.mDim.x = 267;
+	this.mDim.y = 282;
+	this.solid = false;
+	this.worldPos.copy(actor.worldPos);
+	this.worldPos.y += this.mDim.y / 2;
+	this.pos.x = this.worldPos.x;
+	this.pos.y = this.worldPos.y * 0.5 - this.mDim.y;
+	var anim = new core_Animation(new core_SpriteSheet("FX/boom",267,282),null,12,false);
+	this.addAnimation("explode",anim);
+	anim.onFinished = $bind(this,this.destroy);
+	this.setAnimation("explode");
+};
+$hxClasses["entities.Explosion"] = entities_Explosion;
+entities_Explosion.__name__ = ["entities","Explosion"];
+entities_Explosion.__super__ = entities_AnimatedActor;
+entities_Explosion.prototype = $extend(entities_AnimatedActor.prototype,{
+	draw: function(buffer,dest) {
+		entities_AnimatedActor.prototype.draw.call(this,buffer,dest);
+	}
+	,__class__: entities_Explosion
 });
 var entities_Human = function(name) {
 	entities_AnimatedActor.call(this,name);
@@ -2742,7 +2863,7 @@ entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
 				this.mXAxis = 0;
 				this.mYAxis = 0;
 				this.mAttackTimer += delta;
-				if(this.mAttackTimer >= this.mAttackRate) {
+				if(this.mAttackTimer >= this.mAttackRate && !this.mTarget.isDead()) {
 					this.attack();
 					this.mDamageDealt = false;
 					this.mAttackTimer = 0;
@@ -2806,7 +2927,9 @@ var entities_ennemies_EnnemyManager = function(hero,world) {
 	this.mWorld = world;
 	this.mGame = core_Game.getInstance();
 	this.mFlic = new entities_ennemies_Flic();
-	this.mWorld.add(this.mFlic);
+	this.mWorld.addActor(this.mFlic);
+	this.mFlic.worldPos.x = 400;
+	this.mFlic.worldPos.y = 600.;
 	this.mFlic.setTarget(this.mHero);
 	this.mFlic.setState(($_=this.mFlic,$bind($_,$_.getClose)));
 	this.mEnnemies = [];
@@ -2864,7 +2987,7 @@ entities_ennemies_EnnemyManager.prototype = {
 		while(_g2 < _g11.length) {
 			var a1 = _g11[_g2];
 			++_g2;
-			if(a1.isDead()) haxe_Log.trace("putain",{ fileName : "EnnemyManager.hx", lineNumber : 112, className : "entities.ennemies.EnnemyManager", methodName : "update"});
+			if(a1.isDead()) haxe_Log.trace("putain",{ fileName : "EnnemyManager.hx", lineNumber : 114, className : "entities.ennemies.EnnemyManager", methodName : "update"});
 		}
 	}
 	,getEnnemiesAlive: function() {
@@ -2874,6 +2997,8 @@ entities_ennemies_EnnemyManager.prototype = {
 };
 var entities_ennemies_Flic = function() {
 	entities_ennemies_Ennemy.call(this,"Flic");
+	this.mMoveSpeed = 40;
+	this.mAttackRate = 0.1;
 	this.initAnimations();
 };
 $hxClasses["entities.ennemies.Flic"] = entities_ennemies_Flic;
@@ -2881,10 +3006,12 @@ entities_ennemies_Flic.__name__ = ["entities","ennemies","Flic"];
 entities_ennemies_Flic.__super__ = entities_ennemies_Ennemy;
 entities_ennemies_Flic.prototype = $extend(entities_ennemies_Ennemy.prototype,{
 	pursuit: function(delta) {
-		this.mMoveSpeed = 70;
+		this.mMoveSpeed = 60;
 		this.attacking(delta);
 	}
 	,initAnimations: function() {
+		this.addAnimation("iddleR",new core_Animation(new core_SpriteSheet("Flic/flic_iddle",140,180,35,0)));
+		this.addAnimation("iddleL",new core_Animation(new core_SpriteSheet("Flic/flic_iddle_flip",140,180,35,0)));
 		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Flic/flic_walk",140,180,35,0)));
 		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Flic/flic_walk_flip",140,180,35,0)));
 		var attackRAnim = new core_Animation(new core_SpriteSheet("Flic/flic_attack",140,180,35,0),null,12,false);
@@ -2893,6 +3020,8 @@ entities_ennemies_Flic.prototype = $extend(entities_ennemies_Ennemy.prototype,{
 		var attackLAnim = new core_Animation(new core_SpriteSheet("Flic/flic_attack_flip",140,180,35,0),null,12,false);
 		this.addAnimation("attackL",attackLAnim);
 		attackLAnim.onFinished = $bind(this,this.normalAnim);
+	}
+	,takeDamage: function(amount,source) {
 	}
 	,__class__: entities_ennemies_Flic
 });
@@ -2929,6 +3058,7 @@ entities_ennemies_Punk.prototype = $extend(entities_ennemies_Ennemy.prototype,{
 var entities_hero_Callbut = function() {
 	entities_Weapon.call(this,"Callbut");
 	this.mDamage = 5;
+	this.mExplode = true;
 	this.initAnimations();
 };
 $hxClasses["entities.hero.Callbut"] = entities_hero_Callbut;
@@ -3217,6 +3347,10 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		}
 	}
 	,takeDamage: function(amount,source) {
+		if(js_Boot.__instanceof(source,entities_ennemies_Flic)) {
+			this.die();
+			return;
+		}
 		entities_Human.prototype.takeDamage.call(this,amount,source);
 		this.mGame.flash(16724787,0.05);
 		core_Camera.instance.shake(10,200);
@@ -3238,9 +3372,16 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 	,die: function() {
 		this.mLife = 0;
 		this.mCurrentState = $bind(this,this.deadState);
+		this.playAnim("catch");
 	}
 	,deadState: function(delta) {
 		this.mMoveSpeed = 0;
+	}
+	,onCatched: function() {
+		this.mCatched = true;
+	}
+	,isCaught: function() {
+		return this.mCatched;
 	}
 	,initAnimations: function() {
 		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/franky_iddle",140,180,35,0)));
@@ -3277,6 +3418,12 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		var cacLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_cac_flip",140,180,35,0),null,12,false);
 		cacLAnim.onFinished = $bind(this,this.setNormalState);
 		this.addAnimation("cacL",cacLAnim);
+		var catchRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_catch",140,180,35,0),null,12,false);
+		catchRAnim.onFinished = $bind(this,this.onCatched);
+		this.addAnimation("catchR",catchRAnim);
+		var catchLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_catch_flip",140,180,35,0),null,12,false);
+		catchLAnim.onFinished = $bind(this,this.onCatched);
+		this.addAnimation("catchL",catchLAnim);
 	}
 	,__class__: entities_hero_Hero
 });
@@ -3360,6 +3507,7 @@ var entities_hero_Shoe = function(side) {
 	this.mDim.x = 20;
 	this.mDim.y = 20;
 	this.mDamage = 3;
+	this.mExplode = true;
 	this.mSide = side;
 	this.initAnimations();
 };
@@ -25997,7 +26145,26 @@ openfl_ui_Keyboard.__getCharCode = function(key,shift) {
 	}
 	return 0;
 };
+var screens_GameOver = function() {
+	core_Screen.call(this);
+	core_Game.getInstance().flash(0,1.0);
+	this.credits = openfl_Assets.getBitmapData("img/hud/credits.png");
+	openfl_Lib.current.stage.addEventListener(openfl_events_KeyboardEvent.KEY_DOWN,$bind(this,this.onKeyDown));
+};
+$hxClasses["screens.GameOver"] = screens_GameOver;
+screens_GameOver.__name__ = ["screens","GameOver"];
+screens_GameOver.__super__ = core_Screen;
+screens_GameOver.prototype = $extend(core_Screen.prototype,{
+	onKeyDown: function(e) {
+		if(e.keyCode == 82) core_Game.getInstance().gotoScreen(new screens_GameScreen());
+	}
+	,draw: function(buffer,dest) {
+		buffer.copyPixels(this.credits,new openfl_geom_Rectangle(0,0,800,480),new openfl_geom_Point(0,0));
+	}
+	,__class__: screens_GameOver
+});
 var screens_GameScreen = function() {
+	this.mGameOverDelay = 1.0;
 	this.mCurrentWave = 1;
 	this.mZonoeSize = 1000;
 	core_Screen.call(this);
@@ -26005,6 +26172,11 @@ var screens_GameScreen = function() {
 	this.mHero = new entities_hero_Hero(this.mWorld);
 	this.mEnnemyManager = new entities_ennemies_EnnemyManager(this.mHero,this.mWorld);
 	this.mMaxScroll = 0;
+	this.mGameOverTimer = 0;
+	this.mMusic = openfl_Assets.getSound("sounds/Blown Away.ogg");
+	var soundTransform = new openfl_media_SoundTransform();
+	soundTransform.volume = 0.05;
+	this.mMusicSoundChannel = this.mMusic.play(0,10000000,soundTransform);
 	this.mHud = new entities_hud_HUD();
 	this.add(this.mWorld);
 	this.mGame = core_Game.getInstance();
@@ -26025,6 +26197,14 @@ screens_GameScreen.prototype = $extend(core_Screen.prototype,{
 		} else if(this.mEnnemyManager.getEnnemiesAlive() <= 0) this.mHud.showNext();
 		if(this.mHero.worldPos.x < 0) this.mHero.worldPos.x = 0;
 		if(this.mHero.worldPos.x + this.mHero.getDim().x > this.mMaxScroll) this.mHero.worldPos.x = this.mMaxScroll - this.mHero.getDim().x;
+		if(this.mHero.isCaught() && !this.mGameOverTimerStarted) this.mGameOverTimerStarted = true;
+		if(this.mGameOverTimerStarted) {
+			this.mGameOverTimer += delta;
+			if(this.mGameOverTimer > this.mGameOverDelay) {
+				this.mGame.gotoScreen(new screens_GameOver());
+				this.mMusicSoundChannel.stop();
+			}
+		}
 	}
 	,nextWave: function() {
 		this.mEnnemyManager.spawnPunk(this.mCurrentWave);
@@ -26036,6 +26216,14 @@ screens_GameScreen.prototype = $extend(core_Screen.prototype,{
 			this.mMaxScroll = scroll;
 			this.mWorld.generateBuilding(this.mMaxScroll);
 		}
+	}
+	,_draw: function(buffer,dest) {
+		core_Screen.prototype._draw.call(this,buffer,dest);
+		if(this.mFadeSquare == null) this.mFadeSquare = new openfl_display_Shape();
+		this.mFadeSquare.get_graphics().clear();
+		this.mFadeSquare.get_graphics().beginFill(0,this.mGameOverTimer);
+		this.mFadeSquare.get_graphics().drawRect(0,0,800,480);
+		buffer.draw(this.mFadeSquare);
 	}
 	,__class__: screens_GameScreen
 });

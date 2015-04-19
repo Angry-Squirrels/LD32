@@ -19,16 +19,21 @@ class Flic extends Ennemy
 		
 		mMoveSpeed = 40;
 		
+		mAttackRate = 0.1;
+		
 		initAnimations();
 	}
 	
 	public function pursuit(delta : Float) {
-		mMoveSpeed = 70;
+		mMoveSpeed = 60;
 		attacking(delta);
 	}
 	
 	function initAnimations() 
 	{
+		addAnimation("iddleR", new Animation(new SpriteSheet("Flic/flic_iddle", 140, 180, 35, 0)));
+		addAnimation("iddleL", new Animation(new SpriteSheet("Flic/flic_iddle_flip", 140, 180, 35, 0)));
+		
 		addAnimation("walkR", new Animation(new SpriteSheet("Flic/flic_walk", 140, 180, 35, 0)));
 		addAnimation("walkL", new Animation(new SpriteSheet("Flic/flic_walk_flip", 140, 180, 35, 0)));
 		

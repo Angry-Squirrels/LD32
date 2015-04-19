@@ -4,6 +4,7 @@ import core.Entity;
 import core.Game;
 import core.SpriteSheet;
 import geom.Vec2;
+import openfl.display.BitmapData;
 
 /**
  * ...
@@ -91,6 +92,11 @@ class Actor extends Entity
 				}
 			}
 			
+	}
+	
+	override function draw(buffer:BitmapData, dest:Vec2) 
+	{
+		super.draw(buffer, dest);
 	}
 	
 	public function hitTest(a : Actor, b : Actor) : Bool {

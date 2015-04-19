@@ -14,6 +14,8 @@ class Weapon extends AnimatedActor
 	var mFalled : Float;
 	var mZVel : Float = 0;
 	var mGravity : Float = 40;
+	var mExplode : Bool;
+	
 	public var startAltitude : Float;
 
 	public function new(name : String) 
@@ -73,7 +75,10 @@ class Weapon extends AnimatedActor
 	}
 	
 	function explode() {
-		Camera.instance.shake(5, 200);
+		if(!mExplode)
+			Camera.instance.shake(5, 200);
+		else
+			Camera.instance.shake(5, 500);
 		destroy();	
 	}
 	
@@ -87,6 +92,18 @@ class Weapon extends AnimatedActor
 		super.setAnimation(anim);
 		if(mAnimation != null)
 			mAnimation.stop();
+	}
+	
+	override public function destroy() 
+	{
+		if(mExplode){
+			var p : World = cast parent;
+			if (p != null) {
+				var e : Explosion = new Explosion(this);
+				p.addActor(e);
+			}
+		}
+		super.destroy();
 	}
 	
 }

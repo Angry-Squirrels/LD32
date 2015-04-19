@@ -3,10 +3,13 @@ import core.Animation;
 import core.Camera;
 import core.SpriteSheet;
 import entities.Actor;
+import entities.Explosion;
 import entities.Weapon;
+import entities.World;
 import geom.Vec2;
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
+import screens.GameScreen;
 
 /**
  * ...
@@ -25,6 +28,8 @@ class Shoe extends Weapon
 		mDim.y = 20;
 		
 		mDamage = 3;
+		
+		mExplode = true;
 		
 		mSide = side;
 		

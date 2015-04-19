@@ -71,10 +71,40 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Flic/flic_attack.png", AssetType.IMAGE);
 		className.set ("img/Flic/flic_attack_flip.png", __ASSET__img_flic_flic_attack_flip_png);
 		type.set ("img/Flic/flic_attack_flip.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_iddle.png", __ASSET__img_flic_flic_iddle_png);
+		type.set ("img/Flic/flic_iddle.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_iddle_flip.png", __ASSET__img_flic_flic_iddle_flip_png);
+		type.set ("img/Flic/flic_iddle_flip.png", AssetType.IMAGE);
 		className.set ("img/Flic/flic_walk.png", __ASSET__img_flic_flic_walk_png);
 		type.set ("img/Flic/flic_walk.png", AssetType.IMAGE);
 		className.set ("img/Flic/flic_walk_flip.png", __ASSET__img_flic_flic_walk_flip_png);
 		type.set ("img/Flic/flic_walk_flip.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0001.png", __ASSET__img_fx_boom_booom0001_png);
+		type.set ("img/FX/boom/booom0001.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0002.png", __ASSET__img_fx_boom_booom0002_png);
+		type.set ("img/FX/boom/booom0002.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0003.png", __ASSET__img_fx_boom_booom0003_png);
+		type.set ("img/FX/boom/booom0003.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0004.png", __ASSET__img_fx_boom_booom0004_png);
+		type.set ("img/FX/boom/booom0004.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0005.png", __ASSET__img_fx_boom_booom0005_png);
+		type.set ("img/FX/boom/booom0005.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0006.png", __ASSET__img_fx_boom_booom0006_png);
+		type.set ("img/FX/boom/booom0006.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0007.png", __ASSET__img_fx_boom_booom0007_png);
+		type.set ("img/FX/boom/booom0007.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0008.png", __ASSET__img_fx_boom_booom0008_png);
+		type.set ("img/FX/boom/booom0008.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0009.png", __ASSET__img_fx_boom_booom0009_png);
+		type.set ("img/FX/boom/booom0009.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0010.png", __ASSET__img_fx_boom_booom0010_png);
+		type.set ("img/FX/boom/booom0010.png", AssetType.IMAGE);
+		className.set ("img/FX/boom/booom0011.png", __ASSET__img_fx_boom_booom0011_png);
+		type.set ("img/FX/boom/booom0011.png", AssetType.IMAGE);
+		className.set ("img/FX/boom.png", __ASSET__img_fx_boom_png);
+		type.set ("img/FX/boom.png", AssetType.IMAGE);
+		className.set ("img/FX/booom.fla", __ASSET__img_fx_booom_fla);
+		type.set ("img/FX/booom.fla", AssetType.BINARY);
 		className.set ("img/Hero/franky_cac.png", __ASSET__img_hero_franky_cac_png);
 		type.set ("img/Hero/franky_cac.png", AssetType.IMAGE);
 		className.set ("img/Hero/franky_cac_flip.png", __ASSET__img_hero_franky_cac_flip_png);
@@ -231,6 +261,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Hero/slip_strip.png", AssetType.IMAGE);
 		className.set ("img/Hero/slip_strip_flip.png", __ASSET__img_hero_slip_strip_flip_png);
 		type.set ("img/Hero/slip_strip_flip.png", AssetType.IMAGE);
+		className.set ("img/hud/credits.png", __ASSET__img_hud_credits_png);
+		type.set ("img/hud/credits.png", AssetType.IMAGE);
 		className.set ("img/hud/GO.png", __ASSET__img_hud_go_png);
 		type.set ("img/hud/GO.png", AssetType.IMAGE);
 		className.set ("img/Punk/punk_attack.png", __ASSET__img_punk_punk_attack_png);
@@ -253,6 +285,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Punk/punk_walk.png", AssetType.IMAGE);
 		className.set ("img/Punk/punk_walk_flip.png", __ASSET__img_punk_punk_walk_flip_png);
 		type.set ("img/Punk/punk_walk_flip.png", AssetType.IMAGE);
+		className.set ("sounds/Blown Away.ogg", __ASSET__sounds_blown_away_ogg);
+		type.set ("sounds/Blown Away.ogg", AssetType.MUSIC);
 		
 		
 		#elseif html5
@@ -310,6 +344,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_iddle.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_iddle_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/Flic/flic_walk.png";
 		path.set (id, id);
 		
@@ -318,6 +360,58 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0001.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0002.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0003.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0004.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0005.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0006.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0007.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0008.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0009.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0010.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom/booom0011.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/boom.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/FX/booom.fla";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
 		id = "img/Hero/franky_cac.png";
 		path.set (id, id);
 		
@@ -630,6 +724,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/hud/credits.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/hud/GO.png";
 		path.set (id, id);
 		
@@ -674,6 +772,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "sounds/Blown Away.ogg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
 		
 		
 		var assetsPrefix = ApplicationMain.config.assetsPrefix;
@@ -686,6 +788,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		#if openfl
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -837,11 +956,56 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/Flic/flic_attack_flip.png", __ASSET__img_flic_flic_attack_flip_png);
 		type.set ("img/Flic/flic_attack_flip.png", AssetType.IMAGE);
 		
+		className.set ("img/Flic/flic_iddle.png", __ASSET__img_flic_flic_iddle_png);
+		type.set ("img/Flic/flic_iddle.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_iddle_flip.png", __ASSET__img_flic_flic_iddle_flip_png);
+		type.set ("img/Flic/flic_iddle_flip.png", AssetType.IMAGE);
+		
 		className.set ("img/Flic/flic_walk.png", __ASSET__img_flic_flic_walk_png);
 		type.set ("img/Flic/flic_walk.png", AssetType.IMAGE);
 		
 		className.set ("img/Flic/flic_walk_flip.png", __ASSET__img_flic_flic_walk_flip_png);
 		type.set ("img/Flic/flic_walk_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0001.png", __ASSET__img_fx_boom_booom0001_png);
+		type.set ("img/FX/boom/booom0001.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0002.png", __ASSET__img_fx_boom_booom0002_png);
+		type.set ("img/FX/boom/booom0002.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0003.png", __ASSET__img_fx_boom_booom0003_png);
+		type.set ("img/FX/boom/booom0003.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0004.png", __ASSET__img_fx_boom_booom0004_png);
+		type.set ("img/FX/boom/booom0004.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0005.png", __ASSET__img_fx_boom_booom0005_png);
+		type.set ("img/FX/boom/booom0005.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0006.png", __ASSET__img_fx_boom_booom0006_png);
+		type.set ("img/FX/boom/booom0006.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0007.png", __ASSET__img_fx_boom_booom0007_png);
+		type.set ("img/FX/boom/booom0007.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0008.png", __ASSET__img_fx_boom_booom0008_png);
+		type.set ("img/FX/boom/booom0008.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0009.png", __ASSET__img_fx_boom_booom0009_png);
+		type.set ("img/FX/boom/booom0009.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0010.png", __ASSET__img_fx_boom_booom0010_png);
+		type.set ("img/FX/boom/booom0010.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom/booom0011.png", __ASSET__img_fx_boom_booom0011_png);
+		type.set ("img/FX/boom/booom0011.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/boom.png", __ASSET__img_fx_boom_png);
+		type.set ("img/FX/boom.png", AssetType.IMAGE);
+		
+		className.set ("img/FX/booom.fla", __ASSET__img_fx_booom_fla);
+		type.set ("img/FX/booom.fla", AssetType.BINARY);
 		
 		className.set ("img/Hero/franky_cac.png", __ASSET__img_hero_franky_cac_png);
 		type.set ("img/Hero/franky_cac.png", AssetType.IMAGE);
@@ -1077,6 +1241,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/Hero/slip_strip_flip.png", __ASSET__img_hero_slip_strip_flip_png);
 		type.set ("img/Hero/slip_strip_flip.png", AssetType.IMAGE);
 		
+		className.set ("img/hud/credits.png", __ASSET__img_hud_credits_png);
+		type.set ("img/hud/credits.png", AssetType.IMAGE);
+		
 		className.set ("img/hud/GO.png", __ASSET__img_hud_go_png);
 		type.set ("img/hud/GO.png", AssetType.IMAGE);
 		
@@ -1109,6 +1276,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/Punk/punk_walk_flip.png", __ASSET__img_punk_punk_walk_flip_png);
 		type.set ("img/Punk/punk_walk_flip.png", AssetType.IMAGE);
+		
+		className.set ("sounds/Blown Away.ogg", __ASSET__sounds_blown_away_ogg);
+		type.set ("sounds/Blown Away.ogg", AssetType.MUSIC);
 		
 		
 		if (useManifest) {
@@ -1723,8 +1893,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_flic_flic_attack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_flic_flic_attack_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_iddle_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_flic_flic_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_flic_flic_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0001_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0002_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0003_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0004_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0005_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0006_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0007_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0008_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0009_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0010_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_booom0011_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_boom_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_fx_booom_fla extends null { }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_cac_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_cac_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_catch_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1803,6 +1988,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_run_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_strip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_strip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hud_credits_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hud_go_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_punk_punk_attack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_punk_punk_attack_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1814,9 +2000,27 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_punk_punk_iddle_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_punk_punk_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_punk_punk_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__sounds_blown_away_ogg extends null { }
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1944,8 +2148,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Boss/boss_walk_flip.png") #if display private #end class __ASSET__img_boss_boss_walk_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Flic/flic_attack.png") #if display private #end class __ASSET__img_flic_flic_attack_png extends lime.graphics.Image {}
 @:image("assets/img/Flic/flic_attack_flip.png") #if display private #end class __ASSET__img_flic_flic_attack_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_iddle.png") #if display private #end class __ASSET__img_flic_flic_iddle_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_iddle_flip.png") #if display private #end class __ASSET__img_flic_flic_iddle_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Flic/flic_walk.png") #if display private #end class __ASSET__img_flic_flic_walk_png extends lime.graphics.Image {}
 @:image("assets/img/Flic/flic_walk_flip.png") #if display private #end class __ASSET__img_flic_flic_walk_flip_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0001.png") #if display private #end class __ASSET__img_fx_boom_booom0001_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0002.png") #if display private #end class __ASSET__img_fx_boom_booom0002_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0003.png") #if display private #end class __ASSET__img_fx_boom_booom0003_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0004.png") #if display private #end class __ASSET__img_fx_boom_booom0004_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0005.png") #if display private #end class __ASSET__img_fx_boom_booom0005_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0006.png") #if display private #end class __ASSET__img_fx_boom_booom0006_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0007.png") #if display private #end class __ASSET__img_fx_boom_booom0007_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0008.png") #if display private #end class __ASSET__img_fx_boom_booom0008_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0009.png") #if display private #end class __ASSET__img_fx_boom_booom0009_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0010.png") #if display private #end class __ASSET__img_fx_boom_booom0010_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom/booom0011.png") #if display private #end class __ASSET__img_fx_boom_booom0011_png extends lime.graphics.Image {}
+@:image("assets/img/FX/boom.png") #if display private #end class __ASSET__img_fx_boom_png extends lime.graphics.Image {}
+@:file("assets/img/FX/booom.fla") #if display private #end class __ASSET__img_fx_booom_fla extends lime.utils.ByteArray {}
 @:image("assets/img/Hero/franky_cac.png") #if display private #end class __ASSET__img_hero_franky_cac_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/franky_cac_flip.png") #if display private #end class __ASSET__img_hero_franky_cac_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/franky_catch.png") #if display private #end class __ASSET__img_hero_franky_catch_png extends lime.graphics.Image {}
@@ -2024,6 +2243,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Hero/slip_run_flip.png") #if display private #end class __ASSET__img_hero_slip_run_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_strip.png") #if display private #end class __ASSET__img_hero_slip_strip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_strip_flip.png") #if display private #end class __ASSET__img_hero_slip_strip_flip_png extends lime.graphics.Image {}
+@:image("assets/img/hud/credits.png") #if display private #end class __ASSET__img_hud_credits_png extends lime.graphics.Image {}
 @:image("assets/img/hud/GO.png") #if display private #end class __ASSET__img_hud_go_png extends lime.graphics.Image {}
 @:image("assets/img/Punk/punk_attack.png") #if display private #end class __ASSET__img_punk_punk_attack_png extends lime.graphics.Image {}
 @:image("assets/img/Punk/punk_attack_flip.png") #if display private #end class __ASSET__img_punk_punk_attack_flip_png extends lime.graphics.Image {}
@@ -2035,6 +2255,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Punk/punk_iddle_flip.png") #if display private #end class __ASSET__img_punk_punk_iddle_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Punk/punk_walk.png") #if display private #end class __ASSET__img_punk_punk_walk_png extends lime.graphics.Image {}
 @:image("assets/img/Punk/punk_walk_flip.png") #if display private #end class __ASSET__img_punk_punk_walk_flip_png extends lime.graphics.Image {}
+@:file("assets/sounds/Blown Away.ogg") #if display private #end class __ASSET__sounds_blown_away_ogg extends lime.utils.ByteArray {}
 
 
 
