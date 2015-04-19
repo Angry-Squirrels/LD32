@@ -1,5 +1,6 @@
 package entities.hero;
 import core.Animation;
+import core.Camera;
 import core.Entity;
 import core.SpriteSheet;
 import entities.Actor;
@@ -29,7 +30,6 @@ class Hero extends Human
 	var mPull : Pull;
 	var mKick : Kick;
 	
-	var mHeading : Int;
 	var mWorld : World;
 	var mShoeLaunched = false;
 	
@@ -50,9 +50,7 @@ class Hero extends Human
 		mWorld = world;
 		
 		mKick = new Kick();
-		
-		mHeading = 1;
-		
+	
 		initClothes();
 		giveClothes();
 		
@@ -76,6 +74,7 @@ class Hero extends Human
 		giveCallbut();
 		givePant();
 		givePull();
+		mLife = 5;
 	}
 	
 	public function giveShoe() {
@@ -125,13 +124,8 @@ class Hero extends Human
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 	}
 	
-	function playAnim(name : String) {
-		if (mHeading > 0)
-			name += "R";
-		else
-			name += "L";
-			
-		setAnimation(name);
+	override function playAnim(name : String) : String{
+		name = super.playAnim(name);
 		
 		if (mCalbut != null) 
 			mCalbut.setAnimation(name);
@@ -142,7 +136,9 @@ class Hero extends Human
 		if (mPant != null)
 			mPant.setAnimation(name);
 			
-		for(shoe in mShoes) shoe.setAnimation(name);
+		for (shoe in mShoes) shoe.setAnimation(name);
+		
+		return name;
 	}
 	
 	function onKeyUp(e:KeyboardEvent):Void 
@@ -169,6 +165,8 @@ class Hero extends Human
 	
 	function onKeyDown(e:KeyboardEvent):Void 
 	{
+		if (isDead()) return; 
+		
 		switch (e.keyCode) {
 			case Keyboard.C :
 				if(!mCDown){
@@ -423,6 +421,43 @@ class Hero extends Human
 			if (worldPos.y < actor.worldPos.y)
 				mLastStripableBody = actor;
 		}
+	}
+	
+	override public function takeDamage(amount:Int, source:Actor) 
+	{
+		super.takeDamage(amount, source);
+		
+		mGame.flash(0xff3333, 0.05);
+		Camera.instance.shake(10, 200);
+		
+		mLife = 5;
+		
+		if (mPull != null) {
+			remove(mPull);
+			mPull = null;
+		}else if (mShoes.length > 0) 
+			remove(mShoes.pop());
+		else if (mPant != null) {
+			remove(mPant);
+			mPant = null;
+		}else if (mCalbut != null) {
+			remove(mCalbut);
+			mCalbut = null;
+		}
+	}
+	
+	public function isApoil() : Bool {
+		return mCalbut == null;
+	}
+	
+	function die() 
+	{
+		mLife = 0;
+		mCurrentState = deadState;
+	}
+	
+	function deadState(delta : Float) {
+		mMoveSpeed = 0;
 	}
 	
 	function initAnimations():Void 

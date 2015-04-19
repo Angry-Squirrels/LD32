@@ -40,7 +40,7 @@ class EnnemyManager
 		if (punkToSpawn < 2) punkToSpawn = 2;
 		
 		for (i in 0 ... punkToSpawn) {
-			var punk = new Ennemy();
+			var punk = new Punk();
 			
 			var min = (mGame.getHeight() / 2) / Actor.fakeZCoef;
 			var max = (mGame.getHeight()) / Actor.fakeZCoef;

@@ -14,6 +14,7 @@ class Human extends AnimatedActor
 	
 	var mMaxY : Float;
 	var mMinY : Float;
+	var mHeading : Int;
 
 	public function new(name : String) 
 	{
@@ -24,8 +25,25 @@ class Human extends AnimatedActor
 		
 		mGame = Game.getInstance();
 		
+		mHeading = 1;
+		
 		mMinY = mGame.getHeight() / 2 + 20;
 		mMaxY = mGame.getHeight();
+	}
+	
+	function playAnim(name : String) : String {
+		if (mHeading > 0)
+			name += "R";
+		else
+			name += "L";
+			
+		setAnimation(name);
+		
+		return name;
+	}
+	
+	public function isPlaying(name : String) : Bool {
+		return mCurrentAnimation == name + "L" || mCurrentAnimation == name + "R";
 	}
 	
 	override function update(delta:Float) 

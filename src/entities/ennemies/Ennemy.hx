@@ -23,13 +23,18 @@ class Ennemy extends Human
 	var mMaxPunkFollowing : Int;
 	var mAttackTimer:Float;
 	var mAttackRate:Float;
+	var mFleeing:Bool;
+	
+	var mNormalAnim : Bool;
+	var mDamageDealt:Bool;
 
-	public function new() 
+	public function new(name : String) 
 	{
-		super("Punk");
+		super(name);
 		
 		mAttackTimer = 0;
-		mAttackRate = 1.5;
+		mAttackRate = 0.5;
+		mNormalAnim = true;
 		
 		if (mPunkFollowingHero == null)
 			mPunkFollowingHero = new Array<Ennemy>();
@@ -50,18 +55,29 @@ class Ennemy extends Human
 	
 	override function update(delta:Float) 
 	{
+		
 		super.update(delta);
 		
-		
 		if (isDead()) {
-			mDim.x = 120;
-			mDim.y = 72;
 			vel.x = 0;
 			vel.y = 0;
 			mXAxis = 0;
 			mYAxis = 0;
+			playAnim("death");
 			return;
 		}
+		
+		if (mTarget != null && !mFleeing)
+			if (mTarget.worldPos.x < worldPos.x)
+				mHeading = -1;
+			else if (mTarget.worldPos.x > worldPos.x)
+				mHeading = 1;
+				
+		if(mNormalAnim)
+			if (vel.length() > 15)
+				playAnim("walk");
+			else
+				playAnim("iddle");
 		
 		if (mCurrentState != null)
 			mCurrentState(delta);
@@ -72,12 +88,14 @@ class Ennemy extends Human
 	public function attacking(delta : Float) {
 		if (mTarget != null) 
 		{
-			
+			mFleeing = false;
 			var rangeToAttack = mDim.x / 2 + mTarget.getDim().x / 2;
-			rangeToAttack *= 1.4;
+			rangeToAttack *= 1.2;
 			
-			if (Vec2.Dist(mTarget.worldPos, worldPos) > rangeToAttack)
+			if (Vec2.Dist(mTarget.worldPos, worldPos) > rangeToAttack){
 				moveTowardTarget();
+				mAttackTimer = 0;
+			}
 			else {
 				mXAxis = 0;
 				mYAxis = 0;
@@ -87,39 +105,58 @@ class Ennemy extends Human
 				if (mAttackTimer >= mAttackRate)
 				{
 					attack();
+					mDamageDealt = false;
 					mAttackTimer = 0;
 				}
+			}
+			
+			if (isPlaying("attack") && mAnimation.getCurrentFrame() == 3 && !mDamageDealt){
+				mTarget.takeDamage(1, this);
+				mDamageDealt = true;
 			}
 		}
 	}
 	
+	function normalAnim() {
+		mNormalAnim = true;
+	}
+	
 	public function attack() {
-		mTarget.takeDamage(1, this);
+		playAnim("attack");
+		mNormalAnim = false;
+	}
+	
+	override public function takeDamage(amount:Int, source:Actor) 
+	{
+		super.takeDamage(amount, source);
+		mNormalAnim = false;
+		playAnim("hit");
+		
+		mAttackTimer = 0;
 	}
 	
 	public function getClose(delta : Float) {
 		if (mTarget != null) 
 		{
-			if (Vec2.Dist(mTarget.worldPos, worldPos) > 350)
+			if (Vec2.Dist(mTarget.worldPos, worldPos) > 350){
 				moveTowardTarget();
-			else {
+				mFleeing = false;
+			}else {
 				fleeTarget();
+				mFleeing = true;
 			}
 		}
-	}
-	
-	override function draw(buffer:BitmapData, dest:Vec2) 
-	{
-		if(!isDead())
-			super.draw(buffer, dest);
-		else
-			buffer.fillRect(new Rectangle(dest.x, dest.y, 162, 72), 0x006699);
 	}
 	
 	function fleeTarget() {
 		var axis = Vec2.Sub(mTarget.worldPos, worldPos);
 		axis = Vec2.Norm(axis);
 		axis.mul( -1);
+		
+		if (axis.x > 0)
+			mHeading = 1;
+		else if (axis.x < 0)
+			mHeading = -1;
 		
 		mYAxis = axis.y;
 		mXAxis = axis.x;

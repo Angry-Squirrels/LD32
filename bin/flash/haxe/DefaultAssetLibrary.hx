@@ -225,6 +225,26 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Hero/slip_strip_flip.png", AssetType.IMAGE);
 		className.set ("img/hud/GO.png", __ASSET__img_hud_go_png);
 		type.set ("img/hud/GO.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_attack.png", __ASSET__img_punk_punk_attack_png);
+		type.set ("img/Punk/punk_attack.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_attack_flip.png", __ASSET__img_punk_punk_attack_flip_png);
+		type.set ("img/Punk/punk_attack_flip.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_death.png", __ASSET__img_punk_punk_death_png);
+		type.set ("img/Punk/punk_death.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_death_flip.png", __ASSET__img_punk_punk_death_flip_png);
+		type.set ("img/Punk/punk_death_flip.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_hit.png", __ASSET__img_punk_punk_hit_png);
+		type.set ("img/Punk/punk_hit.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_hit_flip.png", __ASSET__img_punk_punk_hit_flip_png);
+		type.set ("img/Punk/punk_hit_flip.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_iddle.png", __ASSET__img_punk_punk_iddle_png);
+		type.set ("img/Punk/punk_iddle.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_iddle_flip.png", __ASSET__img_punk_punk_iddle_flip_png);
+		type.set ("img/Punk/punk_iddle_flip.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_walk.png", __ASSET__img_punk_punk_walk_png);
+		type.set ("img/Punk/punk_walk.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_walk_flip.png", __ASSET__img_punk_punk_walk_flip_png);
+		type.set ("img/Punk/punk_walk_flip.png", AssetType.IMAGE);
 		
 		
 		#elseif html5
@@ -590,6 +610,46 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_attack.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_attack_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_death.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_death_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_hit.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_hit_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_iddle.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_iddle_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_walk.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_walk_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		
 		
 		var assetsPrefix = ApplicationMain.config.assetsPrefix;
@@ -602,6 +662,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		#if openfl
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -969,6 +1039,36 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/hud/GO.png", __ASSET__img_hud_go_png);
 		type.set ("img/hud/GO.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_attack.png", __ASSET__img_punk_punk_attack_png);
+		type.set ("img/Punk/punk_attack.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_attack_flip.png", __ASSET__img_punk_punk_attack_flip_png);
+		type.set ("img/Punk/punk_attack_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_death.png", __ASSET__img_punk_punk_death_png);
+		type.set ("img/Punk/punk_death.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_death_flip.png", __ASSET__img_punk_punk_death_flip_png);
+		type.set ("img/Punk/punk_death_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_hit.png", __ASSET__img_punk_punk_hit_png);
+		type.set ("img/Punk/punk_hit.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_hit_flip.png", __ASSET__img_punk_punk_hit_flip_png);
+		type.set ("img/Punk/punk_hit_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_iddle.png", __ASSET__img_punk_punk_iddle_png);
+		type.set ("img/Punk/punk_iddle.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_iddle_flip.png", __ASSET__img_punk_punk_iddle_flip_png);
+		type.set ("img/Punk/punk_iddle_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_walk.png", __ASSET__img_punk_punk_walk_png);
+		type.set ("img/Punk/punk_walk.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_walk_flip.png", __ASSET__img_punk_punk_walk_flip_png);
+		type.set ("img/Punk/punk_walk_flip.png", AssetType.IMAGE);
 		
 		
 		if (useManifest) {
@@ -1660,9 +1760,29 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_strip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_strip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hud_go_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_attack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_attack_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_death_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_death_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_hit_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_hit_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_iddle_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1853,6 +1973,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Hero/slip_strip.png") #if display private #end class __ASSET__img_hero_slip_strip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_strip_flip.png") #if display private #end class __ASSET__img_hero_slip_strip_flip_png extends lime.graphics.Image {}
 @:image("assets/img/hud/GO.png") #if display private #end class __ASSET__img_hud_go_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_attack.png") #if display private #end class __ASSET__img_punk_punk_attack_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_attack_flip.png") #if display private #end class __ASSET__img_punk_punk_attack_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_death.png") #if display private #end class __ASSET__img_punk_punk_death_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_death_flip.png") #if display private #end class __ASSET__img_punk_punk_death_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_hit.png") #if display private #end class __ASSET__img_punk_punk_hit_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_hit_flip.png") #if display private #end class __ASSET__img_punk_punk_hit_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_iddle.png") #if display private #end class __ASSET__img_punk_punk_iddle_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_iddle_flip.png") #if display private #end class __ASSET__img_punk_punk_iddle_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_walk.png") #if display private #end class __ASSET__img_punk_punk_walk_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_walk_flip.png") #if display private #end class __ASSET__img_punk_punk_walk_flip_png extends lime.graphics.Image {}
 
 
 
