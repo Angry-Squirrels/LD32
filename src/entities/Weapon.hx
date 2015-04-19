@@ -73,5 +73,16 @@ class Weapon extends AnimatedActor
 		destroy();	
 	}
 	
+	public function synchronize(frame : Int) {
+		if (mAnimation != null) 
+			mAnimation.setFrame(frame);
+	}
+	
+	override public function setAnimation(anim:String) 
+	{
+		super.setAnimation(anim);
+		if(mAnimation != null)
+			mAnimation.stop();
+	}
 	
 }

@@ -55,8 +55,10 @@ class CacWeapon extends Weapon
 	{
 		if(!mUseWorldCoord)
 			super.draw(buffer, dest);
-		else
+		else {
+		trace("a");	
 			buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0xffff00);
+		}
 	}
 	
 }

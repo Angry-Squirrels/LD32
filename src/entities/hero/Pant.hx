@@ -45,6 +45,12 @@ class Pant extends CacWeapon
 		
 		var stripLAnim = new Animation(new SpriteSheet("Hero/pants_strip_flip", 140, 180, 35, 0), [8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9], 12, false);
 		addAnimation("stripL", stripLAnim);
+		
+		var cacRAnim = new Animation(new SpriteSheet("Hero/pants_cac", 140, 180, 35, 0), null, 12, false);
+		addAnimation("cacR", cacRAnim);
+		
+		var cacLAnim = new Animation(new SpriteSheet("Hero/pants_cac_flip", 140, 180, 35, 0), null, 12, false);
+		addAnimation("cacL", cacLAnim);
 	}
 	
 }

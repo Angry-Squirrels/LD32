@@ -89,4 +89,9 @@ class Animation
 		mCurrentFrame = 0;
 	}
 	
+	public function setFrame(frame:Int) 
+	{
+		mCurrentFrame = frame;
+	}
+	
 }

@@ -211,21 +211,25 @@ class Hero extends Human
 		mMoveSpeed = 0;
 		
 		var currentWeapon : Weapon = null;
-		
-		if (mPull != null && !mCacStarted) {
+	
+		if (mPull != null ) {
 			playAnim("cac");
-			remove(mPull);
 			currentWeapon = mPull;
-			mCacStarted = true;
-		}else if (mPant != null && !mCacStarted) {
+			trace("pull");
+		}else if (mPant != null) {
 			playAnim("cac");
-			remove(mPant);
 			currentWeapon = mPant;
+			trace("pant");
+		}
+		
+		if (!mCacStarted && currentWeapon != null) {
 			mCacStarted = true;
+			remove(currentWeapon);
 		}
 		
 		if (currentWeapon != null && mAnimation.getCurrentFrame() == 5 && !mCacUsed) {
 			mCacUsed = true;
+			trace("launch");
 			currentWeapon.launch(mHeading);
 			mWorld.addActor(currentWeapon);
 			currentWeapon.startAltitude = 1;
@@ -256,6 +260,8 @@ class Hero extends Human
 	{
 		super.update(delta);
 		
+		synchronizeClothes();
+		
 		if (vel.x < 0)
 			mHeading = -1;
 		else
@@ -264,6 +270,23 @@ class Hero extends Human
 		if (mCurrentState != null)
 			mCurrentState(delta);
 		
+	}
+	
+	function synchronizeClothes() 
+	{
+		if (mAnimation == null) return;
+		var frame = mAnimation.getCurrentFrame();
+		for (shoe in mShoes)
+			shoe.synchronize(frame);
+			
+		if (mPull != null)
+			mPull.synchronize(frame);
+		
+		if (mPant != null)
+			mPant.synchronize(frame);
+			
+		if (mCalbut != null)
+			mCalbut.synchronize(frame);
 	}
 	
 	function normalState(delta : Float) {
@@ -413,13 +436,13 @@ class Hero extends Human
 		slipLAnim.onFinished = setNormalState;
 		addAnimation("slipL", slipLAnim);
 		
-		var slipRAnim = new Animation(new SpriteSheet("Hero/franky_cac", 140, 180, 35, 0), null, 12, false);
-		slipRAnim.onFinished = setNormalState;
-		addAnimation("cacR", slipRAnim);
+		var cacRAnim = new Animation(new SpriteSheet("Hero/franky_cac", 140, 180, 35, 0), null, 12, false);
+		cacRAnim.onFinished = setNormalState;
+		addAnimation("cacR", cacRAnim);
 		
-		var slipLAnim = new Animation(new SpriteSheet("Hero/franky_cac_flip", 140, 180, 35, 0), null, 12, false);
-		slipLAnim.onFinished = setNormalState;
-		addAnimation("cacL", slipLAnim);
+		var cacLAnim = new Animation(new SpriteSheet("Hero/franky_cac_flip", 140, 180, 35, 0), null, 12, false);
+		cacLAnim.onFinished = setNormalState;
+		addAnimation("cacL", cacLAnim);
 		
 		
 	}
