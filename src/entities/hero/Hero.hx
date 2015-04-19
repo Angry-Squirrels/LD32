@@ -5,6 +5,7 @@ import core.Entity;
 import core.SpriteSheet;
 import entities.Actor;
 import entities.ennemies.Ennemy;
+import entities.ennemies.Flic;
 import entities.Human;
 import entities.Weapon;
 import entities.World;
@@ -37,6 +38,7 @@ class Hero extends Human
 	var mLastStripableBody:Actor;
 	var mCacUsed:Bool;
 	var mCacStarted:Bool;
+	var mCatched:Bool;
 	
 	public static inline var HERO : String = "Hero";
 
@@ -425,6 +427,12 @@ class Hero extends Human
 	
 	override public function takeDamage(amount:Int, source:Actor) 
 	{
+		
+		if (Std.is(source, Flic)){
+			die();
+			return;
+		}
+		
 		super.takeDamage(amount, source);
 		
 		mGame.flash(0xff3333, 0.05);
@@ -454,10 +462,19 @@ class Hero extends Human
 	{
 		mLife = 0;
 		mCurrentState = deadState;
+		playAnim("catch");
 	}
 	
 	function deadState(delta : Float) {
 		mMoveSpeed = 0;
+	}
+	
+	function onCatched() {
+		mCatched = true;
+	}
+	
+	public function isCaught() : Bool {
+		return mCatched;
 	}
 	
 	function initAnimations():Void 
@@ -507,6 +524,14 @@ class Hero extends Human
 		var cacLAnim = new Animation(new SpriteSheet("Hero/franky_cac_flip", 140, 180, 35, 0), null, 12, false);
 		cacLAnim.onFinished = setNormalState;
 		addAnimation("cacL", cacLAnim);
+		
+		var catchRAnim = new Animation(new SpriteSheet("Hero/franky_catch", 140, 180, 35, 0), null, 12, false);
+		catchRAnim.onFinished = onCatched;
+		addAnimation("catchR", catchRAnim);
+		
+		var catchLAnim = new Animation(new SpriteSheet("Hero/franky_catch_flip", 140, 180, 35, 0), null, 12, false);
+		catchLAnim.onFinished = onCatched;
+		addAnimation("catchL", catchLAnim);
 		
 		
 	}

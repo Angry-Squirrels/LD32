@@ -26,6 +26,36 @@ ApplicationMain.create = function() {
 	ApplicationMain.preloader.create(ApplicationMain.config);
 	var urls = [];
 	var types = [];
+	urls.push("img/Boss/boss_attack1.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_attack2.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_attack2_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_death.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_death_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_hit.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_hit_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_iddle_anim.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_walk.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/boss_walk_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Flic/flic_attack.png");
+	types.push("IMAGE");
+	urls.push("img/Flic/flic_attack_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Flic/flic_walk.png");
+	types.push("IMAGE");
+	urls.push("img/Flic/flic_walk_flip.png");
+	types.push("IMAGE");
 	urls.push("img/Hero/franky_cac.png");
 	types.push("IMAGE");
 	urls.push("img/Hero/franky_cac_flip.png");
@@ -106,6 +136,8 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Hero/pull_strip_flip.png");
 	types.push("IMAGE");
+	urls.push("img/Hero/shoe.png");
+	types.push("IMAGE");
 	urls.push("img/Hero/shoeL_cac.png");
 	types.push("IMAGE");
 	urls.push("img/Hero/shoeL_cac_flip.png");
@@ -154,6 +186,12 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Hero/shoeR_strip_flip.png");
 	types.push("IMAGE");
+	urls.push("img/Hero/shoe_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_flip.png");
+	types.push("IMAGE");
 	urls.push("img/Hero/slip_iddle.png");
 	types.push("IMAGE");
 	urls.push("img/Hero/slip_iddle_flip.png");
@@ -175,6 +213,26 @@ ApplicationMain.create = function() {
 	urls.push("img/Hero/slip_strip_flip.png");
 	types.push("IMAGE");
 	urls.push("img/hud/GO.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_attack.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_attack_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_death.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_death_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_hit.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_hit_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_iddle_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_walk.png");
+	types.push("IMAGE");
+	urls.push("img/Punk/punk_walk_flip.png");
 	types.push("IMAGE");
 	if(ApplicationMain.config.assetsPrefix != null) {
 		var _g1 = 0;
@@ -1183,6 +1241,51 @@ var DefaultAssetLibrary = function() {
 	this.className = new haxe_ds_StringMap();
 	lime_AssetLibrary.call(this);
 	var id;
+	id = "img/Boss/boss_attack1.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_attack2.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_attack2_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_death.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_death_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_hit.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_hit_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_iddle_anim.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_walk.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_walk_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Flic/flic_attack.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Flic/flic_attack_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Flic/flic_walk.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Flic/flic_walk_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Hero/franky_cac.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -1303,6 +1406,9 @@ var DefaultAssetLibrary = function() {
 	id = "img/Hero/pull_strip_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoe.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Hero/shoeL_cac.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -1375,6 +1481,15 @@ var DefaultAssetLibrary = function() {
 	id = "img/Hero/shoeR_strip_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoe_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Hero/slip_iddle.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -1406,6 +1521,36 @@ var DefaultAssetLibrary = function() {
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/hud/GO.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_attack.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_attack_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_death.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_death_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_hit.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_hit_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_iddle_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_walk.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Punk/punk_walk_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	var assetsPrefix = ApplicationMain.config.assetsPrefix;
@@ -1892,7 +2037,6 @@ core_Animation.prototype = {
 };
 var core_Camera = function() {
 	this.pos = new geom_Vec2();
-	this.shakePosOffset = new geom_Vec2();
 	this.mGame = core_Game.getInstance();
 	core_Camera.instance = this;
 };
@@ -1911,32 +2055,57 @@ core_Camera.prototype = {
 			this.pos.y += (targety - this.pos.y) / 2;
 		}
 		if(this.mShaking || this.mShakePhase == 1) {
-			if(this.mShakePhase == 0) {
-				this.shakeOffsetX = Math.random() * this.mShakeIntensity * 2 - this.mShakeIntensity;
-				this.shakeOffsetY = Math.random() * this.mShakeIntensity * 2 - this.mShakeIntensity;
-			} else {
-				this.shakeOffsetX = -this.shakeOffsetX;
-				this.shakeOffsetY = -this.shakeOffsetY;
-			}
-			this.shakePosOffset.x += this.shakeOffsetX;
-			this.shakePosOffset.y += this.shakeOffsetY;
-			this.mShakeTime -= 1000 * delta;
-			if(!this.mShaking) {
+			this.mShakeTimeF += delta;
+			if(this.mShakeTimeF > 0.025) {
 				if(this.mShakePhase == 0) {
-					this.shakePosOffset.x -= this.shakeOffsetX;
-					this.shakePosOffset.y -= this.shakeOffsetY;
+					this.shakeOffsetX = Math.random() * this.mShakeIntensity * 2 - this.mShakeIntensity;
+					this.shakeOffsetY = Math.random() * this.mShakeIntensity * 2 - this.mShakeIntensity;
+					this.totalShakeXOffset += this.shakeOffsetX;
+					this.totalShakeYOffset += this.shakeOffsetY;
+					this.mShakePhase = 1;
+				} else {
+					this.shakeOffsetX = -this.shakeOffsetX;
+					this.shakeOffsetY = -this.shakeOffsetY;
+					this.totalShakeXOffset += this.shakeOffsetX;
+					this.totalShakeYOffset += this.shakeOffsetY;
+					this.mShakePhase = 0;
 				}
+				this.mShakeTimeF = 0;
 			}
-			this.mShakePhase++;
-			if(this.mShakePhase > 1) this.mShakePhase = 0;
+		} else {
+			this.shakeOffsetX = 0;
+			this.shakeOffsetY = 0;
+		}
+	}
+	,getShakeOffsetX: function() {
+		if(this.shakeOffsetX == this.mLastOffsetXSent) return 0; else {
+			this.mLastOffsetXSent = this.shakeOffsetX;
+			return this.shakeOffsetX;
+		}
+	}
+	,getShakeOffsetY: function() {
+		if(this.shakeOffsetY == this.mLastOffsetYSent) return 0; else {
+			this.mLastOffsetYSent = this.shakeOffsetY;
+			return this.shakeOffsetY;
 		}
 	}
 	,shake: function(intensity,time) {
 		this.startShake(intensity);
 		haxe_Timer.delay($bind(this,this.stopShake),time);
 	}
+	,isShaking: function() {
+		return this.mShaking;
+	}
 	,startShake: function(intensity) {
 		this.mShaking = true;
+		this.shakeOffsetX = 0;
+		this.shakeOffsetY = 0;
+		this.mShakeTime = 0;
+		this.mShakeTimeF = 0;
+		this.totalShakeXOffset = 0;
+		this.totalShakeYOffset = 0;
+		this.mLastOffsetXSent = 0;
+		this.mLastOffsetYSent = 0;
 		this.mShakePhase = 0;
 		this.mShakeIntensity = intensity;
 	}
@@ -2183,6 +2352,7 @@ var entities_Actor = function(name) {
 	this.mLife = this.mMaxLife;
 	this.mXAxis = 0;
 	this.mYAxis = 0;
+	this.solid = true;
 	this.mUseWorldCoord = true;
 	this.worldPos = new geom_Vec2();
 	this.mMoveSpeed = 100;
@@ -2216,8 +2386,10 @@ entities_Actor.prototype = $extend(core_Entity.prototype,{
 					var pushVec = geom_Vec2.Sub(this.worldPos,actor.worldPos);
 					this.onCollide(actor);
 					if(actor.isDead()) continue;
-					if(!this.unpushable) this.vel.add(pushVec);
-					if(!actor.unpushable) actor.vel.sub(pushVec);
+					if(actor.solid && this.solid) {
+						if(!this.unpushable) this.vel.add(pushVec);
+						if(!actor.unpushable) actor.vel.sub(pushVec);
+					}
 				}
 			}
 		}
@@ -2225,7 +2397,7 @@ entities_Actor.prototype = $extend(core_Entity.prototype,{
 	,hitTest: function(a,b) {
 		return geom_Vec2.Dist(a.worldPos,b.worldPos) < a.getDim().x / 2 + b.getDim().x / 2;
 	}
-	,takeDamage: function(amount) {
+	,takeDamage: function(amount,source) {
 		this.mLife -= amount;
 	}
 	,onCollide: function(actor) {
@@ -2312,6 +2484,7 @@ var entities_Weapon = function(name) {
 	this.mZVel = 0;
 	entities_AnimatedActor.call(this,name);
 	this.mDamage = 1;
+	this.solid = false;
 	this.mFriction = 1;
 	this.mUseWorldCoord = false;
 };
@@ -2330,10 +2503,10 @@ entities_Weapon.prototype = $extend(entities_AnimatedActor.prototype,{
 	}
 	,onCollide: function(actor) {
 		entities_AnimatedActor.prototype.onCollide.call(this,actor);
-		if(!js_Boot.__instanceof(actor,entities_hero_Hero)) {
+		if(!js_Boot.__instanceof(actor,entities_hero_Hero) && !js_Boot.__instanceof(actor,entities_Weapon) && !this.destroyable()) {
 			if(actor.isDead()) return;
 			this.explode();
-			actor.takeDamage(this.mDamage);
+			actor.takeDamage(this.mDamage,this);
 		}
 	}
 	,update: function(delta) {
@@ -2366,7 +2539,7 @@ var entities_CacWeapon = function(name) {
 	this.mLifeSpan = 0.2;
 	entities_Weapon.call(this,name);
 	this.mGravity = 0;
-	this.mDim.x = 70;
+	this.mDim.x = 60;
 	this.mDim.y = 30;
 	this.mLifeTime = 0;
 };
@@ -2390,9 +2563,6 @@ entities_CacWeapon.prototype = $extend(entities_Weapon.prototype,{
 			if(this.mLifeTime >= this.mLifeSpan) this.destroy();
 		}
 	}
-	,draw: function(buffer,dest) {
-		if(!this.mUseWorldCoord) entities_Weapon.prototype.draw.call(this,buffer,dest); else buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),16776960);
-	}
 	,__class__: entities_CacWeapon
 });
 var entities_Human = function(name) {
@@ -2400,6 +2570,7 @@ var entities_Human = function(name) {
 	this.mDim.x = 76;
 	this.mDim.y = 162;
 	this.mGame = core_Game.getInstance();
+	this.mHeading = 1;
 	this.mMinY = this.mGame.getHeight() / 2 + 20;
 	this.mMaxY = this.mGame.getHeight();
 };
@@ -2407,118 +2578,30 @@ $hxClasses["entities.Human"] = entities_Human;
 entities_Human.__name__ = ["entities","Human"];
 entities_Human.__super__ = entities_AnimatedActor;
 entities_Human.prototype = $extend(entities_AnimatedActor.prototype,{
-	update: function(delta) {
+	playAnim: function(name) {
+		if(this.mHeading > 0) name += "R"; else name += "L";
+		this.setAnimation(name);
+		return name;
+	}
+	,isPlaying: function(name) {
+		return this.mCurrentAnimation == name + "L" || this.mCurrentAnimation == name + "R";
+	}
+	,update: function(delta) {
 		entities_AnimatedActor.prototype.update.call(this,delta);
 		if(this.worldPos.y < this.mMinY / 0.5) this.worldPos.y = this.mMinY / 0.5;
 		if(this.worldPos.y > this.mMaxY / 0.5) this.worldPos.y = this.mMaxY / 0.5;
 	}
+	,takeDamage: function(amount,source) {
+		entities_AnimatedActor.prototype.takeDamage.call(this,amount,source);
+		if(source != null) {
+			var pushVector = geom_Vec2.Sub(this.worldPos,source.worldPos);
+			pushVector = geom_Vec2.Norm(pushVector);
+			pushVector.mul(1000);
+			this.vel.add(pushVector);
+		}
+	}
 	,__class__: entities_Human
 });
-var entities_Punk = function() {
-	this.mRangeToStartFollow = 600;
-	entities_Human.call(this,"Punk");
-	if(entities_Punk.mPunkFollowingHero == null) entities_Punk.mPunkFollowingHero = [];
-	this.mMoveSpeed = 40;
-	this.mDrawBoundIfNoAnim = true;
-};
-$hxClasses["entities.Punk"] = entities_Punk;
-entities_Punk.__name__ = ["entities","Punk"];
-entities_Punk.mPunkFollowingHero = null;
-entities_Punk.__super__ = entities_Human;
-entities_Punk.prototype = $extend(entities_Human.prototype,{
-	setOthersActors: function(actors) {
-		entities_Human.prototype.setOthersActors.call(this,actors);
-	}
-	,lookForTarget: function() {
-		var _g = 0;
-		var _g1 = this.mOthers;
-		while(_g < _g1.length) {
-			var actor = _g1[_g];
-			++_g;
-			if(actor.name == "Hero" && geom_Vec2.Dist(this.worldPos,actor.worldPos) <= this.mRangeToStartFollow) this.mTarget = actor;
-		}
-	}
-	,update: function(delta) {
-		entities_Human.prototype.update.call(this,delta);
-		if(this.isDead()) {
-			this.mDim.x = 120;
-			this.mDim.y = 72;
-			this.vel.x = 0;
-			this.vel.y = 0;
-			this.mXAxis = 0;
-			this.mYAxis = 0;
-			return;
-		}
-		if(this.mTarget == null) this.lookForTarget(); else {
-			var rangeToAttack = this.mDim.x / 2 + this.mTarget.getDim().x / 2;
-			rangeToAttack *= 1.3;
-			if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) > rangeToAttack) this.moveTowardTarget(); else {
-				this.mXAxis = 0;
-				this.mYAxis = 0;
-			}
-		}
-	}
-	,draw: function(buffer,dest) {
-		if(!this.isDead()) entities_Human.prototype.draw.call(this,buffer,dest); else buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,162,72),26265);
-	}
-	,moveTowardTarget: function() {
-		var targetPos = this.mTarget.pos.clone();
-		targetPos.x += this.mTarget.getDim().x / 2;
-		targetPos.y += this.mTarget.getDim().y;
-		var destPos = this.pos.clone();
-		destPos.x += this.getDim().x / 2;
-		destPos.y += this.getDim().y;
-		var axis = geom_Vec2.Sub(targetPos,destPos);
-		axis = geom_Vec2.Norm(axis);
-		this.mYAxis = axis.y;
-		this.mXAxis = axis.x;
-	}
-	,__class__: entities_Punk
-});
-var entities_PunkManager = function(hero,world) {
-	this.mHero = hero;
-	this.mWorld = world;
-	this.mGame = core_Game.getInstance();
-	this.mPunks = [];
-	this.mPunkToRemove = [];
-};
-$hxClasses["entities.PunkManager"] = entities_PunkManager;
-entities_PunkManager.__name__ = ["entities","PunkManager"];
-entities_PunkManager.prototype = {
-	spawnPunk: function(wave) {
-		var punkToSpawn = 2 * wave * wave / 2 | 0;
-		if(punkToSpawn < 2) punkToSpawn = 2;
-		var _g = 0;
-		while(_g < punkToSpawn) {
-			var i = _g++;
-			var punk = new entities_Punk();
-			var min = this.mGame.getHeight() / 2 / 0.5;
-			var max = this.mGame.getHeight() / 0.5;
-			punk.worldPos.y = Math.random() * (max - min) + min;
-			var a = Math.random() * 100 - 50;
-			if(a > 0) punk.worldPos.x = this.mHero.worldPos.x + 600; else punk.worldPos.x = this.mHero.worldPos.x - 600;
-			this.mWorld.addActor(punk);
-			this.mPunks.push(punk);
-		}
-	}
-	,update: function() {
-		var _g = 0;
-		var _g1 = this.mPunks;
-		while(_g < _g1.length) {
-			var punk = _g1[_g];
-			++_g;
-			if(punk.isDead()) this.mPunkToRemove.push(punk);
-		}
-		while(this.mPunkToRemove.length > 0) {
-			var x = this.mPunkToRemove.pop();
-			HxOverrides.remove(this.mPunks,x);
-		}
-	}
-	,getPunkAlive: function() {
-		return this.mPunks.length;
-	}
-	,__class__: entities_PunkManager
-};
 var entities_World = function() {
 	core_Entity.call(this,"World");
 	this.mGame = core_Game.getInstance();
@@ -2562,8 +2645,8 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 		this.pos.x -= (this.mCamera.pos.x + this.pos.x) / 20;
 		if(this.pos.x > 0) this.pos.x = 0;
 		if(this.pos.x < -this.mMaxScroll) this.pos.x = -this.mMaxScroll;
-		this.pos.x += this.mCamera.shakePosOffset.x;
-		this.pos.y += this.mCamera.shakePosOffset.y;
+		this.pos.x += this.mCamera.getShakeOffsetX();
+		this.pos.y += this.mCamera.getShakeOffsetY();
 		this.manageActors();
 	}
 	,draw: function(buffer,dest) {
@@ -2607,6 +2690,242 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 	}
 	,__class__: entities_World
 });
+var entities_ennemies_Ennemy = function(name) {
+	this.mRangeToStartFollow = 600;
+	entities_Human.call(this,name);
+	this.mAttackTimer = 0;
+	this.mAttackRate = 0.5;
+	this.mNormalAnim = true;
+	if(entities_ennemies_Ennemy.mPunkFollowingHero == null) entities_ennemies_Ennemy.mPunkFollowingHero = [];
+	this.mMoveSpeed = 40;
+	this.mDrawBoundIfNoAnim = true;
+};
+$hxClasses["entities.ennemies.Ennemy"] = entities_ennemies_Ennemy;
+entities_ennemies_Ennemy.__name__ = ["entities","ennemies","Ennemy"];
+entities_ennemies_Ennemy.mPunkFollowingHero = null;
+entities_ennemies_Ennemy.__super__ = entities_Human;
+entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
+	setOthersActors: function(actors) {
+		entities_Human.prototype.setOthersActors.call(this,actors);
+	}
+	,setTarget: function(target) {
+		this.mTarget = target;
+	}
+	,update: function(delta) {
+		entities_Human.prototype.update.call(this,delta);
+		if(this.isDead()) {
+			this.vel.x = 0;
+			this.vel.y = 0;
+			this.mXAxis = 0;
+			this.mYAxis = 0;
+			this.playAnim("death");
+			return;
+		}
+		if(this.mTarget != null && !this.mFleeing) {
+			if(this.mTarget.worldPos.x < this.worldPos.x) this.mHeading = -1; else if(this.mTarget.worldPos.x > this.worldPos.x) this.mHeading = 1;
+		}
+		if(this.mNormalAnim) {
+			if(this.vel.length() > 15) this.playAnim("walk"); else this.playAnim("iddle");
+		}
+		if(this.mCurrentState != null) this.mCurrentState(delta);
+		var rangeToGetClose = 300;
+	}
+	,attacking: function(delta) {
+		if(this.mTarget != null) {
+			this.mFleeing = false;
+			var rangeToAttack = this.mDim.x / 2 + this.mTarget.getDim().x / 2;
+			rangeToAttack *= 1.2;
+			if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) > rangeToAttack) {
+				this.moveTowardTarget();
+				this.mAttackTimer = 0;
+			} else {
+				this.mXAxis = 0;
+				this.mYAxis = 0;
+				this.mAttackTimer += delta;
+				if(this.mAttackTimer >= this.mAttackRate) {
+					this.attack();
+					this.mDamageDealt = false;
+					this.mAttackTimer = 0;
+				}
+			}
+			if(this.isPlaying("attack") && this.mAnimation.getCurrentFrame() == 3 && !this.mDamageDealt) {
+				this.mTarget.takeDamage(1,this);
+				this.mDamageDealt = true;
+			}
+		}
+	}
+	,normalAnim: function() {
+		this.mNormalAnim = true;
+	}
+	,attack: function() {
+		this.playAnim("attack");
+		this.mNormalAnim = false;
+	}
+	,takeDamage: function(amount,source) {
+		entities_Human.prototype.takeDamage.call(this,amount,source);
+		this.mNormalAnim = false;
+		this.playAnim("hit");
+		this.mAttackTimer = 0;
+	}
+	,getClose: function(delta) {
+		if(this.mTarget != null) {
+			if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) > 350) {
+				this.moveTowardTarget();
+				this.mFleeing = false;
+			} else if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) < 300) {
+				this.fleeTarget();
+				this.mFleeing = true;
+			} else {
+				if(this.worldPos.x > this.mTarget.worldPos.x) this.mHeading = -1; else this.mHeading = 1;
+				this.mXAxis = 0;
+				this.mYAxis = 0;
+			}
+		}
+	}
+	,fleeTarget: function() {
+		var axis = geom_Vec2.Sub(this.mTarget.worldPos,this.worldPos);
+		axis = geom_Vec2.Norm(axis);
+		axis.mul(-1);
+		if(axis.x > 0) this.mHeading = 1; else if(axis.x < 0) this.mHeading = -1;
+		this.mYAxis = axis.y;
+		this.mXAxis = axis.x;
+	}
+	,moveTowardTarget: function() {
+		var axis = geom_Vec2.Sub(this.mTarget.worldPos,this.worldPos);
+		axis = geom_Vec2.Norm(axis);
+		this.mYAxis = axis.y;
+		this.mXAxis = axis.x;
+	}
+	,setState: function(state) {
+		this.mCurrentState = state;
+	}
+	,__class__: entities_ennemies_Ennemy
+});
+var entities_ennemies_EnnemyManager = function(hero,world) {
+	this.mHero = hero;
+	this.mWorld = world;
+	this.mGame = core_Game.getInstance();
+	this.mFlic = new entities_ennemies_Flic();
+	this.mWorld.add(this.mFlic);
+	this.mFlic.setTarget(this.mHero);
+	this.mFlic.setState(($_=this.mFlic,$bind($_,$_.getClose)));
+	this.mEnnemies = [];
+	this.mEnnemiesToRemove = [];
+	this.mAttackingEnnemies = [];
+};
+$hxClasses["entities.ennemies.EnnemyManager"] = entities_ennemies_EnnemyManager;
+entities_ennemies_EnnemyManager.__name__ = ["entities","ennemies","EnnemyManager"];
+entities_ennemies_EnnemyManager.prototype = {
+	spawnPunk: function(wave) {
+		this.mWave = wave;
+		var punkToSpawn = 2 * wave * wave / 3 | 0;
+		if(punkToSpawn < 2) punkToSpawn = 2;
+		var _g = 0;
+		while(_g < punkToSpawn) {
+			var i = _g++;
+			var punk = new entities_ennemies_Punk();
+			var min = this.mGame.getHeight() / 2 / 0.5;
+			var max = this.mGame.getHeight() / 0.5;
+			punk.worldPos.y = Math.random() * (max - min) + min;
+			var a = Math.random() * 100 - 50;
+			var dist = Math.random() * 300 + 800;
+			if(a > 0) punk.worldPos.x = this.mHero.worldPos.x + dist; else if(wave > 2) punk.worldPos.x = this.mHero.worldPos.x - dist; else punk.worldPos.x = this.mHero.worldPos.x + dist;
+			this.mWorld.addActor(punk);
+			this.mEnnemies.push(punk);
+		}
+	}
+	,update: function() {
+		var _g = 0;
+		var _g1 = this.mEnnemies;
+		while(_g < _g1.length) {
+			var ennemy = _g1[_g];
+			++_g;
+			if(ennemy.isDead()) {
+				this.mEnnemiesToRemove.push(ennemy);
+				continue;
+			}
+			ennemy.setTarget(this.mHero);
+			var isAttacking = HxOverrides.indexOf(this.mAttackingEnnemies,ennemy,0) != -1;
+			if(this.mAttackingEnnemies.length < this.mWave) {
+				if(!isAttacking) {
+					this.mAttackingEnnemies.push(ennemy);
+					ennemy.setState($bind(ennemy,ennemy.attacking));
+				}
+			} else if(!isAttacking) ennemy.setState($bind(ennemy,ennemy.getClose));
+		}
+		if(this.mHero.isApoil()) this.mFlic.setState(($_=this.mFlic,$bind($_,$_.pursuit))); else this.mFlic.setState(($_=this.mFlic,$bind($_,$_.getClose)));
+		while(this.mEnnemiesToRemove.length > 0) {
+			var ennemy1 = this.mEnnemiesToRemove.pop();
+			var a = HxOverrides.remove(this.mAttackingEnnemies,ennemy1);
+			HxOverrides.remove(this.mEnnemies,ennemy1);
+		}
+		var _g2 = 0;
+		var _g11 = this.mAttackingEnnemies;
+		while(_g2 < _g11.length) {
+			var a1 = _g11[_g2];
+			++_g2;
+			if(a1.isDead()) haxe_Log.trace("putain",{ fileName : "EnnemyManager.hx", lineNumber : 112, className : "entities.ennemies.EnnemyManager", methodName : "update"});
+		}
+	}
+	,getEnnemiesAlive: function() {
+		return this.mEnnemies.length;
+	}
+	,__class__: entities_ennemies_EnnemyManager
+};
+var entities_ennemies_Flic = function() {
+	entities_ennemies_Ennemy.call(this,"Flic");
+	this.initAnimations();
+};
+$hxClasses["entities.ennemies.Flic"] = entities_ennemies_Flic;
+entities_ennemies_Flic.__name__ = ["entities","ennemies","Flic"];
+entities_ennemies_Flic.__super__ = entities_ennemies_Ennemy;
+entities_ennemies_Flic.prototype = $extend(entities_ennemies_Ennemy.prototype,{
+	pursuit: function(delta) {
+		this.mMoveSpeed = 70;
+		this.attacking(delta);
+	}
+	,initAnimations: function() {
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Flic/flic_walk",140,180,35,0)));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Flic/flic_walk_flip",140,180,35,0)));
+		var attackRAnim = new core_Animation(new core_SpriteSheet("Flic/flic_attack",140,180,35,0),null,12,false);
+		this.addAnimation("attackR",attackRAnim);
+		attackRAnim.onFinished = $bind(this,this.normalAnim);
+		var attackLAnim = new core_Animation(new core_SpriteSheet("Flic/flic_attack_flip",140,180,35,0),null,12,false);
+		this.addAnimation("attackL",attackLAnim);
+		attackLAnim.onFinished = $bind(this,this.normalAnim);
+	}
+	,__class__: entities_ennemies_Flic
+});
+var entities_ennemies_Punk = function() {
+	entities_ennemies_Ennemy.call(this,"Punk");
+	this.initAnimations();
+};
+$hxClasses["entities.ennemies.Punk"] = entities_ennemies_Punk;
+entities_ennemies_Punk.__name__ = ["entities","ennemies","Punk"];
+entities_ennemies_Punk.__super__ = entities_ennemies_Ennemy;
+entities_ennemies_Punk.prototype = $extend(entities_ennemies_Ennemy.prototype,{
+	initAnimations: function() {
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Punk/punk_walk",140,180,35,0)));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Punk/punk_walk_flip",140,180,35,0)));
+		this.addAnimation("iddleR",new core_Animation(new core_SpriteSheet("Punk/punk_iddle",140,180,35,0)));
+		this.addAnimation("iddleL",new core_Animation(new core_SpriteSheet("Punk/punk_iddle_flip",140,180,35,0)));
+		this.addAnimation("deathR",new core_Animation(new core_SpriteSheet("Punk/punk_death",140,180,35,0),null,12,false));
+		this.addAnimation("deathL",new core_Animation(new core_SpriteSheet("Punk/punk_death_flip",140,180,35,0),null,12,false));
+		var hitR = new core_Animation(new core_SpriteSheet("Punk/punk_hit",140,180,35,0),null,20,false);
+		hitR.onFinished = $bind(this,this.normalAnim);
+		this.addAnimation("hitR",hitR);
+		var hitL = new core_Animation(new core_SpriteSheet("Punk/punk_hit_flip",140,180,35,0),null,20,false);
+		hitL.onFinished = $bind(this,this.normalAnim);
+		this.addAnimation("hitL",hitL);
+		var attackRAnim = new core_Animation(new core_SpriteSheet("Punk/punk_attack",140,180,35,0),null,12,false);
+		this.addAnimation("attackR",attackRAnim);
+		attackRAnim.onFinished = $bind(this,this.normalAnim);
+		var attackLAnim = new core_Animation(new core_SpriteSheet("Punk/punk_attack_flip",140,180,35,0),null,12,false);
+		this.addAnimation("attackL",attackLAnim);
+		attackLAnim.onFinished = $bind(this,this.normalAnim);
+	}
+	,__class__: entities_ennemies_Punk
+});
 var entities_hero_Callbut = function() {
 	entities_Weapon.call(this,"Callbut");
 	this.mDamage = 5;
@@ -2616,10 +2935,7 @@ $hxClasses["entities.hero.Callbut"] = entities_hero_Callbut;
 entities_hero_Callbut.__name__ = ["entities","hero","Callbut"];
 entities_hero_Callbut.__super__ = entities_Weapon;
 entities_hero_Callbut.prototype = $extend(entities_Weapon.prototype,{
-	draw: function(buffer,dest) {
-		if(!this.mUseWorldCoord) entities_Weapon.prototype.draw.call(this,buffer,dest); else buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,20,20),255);
-	}
-	,initAnimations: function() {
+	initAnimations: function() {
 		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/slip_iddle",140,180,35,0)));
 		this.addAnimation("idleL",new core_Animation(new core_SpriteSheet("Hero/slip_iddle_flip",140,180,35,0)));
 		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Hero/slip_run",140,180,35,0),null,16));
@@ -2636,6 +2952,8 @@ entities_hero_Callbut.prototype = $extend(entities_Weapon.prototype,{
 		this.addAnimation("stripR",stripRAnim);
 		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/slip_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],12,false);
 		this.addAnimation("stripL",stripLAnim);
+		this.addAnimation("launchedR",new core_Animation(new core_SpriteSheet("Hero/slip",55,41)));
+		this.addAnimation("launchedL",new core_Animation(new core_SpriteSheet("Hero/slip_flip",55,41)));
 	}
 	,__class__: entities_hero_Callbut
 });
@@ -2645,7 +2963,7 @@ var entities_hero_Hero = function(world) {
 	this.mDim.x = 65;
 	this.mDim.y = 170;
 	this.mWorld = world;
-	this.mHeading = 1;
+	this.mKick = new entities_hero_Kick();
 	this.initClothes();
 	this.giveClothes();
 	this.initAnimations();
@@ -2665,10 +2983,11 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		this.giveCallbut();
 		this.givePant();
 		this.givePull();
+		this.mLife = 5;
 	}
 	,giveShoe: function() {
 		var shoe;
-		if(this.mShoes.length == 0) shoe = new entities_hero_Shoe("L"); else if(this.mShoes.length == 1) shoe = new entities_hero_Shoe("R"); else return;
+		if(this.mShoes.length == 0) shoe = new entities_hero_Shoe("R"); else if(this.mShoes.length == 1) shoe = new entities_hero_Shoe("L"); else return;
 		this.add(shoe);
 		this.mShoes.push(shoe);
 	}
@@ -2695,8 +3014,7 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		openfl_Lib.current.stage.addEventListener(openfl_events_KeyboardEvent.KEY_UP,$bind(this,this.onKeyUp));
 	}
 	,playAnim: function(name) {
-		if(this.mHeading > 0) name += "R"; else name += "L";
-		this.setAnimation(name);
+		name = entities_Human.prototype.playAnim.call(this,name);
 		if(this.mCalbut != null) this.mCalbut.setAnimation(name);
 		if(this.mPull != null) this.mPull.setAnimation(name);
 		if(this.mPant != null) this.mPant.setAnimation(name);
@@ -2707,6 +3025,7 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 			++_g;
 			shoe.setAnimation(name);
 		}
+		return name;
 	}
 	,onKeyUp: function(e) {
 		var _g = e.keyCode;
@@ -2732,6 +3051,7 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		}
 	}
 	,onKeyDown: function(e) {
+		if(this.isDead()) return;
 		var _g = e.keyCode;
 		switch(_g) {
 		case 67:
@@ -2761,38 +3081,36 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		}
 	}
 	,onXPressed: function() {
-		if(this.mLastStripableBody != null && this.hitTest(this,this.mLastStripableBody) && this.worldPos.y <= this.mLastStripableBody.worldPos.y) this.stripBody(); else this.attack();
+		if(this.mLastStripableBody != null && this.hitTest(this,this.mLastStripableBody) && this.worldPos.y <= this.mLastStripableBody.worldPos.y) this.stripBody(); else if(this.mCurrentState != $bind(this,this.attackState)) this.attack();
 	}
 	,attack: function() {
-		if(this.mPull != null || this.mPant != null) {
-			this.mCurrentState = $bind(this,this.attackState);
-			this.mCacUsed = false;
-			this.mCacStarted = false;
-		}
+		this.mCurrentState = $bind(this,this.attackState);
+		this.mCacUsed = false;
+		this.mCacStarted = false;
 	}
 	,attackState: function(delta) {
 		this.unpushable = true;
 		this.mMoveSpeed = 0;
 		var currentWeapon = null;
-		if(this.mPull != null) {
-			this.playAnim("cac");
-			currentWeapon = this.mPull;
-		} else if(this.mPant != null) {
-			this.playAnim("cac");
-			currentWeapon = this.mPant;
-		}
+		if(this.mPull != null) currentWeapon = this.mPull; else if(this.mPant != null) currentWeapon = this.mPant; else currentWeapon = this.mKick;
+		var frameToDamage = 5;
+		if(currentWeapon == this.mKick) frameToDamage = 3;
 		if(!this.mCacStarted && currentWeapon != null) {
+			if(currentWeapon != this.mKick) this.playAnim("cac"); else {
+				var a = Math.random() * 100 - 50;
+				if(a > 0) this.playAnim("kickL"); else this.playAnim("kickD");
+			}
 			this.mCacStarted = true;
-			this.remove(currentWeapon);
+			if(currentWeapon != this.mKick) this.remove(currentWeapon);
 		}
-		if(currentWeapon != null && this.mAnimation.getCurrentFrame() == 5 && !this.mCacUsed) {
+		if(currentWeapon != null && this.mAnimation.getCurrentFrame() == frameToDamage && !this.mCacUsed) {
 			this.mCacUsed = true;
 			currentWeapon.launch(this.mHeading);
 			this.mWorld.addActor(currentWeapon);
 			currentWeapon.startAltitude = 1;
-			currentWeapon.worldPos.x = this.worldPos.x + 90 * this.mHeading;
+			currentWeapon.worldPos.x = this.worldPos.x + 60 * this.mHeading;
 			currentWeapon.worldPos.y = this.worldPos.y;
-			if(currentWeapon == this.mPull) this.mPull = null; else this.mPant = null;
+			if(currentWeapon == this.mPull) this.mPull = null; else if(currentWeapon == this.mPant) this.mPant = null; else this.mKick = new entities_hero_Kick();
 			currentWeapon = null;
 		}
 	}
@@ -2808,7 +3126,7 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 	,update: function(delta) {
 		entities_Human.prototype.update.call(this,delta);
 		this.synchronizeClothes();
-		if(this.vel.x < 0 && this.mXAxis < 1) this.mHeading = -1; else if(this.vel.x > 0 && this.mXAxis > -1) this.mHeading = 1;
+		if(this.mXAxis < 0) this.mHeading = -1; else if(this.mXAxis > 0) this.mHeading = 1;
 		if(this.mCurrentState != null) this.mCurrentState(delta);
 	}
 	,synchronizeClothes: function() {
@@ -2846,6 +3164,7 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 			shoe.worldPos.x = this.worldPos.x + 50 * this.mHeading;
 			shoe.worldPos.y = this.worldPos.y;
 			this.mShoeLaunched = true;
+			if(this.mHeading > 0) shoe.setAnimation("launchedR"); else shoe.setAnimation("launchedL");
 		}
 	}
 	,slipState: function(delta) {
@@ -2857,6 +3176,7 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 			this.mCalbut.startAltitude = 120;
 			this.mCalbut.worldPos.x = this.worldPos.x + 50 * this.mHeading;
 			this.mCalbut.worldPos.y = this.worldPos.y;
+			if(this.mHeading > 0) this.mCalbut.setAnimation("launchedR"); else this.mCalbut.setAnimation("launchedL");
 			this.mCalbut = null;
 		}
 		this.mMoveSpeed = 0;
@@ -2892,25 +3212,51 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 	}
 	,onCollide: function(actor) {
 		entities_Human.prototype.onCollide.call(this,actor);
-		if(js_Boot.__instanceof(actor,entities_Punk) && actor.isDead()) {
+		if(js_Boot.__instanceof(actor,entities_ennemies_Ennemy) && actor.isDead()) {
 			if(this.worldPos.y < actor.worldPos.y) this.mLastStripableBody = actor;
 		}
+	}
+	,takeDamage: function(amount,source) {
+		entities_Human.prototype.takeDamage.call(this,amount,source);
+		this.mGame.flash(16724787,0.05);
+		core_Camera.instance.shake(10,200);
+		this.mLife = 5;
+		if(this.mPull != null) {
+			this.remove(this.mPull);
+			this.mPull = null;
+		} else if(this.mShoes.length > 0) this.remove(this.mShoes.pop()); else if(this.mPant != null) {
+			this.remove(this.mPant);
+			this.mPant = null;
+		} else if(this.mCalbut != null) {
+			this.remove(this.mCalbut);
+			this.mCalbut = null;
+		}
+	}
+	,isApoil: function() {
+		return this.mCalbut == null;
+	}
+	,die: function() {
+		this.mLife = 0;
+		this.mCurrentState = $bind(this,this.deadState);
+	}
+	,deadState: function(delta) {
+		this.mMoveSpeed = 0;
 	}
 	,initAnimations: function() {
 		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/franky_iddle",140,180,35,0)));
 		this.addAnimation("idleL",new core_Animation(new core_SpriteSheet("Hero/franky_iddle_flip",140,180,35,0)));
 		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Hero/franky_run",140,180,35,0),null,16));
 		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Hero/franky_run_flip",140,180,35,0),null,16));
-		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL",140,180,35,0),null,12,false);
+		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL",140,180,35,0),null,22,false);
 		kickLRAnim.onFinished = $bind(this,this.setNormalState);
 		this.addAnimation("kickLR",kickLRAnim);
-		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL_flip",140,180,35,0),null,12,false);
+		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL_flip",140,180,35,0),null,22,false);
 		kickLLAnim.onFinished = $bind(this,this.setNormalState);
 		this.addAnimation("kickLL",kickLLAnim);
-		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD",140,180,35,0),null,12,false);
+		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD",140,180,35,0),null,22,false);
 		kickLRAnim1.onFinished = $bind(this,this.setNormalState);
 		this.addAnimation("kickDR",kickLRAnim1);
-		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD_flip",140,180,35,0),null,12,false);
+		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD_flip",140,180,35,0),null,22,false);
 		kickLLAnim1.onFinished = $bind(this,this.setNormalState);
 		this.addAnimation("kickDL",kickLLAnim1);
 		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
@@ -2919,10 +3265,10 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],12,false);
 		stripLAnim.onFinished = $bind(this,this.stripEnded);
 		this.addAnimation("stripL",stripLAnim);
-		var slipRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip",140,180,35,0),null,12,false);
+		var slipRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip",140,180,35,0),null,16,false);
 		slipRAnim.onFinished = $bind(this,this.setNormalState);
 		this.addAnimation("slipR",slipRAnim);
-		var slipLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip_flip",140,180,35,0),null,12,false);
+		var slipLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip_flip",140,180,35,0),null,16,false);
 		slipLAnim.onFinished = $bind(this,this.setNormalState);
 		this.addAnimation("slipL",slipLAnim);
 		var cacRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_cac",140,180,35,0),null,12,false);
@@ -2933,6 +3279,16 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		this.addAnimation("cacL",cacLAnim);
 	}
 	,__class__: entities_hero_Hero
+});
+var entities_hero_Kick = function() {
+	entities_CacWeapon.call(this,"kick");
+	this.mDamage = 1;
+};
+$hxClasses["entities.hero.Kick"] = entities_hero_Kick;
+entities_hero_Kick.__name__ = ["entities","hero","Kick"];
+entities_hero_Kick.__super__ = entities_CacWeapon;
+entities_hero_Kick.prototype = $extend(entities_CacWeapon.prototype,{
+	__class__: entities_hero_Kick
 });
 var entities_hero_Pant = function() {
 	entities_CacWeapon.call(this,"Pant");
@@ -2964,6 +3320,9 @@ entities_hero_Pant.prototype = $extend(entities_CacWeapon.prototype,{
 		this.addAnimation("cacR",cacRAnim);
 		var cacLAnim = new core_Animation(new core_SpriteSheet("Hero/pants_cac_flip",140,180,35,0),null,12,false);
 		this.addAnimation("cacL",cacLAnim);
+	}
+	,draw: function(buffer,dest) {
+		if(!this.mLaunched) entities_CacWeapon.prototype.draw.call(this,buffer,dest);
 	}
 	,__class__: entities_hero_Pant
 });
@@ -3029,6 +3388,8 @@ entities_hero_Shoe.prototype = $extend(entities_Weapon.prototype,{
 		this.addAnimation("cacR",cacRAnim);
 		var cacLAnim = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_cac_flip",140,180,35,0),null,12,false);
 		this.addAnimation("cacL",cacLAnim);
+		this.addAnimation("launchedR",new core_Animation(new core_SpriteSheet("Hero/shoe",34,36)));
+		this.addAnimation("launchedL",new core_Animation(new core_SpriteSheet("Hero/shoe_flip",34,36)));
 	}
 	,__class__: entities_hero_Shoe
 });
@@ -3067,17 +3428,23 @@ var entities_hud_HUD = function() {
 	core_Entity.call(this,"HUD");
 	this.mGo = new entities_hud_Go();
 	this.mGo.pos.x = core_Game.getInstance().getWidth() - 250;
-	this.mGo.pos.y = core_Game.getInstance().getHeight() / 2 - 50;
+	this.mGo.pos.y = core_Game.getInstance().getHeight() / 4 - 50;
 };
 $hxClasses["entities.hud.HUD"] = entities_hud_HUD;
 entities_hud_HUD.__name__ = ["entities","hud","HUD"];
 entities_hud_HUD.__super__ = core_Entity;
 entities_hud_HUD.prototype = $extend(core_Entity.prototype,{
 	stopShowNext: function() {
-		this.remove(this.mGo);
+		if(this.mGoAdded) {
+			this.remove(this.mGo);
+			this.mGoAdded = false;
+		}
 	}
 	,showNext: function() {
-		this.add(this.mGo);
+		if(!this.mGoAdded) {
+			this.add(this.mGo);
+			this.mGoAdded = true;
+		}
 	}
 	,__class__: entities_hud_HUD
 });
@@ -25636,7 +26003,7 @@ var screens_GameScreen = function() {
 	core_Screen.call(this);
 	this.mWorld = new entities_World();
 	this.mHero = new entities_hero_Hero(this.mWorld);
-	this.mPunkManager = new entities_PunkManager(this.mHero,this.mWorld);
+	this.mEnnemyManager = new entities_ennemies_EnnemyManager(this.mHero,this.mWorld);
 	this.mMaxScroll = 0;
 	this.mHud = new entities_hud_HUD();
 	this.add(this.mWorld);
@@ -25651,16 +26018,16 @@ screens_GameScreen.__name__ = ["screens","GameScreen"];
 screens_GameScreen.__super__ = core_Screen;
 screens_GameScreen.prototype = $extend(core_Screen.prototype,{
 	update: function(delta) {
-		this.mPunkManager.update();
-		if(this.mPunkManager.getPunkAlive() <= 0 && this.mHero.worldPos.x >= this.mMaxScroll - 100) {
+		this.mEnnemyManager.update();
+		if(this.mEnnemyManager.getEnnemiesAlive() <= 0 && this.mHero.worldPos.x >= this.mMaxScroll - 250) {
 			this.nextWave();
 			this.mHud.stopShowNext();
-		} else if(this.mPunkManager.getPunkAlive() <= 0) this.mHud.showNext();
+		} else if(this.mEnnemyManager.getEnnemiesAlive() <= 0) this.mHud.showNext();
 		if(this.mHero.worldPos.x < 0) this.mHero.worldPos.x = 0;
 		if(this.mHero.worldPos.x + this.mHero.getDim().x > this.mMaxScroll) this.mHero.worldPos.x = this.mMaxScroll - this.mHero.getDim().x;
 	}
 	,nextWave: function() {
-		this.mPunkManager.spawnPunk(this.mCurrentWave);
+		this.mEnnemyManager.spawnPunk(this.mCurrentWave);
 		this.mCurrentWave++;
 		this.unlockZone(this.mMaxScroll + this.mZonoeSize);
 	}

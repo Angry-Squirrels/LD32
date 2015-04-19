@@ -102,7 +102,7 @@ class Ennemy extends Human
 				
 				mAttackTimer += delta;
 				
-				if (mAttackTimer >= mAttackRate)
+				if (mAttackTimer >= mAttackRate && !mTarget.isDead())
 				{
 					attack();
 					mDamageDealt = false;

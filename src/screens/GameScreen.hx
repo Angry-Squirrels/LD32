@@ -9,6 +9,10 @@ import entities.Human;
 import entities.ennemies.Ennemy;
 import entities.ennemies.EnnemyManager;
 import entities.World;
+import geom.Vec2;
+import openfl.display.Shape;
+import openfl.geom.Rectangle;
+import openfl.display.BitmapData;
 
 /**
  * ...
@@ -31,6 +35,9 @@ class GameScreen extends Screen
 	var mCurrentWave : Int = 1;
 	
 	var mHud : HUD;
+	var mGameOverTimer:Float;
+	var mGameOverDelay : Float = 1.0;
+	var mGameOverTimerStarted:Bool;
 
 	public function new() 
 	{
@@ -41,6 +48,8 @@ class GameScreen extends Screen
 		mHero = new Hero(mWorld);
 		mEnnemyManager = new EnnemyManager(mHero, mWorld);
 		mMaxScroll = 0;
+		
+		mGameOverTimer = 0;
 		
 		mHud = new HUD();
 		
@@ -73,6 +82,16 @@ class GameScreen extends Screen
 		
 		if (mHero.worldPos.x + mHero.getDim().x> mMaxScroll )
 			mHero.worldPos.x = mMaxScroll - mHero.getDim().x;
+			
+		if (mHero.isCaught() && !mGameOverTimerStarted) {
+			mGameOverTimerStarted = true;
+		}
+		
+		if (mGameOverTimerStarted) {
+			mGameOverTimer += delta;
+			if (mGameOverTimer > mGameOverDelay)
+				mGame.gotoScreen(new GameOver());
+		}
 	}
 	
 	function nextWave() {
@@ -86,6 +105,21 @@ class GameScreen extends Screen
 			mMaxScroll = scroll;
 			mWorld.generateBuilding(cast mMaxScroll);
 		}
+	}
+	
+	var mFadeSquare : Shape;
+	
+	override public function _draw(buffer:BitmapData, dest:Vec2) 
+	{
+		super._draw(buffer, dest);
+		
+		if (mFadeSquare == null) 
+			mFadeSquare = new Shape();
+		
+		mFadeSquare.graphics.clear();
+		mFadeSquare.graphics.beginFill(0x000000, mGameOverTimer);
+		mFadeSquare.graphics.drawRect(0, 0, 800, 480);
+		buffer.draw(mFadeSquare);
 	}
 	
 }

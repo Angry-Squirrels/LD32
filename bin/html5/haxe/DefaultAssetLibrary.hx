@@ -45,6 +45,36 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
+		className.set ("img/Boss/boss_attack1.png", __ASSET__img_boss_boss_attack1_png);
+		type.set ("img/Boss/boss_attack1.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_attack2.png", __ASSET__img_boss_boss_attack2_png);
+		type.set ("img/Boss/boss_attack2.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_attack2_flip.png", __ASSET__img_boss_boss_attack2_flip_png);
+		type.set ("img/Boss/boss_attack2_flip.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_death.png", __ASSET__img_boss_boss_death_png);
+		type.set ("img/Boss/boss_death.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_death_flip.png", __ASSET__img_boss_boss_death_flip_png);
+		type.set ("img/Boss/boss_death_flip.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_hit.png", __ASSET__img_boss_boss_hit_png);
+		type.set ("img/Boss/boss_hit.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_hit_flip.png", __ASSET__img_boss_boss_hit_flip_png);
+		type.set ("img/Boss/boss_hit_flip.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_iddle.png", __ASSET__img_boss_boss_iddle_png);
+		type.set ("img/Boss/boss_iddle.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_iddle_anim.png", __ASSET__img_boss_boss_iddle_anim_png);
+		type.set ("img/Boss/boss_iddle_anim.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_walk.png", __ASSET__img_boss_boss_walk_png);
+		type.set ("img/Boss/boss_walk.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_walk_flip.png", __ASSET__img_boss_boss_walk_flip_png);
+		type.set ("img/Boss/boss_walk_flip.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_attack.png", __ASSET__img_flic_flic_attack_png);
+		type.set ("img/Flic/flic_attack.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_attack_flip.png", __ASSET__img_flic_flic_attack_flip_png);
+		type.set ("img/Flic/flic_attack_flip.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_walk.png", __ASSET__img_flic_flic_walk_png);
+		type.set ("img/Flic/flic_walk.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_walk_flip.png", __ASSET__img_flic_flic_walk_flip_png);
+		type.set ("img/Flic/flic_walk_flip.png", AssetType.IMAGE);
 		className.set ("img/Hero/franky_cac.png", __ASSET__img_hero_franky_cac_png);
 		type.set ("img/Hero/franky_cac.png", AssetType.IMAGE);
 		className.set ("img/Hero/franky_cac_flip.png", __ASSET__img_hero_franky_cac_flip_png);
@@ -125,6 +155,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Hero/pull_strip.png", AssetType.IMAGE);
 		className.set ("img/Hero/pull_strip_flip.png", __ASSET__img_hero_pull_strip_flip_png);
 		type.set ("img/Hero/pull_strip_flip.png", AssetType.IMAGE);
+		className.set ("img/Hero/shoe.png", __ASSET__img_hero_shoe_png);
+		type.set ("img/Hero/shoe.png", AssetType.IMAGE);
 		className.set ("img/Hero/shoeL_cac.png", __ASSET__img_hero_shoel_cac_png);
 		type.set ("img/Hero/shoeL_cac.png", AssetType.IMAGE);
 		className.set ("img/Hero/shoeL_cac_flip.png", __ASSET__img_hero_shoel_cac_flip_png);
@@ -173,6 +205,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Hero/shoeR_strip.png", AssetType.IMAGE);
 		className.set ("img/Hero/shoeR_strip_flip.png", __ASSET__img_hero_shoer_strip_flip_png);
 		type.set ("img/Hero/shoeR_strip_flip.png", AssetType.IMAGE);
+		className.set ("img/Hero/shoe_flip.png", __ASSET__img_hero_shoe_flip_png);
+		type.set ("img/Hero/shoe_flip.png", AssetType.IMAGE);
+		className.set ("img/Hero/slip.png", __ASSET__img_hero_slip_png);
+		type.set ("img/Hero/slip.png", AssetType.IMAGE);
+		className.set ("img/Hero/slip_flip.png", __ASSET__img_hero_slip_flip_png);
+		type.set ("img/Hero/slip_flip.png", AssetType.IMAGE);
 		className.set ("img/Hero/slip_iddle.png", __ASSET__img_hero_slip_iddle_png);
 		type.set ("img/Hero/slip_iddle.png", AssetType.IMAGE);
 		className.set ("img/Hero/slip_iddle_flip.png", __ASSET__img_hero_slip_iddle_flip_png);
@@ -195,11 +233,91 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Hero/slip_strip_flip.png", AssetType.IMAGE);
 		className.set ("img/hud/GO.png", __ASSET__img_hud_go_png);
 		type.set ("img/hud/GO.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_attack.png", __ASSET__img_punk_punk_attack_png);
+		type.set ("img/Punk/punk_attack.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_attack_flip.png", __ASSET__img_punk_punk_attack_flip_png);
+		type.set ("img/Punk/punk_attack_flip.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_death.png", __ASSET__img_punk_punk_death_png);
+		type.set ("img/Punk/punk_death.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_death_flip.png", __ASSET__img_punk_punk_death_flip_png);
+		type.set ("img/Punk/punk_death_flip.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_hit.png", __ASSET__img_punk_punk_hit_png);
+		type.set ("img/Punk/punk_hit.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_hit_flip.png", __ASSET__img_punk_punk_hit_flip_png);
+		type.set ("img/Punk/punk_hit_flip.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_iddle.png", __ASSET__img_punk_punk_iddle_png);
+		type.set ("img/Punk/punk_iddle.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_iddle_flip.png", __ASSET__img_punk_punk_iddle_flip_png);
+		type.set ("img/Punk/punk_iddle_flip.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_walk.png", __ASSET__img_punk_punk_walk_png);
+		type.set ("img/Punk/punk_walk.png", AssetType.IMAGE);
+		className.set ("img/Punk/punk_walk_flip.png", __ASSET__img_punk_punk_walk_flip_png);
+		type.set ("img/Punk/punk_walk_flip.png", AssetType.IMAGE);
 		
 		
 		#elseif html5
 		
 		var id;
+		id = "img/Boss/boss_attack1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_attack2.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_attack2_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_death.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_death_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_hit.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_hit_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_iddle.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_iddle_anim.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_walk.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_walk_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_attack.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_attack_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_walk.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_walk_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/Hero/franky_cac.png";
 		path.set (id, id);
 		
@@ -360,6 +478,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/Hero/shoe.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/Hero/shoeL_cac.png";
 		path.set (id, id);
 		
@@ -456,6 +578,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/Hero/shoe_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Hero/slip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Hero/slip_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/Hero/slip_iddle.png";
 		path.set (id, id);
 		
@@ -497,6 +631,46 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "img/hud/GO.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_attack.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_attack_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_death.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_death_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_hit.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_hit_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_iddle.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_iddle_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_walk.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Punk/punk_walk_flip.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -589,11 +763,85 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		#end
 		
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		
+		className.set ("img/Boss/boss_attack1.png", __ASSET__img_boss_boss_attack1_png);
+		type.set ("img/Boss/boss_attack1.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_attack2.png", __ASSET__img_boss_boss_attack2_png);
+		type.set ("img/Boss/boss_attack2.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_attack2_flip.png", __ASSET__img_boss_boss_attack2_flip_png);
+		type.set ("img/Boss/boss_attack2_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_death.png", __ASSET__img_boss_boss_death_png);
+		type.set ("img/Boss/boss_death.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_death_flip.png", __ASSET__img_boss_boss_death_flip_png);
+		type.set ("img/Boss/boss_death_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_hit.png", __ASSET__img_boss_boss_hit_png);
+		type.set ("img/Boss/boss_hit.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_hit_flip.png", __ASSET__img_boss_boss_hit_flip_png);
+		type.set ("img/Boss/boss_hit_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_iddle.png", __ASSET__img_boss_boss_iddle_png);
+		type.set ("img/Boss/boss_iddle.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_iddle_anim.png", __ASSET__img_boss_boss_iddle_anim_png);
+		type.set ("img/Boss/boss_iddle_anim.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_walk.png", __ASSET__img_boss_boss_walk_png);
+		type.set ("img/Boss/boss_walk.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_walk_flip.png", __ASSET__img_boss_boss_walk_flip_png);
+		type.set ("img/Boss/boss_walk_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_attack.png", __ASSET__img_flic_flic_attack_png);
+		type.set ("img/Flic/flic_attack.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_attack_flip.png", __ASSET__img_flic_flic_attack_flip_png);
+		type.set ("img/Flic/flic_attack_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_walk.png", __ASSET__img_flic_flic_walk_png);
+		type.set ("img/Flic/flic_walk.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_walk_flip.png", __ASSET__img_flic_flic_walk_flip_png);
+		type.set ("img/Flic/flic_walk_flip.png", AssetType.IMAGE);
 		
 		className.set ("img/Hero/franky_cac.png", __ASSET__img_hero_franky_cac_png);
 		type.set ("img/Hero/franky_cac.png", AssetType.IMAGE);
@@ -715,6 +963,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/Hero/pull_strip_flip.png", __ASSET__img_hero_pull_strip_flip_png);
 		type.set ("img/Hero/pull_strip_flip.png", AssetType.IMAGE);
 		
+		className.set ("img/Hero/shoe.png", __ASSET__img_hero_shoe_png);
+		type.set ("img/Hero/shoe.png", AssetType.IMAGE);
+		
 		className.set ("img/Hero/shoeL_cac.png", __ASSET__img_hero_shoel_cac_png);
 		type.set ("img/Hero/shoeL_cac.png", AssetType.IMAGE);
 		
@@ -787,6 +1038,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/Hero/shoeR_strip_flip.png", __ASSET__img_hero_shoer_strip_flip_png);
 		type.set ("img/Hero/shoeR_strip_flip.png", AssetType.IMAGE);
 		
+		className.set ("img/Hero/shoe_flip.png", __ASSET__img_hero_shoe_flip_png);
+		type.set ("img/Hero/shoe_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Hero/slip.png", __ASSET__img_hero_slip_png);
+		type.set ("img/Hero/slip.png", AssetType.IMAGE);
+		
+		className.set ("img/Hero/slip_flip.png", __ASSET__img_hero_slip_flip_png);
+		type.set ("img/Hero/slip_flip.png", AssetType.IMAGE);
+		
 		className.set ("img/Hero/slip_iddle.png", __ASSET__img_hero_slip_iddle_png);
 		type.set ("img/Hero/slip_iddle.png", AssetType.IMAGE);
 		
@@ -819,6 +1079,36 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/hud/GO.png", __ASSET__img_hud_go_png);
 		type.set ("img/hud/GO.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_attack.png", __ASSET__img_punk_punk_attack_png);
+		type.set ("img/Punk/punk_attack.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_attack_flip.png", __ASSET__img_punk_punk_attack_flip_png);
+		type.set ("img/Punk/punk_attack_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_death.png", __ASSET__img_punk_punk_death_png);
+		type.set ("img/Punk/punk_death.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_death_flip.png", __ASSET__img_punk_punk_death_flip_png);
+		type.set ("img/Punk/punk_death_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_hit.png", __ASSET__img_punk_punk_hit_png);
+		type.set ("img/Punk/punk_hit.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_hit_flip.png", __ASSET__img_punk_punk_hit_flip_png);
+		type.set ("img/Punk/punk_hit_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_iddle.png", __ASSET__img_punk_punk_iddle_png);
+		type.set ("img/Punk/punk_iddle.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_iddle_flip.png", __ASSET__img_punk_punk_iddle_flip_png);
+		type.set ("img/Punk/punk_iddle_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_walk.png", __ASSET__img_punk_punk_walk_png);
+		type.set ("img/Punk/punk_walk.png", AssetType.IMAGE);
+		
+		className.set ("img/Punk/punk_walk_flip.png", __ASSET__img_punk_punk_walk_flip_png);
+		type.set ("img/Punk/punk_walk_flip.png", AssetType.IMAGE);
 		
 		
 		if (useManifest) {
@@ -1420,6 +1710,21 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_attack1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_attack2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_attack2_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_death_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_death_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_hit_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_hit_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_iddle_anim_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_attack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_attack_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_cac_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_cac_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_catch_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1460,6 +1765,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_hero_pull_run_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_pull_strip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_pull_strip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hero_shoe_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoel_cac_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoel_cac_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoel_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1484,6 +1790,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoer_run_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoer_strip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_shoer_strip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hero_shoe_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hero_slip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_hero_slip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_iddle_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_kickd_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1495,9 +1804,48 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_strip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_slip_strip_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hud_go_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_attack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_attack_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_death_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_death_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_hit_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_hit_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_iddle_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_punk_punk_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1583,6 +1931,21 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux)
 
 
+@:image("assets/img/Boss/boss_attack1.png") #if display private #end class __ASSET__img_boss_boss_attack1_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_attack2.png") #if display private #end class __ASSET__img_boss_boss_attack2_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_attack2_flip.png") #if display private #end class __ASSET__img_boss_boss_attack2_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_death.png") #if display private #end class __ASSET__img_boss_boss_death_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_death_flip.png") #if display private #end class __ASSET__img_boss_boss_death_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_hit.png") #if display private #end class __ASSET__img_boss_boss_hit_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_hit_flip.png") #if display private #end class __ASSET__img_boss_boss_hit_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_iddle.png") #if display private #end class __ASSET__img_boss_boss_iddle_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_iddle_anim.png") #if display private #end class __ASSET__img_boss_boss_iddle_anim_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_walk.png") #if display private #end class __ASSET__img_boss_boss_walk_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_walk_flip.png") #if display private #end class __ASSET__img_boss_boss_walk_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_attack.png") #if display private #end class __ASSET__img_flic_flic_attack_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_attack_flip.png") #if display private #end class __ASSET__img_flic_flic_attack_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_walk.png") #if display private #end class __ASSET__img_flic_flic_walk_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_walk_flip.png") #if display private #end class __ASSET__img_flic_flic_walk_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/franky_cac.png") #if display private #end class __ASSET__img_hero_franky_cac_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/franky_cac_flip.png") #if display private #end class __ASSET__img_hero_franky_cac_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/franky_catch.png") #if display private #end class __ASSET__img_hero_franky_catch_png extends lime.graphics.Image {}
@@ -1623,6 +1986,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Hero/pull_run_flip.png") #if display private #end class __ASSET__img_hero_pull_run_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/pull_strip.png") #if display private #end class __ASSET__img_hero_pull_strip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/pull_strip_flip.png") #if display private #end class __ASSET__img_hero_pull_strip_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Hero/shoe.png") #if display private #end class __ASSET__img_hero_shoe_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeL_cac.png") #if display private #end class __ASSET__img_hero_shoel_cac_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeL_cac_flip.png") #if display private #end class __ASSET__img_hero_shoel_cac_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeL_iddle.png") #if display private #end class __ASSET__img_hero_shoel_iddle_png extends lime.graphics.Image {}
@@ -1647,6 +2011,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Hero/shoeR_run_flip.png") #if display private #end class __ASSET__img_hero_shoer_run_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeR_strip.png") #if display private #end class __ASSET__img_hero_shoer_strip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/shoeR_strip_flip.png") #if display private #end class __ASSET__img_hero_shoer_strip_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Hero/shoe_flip.png") #if display private #end class __ASSET__img_hero_shoe_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Hero/slip.png") #if display private #end class __ASSET__img_hero_slip_png extends lime.graphics.Image {}
+@:image("assets/img/Hero/slip_flip.png") #if display private #end class __ASSET__img_hero_slip_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_iddle.png") #if display private #end class __ASSET__img_hero_slip_iddle_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_iddle_flip.png") #if display private #end class __ASSET__img_hero_slip_iddle_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_kickD.png") #if display private #end class __ASSET__img_hero_slip_kickd_png extends lime.graphics.Image {}
@@ -1658,6 +2025,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Hero/slip_strip.png") #if display private #end class __ASSET__img_hero_slip_strip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/slip_strip_flip.png") #if display private #end class __ASSET__img_hero_slip_strip_flip_png extends lime.graphics.Image {}
 @:image("assets/img/hud/GO.png") #if display private #end class __ASSET__img_hud_go_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_attack.png") #if display private #end class __ASSET__img_punk_punk_attack_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_attack_flip.png") #if display private #end class __ASSET__img_punk_punk_attack_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_death.png") #if display private #end class __ASSET__img_punk_punk_death_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_death_flip.png") #if display private #end class __ASSET__img_punk_punk_death_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_hit.png") #if display private #end class __ASSET__img_punk_punk_hit_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_hit_flip.png") #if display private #end class __ASSET__img_punk_punk_hit_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_iddle.png") #if display private #end class __ASSET__img_punk_punk_iddle_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_iddle_flip.png") #if display private #end class __ASSET__img_punk_punk_iddle_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_walk.png") #if display private #end class __ASSET__img_punk_punk_walk_png extends lime.graphics.Image {}
+@:image("assets/img/Punk/punk_walk_flip.png") #if display private #end class __ASSET__img_punk_punk_walk_flip_png extends lime.graphics.Image {}
 
 
 

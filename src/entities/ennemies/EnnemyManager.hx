@@ -15,6 +15,8 @@ class EnnemyManager
 	
 	var mEnnemiesToRemove : Array<Ennemy>;
 	
+	var mFlic : Flic;
+	
 	var mWorld : World;
 	var mGame : Game;
 	var mHero : Hero;
@@ -26,6 +28,14 @@ class EnnemyManager
 		mHero = hero;
 		mWorld = world;
 		mGame = Game.getInstance();
+		mFlic = new Flic();
+		
+		mWorld.addActor(mFlic);
+		
+		mFlic.worldPos.x = 400;
+		mFlic.worldPos.y = 300 / Actor.fakeZCoef;
+		mFlic.setTarget(mHero);
+		mFlic.setState(mFlic.getClose);
 		
 		mEnnemies = new Array<Ennemy>();
 		mEnnemiesToRemove = new Array<Ennemy>();
@@ -87,6 +97,11 @@ class EnnemyManager
 				ennemy.setState(ennemy.getClose);
 
 		}
+		
+		if (mHero.isApoil())
+			mFlic.setState(mFlic.pursuit);
+		else
+			mFlic.setState(mFlic.getClose);
 		
 		while (mEnnemiesToRemove.length > 0) {
 			var ennemy = mEnnemiesToRemove.pop();

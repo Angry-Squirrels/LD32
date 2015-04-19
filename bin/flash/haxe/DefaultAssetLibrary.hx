@@ -67,6 +67,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Boss/boss_walk.png", AssetType.IMAGE);
 		className.set ("img/Boss/boss_walk_flip.png", __ASSET__img_boss_boss_walk_flip_png);
 		type.set ("img/Boss/boss_walk_flip.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_attack.png", __ASSET__img_flic_flic_attack_png);
+		type.set ("img/Flic/flic_attack.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_attack_flip.png", __ASSET__img_flic_flic_attack_flip_png);
+		type.set ("img/Flic/flic_attack_flip.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_walk.png", __ASSET__img_flic_flic_walk_png);
+		type.set ("img/Flic/flic_walk.png", AssetType.IMAGE);
+		className.set ("img/Flic/flic_walk_flip.png", __ASSET__img_flic_flic_walk_flip_png);
+		type.set ("img/Flic/flic_walk_flip.png", AssetType.IMAGE);
 		className.set ("img/Hero/franky_cac.png", __ASSET__img_hero_franky_cac_png);
 		type.set ("img/Hero/franky_cac.png", AssetType.IMAGE);
 		className.set ("img/Hero/franky_cac_flip.png", __ASSET__img_hero_franky_cac_flip_png);
@@ -291,6 +299,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "img/Boss/boss_walk_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_attack.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_attack_flip.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_walk.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Flic/flic_walk_flip.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -764,6 +788,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
 		#end
 		
 		#if (windows || mac || linux)
@@ -802,6 +830,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/Boss/boss_walk_flip.png", __ASSET__img_boss_boss_walk_flip_png);
 		type.set ("img/Boss/boss_walk_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_attack.png", __ASSET__img_flic_flic_attack_png);
+		type.set ("img/Flic/flic_attack.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_attack_flip.png", __ASSET__img_flic_flic_attack_flip_png);
+		type.set ("img/Flic/flic_attack_flip.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_walk.png", __ASSET__img_flic_flic_walk_png);
+		type.set ("img/Flic/flic_walk.png", AssetType.IMAGE);
+		
+		className.set ("img/Flic/flic_walk_flip.png", __ASSET__img_flic_flic_walk_flip_png);
+		type.set ("img/Flic/flic_walk_flip.png", AssetType.IMAGE);
 		
 		className.set ("img/Hero/franky_cac.png", __ASSET__img_hero_franky_cac_png);
 		type.set ("img/Hero/franky_cac.png", AssetType.IMAGE);
@@ -1681,6 +1721,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_iddle_anim_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_attack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_attack_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_flic_flic_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_cac_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_cac_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_hero_franky_catch_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1876,6 +1920,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
 #else
 
 
@@ -1894,6 +1942,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Boss/boss_iddle_anim.png") #if display private #end class __ASSET__img_boss_boss_iddle_anim_png extends lime.graphics.Image {}
 @:image("assets/img/Boss/boss_walk.png") #if display private #end class __ASSET__img_boss_boss_walk_png extends lime.graphics.Image {}
 @:image("assets/img/Boss/boss_walk_flip.png") #if display private #end class __ASSET__img_boss_boss_walk_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_attack.png") #if display private #end class __ASSET__img_flic_flic_attack_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_attack_flip.png") #if display private #end class __ASSET__img_flic_flic_attack_flip_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_walk.png") #if display private #end class __ASSET__img_flic_flic_walk_png extends lime.graphics.Image {}
+@:image("assets/img/Flic/flic_walk_flip.png") #if display private #end class __ASSET__img_flic_flic_walk_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/franky_cac.png") #if display private #end class __ASSET__img_hero_franky_cac_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/franky_cac_flip.png") #if display private #end class __ASSET__img_hero_franky_cac_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Hero/franky_catch.png") #if display private #end class __ASSET__img_hero_franky_catch_png extends lime.graphics.Image {}
