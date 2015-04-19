@@ -3,6 +3,7 @@ import core.Animation;
 import core.Entity;
 import core.SpriteSheet;
 import entities.Actor;
+import entities.ennemies.Ennemy;
 import entities.Human;
 import entities.Weapon;
 import entities.World;
@@ -195,7 +196,7 @@ class Hero extends Human
 			hitTest(this, mLastStripableBody) &&
 			worldPos.y <= mLastStripableBody.worldPos.y)
 			stripBody();
-		else 
+		else if(mCurrentState != attackState)
 			attack();
 	}
 	
@@ -275,9 +276,9 @@ class Hero extends Human
 		
 		synchronizeClothes();
 		
-		if (vel.x < 0 && mXAxis < 1)
+		if (mXAxis < 0)
 			mHeading = -1;
-		else if (vel.x > 0 && mXAxis > -1)
+		else if (mXAxis > 0)
 			mHeading = 1;
 		
 		if (mCurrentState != null)
@@ -418,7 +419,7 @@ class Hero extends Human
 	{
 		super.onCollide(actor);
 		
-		if (Std.is(actor, Punk) && actor.isDead()) {
+		if (Std.is(actor, Ennemy) && actor.isDead()) {
 			if (worldPos.y < actor.worldPos.y)
 				mLastStripableBody = actor;
 		}
@@ -432,19 +433,19 @@ class Hero extends Human
 		addAnimation("walkR", new Animation(new SpriteSheet("Hero/franky_run", 140, 180, 35, 0), null, 16)); 
 		addAnimation("walkL", new Animation(new SpriteSheet("Hero/franky_run_flip", 140, 180, 35, 0), null, 16)); 
 		
-		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickL", 140, 180, 35, 0), null, 12, false); 
+		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickL", 140, 180, 35, 0), null, 22, false); 
 		kickLRAnim.onFinished = setNormalState;
 		addAnimation("kickLR", kickLRAnim);
 		
-		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickL_flip", 140, 180, 35, 0), null, 12, false); 
+		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickL_flip", 140, 180, 35, 0), null, 22, false); 
 		kickLLAnim.onFinished = setNormalState;
 		addAnimation("kickLL", kickLLAnim);
 		
-		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickD", 140, 180, 35, 0), null, 12, false); 
+		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickD", 140, 180, 35, 0), null, 22, false); 
 		kickLRAnim.onFinished = setNormalState;
 		addAnimation("kickDR", kickLRAnim);
 		
-		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickD_flip", 140, 180, 35, 0), null, 12, false); 
+		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickD_flip", 140, 180, 35, 0), null, 22, false); 
 		kickLLAnim.onFinished = setNormalState;
 		addAnimation("kickDL", kickLLAnim);
 		
@@ -456,11 +457,11 @@ class Hero extends Human
 		stripLAnim.onFinished = stripEnded;
 		addAnimation("stripL", stripLAnim);
 		
-		var slipRAnim = new Animation(new SpriteSheet("Hero/franky_slip", 140, 180, 35, 0), null, 12, false);
+		var slipRAnim = new Animation(new SpriteSheet("Hero/franky_slip", 140, 180, 35, 0), null, 16, false);
 		slipRAnim.onFinished = setNormalState;
 		addAnimation("slipR", slipRAnim);
 		
-		var slipLAnim = new Animation(new SpriteSheet("Hero/franky_slip_flip", 140, 180, 35, 0), null, 12, false);
+		var slipLAnim = new Animation(new SpriteSheet("Hero/franky_slip_flip", 140, 180, 35, 0), null, 16, false);
 		slipLAnim.onFinished = setNormalState;
 		addAnimation("slipL", slipLAnim);
 		

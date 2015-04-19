@@ -48,7 +48,7 @@ class Weapon extends AnimatedActor
 			!destroyable()) {
 			if (actor.isDead()) return;
 			explode();
-			actor.takeDamage(mDamage);
+			actor.takeDamage(mDamage, this);
 		}
 	}
 	

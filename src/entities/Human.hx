@@ -39,4 +39,20 @@ class Human extends AnimatedActor
 			worldPos.y = mMaxY /  Actor.fakeZCoef;
 	}
 	
+	override public function takeDamage(amount:Int, source : Actor) 
+	{
+		super.takeDamage(amount, source);
+		
+		if (source != null) {
+			
+			var pushVector = Vec2.Sub(worldPos, source.worldPos);
+			pushVector = Vec2.Norm(pushVector);
+			
+			pushVector.mul(1000);
+			
+			vel.add(pushVector);
+			
+		}
+	}
+	
 }

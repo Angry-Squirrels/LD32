@@ -97,7 +97,7 @@ class Actor extends Entity
 		return Vec2.Dist(a.worldPos, b.worldPos) < a.getDim().x / 2 + b.getDim().x / 2;
 	}
 	
-	public function takeDamage(amount : Int) {
+	public function takeDamage(amount : Int, source : Actor) {
 		mLife -= amount;
 	}
 	

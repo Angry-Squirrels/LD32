@@ -6,8 +6,8 @@ import core.Screen;
 import entities.hero.Hero;
 import entities.hud.HUD;
 import entities.Human;
-import entities.Punk;
-import entities.PunkManager;
+import entities.ennemies.Ennemy;
+import entities.ennemies.EnnemyManager;
 import entities.World;
 
 /**
@@ -24,7 +24,7 @@ class GameScreen extends Screen
 	
 	var mGame : Game;
 	
-	var mPunkManager : PunkManager;
+	var mEnnemyManager : EnnemyManager;
 	
 	var mZonoeSize : Int = 1000;
 	
@@ -39,7 +39,7 @@ class GameScreen extends Screen
 		
 		mWorld = new World();
 		mHero = new Hero(mWorld);
-		mPunkManager = new PunkManager(mHero, mWorld);
+		mEnnemyManager = new EnnemyManager(mHero, mWorld);
 		mMaxScroll = 0;
 		
 		mHud = new HUD();
@@ -59,12 +59,12 @@ class GameScreen extends Screen
 	
 	override function update(delta:Float) 
 	{
-		mPunkManager.update();
+		mEnnemyManager.update();
 		
-		if (mPunkManager.getPunkAlive() <= 0 && mHero.worldPos.x >= mMaxScroll - 250){
+		if (mEnnemyManager.getEnnemiesAlive() <= 0 && mHero.worldPos.x >= mMaxScroll - 250){
 			nextWave();
 			mHud.stopShowNext();
-		}else if(mPunkManager.getPunkAlive() <= 0){
+		}else if(mEnnemyManager.getEnnemiesAlive() <= 0){
 			mHud.showNext();
 		}
 		
@@ -76,7 +76,7 @@ class GameScreen extends Screen
 	}
 	
 	function nextWave() {
-		mPunkManager.spawnPunk(mCurrentWave);
+		mEnnemyManager.spawnPunk(mCurrentWave);
 		mCurrentWave++;
 		unlockZone(mMaxScroll + mZonoeSize);
 	}
