@@ -26,6 +26,14 @@ ApplicationMain.create = function() {
 	ApplicationMain.preloader.create(ApplicationMain.config);
 	var urls = [];
 	var types = [];
+	urls.push("img/Hero/franky_cac.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_cac_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_catch.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_catch_flip.png");
+	types.push("IMAGE");
 	urls.push("img/Hero/franky_iddle.png");
 	types.push("IMAGE");
 	urls.push("img/Hero/franky_iddle_flip.png");
@@ -42,9 +50,131 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Hero/franky_run_flip.png");
 	types.push("IMAGE");
+	urls.push("img/Hero/franky_slip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/franky_slip_flip.png");
+	types.push("IMAGE");
 	urls.push("img/Hero/franky_strip.png");
 	types.push("IMAGE");
 	urls.push("img/Hero/franky_strip_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_cac.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_cac_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_iddle_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_kickD.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_kickD_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_kickL.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_kickL_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_run.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_run_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_strip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pants_strip_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_cac.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_cac_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_iddle_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_kickL.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_kickL_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_kickR.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_kickR_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_run.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_run_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_strip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/pull_strip_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_cac.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_cac_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_iddle_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_kickL.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_kickL_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_kickR.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_kickR_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_run.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_run_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_strip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeL_strip_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_cac.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_cac_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_iddle_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_kickL.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_kickL_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_kickR.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_kickR_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_run.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_run_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_strip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/shoeR_strip_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_iddle.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_iddle_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_kickD.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_kickD_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_kickL.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_kickL_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_run.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_run_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_strip.png");
+	types.push("IMAGE");
+	urls.push("img/Hero/slip_strip_flip.png");
+	types.push("IMAGE");
+	urls.push("img/hud/GO.png");
 	types.push("IMAGE");
 	if(ApplicationMain.config.assetsPrefix != null) {
 		var _g1 = 0;
@@ -1053,6 +1183,18 @@ var DefaultAssetLibrary = function() {
 	this.className = new haxe_ds_StringMap();
 	lime_AssetLibrary.call(this);
 	var id;
+	id = "img/Hero/franky_cac.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_cac_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_catch.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_catch_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Hero/franky_iddle.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -1077,10 +1219,193 @@ var DefaultAssetLibrary = function() {
 	id = "img/Hero/franky_run_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_slip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/franky_slip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Hero/franky_strip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/Hero/franky_strip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_cac.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_cac_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_iddle_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_kickD.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_kickD_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_kickL.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_kickL_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_run.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_run_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_strip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pants_strip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_cac.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_cac_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_iddle_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_kickL.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_kickL_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_kickR.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_kickR_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_run.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_run_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_strip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/pull_strip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_cac.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_cac_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_iddle_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_kickL.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_kickL_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_kickR.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_kickR_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_run.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_run_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_strip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeL_strip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_cac.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_cac_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_iddle_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_kickL.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_kickL_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_kickR.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_kickR_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_run.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_run_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_strip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/shoeR_strip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_iddle.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_iddle_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_kickD.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_kickD_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_kickL.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_kickL_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_run.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_run_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_strip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Hero/slip_strip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/hud/GO.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	var assetsPrefix = ApplicationMain.config.assetsPrefix;
@@ -1560,6 +1885,9 @@ core_Animation.prototype = {
 	,reset: function() {
 		this.mCurrentFrame = 0;
 	}
+	,setFrame: function(frame) {
+		this.mCurrentFrame = frame;
+	}
 	,__class__: core_Animation
 };
 var core_Camera = function() {
@@ -1577,8 +1905,10 @@ core_Camera.prototype = {
 	}
 	,update: function(delta) {
 		if(this.mTargetEntity != null) {
-			this.pos.x = this.mTargetEntity.pos.x + (this.mTargetEntity.getDim().x - this.mGame.getWidth()) / 2;
-			this.pos.y = this.mTargetEntity.pos.y + (this.mTargetEntity.getDim().y - this.mGame.getHeight()) / 2;
+			var targetx = this.mTargetEntity.pos.x + (this.mTargetEntity.getDim().x - this.mGame.getWidth()) / 2;
+			var targety = this.mTargetEntity.pos.y + (this.mTargetEntity.getDim().y - this.mGame.getHeight()) / 2;
+			this.pos.x += (targetx - this.pos.x) / 2;
+			this.pos.y += (targety - this.pos.y) / 2;
 		}
 		if(this.mShaking || this.mShakePhase == 1) {
 			if(this.mShakePhase == 0) {
@@ -1849,7 +2179,6 @@ core_SpriteSheet.prototype = {
 var entities_Actor = function(name) {
 	this.mFriction = 0.7;
 	core_Entity.call(this,name);
-	this.mAnimations = new haxe_ds_StringMap();
 	this.mMaxLife = 5;
 	this.mLife = this.mMaxLife;
 	this.mXAxis = 0;
@@ -1865,19 +2194,7 @@ entities_Actor.prototype = $extend(core_Entity.prototype,{
 	setOthersActors: function(actors) {
 		this.mOthers = actors;
 	}
-	,setAnimation: function(anim) {
-		if(this.mCurrentAnimation == anim) return;
-		if(this.mCurrentAnimation != null) {
-			var prev = this.mAnimations.get(this.mCurrentAnimation);
-			if(prev != null) prev.reset();
-		}
-		this.mCurrentAnimation = anim;
-		this.mAnimation = this.mAnimations.get(this.mCurrentAnimation);
-	}
 	,update: function(delta) {
-		if(this.mAnimation != null) {
-			if(this.mAnimation.isPlaying()) this.mAnimation.getNextFrame(delta);
-		}
 		this.vel.x += this.mXAxis * this.mMoveSpeed;
 		this.vel.y += this.mYAxis * this.mMoveSpeed;
 		this.worldPos.x += this.vel.x * delta;
@@ -1888,30 +2205,30 @@ entities_Actor.prototype = $extend(core_Entity.prototype,{
 			this.pos.x = this.worldPos.x - this.mDim.x / 2;
 			this.pos.y = this.worldPos.y * 0.5 - this.mDim.y;
 		}
-		if(this.mOthers != null) {
+		if(this.mOthers != null && !this.isDead()) {
 			var _g = 0;
 			var _g1 = this.mOthers;
 			while(_g < _g1.length) {
 				var actor = _g1[_g];
 				++_g;
-				if(geom_Vec2.Dist(this.worldPos,actor.worldPos) < this.mDim.x / 2 + actor.getDim().x / 2) {
+				if(actor == this) continue;
+				if(this.hitTest(this,actor)) {
 					var pushVec = geom_Vec2.Sub(this.worldPos,actor.worldPos);
-					this.vel.add(pushVec);
-					actor.vel.sub(pushVec);
 					this.onCollide(actor);
-					actor.onCollide(this);
+					if(actor.isDead()) continue;
+					if(!this.unpushable) this.vel.add(pushVec);
+					if(!actor.unpushable) actor.vel.sub(pushVec);
 				}
 			}
 		}
+	}
+	,hitTest: function(a,b) {
+		return geom_Vec2.Dist(a.worldPos,b.worldPos) < a.getDim().x / 2 + b.getDim().x / 2;
 	}
 	,takeDamage: function(amount) {
 		this.mLife -= amount;
 	}
 	,onCollide: function(actor) {
-		if(js_Boot.__instanceof(actor,entities_Weapon)) {
-			var w = actor;
-			this.takeDamage(w.getDamage());
-		}
 	}
 	,isDead: function() {
 		if(this.mLife <= 0) return true;
@@ -1925,6 +2242,53 @@ entities_Actor.prototype = $extend(core_Entity.prototype,{
 		this.mDestroyable = true;
 	}
 	,__class__: entities_Actor
+});
+var entities_AnimatedActor = function(name) {
+	entities_Actor.call(this,name);
+	this.mAnimations = new haxe_ds_StringMap();
+};
+$hxClasses["entities.AnimatedActor"] = entities_AnimatedActor;
+entities_AnimatedActor.__name__ = ["entities","AnimatedActor"];
+entities_AnimatedActor.__super__ = entities_Actor;
+entities_AnimatedActor.prototype = $extend(entities_Actor.prototype,{
+	addAnimation: function(name,animation) {
+		{
+			this.mAnimations.set(name,animation);
+			animation;
+		}
+	}
+	,setAnimation: function(anim) {
+		if(this.mCurrentAnimation == anim) return;
+		if(this.mCurrentAnimation != null) {
+			var prev = this.mAnimations.get(this.mCurrentAnimation);
+			if(prev != null) prev.reset();
+		}
+		this.mCurrentAnimation = anim;
+		this.mAnimation = this.mAnimations.get(this.mCurrentAnimation);
+	}
+	,update: function(delta) {
+		entities_Actor.prototype.update.call(this,delta);
+		if(this.mAnimation != null) {
+			if(this.mAnimation.isPlaying()) this.mAnimation.getNextFrame(delta);
+		}
+	}
+	,draw: function(buffer,dest) {
+		if(this.mAnimation != null) {
+			var p = new geom_Vec2();
+			p.x = dest.x;
+			p.y = dest.y;
+			p.x -= this.mAnimation.getSpriteSheet().offsetX;
+			p.y -= this.mAnimation.getSpriteSheet().offsetY;
+			buffer.copyPixels(this.mAnimation.getSource(),this.mAnimation.getFrame(),(function($this) {
+				var $r;
+				geom_Vec2.mSPoint.x = p.x;
+				geom_Vec2.mSPoint.y = p.y;
+				$r = geom_Vec2.mSPoint;
+				return $r;
+			}(this)));
+		} else if(this.mDrawBoundIfNoAnim) buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),16711680);
+	}
+	,__class__: entities_AnimatedActor
 });
 var entities_Building = function() {
 	core_Entity.call(this,"Building");
@@ -1943,8 +2307,96 @@ entities_Building.prototype = $extend(core_Entity.prototype,{
 	}
 	,__class__: entities_Building
 });
+var entities_Weapon = function(name) {
+	this.mGravity = 40;
+	this.mZVel = 0;
+	entities_AnimatedActor.call(this,name);
+	this.mDamage = 1;
+	this.mFriction = 1;
+	this.mUseWorldCoord = false;
+};
+$hxClasses["entities.Weapon"] = entities_Weapon;
+entities_Weapon.__name__ = ["entities","Weapon"];
+entities_Weapon.__super__ = entities_AnimatedActor;
+entities_Weapon.prototype = $extend(entities_AnimatedActor.prototype,{
+	getDamage: function() {
+		return this.mDamage;
+	}
+	,launch: function(dir) {
+		this.mUseWorldCoord = true;
+		this.vel.x = 1000 * dir;
+		this.mFalled = 0;
+		this.mZVel = -200;
+	}
+	,onCollide: function(actor) {
+		entities_AnimatedActor.prototype.onCollide.call(this,actor);
+		if(!js_Boot.__instanceof(actor,entities_hero_Hero)) {
+			if(actor.isDead()) return;
+			this.explode();
+			actor.takeDamage(this.mDamage);
+		}
+	}
+	,update: function(delta) {
+		entities_AnimatedActor.prototype.update.call(this,delta);
+		if(this.mUseWorldCoord) {
+			this.pos.y -= this.startAltitude - this.mFalled;
+			this.mZVel += this.mGravity;
+			if(this.mFalled < this.startAltitude) this.mFalled += this.mZVel * delta; else {
+				this.mFalled = this.startAltitude;
+				this.mZVel = 0;
+				this.mFriction = 0.7;
+				this.explode();
+			}
+		}
+	}
+	,explode: function() {
+		core_Camera.instance.shake(5,200);
+		this.destroy();
+	}
+	,synchronize: function(frame) {
+		if(this.mAnimation != null) this.mAnimation.setFrame(frame);
+	}
+	,setAnimation: function(anim) {
+		entities_AnimatedActor.prototype.setAnimation.call(this,anim);
+		if(this.mAnimation != null) this.mAnimation.stop();
+	}
+	,__class__: entities_Weapon
+});
+var entities_CacWeapon = function(name) {
+	this.mLifeSpan = 0.2;
+	entities_Weapon.call(this,name);
+	this.mGravity = 0;
+	this.mDim.x = 70;
+	this.mDim.y = 30;
+	this.mLifeTime = 0;
+};
+$hxClasses["entities.CacWeapon"] = entities_CacWeapon;
+entities_CacWeapon.__name__ = ["entities","CacWeapon"];
+entities_CacWeapon.__super__ = entities_Weapon;
+entities_CacWeapon.prototype = $extend(entities_Weapon.prototype,{
+	launch: function(dir) {
+		entities_Weapon.prototype.launch.call(this,dir);
+		this.mZVel = 0;
+		this.vel.x = 0;
+		this.mMoveSpeed = 0;
+		this.mLaunched = true;
+	}
+	,update: function(delta) {
+		entities_Weapon.prototype.update.call(this,delta);
+		this.vel.x = 0;
+		this.vel.y = 0;
+		if(this.mLaunched) {
+			this.mLifeTime += delta;
+			if(this.mLifeTime >= this.mLifeSpan) this.destroy();
+		}
+	}
+	,draw: function(buffer,dest) {
+		if(!this.mUseWorldCoord) entities_Weapon.prototype.draw.call(this,buffer,dest); else buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),16776960);
+	}
+	,__class__: entities_CacWeapon
+});
 var entities_Human = function(name) {
-	entities_Actor.call(this,name);
+	entities_AnimatedActor.call(this,name);
 	this.mDim.x = 76;
 	this.mDim.y = 162;
 	this.mGame = core_Game.getInstance();
@@ -1953,43 +2405,61 @@ var entities_Human = function(name) {
 };
 $hxClasses["entities.Human"] = entities_Human;
 entities_Human.__name__ = ["entities","Human"];
-entities_Human.__super__ = entities_Actor;
-entities_Human.prototype = $extend(entities_Actor.prototype,{
-	draw: function(buffer,dest) {
-		buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),39372);
-	}
-	,update: function(delta) {
-		entities_Actor.prototype.update.call(this,delta);
+entities_Human.__super__ = entities_AnimatedActor;
+entities_Human.prototype = $extend(entities_AnimatedActor.prototype,{
+	update: function(delta) {
+		entities_AnimatedActor.prototype.update.call(this,delta);
 		if(this.worldPos.y < this.mMinY / 0.5) this.worldPos.y = this.mMinY / 0.5;
 		if(this.worldPos.y > this.mMaxY / 0.5) this.worldPos.y = this.mMaxY / 0.5;
 	}
 	,__class__: entities_Human
 });
 var entities_Punk = function() {
-	this.mRange = 100;
+	this.mRangeToStartFollow = 600;
 	entities_Human.call(this,"Punk");
+	if(entities_Punk.mPunkFollowingHero == null) entities_Punk.mPunkFollowingHero = [];
 	this.mMoveSpeed = 40;
+	this.mDrawBoundIfNoAnim = true;
 };
 $hxClasses["entities.Punk"] = entities_Punk;
 entities_Punk.__name__ = ["entities","Punk"];
+entities_Punk.mPunkFollowingHero = null;
 entities_Punk.__super__ = entities_Human;
 entities_Punk.prototype = $extend(entities_Human.prototype,{
 	setOthersActors: function(actors) {
 		entities_Human.prototype.setOthersActors.call(this,actors);
+	}
+	,lookForTarget: function() {
 		var _g = 0;
-		while(_g < actors.length) {
-			var actor = actors[_g];
+		var _g1 = this.mOthers;
+		while(_g < _g1.length) {
+			var actor = _g1[_g];
 			++_g;
-			if(actor.name == "Hero") this.mTarget = actor;
+			if(actor.name == "Hero" && geom_Vec2.Dist(this.worldPos,actor.worldPos) <= this.mRangeToStartFollow) this.mTarget = actor;
 		}
 	}
 	,update: function(delta) {
 		entities_Human.prototype.update.call(this,delta);
-		if(this.mTarget != null && geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) > this.mRange) this.moveTowardTarget(); else {
+		if(this.isDead()) {
+			this.mDim.x = 120;
+			this.mDim.y = 72;
+			this.vel.x = 0;
+			this.vel.y = 0;
 			this.mXAxis = 0;
 			this.mYAxis = 0;
+			return;
 		}
-		if(this.isDead()) this.destroy();
+		if(this.mTarget == null) this.lookForTarget(); else {
+			var rangeToAttack = this.mDim.x / 2 + this.mTarget.getDim().x / 2;
+			rangeToAttack *= 1.3;
+			if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) > rangeToAttack) this.moveTowardTarget(); else {
+				this.mXAxis = 0;
+				this.mYAxis = 0;
+			}
+		}
+	}
+	,draw: function(buffer,dest) {
+		if(!this.isDead()) entities_Human.prototype.draw.call(this,buffer,dest); else buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,162,72),26265);
 	}
 	,moveTowardTarget: function() {
 		var targetPos = this.mTarget.pos.clone();
@@ -2005,36 +2475,58 @@ entities_Punk.prototype = $extend(entities_Human.prototype,{
 	}
 	,__class__: entities_Punk
 });
-var entities_Weapon = function(name) {
-	entities_Actor.call(this,name);
-	this.mDamage = 1;
+var entities_PunkManager = function(hero,world) {
+	this.mHero = hero;
+	this.mWorld = world;
+	this.mGame = core_Game.getInstance();
+	this.mPunks = [];
+	this.mPunkToRemove = [];
 };
-$hxClasses["entities.Weapon"] = entities_Weapon;
-entities_Weapon.__name__ = ["entities","Weapon"];
-entities_Weapon.__super__ = entities_Actor;
-entities_Weapon.prototype = $extend(entities_Actor.prototype,{
-	getDamage: function() {
-		return this.mDamage;
+$hxClasses["entities.PunkManager"] = entities_PunkManager;
+entities_PunkManager.__name__ = ["entities","PunkManager"];
+entities_PunkManager.prototype = {
+	spawnPunk: function(wave) {
+		var punkToSpawn = 2 * wave * wave / 2 | 0;
+		if(punkToSpawn < 2) punkToSpawn = 2;
+		var _g = 0;
+		while(_g < punkToSpawn) {
+			var i = _g++;
+			var punk = new entities_Punk();
+			var min = this.mGame.getHeight() / 2 / 0.5;
+			var max = this.mGame.getHeight() / 0.5;
+			punk.worldPos.y = Math.random() * (max - min) + min;
+			var a = Math.random() * 100 - 50;
+			if(a > 0) punk.worldPos.x = this.mHero.worldPos.x + 600; else punk.worldPos.x = this.mHero.worldPos.x - 600;
+			this.mWorld.addActor(punk);
+			this.mPunks.push(punk);
+		}
 	}
-	,__class__: entities_Weapon
-});
+	,update: function() {
+		var _g = 0;
+		var _g1 = this.mPunks;
+		while(_g < _g1.length) {
+			var punk = _g1[_g];
+			++_g;
+			if(punk.isDead()) this.mPunkToRemove.push(punk);
+		}
+		while(this.mPunkToRemove.length > 0) {
+			var x = this.mPunkToRemove.pop();
+			HxOverrides.remove(this.mPunks,x);
+		}
+	}
+	,getPunkAlive: function() {
+		return this.mPunks.length;
+	}
+	,__class__: entities_PunkManager
+};
 var entities_World = function() {
 	core_Entity.call(this,"World");
 	this.mGame = core_Game.getInstance();
 	this.mCamera = new core_Camera();
 	this.mBuildings = [];
-	var prevB = null;
-	this.mMaxScroll = 300;
-	var _g = 0;
-	while(_g < 10) {
-		var i = _g++;
-		var b = new entities_Building();
-		this.mBuildings.push(b);
-		if(prevB == null) b.pos.x = 0; else b.pos.x = prevB.pos.x + prevB.getDim().x;
-		prevB = b;
-		b.pos.y = this.mGame.getHeight() / 2 - b.getDim().y - 20;
-		this.add(b);
-	}
+	this.mBuildingsContainer = new core_Entity("buildings");
+	this.add(this.mBuildingsContainer);
+	this.mMaxScroll = 0;
 	this.mRoads = [];
 	this.mActors = [];
 	this.mActorsToDestroy = [];
@@ -2043,7 +2535,23 @@ $hxClasses["entities.World"] = entities_World;
 entities_World.__name__ = ["entities","World"];
 entities_World.__super__ = core_Entity;
 entities_World.prototype = $extend(core_Entity.prototype,{
-	addActor: function(actor) {
+	generateBuilding: function(maxX) {
+		this.mMaxScroll = maxX - this.mGame.getWidth();
+		var lastX = 0;
+		do lastX = this.addABuilding(); while(lastX < maxX);
+	}
+	,addABuilding: function() {
+		var building = new entities_Building();
+		building.pos.y = this.mGame.getHeight() / 2 - building.getDim().y - 20;
+		this.mBuildingsContainer.add(building);
+		if(this.mBuildings.length == 0) building.pos.x = 0; else {
+			var lastBuilding = this.mBuildings[this.mBuildings.length - 1];
+			building.pos.x = lastBuilding.pos.x + lastBuilding.getDim().x;
+		}
+		this.mBuildings.push(building);
+		return building.pos.x + building.getDim().x;
+	}
+	,addActor: function(actor) {
 		this.mActors.push(actor);
 		this.add(actor);
 		actor.setOthersActors(this.mActors);
@@ -2051,7 +2559,7 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 	,update: function(delta) {
 		core_Entity.prototype.update.call(this,delta);
 		this.mCamera.update(delta);
-		this.pos.x = -this.mCamera.pos.x;
+		this.pos.x -= (this.mCamera.pos.x + this.pos.x) / 20;
 		if(this.pos.x > 0) this.pos.x = 0;
 		if(this.pos.x < -this.mMaxScroll) this.pos.x = -this.mMaxScroll;
 		this.pos.x += this.mCamera.shakePosOffset.x;
@@ -2088,7 +2596,7 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 		while(_g < _g1.length) {
 			var otherActor = _g1[_g];
 			++_g;
-			if(otherActor.pos.y + otherActor.getDim().y < actor.pos.y + actor.getDim().y && HxOverrides.indexOf(this.children,otherActor,0) > HxOverrides.indexOf(this.children,actor,0)) this.swap(otherActor,actor);
+			if(otherActor.worldPos.y < actor.worldPos.y && HxOverrides.indexOf(this.children,otherActor,0) > HxOverrides.indexOf(this.children,actor,0)) this.swap(otherActor,actor);
 		}
 	}
 	,focus: function(ent) {
@@ -2099,6 +2607,38 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 	}
 	,__class__: entities_World
 });
+var entities_hero_Callbut = function() {
+	entities_Weapon.call(this,"Callbut");
+	this.mDamage = 5;
+	this.initAnimations();
+};
+$hxClasses["entities.hero.Callbut"] = entities_hero_Callbut;
+entities_hero_Callbut.__name__ = ["entities","hero","Callbut"];
+entities_hero_Callbut.__super__ = entities_Weapon;
+entities_hero_Callbut.prototype = $extend(entities_Weapon.prototype,{
+	draw: function(buffer,dest) {
+		if(!this.mUseWorldCoord) entities_Weapon.prototype.draw.call(this,buffer,dest); else buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,20,20),255);
+	}
+	,initAnimations: function() {
+		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/slip_iddle",140,180,35,0)));
+		this.addAnimation("idleL",new core_Animation(new core_SpriteSheet("Hero/slip_iddle_flip",140,180,35,0)));
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Hero/slip_run",140,180,35,0),null,16));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Hero/slip_run_flip",140,180,35,0),null,16));
+		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/slip_kickL",140,180,35,0),null,12,false);
+		this.addAnimation("kickLR",kickLRAnim);
+		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/slip_kickL_flip",140,180,35,0),null,12,false);
+		this.addAnimation("kickLL",kickLLAnim);
+		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/slip_kickD",140,180,35,0),null,12,false);
+		this.addAnimation("kickDR",kickLRAnim1);
+		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/slip_kickD_flip",140,180,35,0),null,12,false);
+		this.addAnimation("kickDL",kickLLAnim1);
+		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/slip_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
+		this.addAnimation("stripR",stripRAnim);
+		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/slip_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],12,false);
+		this.addAnimation("stripL",stripLAnim);
+	}
+	,__class__: entities_hero_Callbut
+});
 var entities_hero_Hero = function(world) {
 	this.mShoeLaunched = false;
 	entities_Human.call(this,"Hero");
@@ -2106,9 +2646,9 @@ var entities_hero_Hero = function(world) {
 	this.mDim.y = 170;
 	this.mWorld = world;
 	this.mHeading = 1;
-	this.initShoes();
+	this.initClothes();
+	this.giveClothes();
 	this.initAnimations();
-	this.mShirts = [];
 	this.addListeners();
 	this.mCurrentState = $bind(this,this.normalState);
 };
@@ -2116,17 +2656,64 @@ $hxClasses["entities.hero.Hero"] = entities_hero_Hero;
 entities_hero_Hero.__name__ = ["entities","hero","Hero"];
 entities_hero_Hero.__super__ = entities_Human;
 entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
-	addListeners: function() {
+	initClothes: function() {
+		this.mShoes = [];
+	}
+	,giveClothes: function() {
+		this.giveShoe();
+		this.giveShoe();
+		this.giveCallbut();
+		this.givePant();
+		this.givePull();
+	}
+	,giveShoe: function() {
+		var shoe;
+		if(this.mShoes.length == 0) shoe = new entities_hero_Shoe("L"); else if(this.mShoes.length == 1) shoe = new entities_hero_Shoe("R"); else return;
+		this.add(shoe);
+		this.mShoes.push(shoe);
+	}
+	,giveCallbut: function() {
+		if(this.mCalbut != null) return; else {
+			this.mCalbut = new entities_hero_Callbut();
+			this.add(this.mCalbut);
+		}
+	}
+	,givePant: function() {
+		if(this.mPant != null) return; else {
+			this.mPant = new entities_hero_Pant();
+			this.add(this.mPant);
+		}
+	}
+	,givePull: function() {
+		if(this.mPull != null) return; else {
+			this.mPull = new entities_hero_Pull();
+			this.add(this.mPull);
+		}
+	}
+	,addListeners: function() {
 		openfl_Lib.current.stage.addEventListener(openfl_events_KeyboardEvent.KEY_DOWN,$bind(this,this.onKeyDown));
 		openfl_Lib.current.stage.addEventListener(openfl_events_KeyboardEvent.KEY_UP,$bind(this,this.onKeyUp));
 	}
 	,playAnim: function(name) {
 		if(this.mHeading > 0) name += "R"; else name += "L";
 		this.setAnimation(name);
+		if(this.mCalbut != null) this.mCalbut.setAnimation(name);
+		if(this.mPull != null) this.mPull.setAnimation(name);
+		if(this.mPant != null) this.mPant.setAnimation(name);
+		var _g = 0;
+		var _g1 = this.mShoes;
+		while(_g < _g1.length) {
+			var shoe = _g1[_g];
+			++_g;
+			shoe.setAnimation(name);
+		}
 	}
 	,onKeyUp: function(e) {
 		var _g = e.keyCode;
 		switch(_g) {
+		case 88:
+			this.mXDown = false;
+			break;
 		case 67:
 			this.mCDown = false;
 			break;
@@ -2149,8 +2736,14 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		switch(_g) {
 		case 67:
 			if(!this.mCDown) {
-				this.throwShoe();
+				this.rangedAttack();
 				this.mCDown = true;
+			}
+			break;
+		case 88:
+			if(!this.mXDown) {
+				this.onXPressed();
+				this.mXDown = true;
 			}
 			break;
 		case 38:
@@ -2167,18 +2760,80 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 			break;
 		}
 	}
+	,onXPressed: function() {
+		if(this.mLastStripableBody != null && this.hitTest(this,this.mLastStripableBody) && this.worldPos.y <= this.mLastStripableBody.worldPos.y) this.stripBody(); else this.attack();
+	}
+	,attack: function() {
+		if(this.mPull != null || this.mPant != null) {
+			this.mCurrentState = $bind(this,this.attackState);
+			this.mCacUsed = false;
+			this.mCacStarted = false;
+		}
+	}
+	,attackState: function(delta) {
+		this.unpushable = true;
+		this.mMoveSpeed = 0;
+		var currentWeapon = null;
+		if(this.mPull != null) {
+			this.playAnim("cac");
+			currentWeapon = this.mPull;
+		} else if(this.mPant != null) {
+			this.playAnim("cac");
+			currentWeapon = this.mPant;
+		}
+		if(!this.mCacStarted && currentWeapon != null) {
+			this.mCacStarted = true;
+			this.remove(currentWeapon);
+		}
+		if(currentWeapon != null && this.mAnimation.getCurrentFrame() == 5 && !this.mCacUsed) {
+			this.mCacUsed = true;
+			currentWeapon.launch(this.mHeading);
+			this.mWorld.addActor(currentWeapon);
+			currentWeapon.startAltitude = 1;
+			currentWeapon.worldPos.x = this.worldPos.x + 90 * this.mHeading;
+			currentWeapon.worldPos.y = this.worldPos.y;
+			if(currentWeapon == this.mPull) this.mPull = null; else this.mPant = null;
+			currentWeapon = null;
+		}
+	}
+	,stripBody: function() {
+		this.setStripState();
+	}
+	,stripEnded: function() {
+		this.giveClothes();
+		this.setNormalState();
+		this.mLastStripableBody.destroy();
+		this.mLastStripableBody = null;
+	}
 	,update: function(delta) {
 		entities_Human.prototype.update.call(this,delta);
-		if(this.vel.x < 0) this.mHeading = -1; else this.mHeading = 1;
+		this.synchronizeClothes();
+		if(this.vel.x < 0 && this.mXAxis < 1) this.mHeading = -1; else if(this.vel.x > 0 && this.mXAxis > -1) this.mHeading = 1;
 		if(this.mCurrentState != null) this.mCurrentState(delta);
+	}
+	,synchronizeClothes: function() {
+		if(this.mAnimation == null) return;
+		var frame = this.mAnimation.getCurrentFrame();
+		var _g = 0;
+		var _g1 = this.mShoes;
+		while(_g < _g1.length) {
+			var shoe = _g1[_g];
+			++_g;
+			shoe.synchronize(frame);
+		}
+		if(this.mPull != null) this.mPull.synchronize(frame);
+		if(this.mPant != null) this.mPant.synchronize(frame);
+		if(this.mCalbut != null) this.mCalbut.synchronize(frame);
 	}
 	,normalState: function(delta) {
 		this.playAnim("idle");
+		this.unpushable = false;
 		this.mMoveSpeed = 100;
 		if(this.vel.length() > 15) this.setWalkState();
 	}
 	,kickState: function(delta) {
 		this.mMoveSpeed = 0;
+		this.unpushable = true;
 		if(!this.mShoeLaunched) {
 			if(this.mShoes.length > 1) this.playAnim("kickL"); else this.playAnim("kickD");
 		}
@@ -2187,14 +2842,34 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 			this.remove(shoe);
 			shoe.launch(this.mHeading);
 			this.mWorld.addActor(shoe);
-			shoe.worldPos.x = this.worldPos.x + 70 * this.mHeading;
+			shoe.startAltitude = 70;
+			shoe.worldPos.x = this.worldPos.x + 50 * this.mHeading;
 			shoe.worldPos.y = this.worldPos.y;
 			this.mShoeLaunched = true;
 		}
 	}
+	,slipState: function(delta) {
+		this.unpushable = true;
+		if(this.mCalbut != null) this.remove(this.mCalbut);
+		if(this.mAnimation.getCurrentFrame() == 6 && this.mCalbut != null) {
+			this.mCalbut.launch(this.mHeading);
+			this.mWorld.addActor(this.mCalbut);
+			this.mCalbut.startAltitude = 120;
+			this.mCalbut.worldPos.x = this.worldPos.x + 50 * this.mHeading;
+			this.mCalbut.worldPos.y = this.worldPos.y;
+			this.mCalbut = null;
+		}
+		this.mMoveSpeed = 0;
+		this.playAnim("slip");
+	}
 	,walkState: function(delta) {
 		this.playAnim("walk");
 		if(this.vel.length() < 15) this.setNormalState();
+	}
+	,stripState: function(delta) {
+		this.unpushable = true;
+		this.playAnim("strip");
+		this.mMoveSpeed = 0;
 	}
 	,setNormalState: function() {
 		this.mCurrentState = $bind(this,this.normalState);
@@ -2206,131 +2881,205 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 	,setWalkState: function() {
 		this.mCurrentState = $bind(this,this.walkState);
 	}
-	,throwShoe: function() {
-		if(this.mShoes.length > 0) this.setKickState();
+	,setStripState: function() {
+		this.mCurrentState = $bind(this,this.stripState);
 	}
-	,giveShoe: function() {
-		var shoe;
-		if(this.mShoes.length == 0) {
-			shoe = new entities_hero_Shoe("left");
-			shoe.pos.x = 1;
-		} else if(this.mShoes.length == 1) {
-			shoe = new entities_hero_Shoe("right");
-			shoe.pos.x = this.mDim.x - shoe.getDim().x - 1;
-		} else return;
-		shoe.pos.y = this.mDim.y - shoe.getDim().y - 1;
-		this.add(shoe);
-		this.mShoes.push(shoe);
+	,setSlipState: function() {
+		this.mCurrentState = $bind(this,this.slipState);
 	}
-	,draw: function(buffer,dest) {
-		if(this.mAnimation != null) {
-			var p = new geom_Vec2();
-			p.x = dest.x;
-			p.y = dest.y;
-			p.x -= this.mAnimation.getSpriteSheet().offsetX;
-			p.y -= this.mAnimation.getSpriteSheet().offsetY;
-			buffer.copyPixels(this.mAnimation.getSource(),this.mAnimation.getFrame(),(function($this) {
-				var $r;
-				geom_Vec2.mSPoint.x = p.x;
-				geom_Vec2.mSPoint.y = p.y;
-				$r = geom_Vec2.mSPoint;
-				return $r;
-			}(this)));
-		} else buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),16711680);
+	,rangedAttack: function() {
+		if(this.mShoes.length > 0) this.setKickState(); else if(this.mCalbut != null && this.mPant == null) this.setSlipState();
 	}
-	,initShoes: function() {
-		this.mShoes = [];
-		this.giveShoe();
-		this.giveShoe();
+	,onCollide: function(actor) {
+		entities_Human.prototype.onCollide.call(this,actor);
+		if(js_Boot.__instanceof(actor,entities_Punk) && actor.isDead()) {
+			if(this.worldPos.y < actor.worldPos.y) this.mLastStripableBody = actor;
+		}
 	}
 	,initAnimations: function() {
-		var v = new core_Animation(new core_SpriteSheet("Hero/franky_iddle",140,180,35,0));
-		this.mAnimations.set("idleR",v);
-		v;
-		var v1 = new core_Animation(new core_SpriteSheet("Hero/franky_iddle_flip",140,180,35,0));
-		this.mAnimations.set("idleL",v1);
-		v1;
-		var v2 = new core_Animation(new core_SpriteSheet("Hero/franky_run",140,180,35,0),null,16);
-		this.mAnimations.set("walkR",v2);
-		v2;
-		var v3 = new core_Animation(new core_SpriteSheet("Hero/franky_run_flip",140,180,35,0),null,16);
-		this.mAnimations.set("walkL",v3);
-		v3;
+		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/franky_iddle",140,180,35,0)));
+		this.addAnimation("idleL",new core_Animation(new core_SpriteSheet("Hero/franky_iddle_flip",140,180,35,0)));
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Hero/franky_run",140,180,35,0),null,16));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Hero/franky_run_flip",140,180,35,0),null,16));
 		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL",140,180,35,0),null,12,false);
 		kickLRAnim.onFinished = $bind(this,this.setNormalState);
-		{
-			this.mAnimations.set("kickLR",kickLRAnim);
-			kickLRAnim;
-		}
+		this.addAnimation("kickLR",kickLRAnim);
 		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL_flip",140,180,35,0),null,12,false);
 		kickLLAnim.onFinished = $bind(this,this.setNormalState);
-		{
-			this.mAnimations.set("kickLL",kickLLAnim);
-			kickLLAnim;
-		}
+		this.addAnimation("kickLL",kickLLAnim);
 		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD",140,180,35,0),null,12,false);
 		kickLRAnim1.onFinished = $bind(this,this.setNormalState);
-		{
-			this.mAnimations.set("kickDR",kickLRAnim1);
-			kickLRAnim1;
-		}
+		this.addAnimation("kickDR",kickLRAnim1);
 		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD_flip",140,180,35,0),null,12,false);
 		kickLLAnim1.onFinished = $bind(this,this.setNormalState);
-		{
-			this.mAnimations.set("kickDL",kickLLAnim1);
-			kickLLAnim1;
-		}
+		this.addAnimation("kickDL",kickLLAnim1);
+		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
+		stripRAnim.onFinished = $bind(this,this.stripEnded);
+		this.addAnimation("stripR",stripRAnim);
+		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],12,false);
+		stripLAnim.onFinished = $bind(this,this.stripEnded);
+		this.addAnimation("stripL",stripLAnim);
+		var slipRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip",140,180,35,0),null,12,false);
+		slipRAnim.onFinished = $bind(this,this.setNormalState);
+		this.addAnimation("slipR",slipRAnim);
+		var slipLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip_flip",140,180,35,0),null,12,false);
+		slipLAnim.onFinished = $bind(this,this.setNormalState);
+		this.addAnimation("slipL",slipLAnim);
+		var cacRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_cac",140,180,35,0),null,12,false);
+		cacRAnim.onFinished = $bind(this,this.setNormalState);
+		this.addAnimation("cacR",cacRAnim);
+		var cacLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_cac_flip",140,180,35,0),null,12,false);
+		cacLAnim.onFinished = $bind(this,this.setNormalState);
+		this.addAnimation("cacL",cacLAnim);
 	}
 	,__class__: entities_hero_Hero
 });
+var entities_hero_Pant = function() {
+	entities_CacWeapon.call(this,"Pant");
+	this.mDamage = 3;
+	this.initAnimations();
+};
+$hxClasses["entities.hero.Pant"] = entities_hero_Pant;
+entities_hero_Pant.__name__ = ["entities","hero","Pant"];
+entities_hero_Pant.__super__ = entities_CacWeapon;
+entities_hero_Pant.prototype = $extend(entities_CacWeapon.prototype,{
+	initAnimations: function() {
+		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/pants_iddle",140,180,35,0)));
+		this.addAnimation("idleL",new core_Animation(new core_SpriteSheet("Hero/pants_iddle_flip",140,180,35,0)));
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Hero/pants_run",140,180,35,0),null,16));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Hero/pants_run_flip",140,180,35,0),null,16));
+		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/pants_kickL",140,180,35,0),null,12,false);
+		this.addAnimation("kickLR",kickLRAnim);
+		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/pants_kickL_flip",140,180,35,0),null,12,false);
+		this.addAnimation("kickLL",kickLLAnim);
+		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/pants_kickD",140,180,35,0),null,12,false);
+		this.addAnimation("kickDR",kickLRAnim1);
+		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/pants_kickD_flip",140,180,35,0),null,12,false);
+		this.addAnimation("kickDL",kickLLAnim1);
+		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/pants_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
+		this.addAnimation("stripR",stripRAnim);
+		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/pants_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],12,false);
+		this.addAnimation("stripL",stripLAnim);
+		var cacRAnim = new core_Animation(new core_SpriteSheet("Hero/pants_cac",140,180,35,0),null,12,false);
+		this.addAnimation("cacR",cacRAnim);
+		var cacLAnim = new core_Animation(new core_SpriteSheet("Hero/pants_cac_flip",140,180,35,0),null,12,false);
+		this.addAnimation("cacL",cacLAnim);
+	}
+	,__class__: entities_hero_Pant
+});
+var entities_hero_Pull = function() {
+	entities_CacWeapon.call(this,"Pull");
+	this.mDamage = 2;
+	this.initAnimations();
+};
+$hxClasses["entities.hero.Pull"] = entities_hero_Pull;
+entities_hero_Pull.__name__ = ["entities","hero","Pull"];
+entities_hero_Pull.__super__ = entities_CacWeapon;
+entities_hero_Pull.prototype = $extend(entities_CacWeapon.prototype,{
+	initAnimations: function() {
+		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/pull_iddle",140,180,35,0)));
+		this.addAnimation("idleL",new core_Animation(new core_SpriteSheet("Hero/pull_iddle_flip",140,180,35,0)));
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Hero/pull_run",140,180,35,0),null,16));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Hero/pull_run_flip",140,180,35,0),null,16));
+		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/pull_kickL",140,180,35,0),null,12,false);
+		this.addAnimation("kickLR",kickLRAnim);
+		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/pull_kickL_flip",140,180,35,0),null,12,false);
+		this.addAnimation("kickLL",kickLLAnim);
+		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/pull_kickR",140,180,35,0),null,12,false);
+		this.addAnimation("kickDR",kickLRAnim1);
+		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/pull_kickR_flip",140,180,35,0),null,12,false);
+		this.addAnimation("kickDL",kickLLAnim1);
+		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/pull_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
+		this.addAnimation("stripR",stripRAnim);
+		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/pull_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],12,false);
+		this.addAnimation("stripL",stripLAnim);
+	}
+	,__class__: entities_hero_Pull
+});
 var entities_hero_Shoe = function(side) {
-	this.mGravity = 40;
-	this.mZVel = 0;
 	entities_Weapon.call(this,"shoe");
 	this.mDim.x = 20;
 	this.mDim.y = 20;
-	this.mFriction = 1;
-	this.mDamage = 5;
-	this.mUseWorldCoord = false;
+	this.mDamage = 3;
+	this.mSide = side;
+	this.initAnimations();
 };
 $hxClasses["entities.hero.Shoe"] = entities_hero_Shoe;
 entities_hero_Shoe.__name__ = ["entities","hero","Shoe"];
 entities_hero_Shoe.__super__ = entities_Weapon;
 entities_hero_Shoe.prototype = $extend(entities_Weapon.prototype,{
-	draw: function(buffer,dest) {
-		buffer.fillRect(new openfl_geom_Rectangle(dest.x,dest.y,this.mDim.x,this.mDim.y),13421772);
-	}
-	,update: function(delta) {
-		entities_Weapon.prototype.update.call(this,delta);
-		if(this.mUseWorldCoord) {
-			this.pos.y -= this.mStartAltitude - this.mFalled;
-			this.mZVel += this.mGravity;
-			if(this.mFalled < this.mStartAltitude) this.mFalled += this.mZVel * delta; else {
-				this.mFalled = this.mStartAltitude;
-				this.mZVel = 0;
-				this.mFriction = 0.7;
-			}
-		}
-	}
-	,explode: function() {
-		core_Camera.instance.shake(5,200);
-		this.destroy();
-	}
-	,launch: function(dir) {
-		this.mUseWorldCoord = true;
-		this.vel.x = 1000 * dir;
-		this.mStartAltitude = 70;
-		this.mFalled = 0;
-		this.mZVel = -200;
-	}
-	,onCollide: function(actor) {
-		entities_Weapon.prototype.onCollide.call(this,actor);
-		if(!js_Boot.__instanceof(actor,entities_hero_Hero)) {
-			haxe_Log.trace(actor,{ fileName : "Shoe.hx", lineNumber : 76, className : "entities.hero.Shoe", methodName : "onCollide"});
-			this.explode();
-		}
+	initAnimations: function() {
+		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_iddle",140,180,35,0)));
+		this.addAnimation("idleL",new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_iddle_flip",140,180,35,0)));
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_run",140,180,35,0),null,16));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_run_flip",140,180,35,0),null,16));
+		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_kickL",140,180,35,0),null,12,false);
+		this.addAnimation("kickLR",kickLRAnim);
+		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_kickL_flip",140,180,35,0),null,12,false);
+		this.addAnimation("kickLL",kickLLAnim);
+		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_kickR",140,180,35,0),null,12,false);
+		this.addAnimation("kickDR",kickLRAnim1);
+		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_kickR_flip",140,180,35,0),null,12,false);
+		this.addAnimation("kickDL",kickLLAnim1);
+		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
+		this.addAnimation("stripR",stripRAnim);
+		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],12,false);
+		this.addAnimation("stripL",stripLAnim);
+		var cacRAnim = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_cac",140,180,35,0),null,12,false);
+		this.addAnimation("cacR",cacRAnim);
+		var cacLAnim = new core_Animation(new core_SpriteSheet("Hero/shoe" + this.mSide + "_cac_flip",140,180,35,0),null,12,false);
+		this.addAnimation("cacL",cacLAnim);
 	}
 	,__class__: entities_hero_Shoe
+});
+var entities_hud_Go = function() {
+	core_Entity.call(this,"go");
+	this.mBlinkTimer = 0;
+	this.mFreq = 0.75;
+	this.mDraw = true;
+	this.mSprite = openfl_Assets.getBitmapData("img/hud/GO.png");
+	this.mRect = new openfl_geom_Rectangle(0,0,this.mSprite.width,this.mSprite.height);
+};
+$hxClasses["entities.hud.Go"] = entities_hud_Go;
+entities_hud_Go.__name__ = ["entities","hud","Go"];
+entities_hud_Go.__super__ = core_Entity;
+entities_hud_Go.prototype = $extend(core_Entity.prototype,{
+	update: function(delta) {
+		core_Entity.prototype.update.call(this,delta);
+		this.mBlinkTimer += delta;
+		if(this.mBlinkTimer >= this.mFreq) {
+			this.mBlinkTimer = 0;
+			this.mDraw = !this.mDraw;
+		}
+	}
+	,draw: function(buffer,dest) {
+		if(this.mDraw) buffer.copyPixels(this.mSprite,this.mRect,(function($this) {
+			var $r;
+			geom_Vec2.mSPoint.x = dest.x;
+			geom_Vec2.mSPoint.y = dest.y;
+			$r = geom_Vec2.mSPoint;
+			return $r;
+		}(this)));
+	}
+	,__class__: entities_hud_Go
+});
+var entities_hud_HUD = function() {
+	core_Entity.call(this,"HUD");
+	this.mGo = new entities_hud_Go();
+	this.mGo.pos.x = core_Game.getInstance().getWidth() - 250;
+	this.mGo.pos.y = core_Game.getInstance().getHeight() / 2 - 50;
+};
+$hxClasses["entities.hud.HUD"] = entities_hud_HUD;
+entities_hud_HUD.__name__ = ["entities","hud","HUD"];
+entities_hud_HUD.__super__ = core_Entity;
+entities_hud_HUD.prototype = $extend(core_Entity.prototype,{
+	stopShowNext: function() {
+		this.remove(this.mGo);
+	}
+	,showNext: function() {
+		this.add(this.mGo);
+	}
+	,__class__: entities_hud_HUD
 });
 var geom_Vec2 = function(x,y) {
 	if(y == null) y = 0;
@@ -4126,7 +4875,6 @@ lime__$backend_html5_HTML5Renderer.prototype = {
 		if(this.parent.window.backend.div != null) this.parent.context = lime_graphics_RenderContext.DOM(this.parent.window.backend.div); else if(this.parent.window.backend.canvas != null) {
 			var webgl = null;
 			if(webgl == null) this.parent.context = lime_graphics_RenderContext.CANVAS(this.parent.window.backend.canvas.getContext("2d")); else {
-				webgl = WebGLDebugUtils.makeDebugContext(webgl);
 				lime_graphics_opengl_GL.context = webgl;
 				this.parent.context = lime_graphics_RenderContext.OPENGL(lime_graphics_opengl_GL.context);
 			}
@@ -11426,29 +12174,24 @@ openfl_Memory._setPositionTemporarily = function(position,action) {
 	return value;
 };
 openfl_Memory.getByte = function(addr) {
-	if(addr < 0 || addr + 1 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	return openfl_Memory.gcRef.data.getInt8(addr);
 };
 openfl_Memory.getDouble = function(addr) {
-	if(addr < 0 || addr + 8 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	return openfl_Memory._setPositionTemporarily(addr,function() {
 		return openfl_Memory.gcRef.readDouble();
 	});
 };
 openfl_Memory.getFloat = function(addr) {
-	if(addr < 0 || addr + 4 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	return openfl_Memory._setPositionTemporarily(addr,function() {
 		return openfl_Memory.gcRef.readFloat();
 	});
 };
 openfl_Memory.getI32 = function(addr) {
-	if(addr < 0 || addr + 4 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	return openfl_Memory._setPositionTemporarily(addr,function() {
 		return openfl_Memory.gcRef.readInt();
 	});
 };
 openfl_Memory.getUI16 = function(addr) {
-	if(addr < 0 || addr + 2 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	return openfl_Memory._setPositionTemporarily(addr,function() {
 		return openfl_Memory.gcRef.readUnsignedShort();
 	});
@@ -11458,29 +12201,24 @@ openfl_Memory.select = function(inBytes) {
 	if(inBytes != null) openfl_Memory.len = inBytes.length; else openfl_Memory.len = 0;
 };
 openfl_Memory.setByte = function(addr,v) {
-	if(addr < 0 || addr + 1 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	openfl_Memory.gcRef.data.setUint8(addr,v);
 };
 openfl_Memory.setDouble = function(addr,v) {
-	if(addr < 0 || addr + 8 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	openfl_Memory._setPositionTemporarily(addr,function() {
 		openfl_Memory.gcRef.writeDouble(v);
 	});
 };
 openfl_Memory.setFloat = function(addr,v) {
-	if(addr < 0 || addr + 4 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	openfl_Memory._setPositionTemporarily(addr,function() {
 		openfl_Memory.gcRef.writeFloat(v);
 	});
 };
 openfl_Memory.setI16 = function(addr,v) {
-	if(addr < 0 || addr + 2 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	openfl_Memory._setPositionTemporarily(addr,function() {
 		openfl_Memory.gcRef.writeUnsignedShort(v);
 	});
 };
 openfl_Memory.setI32 = function(addr,v) {
-	if(addr < 0 || addr + 4 > openfl_Memory.len) throw new js__$Boot_HaxeError("Bad address");
 	openfl_Memory._setPositionTemporarily(addr,function() {
 		openfl_Memory.gcRef.writeInt(v);
 	});
@@ -17256,7 +17994,9 @@ openfl_display_BitmapData.prototype = {
 				while(_g3 < _g2) {
 					var xx = _g3++;
 					position = (width_yy + xx) * 4;
-					pixelValue = openfl_Memory.getI32(position);
+					pixelValue = openfl_Memory._setPositionTemporarily(position,function() {
+						return openfl_Memory.gcRef.readInt();
+					});
 					pixelMask = pixelValue & mask;
 					i = openfl_display_BitmapData.__ucompare(pixelMask,thresholdMask);
 					test = false;
@@ -17316,7 +18056,9 @@ openfl_display_BitmapData.prototype = {
 				while(_g11 < dw) {
 					var xx1 = _g11++;
 					position1 = (xx1 + sx + (yy1 + sy) * sw) * 4;
-					pixelValue1 = openfl_Memory.getI32(position1);
+					pixelValue1 = openfl_Memory._setPositionTemporarily(position1,function() {
+						return openfl_Memory.gcRef.readInt();
+					});
 					pixelMask1 = pixelValue1 & mask;
 					i1 = openfl_display_BitmapData.__ucompare(pixelMask1,thresholdMask1);
 					test1 = false;
@@ -17324,7 +18066,9 @@ openfl_display_BitmapData.prototype = {
 					if(test1) {
 						openfl_Memory.setI32(position1,color);
 						hits1++;
-					} else if(copySource) openfl_Memory.setI32(position1,openfl_Memory.getI32(canvasMemory + position1));
+					} else if(copySource) openfl_Memory.setI32(position1,openfl_Memory._setPositionTemporarily(canvasMemory + position1,function() {
+						return openfl_Memory.gcRef.readInt();
+					}));
 				}
 			}
 			memory1.position = 0;
@@ -24887,36 +25631,43 @@ openfl_ui_Keyboard.__getCharCode = function(key,shift) {
 	return 0;
 };
 var screens_GameScreen = function() {
+	this.mCurrentWave = 1;
+	this.mZonoeSize = 1000;
 	core_Screen.call(this);
 	this.mWorld = new entities_World();
 	this.mHero = new entities_hero_Hero(this.mWorld);
+	this.mPunkManager = new entities_PunkManager(this.mHero,this.mWorld);
 	this.mMaxScroll = 0;
+	this.mHud = new entities_hud_HUD();
 	this.add(this.mWorld);
 	this.mGame = core_Game.getInstance();
 	this.mWorld.addActor(this.mHero);
-	var _g = 0;
-	while(_g < 5) {
-		var i = _g++;
-		var peon = new entities_Punk();
-		peon.pos.x = Math.random() * 1000;
-		peon.pos.y = Math.random() * 1000;
-		this.mWorld.addActor(peon);
-	}
+	this.add(this.mHud);
 	this.mWorld.focus(this.mHero);
-	this.unlockZone(1000);
+	this.unlockZone(this.mZonoeSize);
 };
 $hxClasses["screens.GameScreen"] = screens_GameScreen;
 screens_GameScreen.__name__ = ["screens","GameScreen"];
 screens_GameScreen.__super__ = core_Screen;
 screens_GameScreen.prototype = $extend(core_Screen.prototype,{
 	update: function(delta) {
+		this.mPunkManager.update();
+		if(this.mPunkManager.getPunkAlive() <= 0 && this.mHero.worldPos.x >= this.mMaxScroll - 100) {
+			this.nextWave();
+			this.mHud.stopShowNext();
+		} else if(this.mPunkManager.getPunkAlive() <= 0) this.mHud.showNext();
 		if(this.mHero.worldPos.x < 0) this.mHero.worldPos.x = 0;
 		if(this.mHero.worldPos.x + this.mHero.getDim().x > this.mMaxScroll) this.mHero.worldPos.x = this.mMaxScroll - this.mHero.getDim().x;
 	}
+	,nextWave: function() {
+		this.mPunkManager.spawnPunk(this.mCurrentWave);
+		this.mCurrentWave++;
+		this.unlockZone(this.mMaxScroll + this.mZonoeSize);
+	}
 	,unlockZone: function(scroll) {
 		if(scroll > this.mMaxScroll) {
-			this.mWorld.setMaxScroll(-scroll);
 			this.mMaxScroll = scroll;
+			this.mWorld.generateBuilding(this.mMaxScroll);
 		}
 	}
 	,__class__: screens_GameScreen
@@ -25795,5 +26546,3 @@ openfl_ui_Keyboard.RIGHTBRACKET = 221;
 openfl_ui_Keyboard.QUOTE = 222;
 ApplicationMain.main();
 })(typeof console != "undefined" ? console : {log:function(){}}, typeof window != "undefined" ? window : exports);
-
-//# sourceMappingURL=LD32.js.map

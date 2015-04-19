@@ -15,6 +15,7 @@ class World extends Entity
 	var mCamera : Camera;
 	
 	var mBuildings : Array<Entity>;
+	var mBuildingsContainer : Entity;
 	var mRoads : Array<Entity>;
 	
 	var mActors : Array<Actor>;
@@ -33,10 +34,12 @@ class World extends Entity
 		mCamera = new Camera();
 		
 		mBuildings = new Array<Entity>();
+		mBuildingsContainer = new Entity("buildings");
+		add(mBuildingsContainer);
 		
-		var prevB : Building = null;
+		mMaxScroll = 0;
 		
-		mMaxScroll = 300;
+		/*var prevB : Building = null;
 		
 		for (i in 0 ... 10) {
 			var b = new Building();
@@ -47,12 +50,40 @@ class World extends Entity
 				b.pos.x = prevB.pos.x + prevB.getDim().x;
 			prevB = b;
 			b.pos.y = mGame.getHeight() / 2 - b.getDim().y - 20;
-			add(b);
-		}
+			mBuildingsContainer.add(b);
+		}*/
 		
 		mRoads = new Array<Entity>();
 		mActors = new Array<Actor>();
 		mActorsToDestroy = new Array<Actor>();
+	}
+	
+	public function generateBuilding(maxX : Int) {
+		
+		mMaxScroll = maxX - mGame.getWidth();
+		
+		var lastX = 0;
+		
+		do {
+			lastX = addABuilding();
+		}while (lastX < maxX);
+		
+	}
+	
+	public function addABuilding() : Int {
+		var building = new Building();
+		building.pos.y = mGame.getHeight() / 2 - building.getDim().y - 20;
+		mBuildingsContainer.add(building);
+		
+		if (mBuildings.length == 0) 
+			building.pos.x = 0;
+		else {
+			var lastBuilding = mBuildings[mBuildings.length - 1];
+			building.pos.x = lastBuilding.pos.x + lastBuilding.getDim().x;
+		}
+			
+		mBuildings.push(building);
+		return cast building.pos.x + building.getDim().x;
 	}
 	
 	public function addActor(actor : Actor) {
@@ -67,7 +98,8 @@ class World extends Entity
 		
 		mCamera.update(delta);
 		
-		pos.x = -mCamera.pos.x;
+		pos.x -= (mCamera.pos.x + pos.x) / 20;
+		//pos.x = -mCamera.pos.x;
 		
 		if (pos.x > 0)
 			pos.x = 0;

@@ -38,8 +38,11 @@ class Camera
 	
 	public function update(delta : Float) {
 		if (mTargetEntity != null) {
-			pos.x = mTargetEntity.pos.x + (mTargetEntity.getDim().x - mGame.getWidth()) / 2;
-			pos.y = mTargetEntity.pos.y + (mTargetEntity.getDim().y - mGame.getHeight()) / 2;
+			var targetx = mTargetEntity.pos.x + (mTargetEntity.getDim().x - mGame.getWidth()) / 2;
+			var targety = mTargetEntity.pos.y + (mTargetEntity.getDim().y - mGame.getHeight()) / 2;
+			
+			pos.x += (targetx - pos.x) / 2;
+			pos.y += (targety - pos.y) / 2;
 		}
 		
 		if (mShaking || mShakePhase == 1)

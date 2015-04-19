@@ -78,17 +78,14 @@ class Hero extends Human
 	public function giveShoe() {
 		var shoe : Shoe;
 		if (mShoes.length == 0){
-			shoe = new Shoe("left");
-			shoe.pos.x = 1;
+			shoe = new Shoe("L");
 		}
 		else if (mShoes.length == 1) {
-			shoe = new Shoe("right");
-			shoe.pos.x = mDim.x - shoe.getDim().x - 1;
+			shoe = new Shoe("R");
 		}
 		else
 			return;
 			
-		shoe.pos.y = mDim.y - shoe.getDim().y - 1;
 		add(shoe);
 		mShoes.push(shoe);
 	}
@@ -141,6 +138,8 @@ class Hero extends Human
 			
 		if (mPant != null)
 			mPant.setAnimation(name);
+			
+		for(shoe in mShoes) shoe.setAnimation(name);
 	}
 	
 	function onKeyUp(e:KeyboardEvent):Void 
@@ -207,7 +206,7 @@ class Hero extends Human
 	}
 	
 	function attackState(delta : Float) {
-		
+		unpushable = true;
 		mMoveSpeed = 0;
 		
 		var currentWeapon : Weapon = null;
@@ -215,11 +214,9 @@ class Hero extends Human
 		if (mPull != null ) {
 			playAnim("cac");
 			currentWeapon = mPull;
-			trace("pull");
 		}else if (mPant != null) {
 			playAnim("cac");
 			currentWeapon = mPant;
-			trace("pant");
 		}
 		
 		if (!mCacStarted && currentWeapon != null) {
@@ -229,11 +226,10 @@ class Hero extends Human
 		
 		if (currentWeapon != null && mAnimation.getCurrentFrame() == 5 && !mCacUsed) {
 			mCacUsed = true;
-			trace("launch");
 			currentWeapon.launch(mHeading);
 			mWorld.addActor(currentWeapon);
 			currentWeapon.startAltitude = 1;
-			currentWeapon.worldPos.x = worldPos.x + 100 * mHeading;
+			currentWeapon.worldPos.x = worldPos.x + 90 * mHeading;
 			currentWeapon.worldPos.y = worldPos.y;
 			
 			if (currentWeapon == mPull)
@@ -262,9 +258,9 @@ class Hero extends Human
 		
 		synchronizeClothes();
 		
-		if (vel.x < 0)
+		if (vel.x < 0 && mXAxis < 1)
 			mHeading = -1;
-		else
+		else if (vel.x > 0 && mXAxis > -1)
 			mHeading = 1;
 		
 		if (mCurrentState != null)
@@ -292,6 +288,8 @@ class Hero extends Human
 	function normalState(delta : Float) {
 		playAnim("idle");
 		
+		unpushable = false;
+		
 		mMoveSpeed = 100;
 		
 		if (vel.length() > 15)
@@ -301,6 +299,8 @@ class Hero extends Human
 	function kickState(delta : Float) {
 		
 		mMoveSpeed = 0;
+		
+		unpushable = true;
 		
 		if(!mShoeLaunched){
 			if(mShoes.length > 1)
@@ -323,6 +323,8 @@ class Hero extends Human
 	}
 	
 	function slipState(delta : Float) {
+		
+		unpushable = true;
 		
 		if (mCalbut != null) {
 			remove(mCalbut);
@@ -351,6 +353,7 @@ class Hero extends Human
 	}
 	
 	function stripState(delta : Float) {
+		unpushable = true;
 		playAnim("strip");
 		
 		mMoveSpeed = 0;

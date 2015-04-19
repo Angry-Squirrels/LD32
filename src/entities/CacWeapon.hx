@@ -20,7 +20,7 @@ class CacWeapon extends Weapon
 		
 		mGravity = 0;
 		
-		mDim.x = 60;
+		mDim.x = 70;
 		mDim.y = 30;
 		
 		mLifeTime = 0;
@@ -45,7 +45,6 @@ class CacWeapon extends Weapon
 		if(mLaunched){
 			mLifeTime += delta;
 			if (mLifeTime >= mLifeSpan){
-				trace("destroy");
 				destroy();
 			}
 		}
@@ -55,10 +54,8 @@ class CacWeapon extends Weapon
 	{
 		if(!mUseWorldCoord)
 			super.draw(buffer, dest);
-		else {
-		trace("a");	
+		else 
 			buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), 0xffff00);
-		}
 	}
 	
 }

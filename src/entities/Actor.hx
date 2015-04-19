@@ -24,6 +24,7 @@ class Actor extends Entity
 	
 	public static inline var fakeZCoef : Float = 0.5;
 	public var worldPos : Vec2;
+	public var unpushable : Bool;
 	
 	var mOthers : Array<Actor>;
 	var mFriction:Float = 0.7;
@@ -77,8 +78,11 @@ class Actor extends Entity
 					
 					if (actor.isDead()) continue;
 					
-					vel.add(pushVec);
-					actor.vel.sub(pushVec);
+					if(!unpushable)
+						vel.add(pushVec);
+						
+					if(!actor.unpushable)
+						actor.vel.sub(pushVec);
 				}
 			}
 			

@@ -14,11 +14,18 @@ class Punk extends Human
 	
 	var mTarget : Actor;
 	
-	var mRange : Float = 100;
+	var mRangeToStartFollow : Float = 600;
+	
+	static var mPunkFollowingHero : Array<Punk>;
+	
+	var mMaxPunkFollowing : Int;
 
 	public function new() 
 	{
 		super("Punk");
+		
+		if (mPunkFollowingHero == null)
+			mPunkFollowingHero = new Array<Punk>();
 		
 		mMoveSpeed = 40;
 		
@@ -28,15 +35,20 @@ class Punk extends Human
 	override public function setOthersActors(actors:Array<Actor>) 
 	{
 		super.setOthersActors(actors);
-		
-		for (actor in actors)
-			if (actor.name == Hero.HERO)
+	}
+	
+	function lookForTarget() {
+		for (actor in mOthers)
+			if (actor.name == Hero.HERO && 
+				Vec2.Dist(worldPos, actor.worldPos) <= mRangeToStartFollow)
 				mTarget = actor;
 	}
 	
 	override function update(delta:Float) 
 	{
 		super.update(delta);
+		
+		
 		if (isDead()) {
 			mDim.x = 120;
 			mDim.y = 72;
@@ -46,11 +58,20 @@ class Punk extends Human
 			mYAxis = 0;
 			return;
 		}
-		if (mTarget != null && Vec2.Dist(mTarget.worldPos, worldPos) > mRange)
-			moveTowardTarget();
+		
+		if (mTarget == null) 
+			lookForTarget();
 		else {
-			mXAxis = 0;
-			mYAxis = 0;
+			
+			var rangeToAttack = mDim.x / 2 + mTarget.getDim().x / 2;
+			rangeToAttack *= 1.3;
+			
+			if (Vec2.Dist(mTarget.worldPos, worldPos) > rangeToAttack)
+				moveTowardTarget();
+			else {
+				mXAxis = 0;
+				mYAxis = 0;
+			}
 		}
 	}
 	

@@ -1,10 +1,13 @@
 package screens;
 import core.Camera;
+import core.Entity;
 import core.Game;
 import core.Screen;
 import entities.hero.Hero;
+import entities.hud.HUD;
 import entities.Human;
 import entities.Punk;
+import entities.PunkManager;
 import entities.World;
 
 /**
@@ -20,14 +23,26 @@ class GameScreen extends Screen
 	var mMaxScroll : Float;
 	
 	var mGame : Game;
+	
+	var mPunkManager : PunkManager;
+	
+	var mZonoeSize : Int = 1000;
+	
+	var mCurrentWave : Int = 1;
+	
+	var mHud : HUD;
 
 	public function new() 
 	{
 		super();
 		
+		
 		mWorld = new World();
 		mHero = new Hero(mWorld);
+		mPunkManager = new PunkManager(mHero, mWorld);
 		mMaxScroll = 0;
+		
+		mHud = new HUD();
 		
 		add(mWorld);
 		
@@ -35,20 +50,24 @@ class GameScreen extends Screen
 		
 		mWorld.addActor(mHero);
 		
-		for(i in 0 ... 2){
-			var peon = new Punk();
-			peon.pos.x = Math.random() * 1000;
-			peon.pos.y = Math.random() * 1000;
-			mWorld.addActor(peon);
-		}
+		add(mHud);
 		
 		mWorld.focus(mHero);
 		
-		unlockZone(1000);
+		unlockZone(mZonoeSize);
 	}
 	
 	override function update(delta:Float) 
 	{
+		mPunkManager.update();
+		
+		if (mPunkManager.getPunkAlive() <= 0 && mHero.worldPos.x >= mMaxScroll - 100){
+			nextWave();
+			mHud.stopShowNext();
+		}else if(mPunkManager.getPunkAlive() <= 0){
+			mHud.showNext();
+		}
+		
 		if (mHero.worldPos.x < 0)
 			mHero.worldPos.x = 0;
 		
@@ -56,10 +75,16 @@ class GameScreen extends Screen
 			mHero.worldPos.x = mMaxScroll - mHero.getDim().x;
 	}
 	
+	function nextWave() {
+		mPunkManager.spawnPunk(mCurrentWave);
+		mCurrentWave++;
+		unlockZone(mMaxScroll + mZonoeSize);
+	}
+	
 	function unlockZone(scroll : Float) {
 		if(scroll > mMaxScroll){
-			mWorld.setMaxScroll(-scroll);
 			mMaxScroll = scroll;
+			mWorld.generateBuilding(cast mMaxScroll);
 		}
 	}
 	
