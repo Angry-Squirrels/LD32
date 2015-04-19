@@ -20,7 +20,7 @@ class CacWeapon extends Weapon
 		
 		mGravity = 0;
 		
-		mDim.x = 70;
+		mDim.x = 60;
 		mDim.y = 30;
 		
 		mLifeTime = 0;

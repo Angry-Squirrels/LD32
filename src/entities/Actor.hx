@@ -20,6 +20,8 @@ class Actor extends Entity
 	var mMaxLife : Int;
 	var mLife : Int;
 	
+	public var solid : Bool;
+	
 	var mUseWorldCoord : Bool;
 	
 	public static inline var fakeZCoef : Float = 0.5;
@@ -39,6 +41,7 @@ class Actor extends Entity
 		
 		mXAxis = 0;
 		mYAxis = 0;
+		solid = true;
 		
 		mUseWorldCoord = true;
 		
@@ -78,11 +81,13 @@ class Actor extends Entity
 					
 					if (actor.isDead()) continue;
 					
-					if(!unpushable)
-						vel.add(pushVec);
+					if(actor.solid && solid){
+						if(!unpushable)
+							vel.add(pushVec);
 						
-					if(!actor.unpushable)
-						actor.vel.sub(pushVec);
+						if(!actor.unpushable)
+							actor.vel.sub(pushVec);
+					}
 				}
 			}
 			

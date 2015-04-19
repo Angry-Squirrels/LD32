@@ -39,20 +39,6 @@ class World extends Entity
 		
 		mMaxScroll = 0;
 		
-		/*var prevB : Building = null;
-		
-		for (i in 0 ... 10) {
-			var b = new Building();
-			mBuildings.push(b);
-			if (prevB == null)
-				b.pos.x = 0;
-			else
-				b.pos.x = prevB.pos.x + prevB.getDim().x;
-			prevB = b;
-			b.pos.y = mGame.getHeight() / 2 - b.getDim().y - 20;
-			mBuildingsContainer.add(b);
-		}*/
-		
 		mRoads = new Array<Entity>();
 		mActors = new Array<Actor>();
 		mActorsToDestroy = new Array<Actor>();
@@ -99,6 +85,7 @@ class World extends Entity
 		mCamera.update(delta);
 		
 		pos.x -= (mCamera.pos.x + pos.x) / 20;
+		//pos.y -= (mCamera.pos.y + pos.y) / 20;
 		//pos.x = -mCamera.pos.x;
 		
 		if (pos.x > 0)
@@ -107,8 +94,10 @@ class World extends Entity
 		if (pos.x < -mMaxScroll )
 			pos.x = -mMaxScroll;
 			
-		pos.x += mCamera.shakePosOffset.x;
-		pos.y += mCamera.shakePosOffset.y;
+		//if(mCamera.isShaking()){
+			pos.x += mCamera.getShakeOffsetX();
+			pos.y += mCamera.getShakeOffsetY();
+		//}
 		
 		manageActors();
 	}

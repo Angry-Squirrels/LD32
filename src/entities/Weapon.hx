@@ -22,6 +22,8 @@ class Weapon extends AnimatedActor
 		
 		mDamage = 1;
 		
+		solid = false;
+		
 		mFriction = 1;
 		
 		mUseWorldCoord = false;
@@ -41,7 +43,9 @@ class Weapon extends AnimatedActor
 	override public function onCollide(actor:Actor) 
 	{
 		super.onCollide(actor);
-		if (!Std.is(actor, Hero)) {
+		if (!Std.is(actor, Hero) && 
+			!Std.is(actor, Weapon) &&
+			!destroyable()) {
 			if (actor.isDead()) return;
 			explode();
 			actor.takeDamage(mDamage);

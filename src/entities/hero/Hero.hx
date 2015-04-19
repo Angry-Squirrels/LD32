@@ -200,17 +200,9 @@ class Hero extends Human
 	}
 	
 	function attack() {
-		//if(mPull != null || mPant != null){
-		//	mCurrentState = attackState;
-		//	mCacUsed = false;
-		//	mCacStarted = false;
-		//}else {
-			mCurrentState = attackState;
-			mCacUsed = false;
-			mCacStarted = false;
-		//	mKick.launch(mHeading);
-		//	trace("simple kick");
-		//}
+		mCurrentState = attackState;
+		mCacUsed = false;
+		mCacStarted = false;
 	}
 	
 	function attackState(delta : Float) {
@@ -252,7 +244,7 @@ class Hero extends Human
 			currentWeapon.launch(mHeading);
 			mWorld.addActor(currentWeapon);
 			currentWeapon.startAltitude = 1;
-			currentWeapon.worldPos.x = worldPos.x + 90 * mHeading;
+			currentWeapon.worldPos.x = worldPos.x + 60 * mHeading;
 			currentWeapon.worldPos.y = worldPos.y;
 			
 			if (currentWeapon == mPull)

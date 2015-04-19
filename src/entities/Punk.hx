@@ -37,11 +37,8 @@ class Punk extends Human
 		super.setOthersActors(actors);
 	}
 	
-	function lookForTarget() {
-		for (actor in mOthers)
-			if (actor.name == Hero.HERO && 
-				Vec2.Dist(worldPos, actor.worldPos) <= mRangeToStartFollow)
-				mTarget = actor;
+	public function setTarget(target : Actor) {
+		mTarget = target;
 	}
 	
 	override function update(delta:Float) 
@@ -59,9 +56,8 @@ class Punk extends Human
 			return;
 		}
 		
-		if (mTarget == null) 
-			lookForTarget();
-		else {
+		if (mTarget != null) 
+		{
 			
 			var rangeToAttack = mDim.x / 2 + mTarget.getDim().x / 2;
 			rangeToAttack *= 1.3;

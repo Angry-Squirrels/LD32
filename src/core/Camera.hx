@@ -19,15 +19,21 @@ class Camera
 	public var shakeOffsetX : Int;
 	public var shakeOffsetY : Int;
 	
+	var mLastOffsetXSent : Int;
+	var mLastOffsetYSent : Int;
+	
+	var totalShakeXOffset : Int;
+	var totalShakeYOffset : Int;
+	
+	var mShakeTimeF : Float;
+	
 	public var pos : Vec2;
-	public var shakePosOffset : Vec2;
 	
 	public static var instance : Camera;
 
 	public function new() 
 	{
 		pos = new Vec2();
-		shakePosOffset = new Vec2();
 		mGame = Game.getInstance();
 		instance = this;
 	}
@@ -45,30 +51,54 @@ class Camera
 			pos.y += (targety - pos.y) / 2;
 		}
 		
-		if (mShaking || mShakePhase == 1)
-		{
-			if (mShakePhase == 0) {
-				shakeOffsetX = cast Math.random() * mShakeIntensity * 2 - mShakeIntensity;
-				shakeOffsetY = cast Math.random() * mShakeIntensity * 2 - mShakeIntensity;
-			}else {
-				shakeOffsetX = -shakeOffsetX;
-				shakeOffsetY = -shakeOffsetY;
+		if (mShaking || mShakePhase == 1) {
+		
+			mShakeTimeF += delta;
+			
+			if (mShakeTimeF > 0.025){
+			
+				if (mShakePhase == 0) {
+					shakeOffsetX = cast Math.random() * mShakeIntensity * 2 - mShakeIntensity;
+					shakeOffsetY = cast Math.random() * mShakeIntensity * 2 - mShakeIntensity;
+					
+					totalShakeXOffset += shakeOffsetX;
+					totalShakeYOffset += shakeOffsetY;
+					
+					mShakePhase = 1;
+				}else {
+					shakeOffsetX = -shakeOffsetX;
+					shakeOffsetY = -shakeOffsetY;
+					
+					totalShakeXOffset += shakeOffsetX;
+					totalShakeYOffset += shakeOffsetY;
+					
+					mShakePhase = 0;
+				}	
+				
+				mShakeTimeF = 0;
 			}
-			
-			shakePosOffset.x += shakeOffsetX;
-			shakePosOffset.y += shakeOffsetY;
-			
-			mShakeTime -= cast 1000 * delta;
-			
-			if (!mShaking) {
-				if(mShakePhase == 0){
-					shakePosOffset.x -= shakeOffsetX;
-					shakePosOffset.y -= shakeOffsetY;
-				}
-			}
-			mShakePhase ++;
-			if (mShakePhase > 1)
-				mShakePhase = 0;
+		}else {
+			shakeOffsetX = 0;
+			shakeOffsetY = 0;
+		}
+		
+	}
+	
+	public function getShakeOffsetX():Int {
+		if (shakeOffsetX == mLastOffsetXSent)
+			return 0;
+		else {
+			mLastOffsetXSent = shakeOffsetX;
+			return shakeOffsetX;
+		}
+	}
+	
+	public function getShakeOffsetY():Int {
+		if (shakeOffsetY == mLastOffsetYSent)
+			return 0;
+		else {
+			mLastOffsetYSent = shakeOffsetY;
+			return shakeOffsetY;
 		}
 	}
 	
@@ -77,14 +107,32 @@ class Camera
 		Timer.delay(stopShake, time);
 	}
 	
+	public function isShaking() : Bool {
+		return mShaking;
+	}
+	
 	public function startShake(intensity : Int) {
 		mShaking = true;
+		
+		shakeOffsetX = 0;
+		shakeOffsetY = 0;
+		
+		mShakeTime = 0;
+		mShakeTimeF = 0;
+		
+		totalShakeXOffset = 0;
+		totalShakeYOffset = 0;
+		
+		mLastOffsetXSent = 0;
+		mLastOffsetYSent = 0;
+		
 		mShakePhase = 0;
 		mShakeIntensity = intensity;
 	}
 	
 	public function stopShake() {
 		mShaking = false;
+		
 	}
 	
 }
