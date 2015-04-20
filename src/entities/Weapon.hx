@@ -47,7 +47,8 @@ class Weapon extends AnimatedActor
 		super.onCollide(actor);
 		if (!Std.is(actor, Hero) && 
 			!Std.is(actor, Weapon) &&
-			!destroyable()) {
+			!destroyable()
+			&& actor.solid) {
 			if (actor.isDead()) return;
 			explode();
 			actor.takeDamage(mDamage, this);

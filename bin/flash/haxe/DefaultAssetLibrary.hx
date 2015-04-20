@@ -63,6 +63,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Boss/boss_iddle.png", AssetType.IMAGE);
 		className.set ("img/Boss/boss_iddle_anim.png", __ASSET__img_boss_boss_iddle_anim_png);
 		type.set ("img/Boss/boss_iddle_anim.png", AssetType.IMAGE);
+		className.set ("img/Boss/boss_iddle_flip.png", __ASSET__img_boss_boss_iddle_flip_png);
+		type.set ("img/Boss/boss_iddle_flip.png", AssetType.IMAGE);
 		className.set ("img/Boss/boss_walk.png", __ASSET__img_boss_boss_walk_png);
 		type.set ("img/Boss/boss_walk.png", AssetType.IMAGE);
 		className.set ("img/Boss/boss_walk_flip.png", __ASSET__img_boss_boss_walk_flip_png);
@@ -327,6 +329,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "img/Boss/boss_iddle_anim.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Boss/boss_iddle_flip.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -918,6 +924,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		#end
 		
 		#if (windows || mac || linux)
@@ -950,6 +957,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/Boss/boss_iddle_anim.png", __ASSET__img_boss_boss_iddle_anim_png);
 		type.set ("img/Boss/boss_iddle_anim.png", AssetType.IMAGE);
+		
+		className.set ("img/Boss/boss_iddle_flip.png", __ASSET__img_boss_boss_iddle_flip_png);
+		type.set ("img/Boss/boss_iddle_flip.png", AssetType.IMAGE);
 		
 		className.set ("img/Boss/boss_walk.png", __ASSET__img_boss_boss_walk_png);
 		type.set ("img/Boss/boss_walk.png", AssetType.IMAGE);
@@ -1899,6 +1909,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_hit_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_iddle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_iddle_anim_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_boss_boss_iddle_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_boss_boss_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_decors_road_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -2140,6 +2151,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 #else
 
 
@@ -2156,6 +2168,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Boss/boss_hit_flip.png") #if display private #end class __ASSET__img_boss_boss_hit_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Boss/boss_iddle.png") #if display private #end class __ASSET__img_boss_boss_iddle_png extends lime.graphics.Image {}
 @:image("assets/img/Boss/boss_iddle_anim.png") #if display private #end class __ASSET__img_boss_boss_iddle_anim_png extends lime.graphics.Image {}
+@:image("assets/img/Boss/boss_iddle_flip.png") #if display private #end class __ASSET__img_boss_boss_iddle_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Boss/boss_walk.png") #if display private #end class __ASSET__img_boss_boss_walk_png extends lime.graphics.Image {}
 @:image("assets/img/Boss/boss_walk_flip.png") #if display private #end class __ASSET__img_boss_boss_walk_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Decors/road.jpg") #if display private #end class __ASSET__img_decors_road_jpg extends lime.graphics.Image {}

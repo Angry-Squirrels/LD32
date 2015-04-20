@@ -90,7 +90,7 @@ class Ennemy extends Human
 		{
 			mFleeing = false;
 			var rangeToAttack = mDim.x / 2 + mTarget.getDim().x / 2;
-			rangeToAttack *= 1.2;
+			rangeToAttack *= 1.1;
 			
 			if (Vec2.Dist(mTarget.worldPos, worldPos) > rangeToAttack){
 				moveTowardTarget();

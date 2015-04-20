@@ -44,6 +44,8 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Boss/boss_iddle_anim.png");
 	types.push("IMAGE");
+	urls.push("img/Boss/boss_iddle_flip.png");
+	types.push("IMAGE");
 	urls.push("img/Boss/boss_walk.png");
 	types.push("IMAGE");
 	urls.push("img/Boss/boss_walk_flip.png");
@@ -1302,6 +1304,9 @@ var DefaultAssetLibrary = function() {
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/Boss/boss_iddle_anim.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/boss_iddle_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/Boss/boss_walk.png";
@@ -2596,7 +2601,7 @@ entities_Weapon.prototype = $extend(entities_AnimatedActor.prototype,{
 	}
 	,onCollide: function(actor) {
 		entities_AnimatedActor.prototype.onCollide.call(this,actor);
-		if(!js_Boot.__instanceof(actor,entities_hero_Hero) && !js_Boot.__instanceof(actor,entities_Weapon) && !this.destroyable()) {
+		if(!js_Boot.__instanceof(actor,entities_hero_Hero) && !js_Boot.__instanceof(actor,entities_Weapon) && !this.destroyable() && actor.solid) {
 			if(actor.isDead()) return;
 			this.explode();
 			actor.takeDamage(this.mDamage,this);
@@ -2895,7 +2900,7 @@ entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
 		if(this.mTarget != null) {
 			this.mFleeing = false;
 			var rangeToAttack = this.mDim.x / 2 + this.mTarget.getDim().x / 2;
-			rangeToAttack *= 1.2;
+			rangeToAttack *= 1.1;
 			if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) > rangeToAttack) {
 				this.moveTowardTarget();
 				this.mAttackTimer = 0;
@@ -2962,40 +2967,6 @@ entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
 	}
 	,__class__: entities_ennemies_Ennemy
 });
-var entities_ennemies_Boss = function() {
-	entities_ennemies_Ennemy.call(this,"Boss");
-	this.mLife = 50;
-	this.mDim.x = 196;
-	this.mDim.y = 336;
-	this.mMoveSpeed = 30;
-	this.initAnimations();
-};
-$hxClasses["entities.ennemies.Boss"] = entities_ennemies_Boss;
-entities_ennemies_Boss.__name__ = ["entities","ennemies","Boss"];
-entities_ennemies_Boss.__super__ = entities_ennemies_Ennemy;
-entities_ennemies_Boss.prototype = $extend(entities_ennemies_Ennemy.prototype,{
-	initAnimations: function() {
-		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Boss/boss_walk_flip",326,336,65,0),[4,3,2,1,0,9,8,7,6,5,14,13,12,11,10]));
-		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Boss/boss_walk",326,336,65,0)));
-		this.addAnimation("iddleR",new core_Animation(new core_SpriteSheet("Boss/boss_iddle",326,336,65,0)));
-		this.addAnimation("iddleL",new core_Animation(new core_SpriteSheet("Boss/boss_iddle",326,336,65,0)));
-		this.addAnimation("deathR",new core_Animation(new core_SpriteSheet("Boss/boss_death_flip",326,336,65,0),null,12,false));
-		this.addAnimation("deathL",new core_Animation(new core_SpriteSheet("Boss/boss_death",326,336,65,0),null,12,false));
-		var hitR = new core_Animation(new core_SpriteSheet("Boss/boss_hit_flip",326,336,65,0),null,20,false);
-		hitR.onFinished = $bind(this,this.normalAnim);
-		this.addAnimation("hitR",hitR);
-		var hitL = new core_Animation(new core_SpriteSheet("Boss/boss_hit",326,336,65,0),null,20,false);
-		hitL.onFinished = $bind(this,this.normalAnim);
-		this.addAnimation("hitL",hitL);
-		var attackRAnim = new core_Animation(new core_SpriteSheet("Boss/boss_attack2_flip",326,336,65,0),[2,1,0,5,4,3,8,7,6],12,false);
-		this.addAnimation("attackR",attackRAnim);
-		attackRAnim.onFinished = $bind(this,this.normalAnim);
-		var attackLAnim = new core_Animation(new core_SpriteSheet("Boss/boss_attack2",326,336,65,0),null,12,false);
-		this.addAnimation("attackL",attackLAnim);
-		attackLAnim.onFinished = $bind(this,this.normalAnim);
-	}
-	,__class__: entities_ennemies_Boss
-});
 var entities_ennemies_EnnemyManager = function(hero,world) {
 	this.mHero = hero;
 	this.mWorld = world;
@@ -3017,12 +2988,6 @@ entities_ennemies_EnnemyManager.prototype = {
 		this.mWave = wave;
 		var punkToSpawn = 2 * wave * wave / 3 | 0;
 		if(punkToSpawn < 2) punkToSpawn = 2;
-		if(wave > 0) {
-			punkToSpawn = 0;
-			var boss = new entities_ennemies_Boss();
-			this.mEnnemies.push(boss);
-			this.mWorld.addActor(boss);
-		}
 		var _g = 0;
 		while(_g < punkToSpawn) {
 			var i = _g++;
@@ -3261,7 +3226,7 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		}
 	}
 	,onKeyDown: function(e) {
-		if(this.isDead()) return;
+		if(this.isDead() || this.mCurrentState == $bind(this,this.stripState)) return;
 		var _g = e.keyCode;
 		switch(_g) {
 		case 67:
@@ -3480,10 +3445,10 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD_flip",140,180,35,0),null,22,false);
 		kickLLAnim1.onFinished = $bind(this,this.setNormalState);
 		this.addAnimation("kickDL",kickLLAnim1);
-		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
+		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],20,false);
 		stripRAnim.onFinished = $bind(this,this.stripEnded);
 		this.addAnimation("stripR",stripRAnim);
-		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],12,false);
+		var stripLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip_flip",140,180,35,0),[8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9],20,false);
 		stripLAnim.onFinished = $bind(this,this.stripEnded);
 		this.addAnimation("stripL",stripLAnim);
 		var slipRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip",140,180,35,0),null,16,false);

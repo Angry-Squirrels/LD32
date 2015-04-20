@@ -70,6 +70,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/Boss/boss_iddle_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/Boss/boss_walk.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		

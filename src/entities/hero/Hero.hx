@@ -167,7 +167,8 @@ class Hero extends Human
 	
 	function onKeyDown(e:KeyboardEvent):Void 
 	{
-		if (isDead()) return; 
+		if (isDead() ||
+			mCurrentState == stripState) return; 
 		
 		switch (e.keyCode) {
 			case Keyboard.C :
@@ -383,6 +384,7 @@ class Hero extends Human
 		playAnim("strip");
 		
 		mMoveSpeed = 0;
+		
 	}
 	
 	function setNormalState() {
@@ -501,11 +503,11 @@ class Hero extends Human
 		kickLLAnim.onFinished = setNormalState;
 		addAnimation("kickDL", kickLLAnim);
 		
-		var stripRAnim = new Animation(new SpriteSheet("Hero/franky_strip", 140, 180, 35, 0), [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 12, false);
+		var stripRAnim = new Animation(new SpriteSheet("Hero/franky_strip", 140, 180, 35, 0), [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 20, false);
 		stripRAnim.onFinished = stripEnded;
 		addAnimation("stripR", stripRAnim);
 		
-		var stripLAnim = new Animation(new SpriteSheet("Hero/franky_strip_flip", 140, 180, 35, 0), [8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9], 12, false);
+		var stripLAnim = new Animation(new SpriteSheet("Hero/franky_strip_flip", 140, 180, 35, 0), [8,7,6,5,4,3,2,1,0,16,15,14,13,12,11,10,9], 20, false);
 		stripLAnim.onFinished = stripEnded;
 		addAnimation("stripL", stripLAnim);
 		
