@@ -16,6 +16,8 @@ class World extends Entity
 	
 	var mBuildings : Array<Entity>;
 	var mBuildingsContainer : Entity;
+	
+	var mRoadContainer : Entity;
 	var mRoads : Array<Entity>;
 	
 	var mActors : Array<Actor>;
@@ -31,6 +33,10 @@ class World extends Entity
 		
 		mGame = Game.getInstance();
 		
+		mRoads = new Array<Entity>();
+		mRoadContainer = new Entity();
+		add(mRoadContainer);
+		
 		mCamera = new Camera();
 		
 		mBuildings = new Array<Entity>();
@@ -39,7 +45,6 @@ class World extends Entity
 		
 		mMaxScroll = 0;
 		
-		mRoads = new Array<Entity>();
 		mActors = new Array<Actor>();
 		mActorsToDestroy = new Array<Actor>();
 	}
@@ -52,6 +57,12 @@ class World extends Entity
 		
 		do {
 			lastX = addABuilding();
+		}while (lastX < maxX);
+		
+		lastX = 0;
+		
+		do {
+			lastX = addARoad();
 		}while (lastX < maxX);
 		
 	}
@@ -72,6 +83,20 @@ class World extends Entity
 		return cast building.pos.x + building.getDim().x;
 	}
 	
+	public function addARoad() : Int {
+		var road = new Road();
+		mRoadContainer.add(road);
+		if (mRoads.length == 0)
+			road.pos.x = 0;
+		else {
+			var prev = mRoads[mRoads.length - 1];
+			road.pos.x = prev.pos.x + prev.getDim().x;
+		}
+		
+		mRoads.push(road);
+		return cast road.pos.x + road.getDim().x;
+	}
+	
 	public function addActor(actor : Actor) {
 		mActors.push(actor);	
 		add(actor);
@@ -85,8 +110,6 @@ class World extends Entity
 		mCamera.update(delta);
 		
 		pos.x -= (mCamera.pos.x + pos.x) / 20;
-		//pos.y -= (mCamera.pos.y + pos.y) / 20;
-		//pos.x = -mCamera.pos.x;
 		
 		if (pos.x > 0)
 			pos.x = 0;
@@ -94,10 +117,8 @@ class World extends Entity
 		if (pos.x < -mMaxScroll )
 			pos.x = -mMaxScroll;
 			
-		//if(mCamera.isShaking()){
-			pos.x += mCamera.getShakeOffsetX();
-			pos.y += mCamera.getShakeOffsetY();
-		//}
+		pos.x += mCamera.getShakeOffsetX();
+		pos.y += mCamera.getShakeOffsetY();
 		
 		manageActors();
 	}

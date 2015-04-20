@@ -141,7 +141,7 @@ class Ennemy extends Human
 			if (Vec2.Dist(mTarget.worldPos, worldPos) > 350){
 				moveTowardTarget();
 				mFleeing = false;
-			}else if(Vec2.Dist(mTarget.worldPos, worldPos) < 300){
+			}else if(Vec2.Dist(mTarget.worldPos, worldPos) < 250){
 				fleeTarget();
 				mFleeing = true;
 			}else {

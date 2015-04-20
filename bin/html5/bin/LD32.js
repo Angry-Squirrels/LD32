@@ -48,6 +48,8 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Boss/boss_walk_flip.png");
 	types.push("IMAGE");
+	urls.push("img/Decors/road.jpg");
+	types.push("IMAGE");
 	urls.push("img/Flic/flic_attack.png");
 	types.push("IMAGE");
 	urls.push("img/Flic/flic_attack_flip.png");
@@ -1306,6 +1308,9 @@ var DefaultAssetLibrary = function() {
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/Boss/boss_walk_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Decors/road.jpg";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/Flic/flic_attack.png";
@@ -2723,15 +2728,38 @@ entities_Human.prototype = $extend(entities_AnimatedActor.prototype,{
 	}
 	,__class__: entities_Human
 });
+var entities_Road = function() {
+	core_Entity.call(this,"Road");
+	this.mBmp = openfl_Assets.getBitmapData("img/Decors/road.jpg");
+	this.mDim.x = this.mBmp.width;
+	this.mDim.y = this.mBmp.height;
+};
+$hxClasses["entities.Road"] = entities_Road;
+entities_Road.__name__ = ["entities","Road"];
+entities_Road.__super__ = core_Entity;
+entities_Road.prototype = $extend(core_Entity.prototype,{
+	draw: function(buffer,dest) {
+		if(dest.x + this.mBmp.width > 0 && dest.x < 800) buffer.copyPixels(this.mBmp,new openfl_geom_Rectangle(0,0,this.mBmp.width,this.mBmp.height),(function($this) {
+			var $r;
+			geom_Vec2.mSPoint.x = dest.x;
+			geom_Vec2.mSPoint.y = dest.y;
+			$r = geom_Vec2.mSPoint;
+			return $r;
+		}(this)));
+	}
+	,__class__: entities_Road
+});
 var entities_World = function() {
 	core_Entity.call(this,"World");
 	this.mGame = core_Game.getInstance();
+	this.mRoads = [];
+	this.mRoadContainer = new core_Entity();
+	this.add(this.mRoadContainer);
 	this.mCamera = new core_Camera();
 	this.mBuildings = [];
 	this.mBuildingsContainer = new core_Entity("buildings");
 	this.add(this.mBuildingsContainer);
 	this.mMaxScroll = 0;
-	this.mRoads = [];
 	this.mActors = [];
 	this.mActorsToDestroy = [];
 };
@@ -2743,6 +2771,8 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 		this.mMaxScroll = maxX - this.mGame.getWidth();
 		var lastX = 0;
 		do lastX = this.addABuilding(); while(lastX < maxX);
+		lastX = 0;
+		do lastX = this.addARoad(); while(lastX < maxX);
 	}
 	,addABuilding: function() {
 		var building = new entities_Building();
@@ -2754,6 +2784,16 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 		}
 		this.mBuildings.push(building);
 		return building.pos.x + building.getDim().x;
+	}
+	,addARoad: function() {
+		var road = new entities_Road();
+		this.mRoadContainer.add(road);
+		if(this.mRoads.length == 0) road.pos.x = 0; else {
+			var prev = this.mRoads[this.mRoads.length - 1];
+			road.pos.x = prev.pos.x + prev.getDim().x;
+		}
+		this.mRoads.push(road);
+		return road.pos.x + road.getDim().x;
 	}
 	,addActor: function(actor) {
 		this.mActors.push(actor);
@@ -2893,7 +2933,7 @@ entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
 			if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) > 350) {
 				this.moveTowardTarget();
 				this.mFleeing = false;
-			} else if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) < 300) {
+			} else if(geom_Vec2.Dist(this.mTarget.worldPos,this.worldPos) < 250) {
 				this.fleeTarget();
 				this.mFleeing = true;
 			} else {
@@ -2922,6 +2962,40 @@ entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
 	}
 	,__class__: entities_ennemies_Ennemy
 });
+var entities_ennemies_Boss = function() {
+	entities_ennemies_Ennemy.call(this,"Boss");
+	this.mLife = 50;
+	this.mDim.x = 196;
+	this.mDim.y = 336;
+	this.mMoveSpeed = 30;
+	this.initAnimations();
+};
+$hxClasses["entities.ennemies.Boss"] = entities_ennemies_Boss;
+entities_ennemies_Boss.__name__ = ["entities","ennemies","Boss"];
+entities_ennemies_Boss.__super__ = entities_ennemies_Ennemy;
+entities_ennemies_Boss.prototype = $extend(entities_ennemies_Ennemy.prototype,{
+	initAnimations: function() {
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Boss/boss_walk_flip",326,336,65,0),[4,3,2,1,0,9,8,7,6,5,14,13,12,11,10]));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Boss/boss_walk",326,336,65,0)));
+		this.addAnimation("iddleR",new core_Animation(new core_SpriteSheet("Boss/boss_iddle",326,336,65,0)));
+		this.addAnimation("iddleL",new core_Animation(new core_SpriteSheet("Boss/boss_iddle",326,336,65,0)));
+		this.addAnimation("deathR",new core_Animation(new core_SpriteSheet("Boss/boss_death_flip",326,336,65,0),null,12,false));
+		this.addAnimation("deathL",new core_Animation(new core_SpriteSheet("Boss/boss_death",326,336,65,0),null,12,false));
+		var hitR = new core_Animation(new core_SpriteSheet("Boss/boss_hit_flip",326,336,65,0),null,20,false);
+		hitR.onFinished = $bind(this,this.normalAnim);
+		this.addAnimation("hitR",hitR);
+		var hitL = new core_Animation(new core_SpriteSheet("Boss/boss_hit",326,336,65,0),null,20,false);
+		hitL.onFinished = $bind(this,this.normalAnim);
+		this.addAnimation("hitL",hitL);
+		var attackRAnim = new core_Animation(new core_SpriteSheet("Boss/boss_attack2_flip",326,336,65,0),[2,1,0,5,4,3,8,7,6],12,false);
+		this.addAnimation("attackR",attackRAnim);
+		attackRAnim.onFinished = $bind(this,this.normalAnim);
+		var attackLAnim = new core_Animation(new core_SpriteSheet("Boss/boss_attack2",326,336,65,0),null,12,false);
+		this.addAnimation("attackL",attackLAnim);
+		attackLAnim.onFinished = $bind(this,this.normalAnim);
+	}
+	,__class__: entities_ennemies_Boss
+});
 var entities_ennemies_EnnemyManager = function(hero,world) {
 	this.mHero = hero;
 	this.mWorld = world;
@@ -2943,6 +3017,12 @@ entities_ennemies_EnnemyManager.prototype = {
 		this.mWave = wave;
 		var punkToSpawn = 2 * wave * wave / 3 | 0;
 		if(punkToSpawn < 2) punkToSpawn = 2;
+		if(wave > 0) {
+			punkToSpawn = 0;
+			var boss = new entities_ennemies_Boss();
+			this.mEnnemies.push(boss);
+			this.mWorld.addActor(boss);
+		}
 		var _g = 0;
 		while(_g < punkToSpawn) {
 			var i = _g++;
@@ -2987,7 +3067,7 @@ entities_ennemies_EnnemyManager.prototype = {
 		while(_g2 < _g11.length) {
 			var a1 = _g11[_g2];
 			++_g2;
-			if(a1.isDead()) haxe_Log.trace("putain",{ fileName : "EnnemyManager.hx", lineNumber : 114, className : "entities.ennemies.EnnemyManager", methodName : "update"});
+			if(a1.isDead()) haxe_Log.trace("putain",{ fileName : "EnnemyManager.hx", lineNumber : 122, className : "entities.ennemies.EnnemyManager", methodName : "update"});
 		}
 	}
 	,getEnnemiesAlive: function() {
