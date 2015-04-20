@@ -1,10 +1,10 @@
 -main ApplicationMain 
--cp C:/outils/HaxeToolkit/haxe/lib/openfl/3,0,2
+-cp E:/Outils/Dev/Haxe/haxe/lib/openfl/3,0,2
 -D openfl=3.0.2
--cp C:/outils/HaxeToolkit/haxe/lib/lime/2,3,2
+-cp E:/Outils/Dev/Haxe/haxe/lib/lime/2,3,2
 -D lime=2.3.2
--cp C:/outils/HaxeToolkit/haxe/lib/actuate/1,8,3
--D actuate=1.8.3
+-cp E:/Outils/Dev/Haxe/haxe/lib/actuate/1,8,4
+-D actuate=1.8.4
 -cp src
 -D openfl-next
 -D tools=2.3.2

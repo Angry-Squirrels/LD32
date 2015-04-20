@@ -28,7 +28,7 @@ class Boss extends Ennemy
 		addAnimation("walkR", new Animation(new SpriteSheet("Boss/boss_walk_flip", 326, 336, 65, 0), [4,3,2,1,0,9,8,7,6,5,14,13,12,11,10]));
 		addAnimation("walkL", new Animation(new SpriteSheet("Boss/boss_walk", 326, 336, 65, 0)));
 		
-		addAnimation("iddleR", new Animation(new SpriteSheet("Boss/boss_iddle", 326, 336, 65, 0)));
+		addAnimation("iddleR", new Animation(new SpriteSheet("Boss/boss_iddle_flip", 326, 336, 65, 0)));
 		addAnimation("iddleL", new Animation(new SpriteSheet("Boss/boss_iddle", 326, 336, 65, 0)));
 		
 		addAnimation("deathR", new Animation(new SpriteSheet("Boss/boss_death_flip", 326, 336, 65, 0), null, 12, false));
