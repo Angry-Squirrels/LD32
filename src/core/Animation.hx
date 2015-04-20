@@ -1,6 +1,9 @@
 package core;
+import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
+import openfl.media.Sound;
+import openfl.media.SoundTransform;
 
 /**
  * ...
@@ -16,11 +19,16 @@ class Animation
 	var mLoop : Bool;
 	var mSpriteSheet : SpriteSheet;
 	var mIsPlaying:Bool;
+	var mSounds:Map<Int,Sound>;
+	var mVolume:Map<Int,Float>;
 	
 	public var onFinished : Void -> Void;
 	
 	public function new(spriteSheet : SpriteSheet, frames : Array<Int> = null, fps : Int = 12, loop = true ) 
 	{
+		mSounds = new Map<Int, Sound>();
+		mVolume = new Map<Int, Float>();
+		
 		if (frames == null) {
 			frames = new Array<Int>();
 			for (i in 0 ... spriteSheet.getNbFrame())
@@ -54,6 +62,9 @@ class Animation
 	
 	public function getNextFrame(delta : Float) : Int {
 		mTimeCounter += delta;
+		
+		var frame = mCurrentFrame;
+		
 		if (mTimeCounter >= mTimeToNextFrame){
 			mTimeCounter = 0;
 			mCurrentFrame ++;
@@ -65,12 +76,21 @@ class Animation
 			mCurrentFrame = mFrames.length - 1;
 			if(onFinished != null) onFinished();
 		}
-			
+		
+		if (frame != mCurrentFrame && mSounds[mCurrentFrame] != null){
+			var channel = mSounds[mCurrentFrame].play();
+			channel.soundTransform = new SoundTransform(mVolume[mCurrentFrame]);
+		}
 		return mFrames[mCurrentFrame];
 	}
 	
 	public function getSpriteSheet() : SpriteSheet {
 		return mSpriteSheet;
+	}
+	
+	public function addSound(frame : Int, id : String, volume : Float = 1) {
+		mSounds[frame] = Assets.getSound(id);
+		mVolume[frame] = volume;
 	}
 	
 	public function getFrame() : Rectangle {

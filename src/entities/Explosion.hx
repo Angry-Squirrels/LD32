@@ -28,6 +28,7 @@ class Explosion extends AnimatedActor
 		
 		var anim = new Animation(new SpriteSheet("FX/boom", 267, 282), null, 12, false);
 		addAnimation("explode", anim);
+		anim.addSound(1, "sounds/explosion.mp3");
 		anim.onFinished = destroy;
 		setAnimation("explode");
 	}

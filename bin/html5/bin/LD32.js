@@ -50,6 +50,14 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Boss/boss_walk_flip.png");
 	types.push("IMAGE");
+	urls.push("img/Boss/puppies.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/puppie_fly.png");
+	types.push("IMAGE");
+	urls.push("img/Boss/puppie_fly_flip.png");
+	types.push("IMAGE");
+	urls.push("img/Decors/frontage.png");
+	types.push("IMAGE");
 	urls.push("img/Decors/road.jpg");
 	types.push("IMAGE");
 	urls.push("img/Flic/flic_attack.png");
@@ -64,32 +72,14 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Flic/flic_walk_flip.png");
 	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0001.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0002.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0003.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0004.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0005.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0006.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0007.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0008.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0009.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0010.png");
-	types.push("IMAGE");
-	urls.push("img/FX/boom/booom0011.png");
-	types.push("IMAGE");
 	urls.push("img/FX/boom.png");
 	types.push("IMAGE");
-	urls.push("img/FX/booom.fla");
-	types.push("BINARY");
+	urls.push("img/FX/hit.png");
+	types.push("IMAGE");
+	urls.push("img/FX/hit_flip.png");
+	types.push("IMAGE");
+	urls.push("img/FX/torn.png");
+	types.push("IMAGE");
 	urls.push("img/Hero/franky_cac.png");
 	types.push("IMAGE");
 	urls.push("img/Hero/franky_cac_flip.png");
@@ -245,6 +235,8 @@ ApplicationMain.create = function() {
 	urls.push("img/Hero/slip_strip.png");
 	types.push("IMAGE");
 	urls.push("img/Hero/slip_strip_flip.png");
+	types.push("IMAGE");
+	urls.push("img/hud/Boss.png");
 	types.push("IMAGE");
 	urls.push("img/hud/credits.png");
 	types.push("IMAGE");
@@ -1315,6 +1307,18 @@ var DefaultAssetLibrary = function() {
 	id = "img/Boss/boss_walk_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "img/Boss/puppies.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/puppie_fly.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Boss/puppie_fly_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/Decors/frontage.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Decors/road.jpg";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -1336,45 +1340,18 @@ var DefaultAssetLibrary = function() {
 	id = "img/Flic/flic_walk_flip.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0001.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0002.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0003.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0004.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0005.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0006.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0007.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0008.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0009.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0010.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/FX/boom/booom0011.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
 	id = "img/FX/boom.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/FX/booom.fla";
+	id = "img/FX/hit.png";
 	this.path.set(id,id);
-	this.type.set(id,"BINARY");
+	this.type.set(id,"IMAGE");
+	id = "img/FX/hit_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/FX/torn.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Hero/franky_cac.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -1607,6 +1584,9 @@ var DefaultAssetLibrary = function() {
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/Hero/slip_strip_flip.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/hud/Boss.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/hud/credits.png";
@@ -2131,6 +2111,7 @@ core_Animation.prototype = {
 	,__class__: core_Animation
 };
 var core_Camera = function() {
+	this.mScreenDivision = 2;
 	this.pos = new geom_Vec2();
 	this.mGame = core_Game.getInstance();
 	core_Camera.instance = this;
@@ -2144,7 +2125,7 @@ core_Camera.prototype = {
 	}
 	,update: function(delta) {
 		if(this.mTargetEntity != null) {
-			var targetx = this.mTargetEntity.pos.x + (this.mTargetEntity.getDim().x - this.mGame.getWidth()) / 2;
+			var targetx = this.mTargetEntity.pos.x + (this.mTargetEntity.getDim().x - this.mGame.getWidth()) / this.mScreenDivision;
 			var targety = this.mTargetEntity.pos.y + (this.mTargetEntity.getDim().y - this.mGame.getHeight()) / 2;
 			this.pos.x += (targetx - this.pos.x) / 2;
 			this.pos.y += (targety - this.pos.y) / 2;
@@ -2171,6 +2152,12 @@ core_Camera.prototype = {
 			this.shakeOffsetX = 0;
 			this.shakeOffsetY = 0;
 		}
+	}
+	,setBossMode: function() {
+		this.mScreenDivision = 8;
+	}
+	,setNormalMode: function() {
+		this.mScreenDivision = 2;
 	}
 	,getShakeOffsetX: function() {
 		if(this.shakeOffsetX == this.mLastOffsetXSent) return 0; else {
@@ -2601,11 +2588,11 @@ entities_Weapon.prototype = $extend(entities_AnimatedActor.prototype,{
 	}
 	,onCollide: function(actor) {
 		entities_AnimatedActor.prototype.onCollide.call(this,actor);
-		if(!js_Boot.__instanceof(actor,entities_hero_Hero) && !js_Boot.__instanceof(actor,entities_Weapon) && !this.destroyable() && actor.solid) {
-			if(actor.isDead()) return;
-			this.explode();
-			actor.takeDamage(this.mDamage,this);
-		}
+		if(js_Boot.__instanceof(actor,entities_Weapon) || this.destroyable() || !actor.solid || actor.isDead()) return;
+		if(js_Boot.__instanceof(actor,entities_hero_Hero) && !this.mAgainstHero) return;
+		if(js_Boot.__instanceof(actor,entities_ennemies_Ennemy) && this.mAgainstHero) return;
+		this.explode();
+		actor.takeDamage(this.mDamage,this);
 	}
 	,update: function(delta) {
 		entities_AnimatedActor.prototype.update.call(this,delta);
@@ -2698,6 +2685,8 @@ entities_Explosion.prototype = $extend(entities_AnimatedActor.prototype,{
 });
 var entities_Human = function(name) {
 	entities_AnimatedActor.call(this,name);
+	this.mLeftStepSound = openfl_Assets.getSound("sounds/stepA.mp3");
+	this.mRightStepSound = openfl_Assets.getSound("sounds/stepB.mp3");
 	this.mDim.x = 76;
 	this.mDim.y = 162;
 	this.mGame = core_Game.getInstance();
@@ -2710,8 +2699,15 @@ entities_Human.__name__ = ["entities","Human"];
 entities_Human.__super__ = entities_AnimatedActor;
 entities_Human.prototype = $extend(entities_AnimatedActor.prototype,{
 	playAnim: function(name) {
+		var alreadyPlaying = false;
+		var f = 0;
+		if(this.mAnimation != null) {
+			alreadyPlaying = this.isPlaying(name);
+			f = this.mAnimation.getCurrentFrame();
+		}
 		if(this.mHeading > 0) name += "R"; else name += "L";
 		this.setAnimation(name);
+		if(alreadyPlaying) this.mAnimation.setFrame(f);
 		return name;
 	}
 	,isPlaying: function(name) {
@@ -2721,10 +2717,13 @@ entities_Human.prototype = $extend(entities_AnimatedActor.prototype,{
 		entities_AnimatedActor.prototype.update.call(this,delta);
 		if(this.worldPos.y < this.mMinY / 0.5) this.worldPos.y = this.mMinY / 0.5;
 		if(this.worldPos.y > this.mMaxY / 0.5) this.worldPos.y = this.mMaxY / 0.5;
+		if(this.isPlaying("walk")) {
+		}
 	}
 	,takeDamage: function(amount,source) {
+		if(this.mInvincible) return;
 		entities_AnimatedActor.prototype.takeDamage.call(this,amount,source);
-		if(source != null && !this.mInvincible) {
+		if(source != null) {
 			var pushVector = geom_Vec2.Sub(this.worldPos,source.worldPos);
 			pushVector = geom_Vec2.Norm(pushVector);
 			pushVector.mul(1000);
@@ -2732,6 +2731,78 @@ entities_Human.prototype = $extend(entities_AnimatedActor.prototype,{
 		}
 	}
 	,__class__: entities_Human
+});
+var entities_Puppy = function(target,boss) {
+	entities_Weapon.call(this,"Puppy");
+	this.mTarget = target;
+	this.mDim.x = 84;
+	this.mDim.y = 42;
+	this.mBoss = boss;
+	this.mAgainstHero = true;
+	this.mDamage = 10;
+	this.mGravity = 0;
+	this.mExplode = true;
+	this.addAnimation("fly",new core_Animation(new core_SpriteSheet("Boss/puppie_fly",84,42)));
+	this.addAnimation("flyb",new core_Animation(new core_SpriteSheet("Boss/puppie_fly_flip",84,42)));
+	this.setAnimation("fly");
+};
+$hxClasses["entities.Puppy"] = entities_Puppy;
+entities_Puppy.__name__ = ["entities","Puppy"];
+entities_Puppy.__super__ = entities_Weapon;
+entities_Puppy.prototype = $extend(entities_Weapon.prototype,{
+	onCollide: function(actor) {
+		if(js_Boot.__instanceof(actor,entities_Weapon)) {
+			this.bounce();
+			return;
+		}
+		if(actor == this.mTarget) {
+			if(this.mTarget.isAttacking() && this.mTarget.isFacingRight()) {
+				this.bounce();
+				return;
+			}
+		}
+		entities_Weapon.prototype.onCollide.call(this,actor);
+	}
+	,bounce: function() {
+		if(this.mAgainstHero) {
+			this.setAnimation("flyb");
+			this.vel.mul(-1.5);
+			this.mZVel = 0;
+			this.mAgainstHero = false;
+			this.startAltitude = 70;
+			this.mFalled = 0;
+			this.worldPos.x = this.mTarget.worldPos.x + 50;
+			this.worldPos.y = this.mTarget.worldPos.y;
+		}
+	}
+	,launch: function(dir) {
+		this.mUseWorldCoord = true;
+		var a = geom_Vec2.Sub(this.worldPos,this.mTarget.worldPos);
+		var aLength = Math.sqrt(a.x * a.x + a.y * a.y + this.startAltitude * this.startAltitude);
+		var zComp = this.startAltitude / aLength;
+		a = geom_Vec2.Norm(a);
+		a.mul(-1000);
+		this.vel.copy(a);
+		this.mFalled = 0;
+		this.mZVel = zComp * 1000;
+	}
+	,__class__: entities_Puppy
+});
+var entities_PuppyBasket = function() {
+	entities_AnimatedActor.call(this,"Puppies");
+	this.mDim.x = 120;
+	this.mDim.y = 95;
+	this.solid = false;
+	this.unpushable = true;
+	this.mUseWorldCoord = true;
+	this.addAnimation("normal",new core_Animation(new core_SpriteSheet("Boss/puppies",120,95),[0]));
+	this.setAnimation("normal");
+};
+$hxClasses["entities.PuppyBasket"] = entities_PuppyBasket;
+entities_PuppyBasket.__name__ = ["entities","PuppyBasket"];
+entities_PuppyBasket.__super__ = entities_AnimatedActor;
+entities_PuppyBasket.prototype = $extend(entities_AnimatedActor.prototype,{
+	__class__: entities_PuppyBasket
 });
 var entities_Road = function() {
 	core_Entity.call(this,"Road");
@@ -2778,6 +2849,9 @@ entities_World.prototype = $extend(core_Entity.prototype,{
 		do lastX = this.addABuilding(); while(lastX < maxX);
 		lastX = 0;
 		do lastX = this.addARoad(); while(lastX < maxX);
+	}
+	,getMaxScroll: function() {
+		return this.mMaxScroll;
 	}
 	,addABuilding: function() {
 		var building = new entities_Building();
@@ -2862,6 +2936,7 @@ var entities_ennemies_Ennemy = function(name) {
 	this.mAttackTimer = 0;
 	this.mAttackRate = 0.5;
 	this.mNormalAnim = true;
+	this.mAttackFrameToDammage = 3;
 	if(entities_ennemies_Ennemy.mPunkFollowingHero == null) entities_ennemies_Ennemy.mPunkFollowingHero = [];
 	this.mMoveSpeed = 40;
 	this.mDrawBoundIfNoAnim = true;
@@ -2914,7 +2989,7 @@ entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
 					this.mAttackTimer = 0;
 				}
 			}
-			if(this.isPlaying("attack") && this.mAnimation.getCurrentFrame() == 3 && !this.mDamageDealt) {
+			if(this.isPlaying("attack") && this.mAnimation.getCurrentFrame() == this.mAttackFrameToDammage && !this.mDamageDealt) {
 				this.mTarget.takeDamage(1,this);
 				this.mDamageDealt = true;
 			}
@@ -2928,6 +3003,7 @@ entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
 		this.mNormalAnim = false;
 	}
 	,takeDamage: function(amount,source) {
+		if(this.mInvincible) return;
 		entities_Human.prototype.takeDamage.call(this,amount,source);
 		this.mNormalAnim = false;
 		this.playAnim("hit");
@@ -2967,7 +3043,122 @@ entities_ennemies_Ennemy.prototype = $extend(entities_Human.prototype,{
 	}
 	,__class__: entities_ennemies_Ennemy
 });
+var entities_ennemies_Boss = function(ennemyManager,world) {
+	entities_ennemies_Ennemy.call(this,"Boss");
+	this.mEnnemyManager = ennemyManager;
+	this.mWorld = world;
+	this.mMaxLife = 50;
+	this.mLife = 50;
+	this.mDim.x = 196;
+	this.mDim.y = 336;
+	this.mMoveSpeed = 30;
+	this.mIdleTimer = 5;
+	this.mIdleToDoSomething = 5;
+	this.mAttackFrameToDammage = 6;
+	this.phase = 0;
+	this.unpushable = true;
+	this.mInvincible = true;
+	this.initAnimations();
+	this.mCurrentState = $bind(this,this.iddleState);
+};
+$hxClasses["entities.ennemies.Boss"] = entities_ennemies_Boss;
+entities_ennemies_Boss.__name__ = ["entities","ennemies","Boss"];
+entities_ennemies_Boss.__super__ = entities_ennemies_Ennemy;
+entities_ennemies_Boss.prototype = $extend(entities_ennemies_Ennemy.prototype,{
+	setSpawnX: function(x) {
+		this.spawnX = x;
+		var puppies = new entities_PuppyBasket();
+		puppies.worldPos.copy(this.worldPos);
+		puppies.worldPos.x -= 130;
+		this.mWorld.addActor(puppies);
+	}
+	,getMaxLife: function() {
+		return this.mMaxLife;
+	}
+	,getLife: function() {
+		return this.mLife;
+	}
+	,iddleState: function(delta) {
+		if(this.mLife < this.mMaxLife / 2) {
+			this.phase = 1;
+			this.mInvincible = false;
+		}
+		if(this.isPlaying("hit")) return;
+		this.mNormalAnim = true;
+		if(geom_Vec2.Dist(this.worldPos,this.mTarget.worldPos) < 1000) {
+			if(this.worldPos.x > this.spawnX) this.vel.x = -this.mMoveSpeed; else {
+				this.vel.x = 0;
+				this.mIdleTimer += delta;
+				if(this.mIdleTimer >= this.mIdleToDoSomething) {
+					this.mIdleTimer = 0;
+					if(this.mEnnemyManager.getEnnemiesAlive() == 1) this.mCurrentState = $bind(this,this.growl); else {
+						this.mPuppyThrown = false;
+						this.mCurrentState = $bind(this,this.throwPuppy);
+					}
+				}
+			}
+		}
+	}
+	,growl: function(delta) {
+		this.setAnimation("growl");
+		this.mNormalAnim = false;
+		if(this.mAnimation.getCurrentFrame() == 9) {
+			if(this.mEnnemyManager.getEnnemiesAlive() == 1) this.mEnnemyManager.spawnPunk(2);
+		}
+	}
+	,throwPuppy: function(delta) {
+		this.mNormalAnim = false;
+		this.setAnimation("puppyAttack");
+		if(this.mAnimation.getCurrentFrame() == 14 && !this.mPuppyThrown) {
+			this.mPuppyThrown = true;
+			var pup = new entities_Puppy(this.mTarget,this);
+			pup.startAltitude = 250;
+			pup.worldPos.x = this.worldPos.x - 150;
+			pup.worldPos.y = this.worldPos.y;
+			pup.launch(-1);
+			this.mWorld.addActor(pup);
+		}
+	}
+	,setIddleState: function() {
+		this.mCurrentState = $bind(this,this.iddleState);
+	}
+	,initAnimations: function() {
+		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Boss/boss_walk_flip",326,336,65,0),[4,3,2,1,0,9,8,7,6,5,14,13,12,11,10]));
+		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Boss/boss_walk",326,336,65,0)));
+		this.addAnimation("iddleR",new core_Animation(new core_SpriteSheet("Boss/boss_iddle_flip",326,336,65,0)));
+		this.addAnimation("iddleL",new core_Animation(new core_SpriteSheet("Boss/boss_iddle",326,336,65,0)));
+		this.addAnimation("deathR",new core_Animation(new core_SpriteSheet("Boss/boss_death_flip",326,336,65,0),null,12,false));
+		this.addAnimation("deathL",new core_Animation(new core_SpriteSheet("Boss/boss_death",326,336,65,0),null,12,false));
+		var hitR = new core_Animation(new core_SpriteSheet("Boss/boss_hit_flip",326,336,65,0),null,20,false);
+		hitR.onFinished = $bind(this,this.normalAnim);
+		this.addAnimation("hitR",hitR);
+		var hitL = new core_Animation(new core_SpriteSheet("Boss/boss_hit",326,336,65,0),null,20,false);
+		hitL.onFinished = $bind(this,this.normalAnim);
+		this.addAnimation("hitL",hitL);
+		var attackRAnim = new core_Animation(new core_SpriteSheet("Boss/boss_attack2_flip",326,336,65,0),[2,1,0,5,4,3,8,7,6],12,false);
+		this.addAnimation("attackR",attackRAnim);
+		attackRAnim.onFinished = $bind(this,this.normalAnim);
+		var attackLAnim = new core_Animation(new core_SpriteSheet("Boss/boss_attack2",326,336,65,0),null,12,false);
+		this.addAnimation("attackL",attackLAnim);
+		attackLAnim.onFinished = $bind(this,this.normalAnim);
+		var puppyAttack = new core_Animation(new core_SpriteSheet("Boss/boss_attack1",326,336,65,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
+		this.addAnimation("puppyAttack",puppyAttack);
+		puppyAttack.onFinished = $bind(this,this.setIddleState);
+		var growlAnim = new core_Animation(new core_SpriteSheet("Boss/boss_iddle_anim",326,336,65,0),null,12,false);
+		this.addAnimation("growl",growlAnim);
+		growlAnim.onFinished = $bind(this,this.setIddleState);
+	}
+	,takeDamage: function(amount,source) {
+		if(js_Boot.__instanceof(source,entities_Puppy)) {
+			this.mInvincible = false;
+			entities_ennemies_Ennemy.prototype.takeDamage.call(this,10,source);
+			this.mInvincible = true;
+		} else entities_ennemies_Ennemy.prototype.takeDamage.call(this,amount,source);
+	}
+	,__class__: entities_ennemies_Boss
+});
 var entities_ennemies_EnnemyManager = function(hero,world) {
+	this.mBossWave = 1;
 	this.mHero = hero;
 	this.mWorld = world;
 	this.mGame = core_Game.getInstance();
@@ -2984,10 +3175,23 @@ var entities_ennemies_EnnemyManager = function(hero,world) {
 $hxClasses["entities.ennemies.EnnemyManager"] = entities_ennemies_EnnemyManager;
 entities_ennemies_EnnemyManager.__name__ = ["entities","ennemies","EnnemyManager"];
 entities_ennemies_EnnemyManager.prototype = {
-	spawnPunk: function(wave) {
+	getBoss: function() {
+		return this.mBoss;
+	}
+	,spawnPunk: function(wave) {
 		this.mWave = wave;
-		var punkToSpawn = 2 * wave * wave / 3 | 0;
+		var punkToSpawn = wave * wave | 0;
 		if(punkToSpawn < 2) punkToSpawn = 2;
+		if(wave == this.mBossWave) {
+			punkToSpawn = 0;
+			this.mBoss = new entities_ennemies_Boss(this,this.mWorld);
+			this.mEnnemies.push(this.mBoss);
+			this.mWorld.addActor(this.mBoss);
+			this.mBoss.worldPos.x = this.mWorld.getMaxScroll() + 775;
+			this.mBoss.worldPos.y = 760.;
+			this.mBoss.setSpawnX(this.mBoss.worldPos.x);
+			this.mBoss.setTarget(this.mHero);
+		}
 		var _g = 0;
 		while(_g < punkToSpawn) {
 			var i = _g++;
@@ -3013,13 +3217,15 @@ entities_ennemies_EnnemyManager.prototype = {
 				continue;
 			}
 			ennemy.setTarget(this.mHero);
-			var isAttacking = HxOverrides.indexOf(this.mAttackingEnnemies,ennemy,0) != -1;
-			if(this.mAttackingEnnemies.length < this.mWave) {
-				if(!isAttacking) {
-					this.mAttackingEnnemies.push(ennemy);
-					ennemy.setState($bind(ennemy,ennemy.attacking));
-				}
-			} else if(!isAttacking) ennemy.setState($bind(ennemy,ennemy.getClose));
+			if(ennemy != this.mBoss || this.mBoss != null && this.mBoss.phase == 1) {
+				var isAttacking = HxOverrides.indexOf(this.mAttackingEnnemies,ennemy,0) != -1;
+				if(this.mAttackingEnnemies.length < this.mWave) {
+					if(!isAttacking) {
+						this.mAttackingEnnemies.push(ennemy);
+						ennemy.setState($bind(ennemy,ennemy.attacking));
+					}
+				} else if(!isAttacking) ennemy.setState($bind(ennemy,ennemy.getClose));
+			}
 		}
 		if(this.mHero.isApoil()) this.mFlic.setState(($_=this.mFlic,$bind($_,$_.pursuit))); else this.mFlic.setState(($_=this.mFlic,$bind($_,$_.getClose)));
 		while(this.mEnnemiesToRemove.length > 0) {
@@ -3032,8 +3238,11 @@ entities_ennemies_EnnemyManager.prototype = {
 		while(_g2 < _g11.length) {
 			var a1 = _g11[_g2];
 			++_g2;
-			if(a1.isDead()) haxe_Log.trace("putain",{ fileName : "EnnemyManager.hx", lineNumber : 122, className : "entities.ennemies.EnnemyManager", methodName : "update"});
+			if(a1.isDead()) haxe_Log.trace("putain",{ fileName : "EnnemyManager.hx", lineNumber : 137, className : "entities.ennemies.EnnemyManager", methodName : "update"});
 		}
+	}
+	,hasBoss: function() {
+		return this.mBoss != null;
 	}
 	,getEnnemiesAlive: function() {
 		return this.mEnnemies.length;
@@ -3201,6 +3410,9 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		}
 		return name;
 	}
+	,isAttacking: function() {
+		return this.isPlaying("cac") || this.isPlaying("kickR") || this.isPlaying("kickL");
+	}
 	,onKeyUp: function(e) {
 		var _g = e.keyCode;
 		switch(_g) {
@@ -3225,7 +3437,7 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		}
 	}
 	,onKeyDown: function(e) {
-		if(this.isDead() || this.mCurrentState == $bind(this,this.stripState)) return;
+		if(this.isDead()) return;
 		var _g = e.keyCode;
 		switch(_g) {
 		case 67:
@@ -3340,6 +3552,9 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 			this.mShoeLaunched = true;
 			if(this.mHeading > 0) shoe.setAnimation("launchedR"); else shoe.setAnimation("launchedL");
 		}
+	}
+	,isFacingRight: function() {
+		return this.mHeading > 0;
 	}
 	,slipState: function(delta) {
 		this.unpushable = true;
@@ -3584,6 +3799,23 @@ entities_hero_Shoe.prototype = $extend(entities_Weapon.prototype,{
 		this.addAnimation("launchedL",new core_Animation(new core_SpriteSheet("Hero/shoe_flip",34,36)));
 	}
 	,__class__: entities_hero_Shoe
+});
+var entities_hud_BossLife = function(boss) {
+	core_Entity.call(this,"bossLife");
+	this.mBoss = boss;
+	this.mBossTxt = openfl_Assets.getBitmapData("img/hud/Boss.png");
+};
+$hxClasses["entities.hud.BossLife"] = entities_hud_BossLife;
+entities_hud_BossLife.__name__ = ["entities","hud","BossLife"];
+entities_hud_BossLife.__super__ = core_Entity;
+entities_hud_BossLife.prototype = $extend(core_Entity.prototype,{
+	draw: function(buffer,dest) {
+		var lifePercent = this.mBoss.getLife() / this.mBoss.getMaxLife();
+		buffer.fillRect(new openfl_geom_Rectangle(10,450,780,20),0);
+		buffer.fillRect(new openfl_geom_Rectangle(13,453,774 * lifePercent,14),13382553);
+		buffer.copyPixels(this.mBossTxt,new openfl_geom_Rectangle(0,0,this.mBossTxt.width,this.mBossTxt.height),new openfl_geom_Point(13,427));
+	}
+	,__class__: entities_hud_BossLife
 });
 var entities_hud_Go = function() {
 	core_Entity.call(this,"go");
@@ -26240,6 +26472,13 @@ screens_GameScreen.prototype = $extend(core_Screen.prototype,{
 			this.mHud.stopShowNext();
 		} else if(this.mEnnemyManager.getEnnemiesAlive() <= 0) this.mHud.showNext();
 		if(this.mHero.worldPos.x < 0) this.mHero.worldPos.x = 0;
+		if(this.mEnnemyManager.hasBoss() && this.mHero.worldPos.x > this.mMaxScroll - 800) {
+			core_Camera.instance.setBossMode();
+			if(this.mBossBar == null) {
+				this.mBossBar = new entities_hud_BossLife(this.mEnnemyManager.getBoss());
+				this.add(this.mBossBar);
+			}
+		} else core_Camera.instance.setNormalMode();
 		if(this.mHero.worldPos.x + this.mHero.getDim().x > this.mMaxScroll) this.mHero.worldPos.x = this.mMaxScroll - this.mHero.getDim().x;
 		if(this.mHero.isCaught() && !this.mGameOverTimerStarted) this.mGameOverTimerStarted = true;
 		if(this.mGameOverTimerStarted) {
@@ -26251,9 +26490,9 @@ screens_GameScreen.prototype = $extend(core_Screen.prototype,{
 		}
 	}
 	,nextWave: function() {
+		this.unlockZone(this.mMaxScroll + this.mZonoeSize);
 		this.mEnnemyManager.spawnPunk(this.mCurrentWave);
 		this.mCurrentWave++;
-		this.unlockZone(this.mMaxScroll + this.mZonoeSize);
 	}
 	,unlockZone: function(scroll) {
 		if(scroll > this.mMaxScroll) {

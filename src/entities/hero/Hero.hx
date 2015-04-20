@@ -10,10 +10,12 @@ import entities.Human;
 import entities.Weapon;
 import entities.World;
 import geom.Vec2;
+import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.events.KeyboardEvent;
 import openfl.geom.Rectangle;
 import openfl.Lib;
+import openfl.media.Sound;
 import openfl.ui.Keyboard;
 
 /**
@@ -40,6 +42,8 @@ class Hero extends Human
 	var mCacStarted:Bool;
 	var mCatched:Bool;
 	
+	var mHurtSnd : Sound;
+	
 	public static inline var HERO : String = "Hero";
 
 	public function new(world : World) 
@@ -48,6 +52,8 @@ class Hero extends Human
 		
 		mDim.x = 65; 
 		mDim.y = 170;
+		
+		mHurtSnd = Assets.getSound("sounds/punchA.mp3");
 		
 		mWorld = world;
 		
@@ -447,7 +453,9 @@ class Hero extends Human
 		mGame.flash(0xff3333, 0.05);
 		Camera.instance.shake(10, 200);
 		
-		mLife = 5;
+		mLife = 5; 
+		
+		mHurtSnd.play();
 		
 		if (mPull != null) {
 			remove(mPull);
@@ -491,23 +499,34 @@ class Hero extends Human
 		addAnimation("idleR", new Animation(new SpriteSheet("Hero/franky_iddle", 140, 180, 35, 0))); 
 		addAnimation("idleL", new Animation(new SpriteSheet("Hero/franky_iddle_flip", 140, 180, 35, 0))); 
 		
-		addAnimation("walkR", new Animation(new SpriteSheet("Hero/franky_run", 140, 180, 35, 0), null, 16)); 
-		addAnimation("walkL", new Animation(new SpriteSheet("Hero/franky_run_flip", 140, 180, 35, 0), null, 16)); 
+		var runR = new Animation(new SpriteSheet("Hero/franky_run", 140, 180, 35, 0), null, 16);
+		addAnimation("walkR", runR); 
+		runR.addSound(2, "sounds/stepA.mp3",0.25);
+		runR.addSound(5, "sounds/stepB.mp3",0.25);
+		
+		var runD = new Animation(new SpriteSheet("Hero/franky_run_flip", 140, 180, 35, 0), null, 16);
+		addAnimation("walkL", runD); 
+		runD.addSound(2, "sounds/stepA.mp3", 0.25);
+		runD.addSound(5, "sounds/stepB.mp3", 0.25);
 		
 		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickL", 140, 180, 35, 0), null, 22, false); 
 		kickLRAnim.onFinished = setNormalState;
+		kickLRAnim.addSound(1, "sounds/woosh.mp3");
 		addAnimation("kickLR", kickLRAnim);
 		
 		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickL_flip", 140, 180, 35, 0), null, 22, false); 
 		kickLLAnim.onFinished = setNormalState;
+		kickLLAnim.addSound(1, "sounds/woosh.mp3");
 		addAnimation("kickLL", kickLLAnim);
 		
 		var kickLRAnim = new Animation(new SpriteSheet("Hero/franky_kickD", 140, 180, 35, 0), null, 22, false); 
 		kickLRAnim.onFinished = setNormalState;
+		kickLRAnim.addSound(1, "sounds/wooshB.mp3");
 		addAnimation("kickDR", kickLRAnim);
 		
 		var kickLLAnim = new Animation(new SpriteSheet("Hero/franky_kickD_flip", 140, 180, 35, 0), null, 22, false); 
 		kickLLAnim.onFinished = setNormalState;
+		kickLLAnim.addSound(1, "sounds/wooshB.mp3");
 		addAnimation("kickDL", kickLLAnim);
 		
 		var stripRAnim = new Animation(new SpriteSheet("Hero/franky_strip", 140, 180, 35, 0), [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 20, false);
@@ -520,18 +539,22 @@ class Hero extends Human
 		
 		var slipRAnim = new Animation(new SpriteSheet("Hero/franky_slip", 140, 180, 35, 0), null, 16, false);
 		slipRAnim.onFinished = setNormalState;
+		slipRAnim.addSound(1, "sounds/wooshB.mp3");
 		addAnimation("slipR", slipRAnim);
 		
 		var slipLAnim = new Animation(new SpriteSheet("Hero/franky_slip_flip", 140, 180, 35, 0), null, 16, false);
 		slipLAnim.onFinished = setNormalState;
+		slipRAnim.addSound(1, "sounds/wooshB.mp3");
 		addAnimation("slipL", slipLAnim);
 		
 		var cacRAnim = new Animation(new SpriteSheet("Hero/franky_cac", 140, 180, 35, 0), null, 12, false);
 		cacRAnim.onFinished = setNormalState;
+		cacRAnim.addSound(1, "sounds/wooshB.mp3");
 		addAnimation("cacR", cacRAnim);
 		
 		var cacLAnim = new Animation(new SpriteSheet("Hero/franky_cac_flip", 140, 180, 35, 0), null, 12, false);
 		cacLAnim.onFinished = setNormalState;
+		cacLAnim.addSound(1, "sounds/wooshB.mp3");
 		addAnimation("cacL", cacLAnim);
 		
 		var catchRAnim = new Animation(new SpriteSheet("Hero/franky_catch", 140, 180, 35, 0), null, 12, false);

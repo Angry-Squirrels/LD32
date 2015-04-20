@@ -3,6 +3,7 @@ import core.Animation;
 import core.SpriteSheet;
 import entities.Actor;
 import entities.Puppy;
+import entities.PuppyBasket;
 import entities.World;
 import geom.Vec2;
 
@@ -52,6 +53,14 @@ class Boss extends Ennemy
 		initAnimations();
 		
 		mCurrentState = iddleState;
+	}
+	
+	public function setSpawnX(x : Float) {
+		spawnX = x;
+		var puppies = new PuppyBasket();
+		puppies.worldPos.copy(worldPos);
+		puppies.worldPos.x -= 130;
+		mWorld.addActor(puppies);
 	}
 	
 	public function getMaxLife() : Int {
@@ -127,33 +136,55 @@ class Boss extends Ennemy
 	
 	function initAnimations() 
 	{
-		addAnimation("walkR", new Animation(new SpriteSheet("Boss/boss_walk_flip", 326, 336, 65, 0), [4,3,2,1,0,9,8,7,6,5,14,13,12,11,10]));
-		addAnimation("walkL", new Animation(new SpriteSheet("Boss/boss_walk", 326, 336, 65, 0)));
+		
+		var walkR = new Animation(new SpriteSheet("Boss/boss_walk_flip", 326, 336, 65, 0), [4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 14, 13, 12, 11, 10]);
+		addAnimation("walkR", walkR);
+		walkR.addSound(1, "sounds/stepA.mp3", 0.3);
+		walkR.addSound(4, "sounds/stepB.mp3", 0.3);
+		walkR.addSound(7, "sounds/stepA.mp3", 0.3);
+		walkR.addSound(12, "sounds/stepA.mp3", 0.3);
+		
+		var walkL = new Animation(new SpriteSheet("Boss/boss_walk", 326, 336, 65, 0));
+		addAnimation("walkL", walkL);
+		walkL.addSound(1, "sounds/stepA.mp3", 0.3);
+		walkL.addSound(4, "sounds/stepB.mp3", 0.3);
+		walkL.addSound(7, "sounds/stepA.mp3", 0.3);
+		walkL.addSound(12, "sounds/stepA.mp3", 0.3);
 		
 		addAnimation("iddleR", new Animation(new SpriteSheet("Boss/boss_iddle_flip", 326, 336, 65, 0)));
 		addAnimation("iddleL", new Animation(new SpriteSheet("Boss/boss_iddle", 326, 336, 65, 0)));
 		
-		addAnimation("deathR", new Animation(new SpriteSheet("Boss/boss_death_flip", 326, 336, 65, 0), null, 12, false));
-		addAnimation("deathL", new Animation(new SpriteSheet("Boss/boss_death", 326, 336, 65, 0), null, 12, false));
+		var deathR =  new Animation(new SpriteSheet("Boss/boss_death_flip", 326, 336, 65, 0), null, 12, false);
+		addAnimation("deathR", deathR);
+		deathR.addSound(1, "sounds/punchB.mp3");
+		
+		var deathL = new Animation(new SpriteSheet("Boss/boss_death", 326, 336, 65, 0), null, 12, false);
+		addAnimation("deathL", deathL);
+		deathL.addSound(1, "sounds/punchB.mp3");
 		
 		var hitR = new Animation(new SpriteSheet("Boss/boss_hit_flip", 326, 336, 65, 0), null, 20, false);
 		hitR.onFinished = normalAnim;
+		hitR.addSound(1, "sounds/punchA.mp3");
 		addAnimation("hitR", hitR);
 		
 		var hitL = new Animation(new SpriteSheet("Boss/boss_hit", 326, 336, 65, 0), null, 20, false);
 		hitL.onFinished = normalAnim;
+		hitL.addSound(1, "sounds/punchA.mp3");
 		addAnimation("hitL", hitL);
 		
 		var attackRAnim = new Animation(new SpriteSheet("Boss/boss_attack2_flip", 326, 336, 65, 0), [2,1,0,5,4,3,8,7,6], 12, false);
 		addAnimation("attackR", attackRAnim);
+		attackRAnim.addSound(1, "sounds/woosh.mp3");
 		attackRAnim.onFinished = normalAnim;
 		
 		var attackLAnim = new Animation(new SpriteSheet("Boss/boss_attack2", 326, 336, 65, 0), null, 12, false);
 		addAnimation("attackL", attackLAnim);
+		attackLAnim.addSound(1, "sounds/woosh.mp3");
 		attackLAnim.onFinished = normalAnim;
 		
 		var puppyAttack = new Animation(new SpriteSheet("Boss/boss_attack1", 326, 336, 65, 0), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], 12, false);
 		addAnimation("puppyAttack", puppyAttack);
+		puppyAttack.addSound(11, "sounds/wooshB.mp3");
 		puppyAttack.onFinished = setIddleState;
 		
 		var growlAnim = new Animation(new SpriteSheet("Boss/boss_iddle_anim", 326, 336, 65, 0), null, 12, false);

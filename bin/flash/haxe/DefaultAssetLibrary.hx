@@ -283,6 +283,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Punk/punk_walk_flip.png", AssetType.IMAGE);
 		className.set ("sounds/Blown Away.mp3", __ASSET__sounds_blown_away_mp3);
 		type.set ("sounds/Blown Away.mp3", AssetType.MUSIC);
+		className.set ("sounds/explosion.mp3", __ASSET__sounds_explosion_mp3);
+		type.set ("sounds/explosion.mp3", AssetType.MUSIC);
+		className.set ("sounds/punchA.mp3", __ASSET__sounds_puncha_mp3);
+		type.set ("sounds/punchA.mp3", AssetType.MUSIC);
+		className.set ("sounds/punchB.mp3", __ASSET__sounds_punchb_mp3);
+		type.set ("sounds/punchB.mp3", AssetType.MUSIC);
+		className.set ("sounds/stepA.mp3", __ASSET__sounds_stepa_mp3);
+		type.set ("sounds/stepA.mp3", AssetType.MUSIC);
+		className.set ("sounds/stepB.mp3", __ASSET__sounds_stepb_mp3);
+		type.set ("sounds/stepB.mp3", AssetType.MUSIC);
+		className.set ("sounds/woosh.mp3", __ASSET__sounds_woosh_mp3);
+		type.set ("sounds/woosh.mp3", AssetType.MUSIC);
+		className.set ("sounds/wooshB.mp3", __ASSET__sounds_wooshb_mp3);
+		type.set ("sounds/wooshB.mp3", AssetType.MUSIC);
 		
 		
 		#elseif html5
@@ -764,6 +778,34 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.MUSIC);
+		id = "sounds/explosion.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "sounds/punchA.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "sounds/punchB.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "sounds/stepA.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "sounds/stepB.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "sounds/woosh.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
+		id = "sounds/wooshB.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
 		
 		
 		var assetsPrefix = ApplicationMain.config.assetsPrefix;
@@ -776,6 +818,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		#if openfl
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -1259,6 +1308,27 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("sounds/Blown Away.mp3", __ASSET__sounds_blown_away_mp3);
 		type.set ("sounds/Blown Away.mp3", AssetType.MUSIC);
+		
+		className.set ("sounds/explosion.mp3", __ASSET__sounds_explosion_mp3);
+		type.set ("sounds/explosion.mp3", AssetType.MUSIC);
+		
+		className.set ("sounds/punchA.mp3", __ASSET__sounds_puncha_mp3);
+		type.set ("sounds/punchA.mp3", AssetType.MUSIC);
+		
+		className.set ("sounds/punchB.mp3", __ASSET__sounds_punchb_mp3);
+		type.set ("sounds/punchB.mp3", AssetType.MUSIC);
+		
+		className.set ("sounds/stepA.mp3", __ASSET__sounds_stepa_mp3);
+		type.set ("sounds/stepA.mp3", AssetType.MUSIC);
+		
+		className.set ("sounds/stepB.mp3", __ASSET__sounds_stepb_mp3);
+		type.set ("sounds/stepB.mp3", AssetType.MUSIC);
+		
+		className.set ("sounds/woosh.mp3", __ASSET__sounds_woosh_mp3);
+		type.set ("sounds/woosh.mp3", AssetType.MUSIC);
+		
+		className.set ("sounds/wooshB.mp3", __ASSET__sounds_wooshb_mp3);
+		type.set ("sounds/wooshB.mp3", AssetType.MUSIC);
 		
 		
 		if (useManifest) {
@@ -1979,9 +2049,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_punk_punk_walk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_punk_punk_walk_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__sounds_blown_away_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__sounds_explosion_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__sounds_puncha_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__sounds_punchb_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__sounds_stepa_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__sounds_stepb_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__sounds_woosh_mp3 extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__sounds_wooshb_mp3 extends flash.media.Sound { }
 
 
 #elseif html5
+
+
+
+
+
+
+
 
 
 
@@ -2230,6 +2314,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Punk/punk_walk.png") #if display private #end class __ASSET__img_punk_punk_walk_png extends lime.graphics.Image {}
 @:image("assets/img/Punk/punk_walk_flip.png") #if display private #end class __ASSET__img_punk_punk_walk_flip_png extends lime.graphics.Image {}
 @:file("assets/sounds/Blown Away.mp3") #if display private #end class __ASSET__sounds_blown_away_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/explosion.mp3") #if display private #end class __ASSET__sounds_explosion_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/punchA.mp3") #if display private #end class __ASSET__sounds_puncha_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/punchB.mp3") #if display private #end class __ASSET__sounds_punchb_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/stepA.mp3") #if display private #end class __ASSET__sounds_stepa_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/stepB.mp3") #if display private #end class __ASSET__sounds_stepb_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/woosh.mp3") #if display private #end class __ASSET__sounds_woosh_mp3 extends lime.utils.ByteArray {}
+@:file("assets/sounds/wooshB.mp3") #if display private #end class __ASSET__sounds_wooshb_mp3 extends lime.utils.ByteArray {}
 
 
 

@@ -24,6 +24,7 @@ class EnnemyManager
 	var mWave : Int;
 	
 	var mBoss : Boss;
+	var mBossWave : Int = 1;
 	
 	public function new(hero : Hero, world : World) 
 	{
@@ -55,15 +56,15 @@ class EnnemyManager
 		var punkToSpawn : Int = Std.int(wave * wave);
 		if (punkToSpawn < 2) punkToSpawn = 2;
 		
-		if (wave == 4)
+		if (wave == mBossWave)
 		{
 			punkToSpawn = 0;
 			mBoss = new Boss(this, mWorld);
 			mEnnemies.push(mBoss);
 			mWorld.addActor(mBoss);
 			mBoss.worldPos.x = mWorld.getMaxScroll() + 775;
-			mBoss.spawnX = mBoss.worldPos.x;
 			mBoss.worldPos.y = 380 / Actor.fakeZCoef;
+			mBoss.setSpawnX(mBoss.worldPos.x);
 			mBoss.setTarget(mHero);
 		}
 		

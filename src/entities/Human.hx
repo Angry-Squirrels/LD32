@@ -1,8 +1,11 @@
 package entities;
 import core.Game;
 import geom.Vec2;
+import openfl.Assets;
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
+import openfl.media.Sound;
+import openfl.media.SoundChannel;
 
 /**
  * ...
