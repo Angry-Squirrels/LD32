@@ -102,6 +102,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/Decors/road_start.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/Flic/flic_attack.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		

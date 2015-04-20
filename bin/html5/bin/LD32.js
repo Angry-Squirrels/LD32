@@ -60,6 +60,8 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/Decors/road.jpg");
 	types.push("IMAGE");
+	urls.push("img/Decors/road_start.jpg");
+	types.push("IMAGE");
 	urls.push("img/Flic/flic_attack.png");
 	types.push("IMAGE");
 	urls.push("img/Flic/flic_attack_flip.png");
@@ -1322,6 +1324,9 @@ var DefaultAssetLibrary = function() {
 	id = "img/Decors/road.jpg";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "img/Decors/road_start.jpg";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "img/Flic/flic_attack.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
@@ -2049,6 +2054,8 @@ _$UInt_UInt_$Impl_$.toFloat = function(this1) {
 var core_Animation = function(spriteSheet,frames,fps,loop) {
 	if(loop == null) loop = true;
 	if(fps == null) fps = 12;
+	this.mSounds = new haxe_ds_IntMap();
+	this.mVolume = new haxe_ds_IntMap();
 	if(frames == null) {
 		frames = [];
 		var _g1 = 0;
@@ -2080,6 +2087,7 @@ core_Animation.prototype = {
 	}
 	,getNextFrame: function(delta) {
 		this.mTimeCounter += delta;
+		var frame = this.mCurrentFrame;
 		if(this.mTimeCounter >= this.mTimeToNextFrame) {
 			this.mTimeCounter = 0;
 			this.mCurrentFrame++;
@@ -2088,10 +2096,24 @@ core_Animation.prototype = {
 			this.mCurrentFrame = this.mFrames.length - 1;
 			if(this.onFinished != null) this.onFinished();
 		}
+		if(frame != this.mCurrentFrame && this.mSounds.h[this.mCurrentFrame] != null) {
+			var channel = this.mSounds.h[this.mCurrentFrame].play();
+			channel.set_soundTransform(new openfl_media_SoundTransform(this.mVolume.h[this.mCurrentFrame]));
+		}
 		return this.mFrames[this.mCurrentFrame];
 	}
 	,getSpriteSheet: function() {
 		return this.mSpriteSheet;
+	}
+	,addSound: function(frame,id,volume) {
+		if(volume == null) volume = 1;
+		var v = openfl_Assets.getSound(id);
+		this.mSounds.h[frame] = v;
+		v;
+		{
+			this.mVolume.h[frame] = volume;
+			volume;
+		}
 	}
 	,getFrame: function() {
 		return this.mSpriteSheet.getFrame(this.mFrames[this.mCurrentFrame]);
@@ -2671,6 +2693,7 @@ var entities_Explosion = function(actor) {
 	this.pos.y = this.worldPos.y * 0.5 - this.mDim.y;
 	var anim = new core_Animation(new core_SpriteSheet("FX/boom",267,282),null,12,false);
 	this.addAnimation("explode",anim);
+	anim.addSound(1,"sounds/explosion.mp3");
 	anim.onFinished = $bind(this,this.destroy);
 	this.setAnimation("explode");
 };
@@ -2685,8 +2708,6 @@ entities_Explosion.prototype = $extend(entities_AnimatedActor.prototype,{
 });
 var entities_Human = function(name) {
 	entities_AnimatedActor.call(this,name);
-	this.mLeftStepSound = openfl_Assets.getSound("sounds/stepA.mp3");
-	this.mRightStepSound = openfl_Assets.getSound("sounds/stepB.mp3");
 	this.mDim.x = 76;
 	this.mDim.y = 162;
 	this.mGame = core_Game.getInstance();
@@ -2717,8 +2738,6 @@ entities_Human.prototype = $extend(entities_AnimatedActor.prototype,{
 		entities_AnimatedActor.prototype.update.call(this,delta);
 		if(this.worldPos.y < this.mMinY / 0.5) this.worldPos.y = this.mMinY / 0.5;
 		if(this.worldPos.y > this.mMaxY / 0.5) this.worldPos.y = this.mMaxY / 0.5;
-		if(this.isPlaying("walk")) {
-		}
 	}
 	,takeDamage: function(amount,source) {
 		if(this.mInvincible) return;
@@ -2824,6 +2843,26 @@ entities_Road.prototype = $extend(core_Entity.prototype,{
 		}(this)));
 	}
 	,__class__: entities_Road
+});
+var entities_Thorn = function(actor) {
+	entities_AnimatedActor.call(this,"Thorn");
+	this.mDim.x = 140;
+	this.mDim.y = 180;
+	this.solid = false;
+	this.worldPos.copy(actor.worldPos);
+	this.worldPos.y += this.mDim.y / 2;
+	this.pos.x = this.worldPos.x;
+	this.pos.y = this.worldPos.y * 0.5 - this.mDim.y;
+	var anim = new core_Animation(new core_SpriteSheet("FX/torn",140,180),null,12,false);
+	this.addAnimation("explode",anim);
+	anim.onFinished = $bind(this,this.destroy);
+	this.setAnimation("explode");
+};
+$hxClasses["entities.Thorn"] = entities_Thorn;
+entities_Thorn.__name__ = ["entities","Thorn"];
+entities_Thorn.__super__ = entities_AnimatedActor;
+entities_Thorn.prototype = $extend(entities_AnimatedActor.prototype,{
+	__class__: entities_Thorn
 });
 var entities_World = function() {
 	core_Entity.call(this,"World");
@@ -3123,26 +3162,45 @@ entities_ennemies_Boss.prototype = $extend(entities_ennemies_Ennemy.prototype,{
 		this.mCurrentState = $bind(this,this.iddleState);
 	}
 	,initAnimations: function() {
-		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Boss/boss_walk_flip",326,336,65,0),[4,3,2,1,0,9,8,7,6,5,14,13,12,11,10]));
-		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Boss/boss_walk",326,336,65,0)));
+		var walkR = new core_Animation(new core_SpriteSheet("Boss/boss_walk_flip",326,336,65,0),[4,3,2,1,0,9,8,7,6,5,14,13,12,11,10]);
+		this.addAnimation("walkR",walkR);
+		walkR.addSound(1,"sounds/stepA.mp3",0.3);
+		walkR.addSound(4,"sounds/stepB.mp3",0.3);
+		walkR.addSound(7,"sounds/stepA.mp3",0.3);
+		walkR.addSound(12,"sounds/stepA.mp3",0.3);
+		var walkL = new core_Animation(new core_SpriteSheet("Boss/boss_walk",326,336,65,0));
+		this.addAnimation("walkL",walkL);
+		walkL.addSound(1,"sounds/stepA.mp3",0.3);
+		walkL.addSound(4,"sounds/stepB.mp3",0.3);
+		walkL.addSound(7,"sounds/stepA.mp3",0.3);
+		walkL.addSound(12,"sounds/stepA.mp3",0.3);
 		this.addAnimation("iddleR",new core_Animation(new core_SpriteSheet("Boss/boss_iddle_flip",326,336,65,0)));
 		this.addAnimation("iddleL",new core_Animation(new core_SpriteSheet("Boss/boss_iddle",326,336,65,0)));
-		this.addAnimation("deathR",new core_Animation(new core_SpriteSheet("Boss/boss_death_flip",326,336,65,0),null,12,false));
-		this.addAnimation("deathL",new core_Animation(new core_SpriteSheet("Boss/boss_death",326,336,65,0),null,12,false));
+		var deathR = new core_Animation(new core_SpriteSheet("Boss/boss_death_flip",326,336,65,0),null,12,false);
+		this.addAnimation("deathR",deathR);
+		deathR.addSound(1,"sounds/punchB.mp3");
+		var deathL = new core_Animation(new core_SpriteSheet("Boss/boss_death",326,336,65,0),null,12,false);
+		this.addAnimation("deathL",deathL);
+		deathL.addSound(1,"sounds/punchB.mp3");
 		var hitR = new core_Animation(new core_SpriteSheet("Boss/boss_hit_flip",326,336,65,0),null,20,false);
 		hitR.onFinished = $bind(this,this.normalAnim);
+		hitR.addSound(1,"sounds/punchA.mp3");
 		this.addAnimation("hitR",hitR);
 		var hitL = new core_Animation(new core_SpriteSheet("Boss/boss_hit",326,336,65,0),null,20,false);
 		hitL.onFinished = $bind(this,this.normalAnim);
+		hitL.addSound(1,"sounds/punchA.mp3");
 		this.addAnimation("hitL",hitL);
 		var attackRAnim = new core_Animation(new core_SpriteSheet("Boss/boss_attack2_flip",326,336,65,0),[2,1,0,5,4,3,8,7,6],12,false);
 		this.addAnimation("attackR",attackRAnim);
+		attackRAnim.addSound(1,"sounds/woosh.mp3");
 		attackRAnim.onFinished = $bind(this,this.normalAnim);
 		var attackLAnim = new core_Animation(new core_SpriteSheet("Boss/boss_attack2",326,336,65,0),null,12,false);
 		this.addAnimation("attackL",attackLAnim);
+		attackLAnim.addSound(1,"sounds/woosh.mp3");
 		attackLAnim.onFinished = $bind(this,this.normalAnim);
 		var puppyAttack = new core_Animation(new core_SpriteSheet("Boss/boss_attack1",326,336,65,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],12,false);
 		this.addAnimation("puppyAttack",puppyAttack);
+		puppyAttack.addSound(11,"sounds/wooshB.mp3");
 		puppyAttack.onFinished = $bind(this,this.setIddleState);
 		var growlAnim = new core_Animation(new core_SpriteSheet("Boss/boss_iddle_anim",326,336,65,0),null,12,false);
 		this.addAnimation("growl",growlAnim);
@@ -3267,14 +3325,22 @@ entities_ennemies_Flic.prototype = $extend(entities_ennemies_Ennemy.prototype,{
 	,initAnimations: function() {
 		this.addAnimation("iddleR",new core_Animation(new core_SpriteSheet("Flic/flic_iddle",140,180,35,0)));
 		this.addAnimation("iddleL",new core_Animation(new core_SpriteSheet("Flic/flic_iddle_flip",140,180,35,0)));
-		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Flic/flic_walk",140,180,35,0)));
-		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Flic/flic_walk_flip",140,180,35,0)));
+		var walkR = new core_Animation(new core_SpriteSheet("Flic/flic_walk",140,180,35,0));
+		this.addAnimation("walkR",walkR);
+		walkR.addSound(2,"sounds/stepA.mp3",0.1);
+		walkR.addSound(9,"sounds/stepB.mp3",0.1);
+		var walkL = new core_Animation(new core_SpriteSheet("Flic/flic_walk_flip",140,180,35,0));
+		this.addAnimation("walkL",walkL);
+		walkL.addSound(2,"sounds/stepA.mp3",0.1);
+		walkL.addSound(9,"sounds/stepB.mp3",0.1);
 		var attackRAnim = new core_Animation(new core_SpriteSheet("Flic/flic_attack",140,180,35,0),null,12,false);
 		this.addAnimation("attackR",attackRAnim);
 		attackRAnim.onFinished = $bind(this,this.normalAnim);
+		attackRAnim.addSound(1,"sounds/woosh.mp3");
 		var attackLAnim = new core_Animation(new core_SpriteSheet("Flic/flic_attack_flip",140,180,35,0),null,12,false);
 		this.addAnimation("attackL",attackLAnim);
 		attackLAnim.onFinished = $bind(this,this.normalAnim);
+		attackLAnim.addSound(1,"sounds/woosh.mp3");
 	}
 	,__class__: entities_ennemies_Flic
 });
@@ -3287,23 +3353,37 @@ entities_ennemies_Punk.__name__ = ["entities","ennemies","Punk"];
 entities_ennemies_Punk.__super__ = entities_ennemies_Ennemy;
 entities_ennemies_Punk.prototype = $extend(entities_ennemies_Ennemy.prototype,{
 	initAnimations: function() {
-		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Punk/punk_walk",140,180,35,0)));
-		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Punk/punk_walk_flip",140,180,35,0)));
+		var walkR = new core_Animation(new core_SpriteSheet("Punk/punk_walk",140,180,35,0));
+		this.addAnimation("walkR",walkR);
+		walkR.addSound(2,"sounds/stepA.mp3",0.1);
+		walkR.addSound(9,"sounds/stepB.mp3",0.1);
+		var walkL = new core_Animation(new core_SpriteSheet("Punk/punk_walk_flip",140,180,35,0));
+		this.addAnimation("walkL",walkL);
+		walkL.addSound(2,"sounds/stepA.mp3",0.1);
+		walkL.addSound(9,"sounds/stepB.mp3",0.1);
 		this.addAnimation("iddleR",new core_Animation(new core_SpriteSheet("Punk/punk_iddle",140,180,35,0)));
 		this.addAnimation("iddleL",new core_Animation(new core_SpriteSheet("Punk/punk_iddle_flip",140,180,35,0)));
-		this.addAnimation("deathR",new core_Animation(new core_SpriteSheet("Punk/punk_death",140,180,35,0),null,12,false));
-		this.addAnimation("deathL",new core_Animation(new core_SpriteSheet("Punk/punk_death_flip",140,180,35,0),null,12,false));
+		var deathR = new core_Animation(new core_SpriteSheet("Punk/punk_death",140,180,35,0),null,12,false);
+		this.addAnimation("deathR",deathR);
+		deathR.addSound(1,"sounds/punchB.mp3");
+		var deathL = new core_Animation(new core_SpriteSheet("Punk/punk_death_flip",140,180,35,0),null,12,false);
+		this.addAnimation("deathL",deathL);
+		deathL.addSound(1,"sounds/punchB.mp3");
 		var hitR = new core_Animation(new core_SpriteSheet("Punk/punk_hit",140,180,35,0),null,20,false);
 		hitR.onFinished = $bind(this,this.normalAnim);
+		hitR.addSound(1,"sounds/punchA.mp3");
 		this.addAnimation("hitR",hitR);
 		var hitL = new core_Animation(new core_SpriteSheet("Punk/punk_hit_flip",140,180,35,0),null,20,false);
 		hitL.onFinished = $bind(this,this.normalAnim);
+		hitL.addSound(1,"sounds/punchA.mp3");
 		this.addAnimation("hitL",hitL);
 		var attackRAnim = new core_Animation(new core_SpriteSheet("Punk/punk_attack",140,180,35,0),null,12,false);
 		this.addAnimation("attackR",attackRAnim);
+		attackRAnim.addSound(1,"sounds/woosh.mp3");
 		attackRAnim.onFinished = $bind(this,this.normalAnim);
 		var attackLAnim = new core_Animation(new core_SpriteSheet("Punk/punk_attack_flip",140,180,35,0),null,12,false);
 		this.addAnimation("attackL",attackLAnim);
+		attackLAnim.addSound(1,"sounds/woosh.mp3");
 		attackLAnim.onFinished = $bind(this,this.normalAnim);
 	}
 	,__class__: entities_ennemies_Punk
@@ -3345,6 +3425,7 @@ var entities_hero_Hero = function(world) {
 	entities_Human.call(this,"Hero");
 	this.mDim.x = 65;
 	this.mDim.y = 170;
+	this.mHurtSnd = openfl_Assets.getSound("sounds/punchA.mp3");
 	this.mWorld = world;
 	this.mKick = new entities_hero_Kick();
 	this.initClothes();
@@ -3367,6 +3448,10 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		this.givePant();
 		this.givePull();
 		this.mLife = 5;
+	}
+	,spawnTorn: function() {
+		var parent = this.parent;
+		parent.addActor(new entities_Thorn(this));
 	}
 	,giveShoe: function() {
 		var shoe;
@@ -3482,7 +3567,10 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		var frameToDamage = 5;
 		if(currentWeapon == this.mKick) frameToDamage = 3;
 		if(!this.mCacStarted && currentWeapon != null) {
-			if(currentWeapon != this.mKick) this.playAnim("cac"); else {
+			if(currentWeapon != this.mKick) {
+				this.playAnim("cac");
+				this.spawnTorn();
+			} else {
 				var a = Math.random() * 100 - 50;
 				if(a > 0) this.playAnim("kickL"); else this.playAnim("kickD");
 			}
@@ -3614,12 +3702,15 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		this.mGame.flash(16724787,0.05);
 		core_Camera.instance.shake(10,200);
 		this.mLife = 5;
+		this.mHurtSnd.play();
 		if(this.mPull != null) {
 			this.remove(this.mPull);
 			this.mPull = null;
+			this.spawnTorn();
 		} else if(this.mShoes.length > 0) this.remove(this.mShoes.pop()); else if(this.mPant != null) {
 			this.remove(this.mPant);
 			this.mPant = null;
+			this.spawnTorn();
 		} else if(this.mCalbut != null) {
 			this.remove(this.mCalbut);
 			this.mCalbut = null;
@@ -3645,19 +3736,29 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 	,initAnimations: function() {
 		this.addAnimation("idleR",new core_Animation(new core_SpriteSheet("Hero/franky_iddle",140,180,35,0)));
 		this.addAnimation("idleL",new core_Animation(new core_SpriteSheet("Hero/franky_iddle_flip",140,180,35,0)));
-		this.addAnimation("walkR",new core_Animation(new core_SpriteSheet("Hero/franky_run",140,180,35,0),null,16));
-		this.addAnimation("walkL",new core_Animation(new core_SpriteSheet("Hero/franky_run_flip",140,180,35,0),null,16));
+		var runR = new core_Animation(new core_SpriteSheet("Hero/franky_run",140,180,35,0),null,16);
+		this.addAnimation("walkR",runR);
+		runR.addSound(2,"sounds/stepA.mp3",0.25);
+		runR.addSound(5,"sounds/stepB.mp3",0.25);
+		var runD = new core_Animation(new core_SpriteSheet("Hero/franky_run_flip",140,180,35,0),null,16);
+		this.addAnimation("walkL",runD);
+		runD.addSound(2,"sounds/stepA.mp3",0.25);
+		runD.addSound(5,"sounds/stepB.mp3",0.25);
 		var kickLRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL",140,180,35,0),null,22,false);
 		kickLRAnim.onFinished = $bind(this,this.setNormalState);
+		kickLRAnim.addSound(1,"sounds/woosh.mp3");
 		this.addAnimation("kickLR",kickLRAnim);
 		var kickLLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_kickL_flip",140,180,35,0),null,22,false);
 		kickLLAnim.onFinished = $bind(this,this.setNormalState);
+		kickLLAnim.addSound(1,"sounds/woosh.mp3");
 		this.addAnimation("kickLL",kickLLAnim);
 		var kickLRAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD",140,180,35,0),null,22,false);
 		kickLRAnim1.onFinished = $bind(this,this.setNormalState);
+		kickLRAnim1.addSound(1,"sounds/wooshB.mp3");
 		this.addAnimation("kickDR",kickLRAnim1);
 		var kickLLAnim1 = new core_Animation(new core_SpriteSheet("Hero/franky_kickD_flip",140,180,35,0),null,22,false);
 		kickLLAnim1.onFinished = $bind(this,this.setNormalState);
+		kickLLAnim1.addSound(1,"sounds/wooshB.mp3");
 		this.addAnimation("kickDL",kickLLAnim1);
 		var stripRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_strip",140,180,35,0),[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],20,false);
 		stripRAnim.onFinished = $bind(this,this.stripEnded);
@@ -3667,15 +3768,19 @@ entities_hero_Hero.prototype = $extend(entities_Human.prototype,{
 		this.addAnimation("stripL",stripLAnim);
 		var slipRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip",140,180,35,0),null,16,false);
 		slipRAnim.onFinished = $bind(this,this.setNormalState);
+		slipRAnim.addSound(1,"sounds/wooshB.mp3");
 		this.addAnimation("slipR",slipRAnim);
 		var slipLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_slip_flip",140,180,35,0),null,16,false);
 		slipLAnim.onFinished = $bind(this,this.setNormalState);
+		slipRAnim.addSound(1,"sounds/wooshB.mp3");
 		this.addAnimation("slipL",slipLAnim);
 		var cacRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_cac",140,180,35,0),null,12,false);
 		cacRAnim.onFinished = $bind(this,this.setNormalState);
+		cacRAnim.addSound(1,"sounds/wooshB.mp3");
 		this.addAnimation("cacR",cacRAnim);
 		var cacLAnim = new core_Animation(new core_SpriteSheet("Hero/franky_cac_flip",140,180,35,0),null,12,false);
 		cacLAnim.onFinished = $bind(this,this.setNormalState);
+		cacLAnim.addSound(1,"sounds/wooshB.mp3");
 		this.addAnimation("cacL",cacLAnim);
 		var catchRAnim = new core_Animation(new core_SpriteSheet("Hero/franky_catch",140,180,35,0),null,12,false);
 		catchRAnim.onFinished = $bind(this,this.onCatched);

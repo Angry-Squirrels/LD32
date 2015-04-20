@@ -72,16 +72,20 @@ class World extends Entity
 	}
 	
 	public function addABuilding() : Int {
-		var building = new Building();
-		building.pos.y = mGame.getHeight() / 2 - building.getDim().y - 20;
-		mBuildingsContainer.add(building);
+		var building : Building;
 		
-		if (mBuildings.length == 0) 
-			building.pos.x = 0;
+		if(mBuildings.length == 0){
+			building = new Building(true);
+			mRoads.push(building);
+		}
 		else {
+			building = new Building();
+			building.pos.y = mGame.getHeight() / 2 - building.getDim().y - 20;
 			var lastBuilding = mBuildings[mBuildings.length - 1];
 			building.pos.x = lastBuilding.pos.x + lastBuilding.getDim().x;
 		}
+		
+		mBuildingsContainer.add(building);
 			
 		mBuildings.push(building);
 		return cast building.pos.x + building.getDim().x;

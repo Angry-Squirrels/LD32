@@ -22,6 +22,6 @@ class Main extends Sprite
 		game.gotoScreen(new GameScreen());
 		addChild(game);
 		
-		addChild(new FPS(0,0,0xffffff));
+		//addChild(new FPS(0,0,0xffffff));
 	}
 }

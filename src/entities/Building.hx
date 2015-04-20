@@ -2,6 +2,7 @@ package entities;
 import core.Entity;
 import core.Game;
 import geom.Vec2;
+import openfl.Assets;
 import openfl.geom.Rectangle;
 import openfl.display.BitmapData;
 
@@ -15,23 +16,31 @@ class Building extends Entity
 	var mColor : UInt;
 	var mGame : Game;
 
-	public function new() 
+	var mSprite : BitmapData;
+	
+	public function new(begin : Bool = false, end : Bool = false) 
 	{
 		super("Building");
 		
 		mGame = Game.getInstance();
 		
-		mDim.x = Math.random() * 200 + 100;
-		mDim.y = Math.random() * 100 + 150;
+		if (begin){
+			mSprite = Assets.getBitmapData("img/Decors/road_start.jpg");
+		}else{
+			var availableBuilding = ["img/Decors/frontage.png"];
+			var decorId = Std.int(Math.random() * availableBuilding.length);
+			mSprite = Assets.getBitmapData(availableBuilding[decorId]);
+		}
 		
-		var grey = Std.int(Math.random() * 100) + 155;
-		mColor = grey | grey << 8 | grey << 16;
+		mDim.x = mSprite.width;
+		mDim.y = mSprite.height;
 	}
 	
 	override function draw(buffer:BitmapData, dest:Vec2) 
 	{
-		if(dest.x + mDim.x > 0 && dest.x < mGame.getWidth())
-			buffer.fillRect(new Rectangle(dest.x, dest.y, mDim.x, mDim.y), mColor);
+		if (dest.x + mDim.x > 0 && dest.x < mGame.getWidth()) {
+			buffer.copyPixels(mSprite, new Rectangle(0, 0, mDim.x, mDim.y), dest.toPoint());
+		}
 		
 	}
 	

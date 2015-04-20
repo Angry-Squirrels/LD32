@@ -7,6 +7,7 @@ import entities.Actor;
 import entities.ennemies.Ennemy;
 import entities.ennemies.Flic;
 import entities.Human;
+import entities.Thorn;
 import entities.Weapon;
 import entities.World;
 import geom.Vec2;
@@ -83,6 +84,11 @@ class Hero extends Human
 		givePant();
 		givePull();
 		mLife = 5;
+	}
+	
+	public function spawnTorn() {
+		var parent : World = cast parent;
+		parent.addActor(new Thorn(this));
 	}
 	
 	public function giveShoe() {
@@ -235,8 +241,10 @@ class Hero extends Human
 			frameToDamage = 3;
 		
 		if (!mCacStarted && currentWeapon != null) {
-			if (currentWeapon != mKick)
+			if (currentWeapon != mKick){
 				playAnim("cac");
+				spawnTorn();
+			}
 			else {
 				var a = Math.random() * 100 - 50;
 				if(a > 0)
@@ -460,11 +468,13 @@ class Hero extends Human
 		if (mPull != null) {
 			remove(mPull);
 			mPull = null;
+			spawnTorn();
 		}else if (mShoes.length > 0) 
 			remove(mShoes.pop());
 		else if (mPant != null) {
 			remove(mPant);
 			mPant = null;
+			spawnTorn();
 		}else if (mCalbut != null) {
 			remove(mCalbut);
 			mCalbut = null;
