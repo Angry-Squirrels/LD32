@@ -1,6 +1,7 @@
 package entities.ennemies;
 import core.Animation;
 import core.SpriteSheet;
+import entities.Actor;
 import entities.Puppy;
 import entities.World;
 import geom.Vec2;
@@ -20,6 +21,7 @@ class Boss extends Ennemy
 	var mIdleToDoSomething : Float;
 	var mPuppyThrown:Bool;
 	var mWorld:World;
+	public var spawnX : Float;
 
 	public function new(ennemyManager : EnnemyManager, world : World) 
 	{
@@ -28,6 +30,7 @@ class Boss extends Ennemy
 		mEnnemyManager = ennemyManager;
 		mWorld = world;
 		
+		mMaxLife = 50;
 		mLife = 50;
 		
 		mDim.x = 196;
@@ -35,8 +38,8 @@ class Boss extends Ennemy
 		
 		mMoveSpeed = 30;
 		
-		mIdleTimer = 0;
-		mIdleToDoSomething = 3;
+		mIdleTimer = 5;
+		mIdleToDoSomething = 5;
 		
 		mAttackFrameToDammage = 6;
 		
@@ -51,21 +54,42 @@ class Boss extends Ennemy
 		mCurrentState = iddleState;
 	}
 	
+	public function getMaxLife() : Int {
+		return mMaxLife;
+	}
+	
+	public function getLife() : Int{
+		return mLife;
+	}
+	
 	function iddleState(delta : Float) {
+		
+		if (mLife < mMaxLife / 2){
+			phase = 1;
+			mInvincible = false;
+		}
+		
+		if (isPlaying("hit"))
+			return;
 		
 		mNormalAnim = true;
 		
-		if (Vec2.Dist(worldPos, mTarget.worldPos) < 700) {
+		if (Vec2.Dist(worldPos, mTarget.worldPos) < 1000) {
 			
-			mIdleTimer += delta;
-			if (mIdleTimer >= mIdleToDoSomething) {
-				mIdleTimer = 0;
-				
-				if (mEnnemyManager.getEnnemiesAlive() == 1)
-					mCurrentState = growl;
-				else {
-					mPuppyThrown = false;	
-					mCurrentState = throwPuppy;
+			if (worldPos.x > spawnX) 
+				vel.x = - mMoveSpeed;
+			else {
+				vel.x = 0;
+				mIdleTimer += delta;
+				if (mIdleTimer >= mIdleToDoSomething) {
+					mIdleTimer = 0;
+					
+					if (mEnnemyManager.getEnnemiesAlive() == 1)
+						mCurrentState = growl;
+					else {
+						mPuppyThrown = false;	
+						mCurrentState = throwPuppy;
+					}
 				}
 			}
 			
@@ -78,7 +102,7 @@ class Boss extends Ennemy
 		
 		if (mAnimation.getCurrentFrame() == 9)
 			if(mEnnemyManager.getEnnemiesAlive() == 1)
-				mEnnemyManager.spawnPunk(3);
+				mEnnemyManager.spawnPunk(2);
 	}
 	
 	function throwPuppy(delta : Float) {
@@ -87,8 +111,8 @@ class Boss extends Ennemy
 		if (mAnimation.getCurrentFrame() == 14 && !mPuppyThrown) {
 			mPuppyThrown = true;
 			
-			var pup = new Puppy(mTarget);
-			pup.startAltitude = 300;
+			var pup = new Puppy(cast mTarget, this);
+			pup.startAltitude = 250;
 			pup.worldPos.x = worldPos.x - 150;
 			pup.worldPos.y = worldPos.y;
 			pup.launch( -1);
@@ -135,6 +159,19 @@ class Boss extends Ennemy
 		var growlAnim = new Animation(new SpriteSheet("Boss/boss_iddle_anim", 326, 336, 65, 0), null, 12, false);
 		addAnimation("growl", growlAnim);
 		growlAnim.onFinished = setIddleState;
+	}
+	
+	override public function takeDamage(amount:Int, source:Actor) 
+	{
+		if (Std.is(source, Puppy)){
+			mInvincible = false;
+			super.takeDamage(10, source);
+			mInvincible = true;
+		}else {
+			super.takeDamage(amount, source);
+		}
+		
+	
 	}
 	
 }

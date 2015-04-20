@@ -143,6 +143,10 @@ class Hero extends Human
 		return name;
 	}
 	
+	public function isAttacking() : Bool {
+		return isPlaying("cac") || isPlaying("kickR") || isPlaying("kickL");
+	}
+	
 	function onKeyUp(e:KeyboardEvent):Void 
 	{
 		switch (e.keyCode) {
@@ -342,6 +346,10 @@ class Hero extends Human
 			else
 				shoe.setAnimation("launchedL");
 		}
+	}
+	
+	public function isFacingRight() : Bool {
+		return mHeading > 0;
 	}
 	
 	function slipState(delta : Float) {

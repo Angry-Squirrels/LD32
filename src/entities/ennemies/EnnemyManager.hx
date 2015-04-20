@@ -23,6 +23,8 @@ class EnnemyManager
 	
 	var mWave : Int;
 	
+	var mBoss : Boss;
+	
 	public function new(hero : Hero, world : World) 
 	{
 		mHero = hero;
@@ -42,22 +44,27 @@ class EnnemyManager
 		mAttackingEnnemies = new Array<Ennemy>();
 	}
 	
+	public function getBoss() {
+		return mBoss;
+	}
+	
 	public function spawnPunk(wave : Int) {
 		
 		mWave = wave;
 		
-		var punkToSpawn : Int = Std.int(wave);
+		var punkToSpawn : Int = Std.int(wave * wave);
 		if (punkToSpawn < 2) punkToSpawn = 2;
 		
-		if (wave == 1)
+		if (wave == 4)
 		{
 			punkToSpawn = 0;
-			var boss = new Boss(this, mWorld);
-			mEnnemies.push(boss);
-			mWorld.addActor(boss);
-			boss.worldPos.x = mWorld.getMaxScroll() + 775;
-			boss.worldPos.y = 380 / Actor.fakeZCoef;
-			boss.setTarget(mHero);
+			mBoss = new Boss(this, mWorld);
+			mEnnemies.push(mBoss);
+			mWorld.addActor(mBoss);
+			mBoss.worldPos.x = mWorld.getMaxScroll() + 775;
+			mBoss.spawnX = mBoss.worldPos.x;
+			mBoss.worldPos.y = 380 / Actor.fakeZCoef;
+			mBoss.setTarget(mHero);
 		}
 		
 		for (i in 0 ... punkToSpawn) {
@@ -97,8 +104,8 @@ class EnnemyManager
 			
 			ennemy.setTarget(mHero);
 			
-			if (!Std.is(ennemy, Boss) ||
-				cast(ennemy, Boss).phase == 1){
+			if (ennemy != mBoss ||
+				(mBoss != null && mBoss.phase == 1)){
 			
 				var isAttacking : Bool = mAttackingEnnemies.indexOf(ennemy) != -1;
 					
@@ -127,6 +134,10 @@ class EnnemyManager
 		for (a in mAttackingEnnemies)
 			if (a.isDead())
 				trace("putain");
+	}
+	
+	public function hasBoss() : Bool {
+		return mBoss != null;
 	}
 	
 	public function getEnnemiesAlive() : Int {

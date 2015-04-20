@@ -4,6 +4,7 @@ import core.Entity;
 import core.Game;
 import core.Screen;
 import entities.hero.Hero;
+import entities.hud.BossLife;
 import entities.hud.HUD;
 import entities.Human;
 import entities.ennemies.Ennemy;
@@ -45,6 +46,8 @@ class GameScreen extends Screen
 	
 	var mMusic : Sound;
 	var mMusicSoundChannel : SoundChannel;
+	
+	var mBossBar : BossLife;
 
 	public function new() 
 	{
@@ -96,8 +99,12 @@ class GameScreen extends Screen
 		if (mHero.worldPos.x < 0)
 			mHero.worldPos.x = 0;
 			
-		if (mCurrentWave == 2 && mHero.worldPos.x > mMaxScroll-750){
+		if (mEnnemyManager.hasBoss() && mHero.worldPos.x > mMaxScroll-800){
 			Camera.instance.setBossMode();
+			if (mBossBar == null) {
+				mBossBar = new BossLife(mEnnemyManager.getBoss());
+				add(mBossBar);
+			}
 		}else{
 			Camera.instance.setNormalMode();
 		}
