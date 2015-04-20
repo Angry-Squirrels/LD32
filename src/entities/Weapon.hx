@@ -1,5 +1,6 @@
 package entities;
 import core.Camera;
+import entities.ennemies.Ennemy;
 import entities.hero.Hero;
 
 /**
@@ -15,6 +16,7 @@ class Weapon extends AnimatedActor
 	var mZVel : Float = 0;
 	var mGravity : Float = 40;
 	var mExplode : Bool;
+	var mAgainstHero : Bool;
 	
 	public var startAltitude : Float;
 
@@ -45,14 +47,20 @@ class Weapon extends AnimatedActor
 	override public function onCollide(actor:Actor) 
 	{
 		super.onCollide(actor);
-		if (!Std.is(actor, Hero) && 
-			!Std.is(actor, Weapon) &&
-			!destroyable()
-			&& actor.solid) {
-			if (actor.isDead()) return;
-			explode();
-			actor.takeDamage(mDamage, this);
-		}
+		
+		if (Std.is(actor, Weapon) || 
+			destroyable() ||
+			!actor.solid ||
+			actor.isDead()) return;
+		
+		if (Std.is(actor, Hero) && !mAgainstHero)
+			return;
+			
+		if (Std.is(actor, Ennemy) && mAgainstHero)
+			return;
+	
+		explode();
+		actor.takeDamage(mDamage, this);
 	}
 	
 	override function update(delta:Float) 

@@ -1,6 +1,7 @@
 package entities.ennemies;
 import core.Animation;
 import core.SpriteSheet;
+import entities.Puppy;
 import entities.World;
 import geom.Vec2;
 
@@ -83,8 +84,16 @@ class Boss extends Ennemy
 	function throwPuppy(delta : Float) {
 		mNormalAnim = false;
 		setAnimation("puppyAttack");
-		if (mAnimation.getCurrentFrame() == 14) {
+		if (mAnimation.getCurrentFrame() == 14 && !mPuppyThrown) {
 			mPuppyThrown = true;
+			
+			var pup = new Puppy(mTarget);
+			pup.startAltitude = 300;
+			pup.worldPos.x = worldPos.x - 150;
+			pup.worldPos.y = worldPos.y;
+			pup.launch( -1);
+			
+			mWorld.addActor(pup);
 		}
 	}
 	

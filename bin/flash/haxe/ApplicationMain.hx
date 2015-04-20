@@ -82,6 +82,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/Decors/frontage.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/Decors/road.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -110,56 +114,20 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/FX/boom/booom0001.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0002.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0003.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0004.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0005.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0006.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0007.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0008.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0009.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0010.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/FX/boom/booom0011.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
 		urls.push ("img/FX/boom.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/FX/booom.fla");
-		types.push (lime.Assets.AssetType.BINARY);
+		urls.push ("img/FX/hit.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/FX/hit_flip.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/FX/torn.png");
+		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("img/Hero/franky_cac.png");
