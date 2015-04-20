@@ -2496,7 +2496,7 @@ entities_Actor.prototype = $extend(core_Entity.prototype,{
 		return geom_Vec2.Dist(a.worldPos,b.worldPos) < a.getDim().x / 2 + b.getDim().x / 2;
 	}
 	,takeDamage: function(amount,source) {
-		this.mLife -= amount;
+		if(!this.mInvincible) this.mLife -= amount;
 	}
 	,onCollide: function(actor) {
 	}
@@ -2724,7 +2724,7 @@ entities_Human.prototype = $extend(entities_AnimatedActor.prototype,{
 	}
 	,takeDamage: function(amount,source) {
 		entities_AnimatedActor.prototype.takeDamage.call(this,amount,source);
-		if(source != null) {
+		if(source != null && !this.mInvincible) {
 			var pushVector = geom_Vec2.Sub(this.worldPos,source.worldPos);
 			pushVector = geom_Vec2.Norm(pushVector);
 			pushVector.mul(1000);
@@ -3044,6 +3044,7 @@ var entities_ennemies_Flic = function() {
 	entities_ennemies_Ennemy.call(this,"Flic");
 	this.mMoveSpeed = 40;
 	this.mAttackRate = 0.1;
+	this.mInvincible = true;
 	this.initAnimations();
 };
 $hxClasses["entities.ennemies.Flic"] = entities_ennemies_Flic;
@@ -3065,8 +3066,6 @@ entities_ennemies_Flic.prototype = $extend(entities_ennemies_Ennemy.prototype,{
 		var attackLAnim = new core_Animation(new core_SpriteSheet("Flic/flic_attack_flip",140,180,35,0),null,12,false);
 		this.addAnimation("attackL",attackLAnim);
 		attackLAnim.onFinished = $bind(this,this.normalAnim);
-	}
-	,takeDamage: function(amount,source) {
 	}
 	,__class__: entities_ennemies_Flic
 });

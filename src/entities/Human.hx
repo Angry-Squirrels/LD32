@@ -32,12 +32,24 @@ class Human extends AnimatedActor
 	}
 	
 	function playAnim(name : String) : String {
+		
+		var alreadyPlaying : Bool = false;	
+		var f : Int = 0;
+		
+		if(mAnimation != null){
+			alreadyPlaying = isPlaying(name);
+			f = mAnimation.getCurrentFrame();
+		}
+		
 		if (mHeading > 0)
 			name += "R";
 		else
 			name += "L";
 			
 		setAnimation(name);
+		
+		if (alreadyPlaying)
+			mAnimation.setFrame(f);
 		
 		return name;
 	}
@@ -59,9 +71,10 @@ class Human extends AnimatedActor
 	
 	override public function takeDamage(amount:Int, source : Actor) 
 	{
+		if (mInvincible) return;
 		super.takeDamage(amount, source);
 		
-		if (source != null) {
+		if (source != null ) {
 			
 			var pushVector = Vec2.Sub(worldPos, source.worldPos);
 			pushVector = Vec2.Norm(pushVector);

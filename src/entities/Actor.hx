@@ -25,6 +25,8 @@ class Actor extends Entity
 	
 	var mUseWorldCoord : Bool;
 	
+	var mInvincible : Bool;
+	
 	public static inline var fakeZCoef : Float = 0.5;
 	public var worldPos : Vec2;
 	public var unpushable : Bool;
@@ -104,7 +106,8 @@ class Actor extends Entity
 	}
 	
 	public function takeDamage(amount : Int, source : Actor) {
-		mLife -= amount;
+		if(!mInvincible)
+			mLife -= amount;
 	}
 	
 	public function onCollide(actor : Actor) {

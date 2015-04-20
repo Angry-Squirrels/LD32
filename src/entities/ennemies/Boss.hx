@@ -20,6 +20,10 @@ class Boss extends Ennemy
 		
 		mMoveSpeed = 30;
 		
+		mAttackFrameToDammage = 6;
+		
+		mInvincible = true;
+		
 		initAnimations();
 	}
 	

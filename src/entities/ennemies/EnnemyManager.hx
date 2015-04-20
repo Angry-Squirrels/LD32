@@ -46,16 +46,16 @@ class EnnemyManager
 		
 		mWave = wave;
 		
-		var punkToSpawn : Int = Std.int(2 * wave * wave / 3);
+		var punkToSpawn : Int = Std.int(wave);
 		if (punkToSpawn < 2) punkToSpawn = 2;
 		
-		/*if (wave > 0)
+		if (wave > 3)
 		{
 			punkToSpawn = 0;
 			var boss = new Boss();
 			mEnnemies.push(boss);
 			mWorld.addActor(boss);
-		}*/
+		}
 		
 		for (i in 0 ... punkToSpawn) {
 			var punk = new Punk();

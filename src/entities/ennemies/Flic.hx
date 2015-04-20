@@ -21,6 +21,8 @@ class Flic extends Ennemy
 		
 		mAttackRate = 0.1;
 		
+		mInvincible = true;
+		
 		initAnimations();
 	}
 	
@@ -46,7 +48,7 @@ class Flic extends Ennemy
 		attackLAnim.onFinished = normalAnim;
 	}
 	
-	override public function takeDamage(amount:Int, source:Actor) 
+/*	override public function takeDamage(amount:Int, source:Actor) 
 	{
 		//super.takeDamage(amount, source);
 	}

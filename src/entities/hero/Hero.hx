@@ -167,8 +167,7 @@ class Hero extends Human
 	
 	function onKeyDown(e:KeyboardEvent):Void 
 	{
-		if (isDead() ||
-			mCurrentState == stripState) return; 
+		if (isDead()) return; 
 		
 		switch (e.keyCode) {
 			case Keyboard.C :

@@ -27,6 +27,7 @@ class Ennemy extends Human
 	
 	var mNormalAnim : Bool;
 	var mDamageDealt:Bool;
+	var mAttackFrameToDammage : Int;
 
 	public function new(name : String) 
 	{
@@ -35,6 +36,7 @@ class Ennemy extends Human
 		mAttackTimer = 0;
 		mAttackRate = 0.5;
 		mNormalAnim = true;
+		mAttackFrameToDammage = 3;
 		
 		if (mPunkFollowingHero == null)
 			mPunkFollowingHero = new Array<Ennemy>();
@@ -110,7 +112,7 @@ class Ennemy extends Human
 				}
 			}
 			
-			if (isPlaying("attack") && mAnimation.getCurrentFrame() == 3 && !mDamageDealt){
+			if (isPlaying("attack") && mAnimation.getCurrentFrame() == mAttackFrameToDammage && !mDamageDealt){
 				mTarget.takeDamage(1, this);
 				mDamageDealt = true;
 			}
@@ -128,6 +130,7 @@ class Ennemy extends Human
 	
 	override public function takeDamage(amount:Int, source:Actor) 
 	{
+		if (mInvincible) return;
 		super.takeDamage(amount, source);
 		mNormalAnim = false;
 		playAnim("hit");
