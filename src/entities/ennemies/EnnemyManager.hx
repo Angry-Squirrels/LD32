@@ -49,12 +49,15 @@ class EnnemyManager
 		var punkToSpawn : Int = Std.int(wave);
 		if (punkToSpawn < 2) punkToSpawn = 2;
 		
-		if (wave > 3)
+		if (wave == 1)
 		{
 			punkToSpawn = 0;
-			var boss = new Boss();
+			var boss = new Boss(this, mWorld);
 			mEnnemies.push(boss);
 			mWorld.addActor(boss);
+			boss.worldPos.x = mWorld.getMaxScroll() + 775;
+			boss.worldPos.y = 380 / Actor.fakeZCoef;
+			boss.setTarget(mHero);
 		}
 		
 		for (i in 0 ... punkToSpawn) {
@@ -94,15 +97,19 @@ class EnnemyManager
 			
 			ennemy.setTarget(mHero);
 			
-			var isAttacking : Bool = mAttackingEnnemies.indexOf(ennemy) != -1;
-				
-			if (mAttackingEnnemies.length < mWave * 1) { 
-				if (!isAttacking){
-					mAttackingEnnemies.push(ennemy);
-					ennemy.setState(ennemy.attacking);
-				}
-			}else if(!isAttacking)
-				ennemy.setState(ennemy.getClose);
+			if (!Std.is(ennemy, Boss) ||
+				cast(ennemy, Boss).phase == 1){
+			
+				var isAttacking : Bool = mAttackingEnnemies.indexOf(ennemy) != -1;
+					
+				if (mAttackingEnnemies.length < mWave * 1) { 
+					if (!isAttacking){
+						mAttackingEnnemies.push(ennemy);
+						ennemy.setState(ennemy.attacking);
+					}
+				}else if(!isAttacking)
+					ennemy.setState(ennemy.getClose);
+			}
 
 		}
 		

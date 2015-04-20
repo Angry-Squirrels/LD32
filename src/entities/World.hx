@@ -67,6 +67,10 @@ class World extends Entity
 		
 	}
 	
+	public function getMaxScroll() : Float {
+		return mMaxScroll;
+	}
+	
 	public function addABuilding() : Int {
 		var building = new Building();
 		building.pos.y = mGame.getHeight() / 2 - building.getDim().y - 20;

@@ -95,6 +95,12 @@ class GameScreen extends Screen
 		
 		if (mHero.worldPos.x < 0)
 			mHero.worldPos.x = 0;
+			
+		if (mCurrentWave == 2 && mHero.worldPos.x > mMaxScroll-750){
+			Camera.instance.setBossMode();
+		}else{
+			Camera.instance.setNormalMode();
+		}
 		
 		if (mHero.worldPos.x + mHero.getDim().x> mMaxScroll )
 			mHero.worldPos.x = mMaxScroll - mHero.getDim().x;
@@ -113,9 +119,9 @@ class GameScreen extends Screen
 	}
 	
 	function nextWave() {
+		unlockZone(mMaxScroll + mZonoeSize);
 		mEnnemyManager.spawnPunk(mCurrentWave);
 		mCurrentWave++;
-		unlockZone(mMaxScroll + mZonoeSize);
 	}
 	
 	function unlockZone(scroll : Float) {

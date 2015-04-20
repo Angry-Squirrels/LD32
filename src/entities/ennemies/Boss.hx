@@ -1,6 +1,8 @@
 package entities.ennemies;
 import core.Animation;
 import core.SpriteSheet;
+import entities.World;
+import geom.Vec2;
 
 /**
  * ...
@@ -8,10 +10,22 @@ import core.SpriteSheet;
  */
 class Boss extends Ennemy
 {
+	
+	public var phase : Int;
+	
+	var mEnnemyManager : EnnemyManager;
+	
+	var mIdleTimer : Float;
+	var mIdleToDoSomething : Float;
+	var mPuppyThrown:Bool;
+	var mWorld:World;
 
-	public function new() 
+	public function new(ennemyManager : EnnemyManager, world : World) 
 	{
 		super("Boss");
+		
+		mEnnemyManager = ennemyManager;
+		mWorld = world;
 		
 		mLife = 50;
 		
@@ -20,11 +34,62 @@ class Boss extends Ennemy
 		
 		mMoveSpeed = 30;
 		
+		mIdleTimer = 0;
+		mIdleToDoSomething = 3;
+		
 		mAttackFrameToDammage = 6;
+		
+		phase = 0;
+		
+		unpushable = true;
 		
 		mInvincible = true;
 		
 		initAnimations();
+		
+		mCurrentState = iddleState;
+	}
+	
+	function iddleState(delta : Float) {
+		
+		mNormalAnim = true;
+		
+		if (Vec2.Dist(worldPos, mTarget.worldPos) < 700) {
+			
+			mIdleTimer += delta;
+			if (mIdleTimer >= mIdleToDoSomething) {
+				mIdleTimer = 0;
+				
+				if (mEnnemyManager.getEnnemiesAlive() == 1)
+					mCurrentState = growl;
+				else {
+					mPuppyThrown = false;	
+					mCurrentState = throwPuppy;
+				}
+			}
+			
+		}
+	}
+	
+	function growl(delta : Float) {
+		setAnimation("growl");
+		mNormalAnim = false;
+		
+		if (mAnimation.getCurrentFrame() == 9)
+			if(mEnnemyManager.getEnnemiesAlive() == 1)
+				mEnnemyManager.spawnPunk(3);
+	}
+	
+	function throwPuppy(delta : Float) {
+		mNormalAnim = false;
+		setAnimation("puppyAttack");
+		if (mAnimation.getCurrentFrame() == 14) {
+			mPuppyThrown = true;
+		}
+	}
+	
+	function setIddleState() {
+		mCurrentState = iddleState;
 	}
 	
 	function initAnimations() 
@@ -53,6 +118,14 @@ class Boss extends Ennemy
 		var attackLAnim = new Animation(new SpriteSheet("Boss/boss_attack2", 326, 336, 65, 0), null, 12, false);
 		addAnimation("attackL", attackLAnim);
 		attackLAnim.onFinished = normalAnim;
+		
+		var puppyAttack = new Animation(new SpriteSheet("Boss/boss_attack1", 326, 336, 65, 0), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], 12, false);
+		addAnimation("puppyAttack", puppyAttack);
+		puppyAttack.onFinished = setIddleState;
+		
+		var growlAnim = new Animation(new SpriteSheet("Boss/boss_iddle_anim", 326, 336, 65, 0), null, 12, false);
+		addAnimation("growl", growlAnim);
+		growlAnim.onFinished = setIddleState;
 	}
 	
 }

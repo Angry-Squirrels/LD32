@@ -26,6 +26,7 @@ class Camera
 	var totalShakeYOffset : Int;
 	
 	var mShakeTimeF : Float;
+	var mScreenDivision : Int = 2;
 	
 	public var pos : Vec2;
 	
@@ -44,7 +45,7 @@ class Camera
 	
 	public function update(delta : Float) {
 		if (mTargetEntity != null) {
-			var targetx = mTargetEntity.pos.x + (mTargetEntity.getDim().x - mGame.getWidth()) / 2;
+			var targetx = mTargetEntity.pos.x + (mTargetEntity.getDim().x - mGame.getWidth()) / mScreenDivision;
 			var targety = mTargetEntity.pos.y + (mTargetEntity.getDim().y - mGame.getHeight()) / 2;
 			
 			pos.x += (targetx - pos.x) / 2;
@@ -82,6 +83,14 @@ class Camera
 			shakeOffsetY = 0;
 		}
 		
+	}
+	
+	public function setBossMode() {
+		mScreenDivision = 8;
+	}
+	
+	public function setNormalMode() {
+		mScreenDivision = 2;
 	}
 	
 	public function getShakeOffsetX():Int {
