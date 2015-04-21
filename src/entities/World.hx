@@ -99,7 +99,7 @@ class World extends Entity
 			}
 			else{
 				building = new Building();
-				building.pos.y = mGame.getHeight() / 2 - building.getDim().y - 20;
+				building.pos.y = mGame.getHeight() / 2 - building.getDim().y - 65;
 			}
 			var lastBuilding = mBuildings[mBuildings.length - 1];
 			building.pos.x = lastBuilding.pos.x + lastBuilding.getDim().x;

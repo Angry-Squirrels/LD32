@@ -55,6 +55,7 @@ class GameScreen extends Screen
 	
 	var mFadeSquare : Shape;
 	var mNextScreen:Screen;
+	var mEndReached:Bool;
 
 	public function new() 
 	{
@@ -133,6 +134,11 @@ class GameScreen extends Screen
 		if (mEnnemyManager.getBoss() != null && mEnnemyManager.getBoss().isDead() && !mVictoryTimerStarted){
 			mNextScreen = new Victory();
 			mVictoryTimerStarted = true;
+		}
+		
+		if (mEnnemyManager.hasBoss() && mEnnemyManager.getBoss().phase == 1 && !mEndReached){
+			mMaxScroll += 330;
+			mEndReached = true;
 		}
 		
 		if (mVictoryTimerStarted){

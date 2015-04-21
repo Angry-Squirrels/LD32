@@ -98,6 +98,18 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/Decors/frontage1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Decors/frontage2.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Decors/frontage3.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/Decors/road.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		

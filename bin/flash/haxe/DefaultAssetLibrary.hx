@@ -77,6 +77,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/Boss/puppie_fly_flip.png", AssetType.IMAGE);
 		className.set ("img/Decors/frontage.png", __ASSET__img_decors_frontage_png);
 		type.set ("img/Decors/frontage.png", AssetType.IMAGE);
+		className.set ("img/Decors/frontage1.png", __ASSET__img_decors_frontage1_png);
+		type.set ("img/Decors/frontage1.png", AssetType.IMAGE);
+		className.set ("img/Decors/frontage2.png", __ASSET__img_decors_frontage2_png);
+		type.set ("img/Decors/frontage2.png", AssetType.IMAGE);
+		className.set ("img/Decors/frontage3.png", __ASSET__img_decors_frontage3_png);
+		type.set ("img/Decors/frontage3.png", AssetType.IMAGE);
 		className.set ("img/Decors/road.jpg", __ASSET__img_decors_road_jpg);
 		type.set ("img/Decors/road.jpg", AssetType.IMAGE);
 		className.set ("img/Decors/road_boss.jpg", __ASSET__img_decors_road_boss_jpg);
@@ -373,6 +379,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "img/Decors/frontage.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Decors/frontage1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Decors/frontage2.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Decors/frontage3.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -981,6 +999,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		#end
 		
 		#if (windows || mac || linux)
@@ -1034,6 +1055,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/Decors/frontage.png", __ASSET__img_decors_frontage_png);
 		type.set ("img/Decors/frontage.png", AssetType.IMAGE);
+		
+		className.set ("img/Decors/frontage1.png", __ASSET__img_decors_frontage1_png);
+		type.set ("img/Decors/frontage1.png", AssetType.IMAGE);
+		
+		className.set ("img/Decors/frontage2.png", __ASSET__img_decors_frontage2_png);
+		type.set ("img/Decors/frontage2.png", AssetType.IMAGE);
+		
+		className.set ("img/Decors/frontage3.png", __ASSET__img_decors_frontage3_png);
+		type.set ("img/Decors/frontage3.png", AssetType.IMAGE);
 		
 		className.set ("img/Decors/road.jpg", __ASSET__img_decors_road_jpg);
 		type.set ("img/Decors/road.jpg", AssetType.IMAGE);
@@ -1996,6 +2026,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_boss_puppie_fly_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_boss_puppie_fly_flip_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_decors_frontage_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_decors_frontage1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_decors_frontage2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_decors_frontage3_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_decors_road_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_decors_road_boss_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_decors_road_start_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -2248,6 +2281,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
 #else
 
 
@@ -2271,6 +2307,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/Boss/puppie_fly.png") #if display private #end class __ASSET__img_boss_puppie_fly_png extends lime.graphics.Image {}
 @:image("assets/img/Boss/puppie_fly_flip.png") #if display private #end class __ASSET__img_boss_puppie_fly_flip_png extends lime.graphics.Image {}
 @:image("assets/img/Decors/frontage.png") #if display private #end class __ASSET__img_decors_frontage_png extends lime.graphics.Image {}
+@:image("assets/img/Decors/frontage1.png") #if display private #end class __ASSET__img_decors_frontage1_png extends lime.graphics.Image {}
+@:image("assets/img/Decors/frontage2.png") #if display private #end class __ASSET__img_decors_frontage2_png extends lime.graphics.Image {}
+@:image("assets/img/Decors/frontage3.png") #if display private #end class __ASSET__img_decors_frontage3_png extends lime.graphics.Image {}
 @:image("assets/img/Decors/road.jpg") #if display private #end class __ASSET__img_decors_road_jpg extends lime.graphics.Image {}
 @:image("assets/img/Decors/road_boss.jpg") #if display private #end class __ASSET__img_decors_road_boss_jpg extends lime.graphics.Image {}
 @:image("assets/img/Decors/road_start.jpg") #if display private #end class __ASSET__img_decors_road_start_jpg extends lime.graphics.Image {}

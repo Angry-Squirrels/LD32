@@ -30,7 +30,7 @@ class Human extends AnimatedActor
 		
 		mHeading = 1;
 		
-		mMinY = mGame.getHeight() / 2 + 20;
+		mMinY = mGame.getHeight() / 2 - 40;
 		mMaxY = mGame.getHeight();
 	}
 	

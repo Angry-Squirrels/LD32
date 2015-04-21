@@ -18,6 +18,8 @@ class Building extends Entity
 
 	var mSprite : BitmapData;
 	
+	static var mLastUsed : String;
+	
 	public function new(begin : Bool = false, end : Bool = false) 
 	{
 		super("Building");
