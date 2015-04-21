@@ -24,7 +24,6 @@ class GameOver extends Screen
 	{
 		super();
 		
-		Game.getInstance().flash(0x000000, 1.0);
 		credits = Assets.getBitmapData("img/hud/credits.png");
 		
 		Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);

@@ -102,7 +102,19 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/Decors/road_boss.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/Decors/road_start.jpg");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Decors/throne1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Decors/throne2.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -467,6 +479,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("img/hud/GO.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/hud/Victory.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		

@@ -2,8 +2,10 @@ package entities.ennemies;
 import core.Animation;
 import core.SpriteSheet;
 import entities.Actor;
+import entities.Explosion;
 import entities.Puppy;
 import entities.PuppyBasket;
+import entities.Throne;
 import entities.World;
 import geom.Vec2;
 
@@ -22,6 +24,10 @@ class Boss extends Ennemy
 	var mIdleToDoSomething : Float;
 	var mPuppyThrown:Bool;
 	var mWorld:World;
+	
+	var mThrone : Throne;
+	var puppies:entities.PuppyBasket;
+	
 	public var spawnX : Float;
 
 	public function new(ennemyManager : EnnemyManager, world : World) 
@@ -39,8 +45,8 @@ class Boss extends Ennemy
 		
 		mMoveSpeed = 30;
 		
-		mIdleTimer = 5;
-		mIdleToDoSomething = 5;
+		mIdleTimer = 2;
+		mIdleToDoSomething = 4;
 		
 		mAttackFrameToDammage = 6;
 		
@@ -53,13 +59,19 @@ class Boss extends Ennemy
 		initAnimations();
 		
 		mCurrentState = iddleState;
+		
+		mThrone = new Throne();
+		mThrone.pos.copy(pos);
+		mThrone.pos.y = 0;
+		mWorld.addThrone(mThrone);
 	}
 	
 	public function setSpawnX(x : Float) {
 		spawnX = x;
-		var puppies = new PuppyBasket();
+		puppies = new PuppyBasket();
 		puppies.worldPos.copy(worldPos);
 		puppies.worldPos.x -= 130;
+		mThrone.pos.x = worldPos.x - 680;
 		mWorld.addActor(puppies);
 	}
 	
@@ -71,11 +83,22 @@ class Boss extends Ennemy
 		return mLife;
 	}
 	
+	function casse() {
+		phase = 1;
+		mInvincible = false;
+		mThrone.casse();
+		mNormalAnim = true;
+		var explosion = new Explosion(puppies);
+		mWorld.addActor(explosion);
+		puppies.destroy();
+	}
+	
 	function iddleState(delta : Float) {
 		
 		if (mLife < mMaxLife / 2){
-			phase = 1;
-			mInvincible = false;
+			setAnimation("casse");
+			mNormalAnim = false;
+			return;
 		}
 		
 		if (isPlaying("hit"))
@@ -111,7 +134,7 @@ class Boss extends Ennemy
 		
 		if (mAnimation.getCurrentFrame() == 9)
 			if(mEnnemyManager.getEnnemiesAlive() == 1)
-				mEnnemyManager.spawnPunk(2);
+				mEnnemyManager.spawnPunk(1);
 	}
 	
 	function throwPuppy(delta : Float) {
@@ -181,6 +204,11 @@ class Boss extends Ennemy
 		addAnimation("attackL", attackLAnim);
 		attackLAnim.addSound(1, "sounds/woosh.mp3");
 		attackLAnim.onFinished = normalAnim;
+		
+		var destroyThrone = new Animation(new SpriteSheet("Boss/boss_attack2", 326, 336, 65, 0), null, 12, false);
+		addAnimation("casse", destroyThrone);
+		destroyThrone.addSound(1, "sounds/woosh.mp3");
+		destroyThrone.onFinished = casse;
 		
 		var puppyAttack = new Animation(new SpriteSheet("Boss/boss_attack1", 326, 336, 65, 0), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], 12, false);
 		addAnimation("puppyAttack", puppyAttack);

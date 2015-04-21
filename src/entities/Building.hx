@@ -26,7 +26,9 @@ class Building extends Entity
 		
 		if (begin){
 			mSprite = Assets.getBitmapData("img/Decors/road_start.jpg");
-		}else{
+		}else if (end)
+			mSprite = Assets.getBitmapData("img/Decors/road_boss.jpg");
+		else{
 			var availableBuilding = ["img/Decors/frontage.png"];
 			var decorId = Std.int(Math.random() * availableBuilding.length);
 			mSprite = Assets.getBitmapData(availableBuilding[decorId]);

@@ -18,6 +18,7 @@ import openfl.display.BitmapData;
 import openfl.media.Sound;
 import openfl.media.SoundChannel;
 import openfl.media.SoundTransform;
+import screens.GameOver;
 
 /**
  * ...
@@ -44,20 +45,32 @@ class GameScreen extends Screen
 	var mGameOverDelay : Float = 1.0;
 	var mGameOverTimerStarted:Bool;
 	
+	var mVictoryTimer : Float;
+	var mVictoryTimerStarted : Bool;
+	
 	var mMusic : Sound;
-	var mMusicSoundChannel : SoundChannel;
+	static var mMusicSoundChannel : SoundChannel;
 	
 	var mBossBar : BossLife;
+	
+	var mFadeSquare : Shape;
+	var mNextScreen:Screen;
 
 	public function new() 
 	{
 		super();
 		
+		Main.score = 0;
 		
 		mWorld = new World();
 		mHero = new Hero(mWorld);
 		mEnnemyManager = new EnnemyManager(mHero, mWorld);
 		mMaxScroll = 0;
+		
+		if (mMusicSoundChannel != null)
+			mMusicSoundChannel.stop();
+		
+		mVictoryTimer = 0;
 		
 		mGameOverTimer = 0;
 		
@@ -113,14 +126,27 @@ class GameScreen extends Screen
 			mHero.worldPos.x = mMaxScroll - mHero.getDim().x;
 			
 		if (mHero.isCaught() && !mGameOverTimerStarted) {
+			mNextScreen = new GameOver();
 			mGameOverTimerStarted = true;
+		}
+		
+		if (mEnnemyManager.getBoss() != null && mEnnemyManager.getBoss().isDead() && !mVictoryTimerStarted){
+			mNextScreen = new Victory();
+			mVictoryTimerStarted = true;
+		}
+		
+		if (mVictoryTimerStarted){
+			mVictoryTimer += delta;
+			if (mVictoryTimer > 3)
+				mGameOverTimerStarted = true;
 		}
 		
 		if (mGameOverTimerStarted) {
 			mGameOverTimer += delta;
-			if (mGameOverTimer > mGameOverDelay){
-				mGame.gotoScreen(new GameOver());
-				mMusicSoundChannel.stop();
+			mMusicSoundChannel.stop();
+			if (mGameOverTimer > mGameOverDelay) {
+				Game.getInstance().flash(0x000000, 1.0);	
+				mGame.gotoScreen(mNextScreen);
 			}
 		}
 	}
@@ -137,8 +163,6 @@ class GameScreen extends Screen
 			mWorld.generateBuilding(cast mMaxScroll);
 		}
 	}
-	
-	var mFadeSquare : Shape;
 	
 	override public function _draw(buffer:BitmapData, dest:Vec2) 
 	{

@@ -24,7 +24,8 @@ class EnnemyManager
 	var mWave : Int;
 	
 	var mBoss : Boss;
-	var mBossWave : Int = 1;
+	
+	var mBossWave : Int = 4;
 	
 	public function new(hero : Hero, world : World) 
 	{
@@ -54,7 +55,13 @@ class EnnemyManager
 		mWave = wave;
 		
 		var punkToSpawn : Int = Std.int(wave * wave);
+		#if debug
+		punkToSpawn = 1;
+		#end
+		
+		#if !debug
 		if (punkToSpawn < 2) punkToSpawn = 2;
+		#end
 		
 		if (wave == mBossWave)
 		{

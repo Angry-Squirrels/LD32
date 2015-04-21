@@ -14,6 +14,8 @@ import screens.GameScreen;
 class Main extends Sprite 
 {
 
+	public static var score : Int;
+	
 	public function new() 
 	{
 		super();

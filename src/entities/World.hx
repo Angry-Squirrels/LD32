@@ -26,6 +26,9 @@ class World extends Entity
 	var mGame : Game;
 	
 	var mMaxScroll : Float;
+	
+	var mGenerationTimes : UInt;
+	var mThroneContainer:Entity;
 
 	public function new() 
 	{
@@ -37,11 +40,16 @@ class World extends Entity
 		mRoadContainer = new Entity();
 		add(mRoadContainer);
 		
+		mGenerationTimes = 0;
+		
 		mCamera = new Camera();
 		
 		mBuildings = new Array<Entity>();
 		mBuildingsContainer = new Entity("buildings");
 		add(mBuildingsContainer);
+		
+		mThroneContainer = new Entity("fsdf");
+		add(mThroneContainer);
 		
 		mMaxScroll = 0;
 		
@@ -51,6 +59,7 @@ class World extends Entity
 	
 	public function generateBuilding(maxX : Int) {
 		
+		mGenerationTimes++;
 		mMaxScroll = maxX - mGame.getWidth();
 		
 		var lastX = 0;
@@ -67,6 +76,10 @@ class World extends Entity
 		
 	}
 	
+	public function addThrone(throne : Throne) {
+		mThroneContainer.add(throne);
+	}
+	
 	public function getMaxScroll() : Float {
 		return mMaxScroll;
 	}
@@ -76,11 +89,18 @@ class World extends Entity
 		
 		if(mBuildings.length == 0){
 			building = new Building(true);
-			mRoads.push(building);
+			//mRoads.push(building);
 		}
 		else {
-			building = new Building();
-			building.pos.y = mGame.getHeight() / 2 - building.getDim().y - 20;
+			if(mGenerationTimes > 4){
+				building = new Building(false, true);
+				//mRoads.push(building);
+				mMaxScroll += 300;
+			}
+			else{
+				building = new Building();
+				building.pos.y = mGame.getHeight() / 2 - building.getDim().y - 20;
+			}
 			var lastBuilding = mBuildings[mBuildings.length - 1];
 			building.pos.x = lastBuilding.pos.x + lastBuilding.getDim().x;
 		}
